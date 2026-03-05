@@ -8,6 +8,10 @@
 ## RFs (requisitos funcionais):
 Funcionalidade que o usuário interage de alguma forma.
 
+- [ ] O usuário deve poder fazer login;
+- [ ] O usuário deve conseguir resetar a senha;
+- [ ] 
+
 ## RNFs (requisitos não-funcionais):
 Não funcionalidades, mais tratativas.
 
