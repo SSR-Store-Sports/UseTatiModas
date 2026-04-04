@@ -7,43 +7,65 @@
     alt="Imagem de uma mulher com o cabelo castanho em pé em uma loja, segurando uma bolsa em uma loja de roupas" />
 
   <main class="flex flex-col w-full items-center justify-center overflow-y-auto border-l-2 border-l-pink-500">
-    <div class="flex flex-col gap-8 w-82">
-      <div class="flex flex-col gap-4 text-center items-center justify-center">
-        <h1 class="text-black text-4xl font-light">Efetuar Registro</h1>
+    <div class="flex flex-col gap-4 lg:gap-8 w-118 items-center">
+      <div class="flex flex-col md:gap-2 lg:gap-4 text-center items-center justify-center">
+        <h1 class="text-black md:text-2xl lg:text-4xl font-light">Efetuar Registro</h1>
         <span class="bg-gray-300 h-0.5 w-32"></span>
       </div>
 
-      <form action="/session" method="POST" class="flex flex-col w-full gap-8">
+      <form action="/session" method="POST" class="flex flex-col w-full gap-4 lg:gap-6">
         @csrf
 
         <div class="flex flex-col gap-4">
           <div class="flex flex-col gap-2 flex-1">
-            <span class="text-lg">Usuário</span>
+            <span class="text-sm lg:text-lg">Nome Completo</span>
+            <input
+              class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
+              type="name" name="name" id="name" placeholder="Henrique Maximo Lima da Silva" />
+          </div>
+
+          <div class="flex flex-col gap-2 flex-1">
+            <span class="text-sm lg:text-lg">E-mail</span>
             <input
               class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
               type="email" name="email" id="email" placeholder="exemplo@email.com" />
           </div>
 
-          <div class="flex flex-col gap-2 flex-1">
-            <span class="text-lg">E-mail</span>
-            <input
-              class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-              type="email" name="email" id="email" placeholder="exemplo@email.com" />
-          </div>
-
-          <div class="flex flex-col gap-2 flex-1">
-            <div class="flex justify-between">
-              <span class="text-lg">Senha</span>
-              <a href="/forget/password"
-                class="transition-all duration-200 text-blue-600 hover:to-blue-700 hover:underline ">Esqueceu sua
-                senha?</a>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex flex-col gap-2 flex-1">
+              <span class="text-sm lg:text-lg">Telefone</span>
+              <input
+                class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
+                type="phone" name="phone" id="phone" placeholder="11 9343-5343" />
             </div>
 
-            <label for="password"
-              class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
-              <input class="w-full outline-none" type="password" name="password" id="password" placeholder="Senha" />
-              <img class="h-4 w-4" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
-            </label>
+            <div class="flex flex-col gap-2 flex-1">
+              <span class="text-sm lg:text-lg">CPF</span>
+              <input
+                class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
+                type="number" name="number" id="number" placeholder="137.203.132-82" />
+            </div>
+          </div>
+
+          <div>
+            <div class="flex flex-col gap-2 flex-1">
+              <span class="text-sm lg:text-lg">Senha</span>
+
+              <label for="password"
+                class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
+                <input class="w-full outline-none" type="password" name="password" id="password" placeholder="Senha" />
+                <img class="h-4 w-4" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
+              </label>
+            </div>
+
+            <div class="flex flex-col gap-2 flex-1">
+              <span class="text-sm lg:text-lg">Confirmar Senha</span>
+              <label for="password"
+                class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
+                <input class="w-full outline-none" type="password" name="password" id="password" placeholder="Senha" />
+                <img class="h-4 w-4" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
+              </label>
+            </div>
           </div>
         </div>
 
@@ -64,19 +86,16 @@
 
       <span class="bg-gray-300 h-0.5 w-82"></span>
 
-      <section class="flex flex-col gap-8 items-center justify-center">
-        <p>Não tem uma conta?
-          <a href="/register" class="text-blue-600 hover:underline">
-            Cadastre-se
+      <section class="flex flex-col gap-4 lg:gap-8 items-center justify-center">
+        <p>Já tem conta?
+          <a href="/Login" class="text-blue-600 hover:underline">
+            Login
           </a>
         </p>
 
         <a href="/help">
           <div class="group flex flex-col gap-2 items-center justify-center align-center">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 24 24" 
-              fill="currentColor"
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
               class="h-8 w-8 text-pink-400 group-hover:text-pink-600">
               <path fill-rule="evenodd"
                 d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"

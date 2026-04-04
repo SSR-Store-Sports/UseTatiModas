@@ -7,7 +7,7 @@
     alt="Imagem de uma mulher com o cabelo castanho em pé em uma loja, segurando uma bolsa em uma loja de roupas" />
 
   <main class="flex flex-col w-full items-center justify-center overflow-y-auto border-l-2 border-l-pink-500">
-    <div class="flex flex-col gap-8 w-82">
+    <div class="flex flex-col gap-4 lg:gap-8 w-118 items-center">
       <div class="flex flex-col gap-4 text-center items-center justify-center">
         <h1 class="text-black text-4xl font-light">Efetuar Login</h1>
         <span class="bg-gray-300 h-0.5 w-32"></span>
