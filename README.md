@@ -11,6 +11,7 @@
 - Estoque;
 - Fornecedores;
 - Pedidos;
+- Ajuda;
 
 ## RFs (requisitos funcionais):
 Funcionalidade que o usuário interage de alguma forma.
@@ -58,6 +59,7 @@ A instituição decide, o proprietário do software dita.
 - [ ] O usuário pode adicionar até 15 items no carrinho de compras;
 - [ ] O usuário pode filtrar produtos por categoria;
 - [ ] O usuário pode filtrar produtos por nome;
+- [ ] O usuário deve poder conseguir visualizar um manual de ajuda;
 - [ ] O usuário que quer algo específico, poderá acessar o canal alternativo (WhatsApp);
 
 # Fluxograma de Desenvolvimento
