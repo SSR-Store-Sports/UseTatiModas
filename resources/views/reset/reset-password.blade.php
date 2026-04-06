@@ -1,8 +1,8 @@
-<head>
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
+@extends('_layouts.auth')
 
-<body class="flex h-screen">
+@section('title', 'Password')
+
+@section('content')
   <img class="h-full w-full" src="{{ asset('assets/model_login.png') }}"
     alt="Imagem de uma mulher com o cabelo castanho em pé em uma loja, segurando uma bolsa em uma loja de roupas" />
 
@@ -40,7 +40,7 @@
           class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200 ">
           <span>Confirmar</span>
           <!-- <img class="h-4 w-4   group-hover:text-pink-600" src="{{ asset('assets/sign_in.png') }}"
-            alt="Icon representando uma porta realizando uma analogia de entrada ou acessando a aplicação" /> -->
+              alt="Icon representando uma porta realizando uma analogia de entrada ou acessando a aplicação" /> -->
           <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
             className="size-6">
             <path fillRule="evenodd"
@@ -75,4 +75,4 @@
       </section>
     </div>
   </main>
-</body>
+@endsection
