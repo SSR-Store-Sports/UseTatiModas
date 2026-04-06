@@ -1,8 +1,8 @@
-<head>
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
+@extends('_layouts.help')
 
-<body class="flex h-screen">
+@section('title', 'Central de Ajuda')
+
+@section('content')
   <header>
     <a>Voltar</a>
   </header>
@@ -69,11 +69,11 @@
       <span></span>
 
       <p>
-        Já Tem uma Conta? 
+        Já Tem uma Conta?
         <a href="">
           Login
         </a>
       </p>
     </section>
   </main>
-</body>
+@endsection

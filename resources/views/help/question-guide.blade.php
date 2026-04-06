@@ -1,8 +1,8 @@
-<head>
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
+@extends('_layouts.help')
 
-<body class="flex h-screen">
+@section('title', 'COMO ACESSAR MINHA CONTA')
+
+@section('content')
   <header>
     <a>Voltar</a>
   </header>
@@ -18,7 +18,7 @@
         Siga as instruções abaixo para entrar na sua conta:
         1 .Abra o aplicativo em seu dispositivo.
         2. Na tela inicial, toque no botão Entrar.
-        3. Insira suas credenciais nos campos indicados: E-mail ou nome de usuário, Senha. 
+        3. Insira suas credenciais nos campos indicados: E-mail ou nome de usuário, Senha.
         4. Para finalizar, toque no botão Acessar.
       </p>
     </section>
@@ -42,4 +42,4 @@
       </button>
     </section>
   </main>
-</body>
+@endsection
