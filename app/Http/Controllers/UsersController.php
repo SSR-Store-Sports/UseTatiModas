@@ -7,20 +7,33 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function login() {
+    public function login()
+    {
         return view('login.index');
     }
 
-    public function register() {
+    public function register()
+    {
         return view('register.index');
     }
 
-    public function resetShipping() {
+    public function resetShipping()
+    {
         return view('reset.index');
     }
 
-    public function resetPassword() {
+    public function resetPassword()
+    {
         return view('reset.reset-password');
+    }
+    public function indexUserPassword()
+    {
+        return view('profile.index');
+    }
+
+    public function resetUserPassword()
+    {
+        return view('profile.reset-password');
     }
 
     public function create()

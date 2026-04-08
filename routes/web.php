@@ -11,4 +11,7 @@ Route::get('/register', [UsersController::class, 'register']);
 Route::get('/reset-shipping', [UsersController::class, 'resetShipping']);
 Route::get('/reset-passowrd', [UsersController::class, 'resetPassword']);
 Route::get('/help', [HelpController::class, 'index']);
-Route::get('/help-guide', [HelpController::class,'helpGuide']);
+Route::get('/help-guide', [HelpController::class, 'helpGuide']);
+
+Route::get('/profile', [UsersController::class, 'indexUserPassword']);
+Route::get('/reset-user-password', [UsersController::class, 'resetUserPassword']);
