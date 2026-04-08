@@ -3,17 +3,19 @@
 @section('title', 'Central de Ajuda')
 
 @section('content')
-  <header>
-    <a>Voltar</a>
+  <header class="flex h-28 items-center px-12">
+    <a class="group text-pink-600" href="#">
+      <x-heroicon-o-arrow-left class="h-6 w-6 group-hover:text-pink-300" />
+    </a>
   </header>
 
-  <main>
-    <header>
-      <h1>Central de Ajuda</h1>
-      <span></span>
+  <main class="flex flex-col justify-center items-center">
+    <header class="text-center">
+      <h1 class="text-4xl">Central de Ajuda</h1>
+      <span class="h-2 w-8 bg-gray-200"></span>
     </header>
 
-    <section>
+    <section class="flex flex-col gap-4">
       <button
         class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200 ">
         <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -49,14 +51,14 @@
     </section>
 
     <section>
-      <div>
-        <span></span>
-        <h2>Suporte</h2>
-        <span></span>
+      <div class="flex gap-4">
+        <span class="h-2 w-8 bg-gray-200"></span>
+        <h2 class="text-2xl">Suporte</h2>
+        <span class="h-2 w-8 bg-gray-200"></span>
       </div>
 
       <button
-        class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200 ">
+        class="group bg-orange-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-orange-600 hover:text-orange-600 cursor-pointer text-center outline-none transition-all duration-200 ">
         <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
           className="size-6">
           <path fillRule="evenodd"
@@ -66,11 +68,11 @@
         <span>Termos de Serviço?</span>
       </button>
 
-      <span></span>
+      <span class="h-2 w-full bg-gray-200"></span>
 
       <p>
         Já Tem uma Conta?
-        <a href="">
+        <a href="" class="text-blue-500 decoration-amber-400">
           Login
         </a>
       </p>

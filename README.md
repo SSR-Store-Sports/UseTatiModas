@@ -65,3 +65,11 @@ A instituição decide, o proprietário do software dita.
 # Fluxograma de Desenvolvimento
 
 ![alt text](fluxograma.png)
+
+# Comandos
+
+- NPM RUN DEV
+- NPM INSTALL
+
+- PHP ARTISAN SERVE
+- COMPOSER INSTALL
