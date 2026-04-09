@@ -1,5 +1,7 @@
 <header class="flex justify-between items-center h-28 px-18 border-b-2 border-pink-500">
-    <img src="{{asset('assets/logo.png')}}" alt="" class="h-24 w-24">
+    <a href="./">
+        <img src="{{asset('assets/logo.png')}}" alt="" class="h-24 w-24">
+    </a>
 
     <input
         class="w-64 h-12 px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
