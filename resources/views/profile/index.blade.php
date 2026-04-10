@@ -3,18 +3,22 @@
 @section('content')
 <main class="flex m-2.5 gap-1 ;
 ">
-    <sidebar class="flex flex-col border-black border-2 p-4 rounded-2xl w-4xl items-center">
+    <sidebar class="flex flex-col border-black border-2 p-4 rounded-2xl w-4xl gap-4 ">
         <h1 class="font-semibold text-2xl ">Informações do usuário</h1>
-        <img src="" alt="Imagem de usuário" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0">
-        <p>Nome do usuário</p>
-        <p>Email do usuário</p>
-        <p>Endereço</p>
-        <div class="">
-            <p>Entrou em: 02/03/2026</p>
+        <img src="{{ asset('assets/ft-user.jpg') }}"
+            alt="Imagem de usuário"
+            class="w-32 h-32 bg-gray-300 rounded-full mb-1 mt-1 mx-auto object-cover">
+        <div class="flex flex-col items-center  gap-4 ">
+            <p>José Caique Alves da Silva</p>
+            <p>Jcaique@gmail.com</p>
+            <p>Av. Sen. Teotônio Vilela, 261</p>
+            <div class=" border-black border-2 w-auto p-4 rounded-2xl">
+                <p class="font-semibold">Entrou em: 02/03/2026</p>
+            </div>
         </div>
-        <div>
+        <div class="flex flex-col">
             <h1>Minha Conta</h1>
-            <div>
+            <div class="flex flex-col">
                 <a href="#">Endereço / Troca de Senha</a>
                 <a href="#">Minhas Compras</a>
             </div>
