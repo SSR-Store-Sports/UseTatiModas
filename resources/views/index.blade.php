@@ -4,16 +4,8 @@
 
 @section('content')
     <main class="h-full">
-        <section class="flex border-b-2 border-t-2 border-pink-600 gap-2 justify-center items-center px-4 py-2 mt-4">
-            <span class="bg-pink-600 py-2 px-8 rounded-xl text-white w-52 text-center">FRETE GRATÍS</span>
-            <span class="bg-pink-600 py-2 px-8 rounded-xl text-white">ENTREGA GARANTIDA</span>
-            <span class="bg-pink-600 py-2 px-8 rounded-xl text-white">80% OFF</span>
-            <span class="bg-pink-600 py-2 px-8 rounded-xl text-white">10% OFF NO PIX</span>
-            <span class="bg-pink-600 py-2 px-8 rounded-xl text-white">30 DIAS PARA TROCA</span>
-        </section>
-
-        <div class="mt-8 rounded-sm border-b-4 border-t-8 border-pink-600">
-            <img src="{{ asset('assets/banner.png') }}" class="h-142 w-full" alt="Logo">
+        <div class="rounded-sm border-b-4 border-t-8 border-pink-600">
+            <img src={{ asset('assets/banner.png') }} class="h-142 w-full" alt="Logo">
         </div>
 
         <section class="flex flex-col px-24 mt-12 gap-8">
@@ -26,7 +18,8 @@
             </div>
 
             <div class="grid grid-cols-4 gap-8 justify-center items-center">
-                <div class="flex flex-col w-full bg-white shadow-black rounded-sm gap-2">
+                <div
+                    class="flex flex-col w-full bg-white shadow-black rounded-sm gap-2 hover:shadow-xl/50 shadow-xl/20 cursor-pointer inset-shadow-xs transition-all duration-200 px-8 py-8">
                     <div class="flex flex-col justify-center items-center gap-2">
                         <img src="{{ asset('assets/model_card.png') }} " alt=""
                             class="border-2 border-pink-500 h-64 w-54 rounded-lg">
@@ -68,7 +61,8 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col w-full bg-white shadow-black rounded-sm gap-2">
+                <div
+                    class="flex flex-col w-full bg-white shadow-black rounded-sm gap-2 hover:shadow-xl/50 shadow-xl/20 cursor-pointer inset-shadow-xs transition-all duration-200 px-8 py-8">
                     <div class="flex flex-col justify-center items-center gap-2">
                         <img src="{{ asset('assets/model_card.png') }} " alt=""
                             class="border-2 border-pink-500 h-64 w-54 rounded-lg">
@@ -110,7 +104,8 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col w-full bg-white shadow-black rounded-sm gap-2">
+                <div
+                    class="flex flex-col w-full bg-white shadow-black rounded-sm gap-2 hover:shadow-xl/50 shadow-xl/20 cursor-pointer inset-shadow-xs transition-all duration-200 px-8 py-8">
                     <div class="flex flex-col justify-center items-center gap-2">
                         <img src="{{ asset('assets/model_card.png') }} " alt=""
                             class="border-2 border-pink-500 h-64 w-54 rounded-lg">
@@ -152,7 +147,8 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col w-full bg-white shadow-black rounded-sm gap-2">
+                <div
+                    class="flex flex-col w-full bg-white shadow-black rounded-sm gap-2 hover:shadow-xl/50 shadow-xl/20 cursor-pointer inset-shadow-xs transition-all duration-200 px-8 py-8">
                     <div class="flex flex-col justify-center items-center gap-2">
                         <img src="{{ asset('assets/model_card.png') }} " alt=""
                             class="border-2 border-pink-500 h-64 w-54 rounded-lg">

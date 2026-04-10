@@ -1,4 +1,4 @@
-<header class="flex justify-between items-center h-28 px-18 border-b-2 border-pink-500">
+<header class="flex justify-between items-center h-28 px-18">
     <a href="./">
         <img src="{{asset('assets/logo.png')}}" alt="" class="h-24 w-24">
     </a>
