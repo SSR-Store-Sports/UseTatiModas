@@ -3,9 +3,9 @@
 @section('content')
 <main class="flex m-2.5 gap-1 ;
 ">
-    <sidebar class="flex flex-col border-black border-2 p-4 rounded-2xl w-4xl">
-        <h1>Informações do usuário</h1>
-        <img src="" alt="Imagem de usuário">
+    <sidebar class="flex flex-col border-black border-2 p-4 rounded-2xl w-4xl items-center">
+        <h1 class="font-semibold text-2xl ">Informações do usuário</h1>
+        <img src="" alt="Imagem de usuário" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0">
         <p>Nome do usuário</p>
         <p>Email do usuário</p>
         <p>Endereço</p>
@@ -22,7 +22,7 @@
     </sidebar>
 
     <div class="lex flex-col border-red-700 border-2 w-full p-4 rounded-2xl">
-        <h1>Meu Perfil</h1>
+        <h1 class="font-semibold text-2xl">Meu Perfil</h1>
         <div class="flex flex-col gap-4 my-4 ">
             <div class="flex flex-col gap-2 flex-1">
                 <span class="text-lg">Nome de usuário</span>
@@ -52,16 +52,26 @@
                     <span class="text-lg">*********07</span>
                     <a href="#">trocar</a>
                 </div>
-                <div class="flex  gap-2 flex-1">
+                <div class="flex gap-2 flex-1">
                     <span class="text-lg">CPF:</span>
                     <span class="text-lg">***-***-***-47</span>
                     <a href="#">trocar</a>
                 </div>
             </div>
-            <span class="bg-gray-300 h-0.5 w-82"></span>
-            <div>
-                <button class="" onclick="">DELETAR CONTA </button>
-                <button class="" onclick="">ATUALIZAR</button>
+            <span class="bg-gray-300 h-0.5 w-full"></span>
+            <div class="flex gap-4 items-center">
+                <button
+                    class="group bg-red-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200 ">
+                    <span>Deletar Conta</span>
+                    <x-heroicon-o-x-circle class="w-6 h-6" />
+                </button>
+                <button
+                    class="group bg-white text-pink-600 flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200 ">
+                    <span>Atualizar</span>
+                    <x-heroicon-o-arrow-path class="w-6 h-6" />
+                    </svg>
+
+                </button>
             </div>
         </div>
     </div>
