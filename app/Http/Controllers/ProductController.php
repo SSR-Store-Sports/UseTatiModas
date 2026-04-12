@@ -15,6 +15,10 @@ class ProductController extends Controller
         return view('index');
     }
 
+    public function search() {
+        return view('products.search');
+    }
+
     /**
      * Display the specified resource.
      */

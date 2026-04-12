@@ -19,3 +19,4 @@ Route::get('/profile', [UsersController::class, 'indexUserPassword']);
 Route::get('/reset-user-password', [UsersController::class, 'resetUserPassword']);
 
 Route::get('/produto/{id}', [ProductController::class, 'show']);
+Route::get('/search', [ProductController::class, 'search']);

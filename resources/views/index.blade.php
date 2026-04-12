@@ -138,12 +138,12 @@
                 <span class="w-full h-0.5 bg-pink-600"></span>
             </div>
 
-            <div class="flex flex-col gap-8 items-center">
+            <div class="flex flex-col gap-8 items-center mx-18">
                 <div class="grid grid-cols-4 gap-8 justify-center items-center">
                     @for ($i = 0; $i < 15; $i++)
                         <div class="flex flex-col w-full bg-white shadow-pink-500/90 rounded-lg gap-2 hover:shadow-xl/50 shadow-xl/30 hover:cursor-pointer inset-shadow-xs transition-all duration-200">
                             <div class="flex flex-col justify-center items-center gap-2">
-                                <div class="overflow-hidden rounded-lg">
+                                <div class="overflow-hidden rounded-lg w-full">
                                     <img src="{{ asset('assets/model_card.png') }}" alt=""
                                         class="h-64 w-full rounded-lg transition-transform duration-300 hover:scale-110">
                                 </div>
