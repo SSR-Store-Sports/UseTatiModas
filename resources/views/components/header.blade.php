@@ -1,5 +1,5 @@
 <header class="grid grid-cols-[auto_1fr_auto] gap-8 items-center h-28 px-18">
-    <a href="./">
+    <a href="/">
         <img src="{{asset('assets/logo.png')}}" alt="" class="h-24 w-24">
     </a>
 
