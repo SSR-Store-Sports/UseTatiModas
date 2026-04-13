@@ -8,8 +8,11 @@
 
             <div class="flex flex-col gap-4">
                 <div
-                    class="w-80 h-96 bg-pink-50 border-2 border-pink-300 rounded-lg flex items-center justify-center shadow-md">
-                    <span class="text-gray-400">Produto</span>
+                    class="w-80 h-96 bg-pink-50  border-pink-300 rounded-lg flex items-center justify-center shadow-md">
+                    <img src="{{ asset('assets/Camiseta_feminina_preta.png')}}"
+                                alt = "Produto"
+                                class ="w-full h-full
+                            object-cover">
                 </div>
 
                 <div class="flex gap-3 justify-center">
@@ -22,7 +25,7 @@
             <div class="flex flex-col gap-6 flex-1">
                 <div class="flex flex-col gap-2">
                     <h1 class="text-3xl font-bold text-pink-600">
-                        Camisa Masculina Preta
+                        Camisa Feminina Preta
                     </h1>
 
                     <div class="flex gap-6 text-sm">
@@ -36,8 +39,11 @@
                 </div>
 
                 <p class="text-gray-600 leading-relaxed max-w-xl">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
+                    A Camiseta Básica Preta Feminina é a definição de "menos é mais". 
+                    Confeccionada em malha 100% algodão de alta qualidade, ela oferece toque macio e excelente respirabilidade, 
+                    garantindo conforto o dia todo. Com modelagem clássica que valoriza a silhueta sem apertar,
+                     esta peça possui gola em ribana resistente e costura reforçada, perfeita para transitar entre o trabalho e o lazer.
+                      O básico indispensável que eleva qualquer look: combina com jeans para um visual casual ou com alfaiataria para um toque de sofisticação.
                 </p>
 
                 <div class="flex gap-4 mt-4">
@@ -61,7 +67,7 @@
         <section class="mt-16 flex flex-col gap-8">
             <div class="flex flex-col gap-2 justify-center shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)]">
                 <h2 class="text-center text-2xl text-pink-600 font-bold">
-                    RELACIONADOS
+                   PRODUTOS RELACIONADOS
                 </h2>
                 <span class="w-full h-0.5 bg-pink-600"></span>
             </div>
