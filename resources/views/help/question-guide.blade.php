@@ -3,43 +3,57 @@
 @section('title', 'COMO ACESSAR MINHA CONTA')
 
 @section('content')
-  <header>
-    <a>Voltar</a>
-  </header>
+  <x-help.header />
 
-  <main>
-    <header>
-      <h1>COMO ACESSAR MINHA CONTA</h1>
-      <h2>11 de março de 2026 · <span>🧾</span></h2>
+  <main class="flex flex-col justify-center items-center gap-4">
+    <header class="flex flex-col gap-2 justify-center items-center text-center mb-8">
+      <h1 class="text-4xl font-light">Como Acessar Minha Conta</h1>
+      <span class="h-0.5 w-52 mt-2 bg-gray-300"></span>
+      <h2 class="text-sm text-gray-400 mt-2">11 de março de 2026 · <span>🧾</span></h2>
     </header>
 
-    <section>
-      <p>
-        Siga as instruções abaixo para entrar na sua conta:
-        1 .Abra o aplicativo em seu dispositivo.
-        2. Na tela inicial, toque no botão Entrar.
-        3. Insira suas credenciais nos campos indicados: E-mail ou nome de usuário, Senha.
-        4. Para finalizar, toque no botão Acessar.
-      </p>
+    <section class="flex flex-col gap-4 max-w-xl w-full">
+      <div class="flex flex-col gap-3 text-gray-700 text-base leading-relaxed bg-white rounded-lg shadow-sm shadow-pink-500/20 p-6 border border-gray-100">
+        <p>Siga as instruções abaixo para entrar na sua conta:</p>
+        <ol class="flex flex-col gap-2 list-none">
+          <li class="flex items-start gap-3">
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-pink-500 text-white text-xs font-bold shrink-0 mt-0.5">1</span>
+            <span>Abra o site oficial da Tati Use Modas em seu dispositivo.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-pink-500 text-white text-xs font-bold shrink-0 mt-0.5">2</span>
+            <span>Na tela inicial, toque no botão <strong>Entrar</strong>.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-pink-500 text-white text-xs font-bold shrink-0 mt-0.5">3</span>
+            <span>Insira suas credenciais nos campos indicados: <strong>E-mail ou nome de usuário</strong> e <strong>Senha</strong>.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-pink-500 text-white text-xs font-bold shrink-0 mt-0.5">4</span>
+            <span>Para finalizar, toque no botão <strong>Acessar</strong>.</span>
+          </li>
+        </ol>
+      </div>
     </section>
 
-    <section>
-      <div>
-        <span></span>
-        <h2>Suporte</h2>
-        <span></span>
+    <section class="flex flex-col flex-1 gap-2 mt-12 items-center max-w-xl w-full">
+      <div class="flex gap-4 items-center mb-4 justify-center text-center">
+        <span class="h-0.5 w-24 bg-gray-300"></span>
+        <h2 class="text-2xl text-gray-400 uppercase">Suporte</h2>
+        <span class="h-0.5 w-24 bg-gray-300"></span>
       </div>
 
-      <button
-        class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200 ">
-        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-          className="size-6">
-          <path fillRule="evenodd"
-            d="M16.5 3.75a1.5 1.5 0 0 1 1.5 1.5v13.5a1.5 1.5 0 0 1-1.5 1.5h-6a1.5 1.5 0 0 1-1.5-1.5V15a.75.75 0 0 0-1.5 0v3.75a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V5.25a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3V9A.75.75 0 1 0 9 9V5.25a1.5 1.5 0 0 1 1.5-1.5h6ZM5.78 8.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 0 0 1.06-1.06l-1.72-1.72H15a.75.75 0 0 0 0-1.5H4.06l1.72-1.72a.75.75 0 0 0 0-1.06Z"
-            clipRule="evenodd" />
-        </svg>
+      <button class="group bg-orange-500 text-white flex items-center justify-center rounded-sm w-62 pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-orange-600 hover:text-orange-600 cursor-pointer text-center outline-none transition-all duration-200">
+        <x-heroicon-o-document-text class="h-4 w-4" />
         <span>Termos de Serviço?</span>
       </button>
+
+      <span class="h-0.5 w-full mt-4 mb-4 bg-gray-300"></span>
+
+      <p class="flex text-lg text-center gap-2 items-center justify-center">
+        Já Tem uma Conta?
+        <a href="" class="text-blue-500 hover:decoration-blue-500 hover:underline">Login</a>
+      </p>
     </section>
   </main>
 @endsection
