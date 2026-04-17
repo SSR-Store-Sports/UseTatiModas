@@ -3,50 +3,53 @@
 @section('title', 'Carrinho: UseTatiModas')
 
 @section('content')
-  <main class="h-full">
-    <div class="flex mx-24 justify-center">
-      <h1>Carrinho de Compras</h1>
-      <span></span>
+<main class="h-full">
 
-      <div>
-        <section>
+  <div class="mx-24 grid grid-rows-[auto_1fr] gap-6">
 
-        </section>
-        <aside>
-          <div>
-            <h2>Resumo de Compra</h2>
-
-            <div>
-              <p>Produto (1) <span>R$ 62,00</span></p>
-              <p>Frete <span>Grátis</span></p>
-            </div>
-
-            <span></span>
-
-            <div>
-              <p>Total <span>R$ 62,00</span></p>
-              <div>
-                <p>em até 12x de R$ 5,17 sem juros</p>
-                <button>Finalizar Compra</button>
-                <span>Compra 100% Segura</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h2>Calcular Frete</h2>
-
-            <div>
-              <label for="">
-                <input type="text">
-                <button>Calular</button>
-              </label>
-
-              <a href="">Não sei meu CEP</a>
-            </div>
-          </div>
-        </aside>
-      </div>
+    <!-- HEADER -->
+    <div class="flex justify-between items-center border-b pb-4">
+      <h1 class="font-semibold text-2xl">Carrinho de Compras</h1>
+      <span>0 produto(s)</span>
     </div>
-  </main>
+
+    <!-- CONTEÚDO -->
+    <div class="grid grid-cols-3 gap-8">
+
+      <!-- PRODUTOS -->
+      <section class="col-span-2">
+        <div class="border-black border-2 p-4">
+          <img src="" alt="">
+          <p>Calça Feminina</p>
+          <span>FRETE GRATIS</span>
+          <button>Remover</button>
+          <p>Quantidade</p>
+          <input type="number" max="10">
+          <p>R$ 62,00</p>
+          <p>Subtotal: R$ 62,00</p>
+        </div>
+      </section>
+
+      <!-- RESUMO -->
+      <aside class="col-span-1">
+        <div class="border-red-600 border-2 bg-white p-4">
+          <h2 class="font-semibold">Resumo de Compra</h2>
+          <p>Itens: R$ 62,00</p>
+          <p>Frete: R$ 0,00</p>
+          <p>Total: R$ 62,00</p>
+          <p>Parcelar em até 4x sem juros</p>
+          <button>Finalizar Compra</button>
+          <p>ou</p>
+          <button>Continuar Comprando</button>
+          <p>Compra 100% Segura</p>
+
+
+        </div>
+      </aside>
+
+    </div>
+
+  </div>
+
+</main>
 @endsection
