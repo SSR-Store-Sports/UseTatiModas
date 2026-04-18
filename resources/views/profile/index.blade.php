@@ -2,8 +2,6 @@
 
 @section('content')
 <main class="flex gap-4 mx-24 my-12 p-6 ">
-
-    <!-- SIDEBAR -->
     <aside class="w-72 bg-white shadow-md p-5 rounded-2xl flex flex-col gap-6 shadow-pink-500/90 shadow-xl/30 h-full">
 
         <h1 class="font-semibold text-xl">Informações do usuário</h1>
@@ -21,8 +19,6 @@
                 Entrou em: 02/03/2026
             </div>
         </div>
-
-        <!-- MENU -->
         <div class="flex flex-col gap-3">
             <h2 class="text-sm font-semibold text-gray-500">Minha Conta</h2>
 
@@ -37,15 +33,9 @@
             </a>
         </div>
     </aside>
-
-    <!-- CONTEÚDO -->
     <section class="flex-1 bg-white shadow-md p-6 rounded-2xl shadow-pink-500/90 shadow-xl/30 h-full">
-
         <h1 class="font-semibold text-2xl mb-6">Meu Perfil</h1>
-
         <div class="flex flex-col gap-6">
-
-            <!-- USERNAME -->
             <div class="flex flex-col gap-2">
                 <span class="text-sm font-medium text-gray-700">Nome de usuário</span>
                 <input
@@ -57,8 +47,6 @@
                     Nome de usuário pode ser alterado apenas uma vez.
                 </span>
             </div>
-
-            <!-- NOME -->
             <div class="flex flex-col gap-2">
                 <span class="text-sm font-medium text-gray-700">Nome</span>
                 <input
@@ -68,7 +56,6 @@
                     disabled />
             </div>
 
-            <!-- DADOS -->
             <div class="flex flex-col gap-3 text-sm">
                 <div class="flex justify-between items-center">
                     <span class="text-gray-600">Email</span>
@@ -97,20 +84,18 @@
 
             <div class="h-px bg-gray-200"></div>
 
-            <!-- BOTÕES -->
             <div class="flex gap-4 mt-auto">
 
-                <button
-                    class="flex-1 bg-red-500 text-white flex items-center justify-center rounded-xl py-3 gap-2 border border-transparent hover:bg-red-600 transition">
+                <button class="flex-1 bg-red-500 text-white px-6 py-3 rounded-md flex items-center justify-center gap-2 border-2 border-transparent hover:bg-white hover:text-red-500 hover:border-red-500 transition-all duration-200">
                     <span>Deletar Conta</span>
                     <x-heroicon-o-x-circle class="w-5 h-5" />
                 </button>
 
-                <button
-                    class="flex-1 bg-white text-pink-600 flex items-center justify-center rounded-xl py-3 gap-2 border border-pink-600 hover:bg-gray-100 hover:text-pink-700 transition">
+                <button class="flex-1 bg-white text-pink-600 px-6 py-3 rounded-md flex items-center justify-center gap-2 border-2 border-pink-600 hover:bg-pink-50 hover:text-pink-700 hover:border-pink-700 transition-all duration-200">
                     <span>Atualizar</span>
                     <x-heroicon-o-arrow-path class="w-5 h-5" />
                 </button>
+
 
             </div>
         </div>
