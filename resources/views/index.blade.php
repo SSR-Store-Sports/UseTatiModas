@@ -119,11 +119,13 @@
                                     <span class="w-full h-px bg-pink-300"></span>
                                 </div>
                             </div>
-                            <button
-                                class="group bg-pink-500 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-white hover:border-pink-600 hover:text-pink-600 cursor-pointer outline-none transition-all duration-200 text-sm">
+                            <a
+                                class="group bg-pink-500 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-white hover:border-pink-600 hover:text-pink-600 cursor-pointer outline-none transition-all duration-200 text-sm"
+                                href="/search"
+                                >
                                 <span>Conferir</span>
                                 <x-heroicon-o-arrow-right class="h-3.5 w-3.5" />
-                            </button>
+                            </a>
                         </div>
                         <div class="relative w-8 shrink-0">
                             <svg class="absolute inset-0 h-full w-full" viewBox="0 0 32 160" preserveAspectRatio="none"

@@ -8,8 +8,11 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="flex h-screen">
-    @yield('content')
+<body class="flex flex-col h-screen">
+    <x-auth.header />
+    <div class="grid grid-cols-2">
+        @yield('content')
+    </div>
 </body>
 
 </html>

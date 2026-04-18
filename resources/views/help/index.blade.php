@@ -15,7 +15,7 @@
       <button class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 pl-12 pr-12 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200">
         <x-heroicon-o-arrow-right class="h-4 w-4" />
         <span>Como Acessar Minha Conta?</span>
-      </button>ZZZz
+      </button>
 
       <button class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 pl-12 pr-12 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200">
         <x-heroicon-o-arrow-right class="h-4 w-4" />
