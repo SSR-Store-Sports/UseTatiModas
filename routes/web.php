@@ -15,7 +15,7 @@ Route::get('/help', [HelpController::class, 'index']);
 Route::get('/help-guide', [HelpController::class, 'helpGuide']);
 
 Route::get('/', [ProductController::class, 'index']);
-Route::get('/product/{id}', [ProductController::class, 'show']);
+Route::get('/product', [ProductController::class, 'show']);
 Route::get('/search', [ProductController::class, 'search']);
 
 Route::get('/profile', [UsersController::class, 'indexUserPassword']);

@@ -4,14 +4,14 @@
 - Ferramenta para desenvolvimento: Laravel (php)
 
 # Entidades (tabelas):
-- Usuários;
-- Endereço;
-- Produtos;
-- Categorias;
-- Estoque;
-- Fornecedores;
-- Pedidos;
-- Ajuda;
+- [x] Usuários;
+- [x] Endereço;
+- [x] Produtos;
+- [x] Carrinho;
+- [x] Categoria;
+- [x] Fornecedores;
+- [x] Pedidos;
+- [x] Ajuda;
 
 ## RFs (requisitos funcionais):
 Funcionalidade que o usuário interage de alguma forma.
@@ -62,11 +62,26 @@ A instituição decide, o proprietário do software dita.
 - [ ] O usuário deve poder conseguir visualizar um manual de ajuda;
 - [ ] O usuário que quer algo específico, poderá acessar o canal alternativo (WhatsApp);
 
-# Fluxograma de Desenvolvimento
+## Controllers
+
+- UsersController: responsável pelo login/registro/perfil/reset de senha do usuário
+- HelpController: responsável por exibir as dúvidas comuns de uso no sistema
+- ProductController: responsável pela listagem/filtragem de produtos para os clientes
+- CategoryController: responsável pela listagem de categórias e relacionamento com produtos
+- CartController: responsável pelo carrinho de compras (adicionar, remover, visualizar)
+- OrderController: responsável pelo histórico de pedidos e detalhe do pedido
+- CheckoutController: responsável por finalizar a compra
+- Admin\DashboardController: exibir estatistícas da plataforma - admin/dashboard.blade.php (view)
+- Admin\ProductController: gerenciamento de produtos pelo admin (diferente do ProductController público - admin/products/index, create, edit (views))
+- Admin\CategoryController: pode reaproveitar o CategoryController existente com prefixo de rota (admin/categories/index, create)
+- Admin\SupplierController: cadastro de fornecedores (admin/suppliers/index, create) 
+- Admin\OrderController: visualização de pedidos pelo admin (admin/orders/index.blade.php)
+
+## Fluxograma de Desenvolvimento
 
 ![alt text](fluxograma.png)
 
-# Comandos
+## Comandos
 
 - NPM RUN DEV
 - NPM INSTALL

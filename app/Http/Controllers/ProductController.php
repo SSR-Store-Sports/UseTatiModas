@@ -16,7 +16,7 @@ class ProductController extends Controller
         return view('products.search');
     }
 
-    public function show($id)
+    public function show()
     {
         return view('products.product');
     }
