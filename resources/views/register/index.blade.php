@@ -88,7 +88,7 @@
 
       <section class="flex flex-col gap-4 lg:gap-8 items-center justify-center">
         <p>Já tem conta?
-          <a href="/Login" class="text-blue-600 hover:underline">
+          <a href="/login" class="text-blue-600 hover:underline">
             Login
           </a>
         </p>

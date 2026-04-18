@@ -27,7 +27,7 @@
           <div class="flex flex-col gap-2 flex-1">
             <div class="flex justify-between">
               <span class="text-lg">Senha</span>
-              <a href="/forget/password"
+              <a href="/reset-shipping"
                 class="transition-all duration-200 text-blue-600 hover:to-blue-700 hover:underline ">Esqueceu sua
                 senha?</a>
             </div>

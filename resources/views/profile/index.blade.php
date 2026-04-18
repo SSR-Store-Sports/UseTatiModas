@@ -31,7 +31,7 @@
                 <span>Endereço / Troca de Senha</span>
             </a>
 
-            <a href="#"
+            <a href="/order"
                 class="flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition">
                 <span>Minhas Compras</span>
             </a>

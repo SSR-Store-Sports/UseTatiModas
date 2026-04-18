@@ -43,5 +43,9 @@
             class="bg-pink-600 text-white rounded-sm px-2 py-1 border-2 border-pink-600 hover:bg-white hover:border-pink-600 hover:border-2 hover:text-pink-600">
             <x-heroicon-o-cog-8-tooth class="w-6 h-6" />
         </a>
+        <a href="/login"
+            class="bg-pink-600 text-white rounded-sm px-2 py-1 border-2 border-pink-600 hover:bg-white hover:border-pink-600 hover:border-2 hover:text-pink-600">
+            <x-heroicon-o-arrow-right-end-on-rectangle class="w-6 h-6" />
+        </a>
     </nav>
 </header>
