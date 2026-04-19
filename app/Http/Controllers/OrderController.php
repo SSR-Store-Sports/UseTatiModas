@@ -15,6 +15,11 @@ class OrderController extends Controller
         return view("orders.index");
     }
 
+    public function details()
+    {
+        return view("orders.show");
+    }
+
     /**
      * Show the form for creating a new resource.
      */

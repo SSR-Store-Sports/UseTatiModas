@@ -1,4 +1,4 @@
-<header class="z-40 grid grid-cols-[auto_1fr_auto] gap-8 items-center h-28 px-18 shadow-[0_0_10px_10px_rgba(236,72,153,0.4)]">
+<header class="z-50 grid grid-cols-[auto_1fr_auto] gap-8 items-center h-28 px-18 shadow-[0_0_10px_10px_rgba(236,72,153,0.4)]">
     <a href="/">
         <img src="{{asset('assets/logo.png')}}" alt="" class="h-24 w-24">
     </a>

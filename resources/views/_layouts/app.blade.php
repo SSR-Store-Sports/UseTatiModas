@@ -14,6 +14,8 @@
     @yield('content')
     <x-promotions />
     <x-footer />
+    <!-- <x-modal.modal-notifications /> -->
+    <!-- <x-modal /> -->
 </body>
 
 </html>

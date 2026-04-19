@@ -23,4 +23,5 @@ Route::get('/search', [ProductController::class, 'search']);
 
 Route::get('/cart', [CartController::class, 'index']);
 
-Route::get('/order', [OrderController::class, 'index']);
+Route::get('/orders', [OrderController::class, 'index']);
+Route::get('/orders/details', [OrderController::class, 'details']);
