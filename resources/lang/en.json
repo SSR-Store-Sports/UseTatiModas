@@ -1,0 +1,10 @@
+{
+    "notifications": "Notifications",
+    "order_sent": "Order Sent!",
+    "order_message": "Your order #:order is on its way.",
+    "promotion": "Croppeds Promotion",
+    "promotion_message": "Check out our new collection with unbeatable discounts.",
+    "view_all": "View all notifications",
+    "hours_ago": ":time hours ago",
+    "days_ago": ":time days ago"
+}

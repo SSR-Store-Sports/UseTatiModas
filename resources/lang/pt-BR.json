@@ -1,0 +1,10 @@
+{
+    "notifications": "Notificações",
+    "order_sent": "Pedido Enviado!",
+    "order_message": "Seu pedido #:order já está a caminho.",
+    "promotion": "Promoção de Croppeds",
+    "promotion_message": "Confira nossa nova coleção com descontos imperdíveis.",
+    "view_all": "Ver todas as notificações",
+    "hours_ago": "Há :time horas",
+    "days_ago": "Há :time dias"
+}

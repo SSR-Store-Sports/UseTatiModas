@@ -88,3 +88,6 @@ A instituição decide, o proprietário do software dita.
 
 - PHP ARTISAN SERVE
 - COMPOSER INSTALL
+
+- php artisan config:clear
+[comando responsável por realizar uma limpeza no cache do laravel, assim sendo possível utilizar valores recentes do ".env". No caso, utilizado para mudança de idioma]
