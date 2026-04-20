@@ -3,8 +3,24 @@
     "order_sent": "Pedido Enviado!",
     "order_message": "Seu pedido #:order já está a caminho.",
     "promotion": "Promoção de Croppeds",
-    "promotion_message": "Confira nossa nova coleção com descontos imperdíveis.",
+    "promotion_message": "CONFIRA nossa nova coleção com descontos imperdíveis.",
     "view_all": "Ver todas as notificações",
-    "hours_ago": "Há :time horas",
-    "days_ago": "Há :time dias"
+    "hours_ago": " Há :time horas",
+    "days_ago": "Há :time dias",
+
+    "help_center": "Central de Ajuda",
+    "how_access_account": "Como Acessar Minha Conta?",
+    "how_register": "Como Posso me Cadastrar?",
+    "how_recover_account": "Como Recuperar Minha Conta?",
+    "support": "Suporte",
+    "terms_of_service": "Termos de Serviço?",
+    "already_have_account": "Já Tem uma Conta?",
+    "login": "Login",
+
+    "how_access_account_title": "Como Acessar Minha Conta",
+    "follow_instructions": "Siga as instruções abaixo para entrar na sua conta:",
+    "open_site": "Abra o site oficial da Tati Use Modas em seu dispositivo.",
+    "initial_screen": "Na tela inicial, toque no botão Entrar.",
+    "enter_credentials": "Insira suas credenciais nos campos indicados: E-mail ou nome de usuário e Senha.",
+    "click_access": "Para finalizar, toque no botão Acessar."
 }

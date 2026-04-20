@@ -6,5 +6,21 @@
     "promotion_message": "Check out our new collection with unbeatable discounts.",
     "view_all": "View all notifications",
     "hours_ago": ":time hours ago",
-    "days_ago": ":time days ago"
+    "days_ago": ":time days ago",
+
+    "help_center": "Help Center",
+    "how_access_account": "How to Access My Account?",
+    "how_register": "How Can I Register?",
+    "how_recover_account": "How to Recover My Account?",
+    "support": "Support",
+    "terms_of_service": "Terms of Service?",
+    "already_have_account": "Already Have an Account?",
+    "login": "Login",
+
+    "how_access_account_title": "How to Access My Account",
+    "follow_instructions": "Follow the instructions below to log in to your account:",
+    "open_site": "Open the official Tati Use Modas website on your device.",
+    "initial_screen": "On the home screen, tap the Login button.",
+    "enter_credentials": "Enter your credentials in the indicated fields: Email or username and Password.",
+    "click_access": "To finish, tap the Access button."
 }
