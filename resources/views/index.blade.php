@@ -4,10 +4,12 @@
 
 @section('content')
     <main class="h-full">
-        <div class="relative rounded-sm border-b-4 border-t-8 border-pink-600 shadow-sm shadow-pink-500/50">
-            <img src={{ asset('assets/banner.png') }} class="h-142 w-full" alt="Logo">
+        <div class="relative overflow-hidden rounded-sm border-b-4 border-t-8 border-pink-600">
+            <img src="{{ asset('assets/banner.png') }}" class="h-142 w-full object-cover" alt="Logo">
 
-            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <div class="absolute inset-0 shadow-[inset_0_0_50px_rgba(219,39,119,0.5)] pointer-events-none"></div>
+
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
                 <span class="h-2.5 w-2.5 rounded-full bg-pink-600 cursor-pointer"></span>
                 <span class="h-2.5 w-2.5 rounded-full bg-white/70 border border-pink-600 cursor-pointer"></span>
                 <span class="h-2.5 w-2.5 rounded-full bg-white/70 border border-pink-600 cursor-pointer"></span>
@@ -119,10 +121,8 @@
                                     <span class="w-full h-px bg-pink-300"></span>
                                 </div>
                             </div>
-                            <a
-                                class="group bg-pink-500 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-white hover:border-pink-600 hover:text-pink-600 cursor-pointer outline-none transition-all duration-200 text-sm"
-                                href="/search"
-                                >
+                            <a class="group bg-pink-500 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-white hover:border-pink-600 hover:text-pink-600 cursor-pointer outline-none transition-all duration-200 text-sm"
+                                href="/search">
                                 <span>Conferir</span>
                                 <x-heroicon-o-arrow-right class="h-3.5 w-3.5" />
                             </a>
