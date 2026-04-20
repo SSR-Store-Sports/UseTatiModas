@@ -1,17 +1,17 @@
 
-# Documentação Projeto Use Tati Modas
-- Finalidade: Loja de Roupas Online
-- Ferramenta para desenvolvimento: Laravel (php)
+# Use Tati Modas App
+![alt text](public/assets/logo.png)
+- A plataforma Use Tati Modas é um e-commerce desenvolvido com o ecossistema Laravel, focado em entregar uma experiência de compra centrada no usuário. O projeto foi arquitetado para priorizar a moda feminina, utilizando uma estética minimalista e moderna, sem abdicar da versatilidade necessária para a gestão de produtos de categorias diversas, como a moda masculina.
 
-# Entidades (tabelas):
-- [x] Usuários;
-- [x] Endereço;
-- [x] Produtos;
-- [x] Carrinho;
-- [x] Categoria;
-- [x] Fornecedores;
-- [x] Pedidos;
-- [x] Ajuda;
+> 🚧 **Status:** Em desenvolvimento
+
+## Estrutura do Repositório
+
+## Stack Ferramental
+- **FRAMEWORK**: Laravel13
+- **FRONTEND**: TailwindCSS
+
+## Documentação de Negócio
 
 ## RFs (requisitos funcionais):
 Funcionalidade que o usuário interage de alguma forma.
@@ -62,7 +62,23 @@ A instituição decide, o proprietário do software dita.
 - [ ] O usuário deve poder conseguir visualizar um manual de ajuda;
 - [ ] O usuário que quer algo específico, poderá acessar o canal alternativo (WhatsApp);
 
-## Controllers
+
+## Fluxograma de Desenvolvimento
+
+![alt text](fluxograma.png)
+
+# Estrutura do Banco de Dados
+
+- [x] Usuários;
+- [x] Endereço;
+- [x] Produtos;
+- [x] Carrinho;
+- [x] Categoria;
+- [x] Fornecedores;
+- [x] Pedidos;
+- [x] Ajuda;
+
+## Arquitetura do Software (Controllers)
 
 - UsersController: responsável pelo login/registro/perfil/reset de senha do usuário
 - HelpController: responsável por exibir as dúvidas comuns de uso no sistema
@@ -77,17 +93,17 @@ A instituição decide, o proprietário do software dita.
 - Admin\SupplierController: cadastro de fornecedores (admin/suppliers/index, create) 
 - Admin\OrderController: visualização de pedidos pelo admin (admin/orders/index.blade.php)
 
-## Fluxograma de Desenvolvimento
+## Comandos para Iniciar o Projeto
 
-![alt text](fluxograma.png)
+- npm install
+- npm run dev
+[iniciar servidor javascript para utilizar tailwindcss]
 
-## Comandos
+- composer install
+- php artisan serve
+[iniciar servidor do php para disponibilizar a aplicação]
 
-- NPM RUN DEV
-- NPM INSTALL
-
-- PHP ARTISAN SERVE
-- COMPOSER INSTALL
+## Comandos de Desenvolvimento
 
 - php artisan config:clear
 [comando responsável por realizar uma limpeza no cache do laravel, assim sendo possível utilizar valores recentes do ".env". No caso, utilizado para mudança de idioma]
