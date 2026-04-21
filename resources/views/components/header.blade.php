@@ -7,12 +7,12 @@
         <form action="/search" method="GET">
             <input
             class="w-64 h-12 px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-            type="text" name="product" id="product" placeholder="Procure aqui..."  />
+            type="text" name="product" id="product" placeholder="@lang('search_placeholder')"  />
         </form>
 
         <div class="flex gap-4 w-full items-center">
             <select class="h-8 px-4 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] cursor-pointer">
-                <option value="">Categoria</option>
+                <option value="">@lang('category')</option>
                 <option value="">Calças</option>
                 <option value="">Camisas</option>
                 <option value="">Croppeds</option>
@@ -24,7 +24,7 @@
             <a
                 class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-38 h-4 pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200"
                 href="/search">
-                <span>Mais Vendidos</span>
+                <span>@lang('best_sellers')</span>
             </a>
         </div>
     </div>

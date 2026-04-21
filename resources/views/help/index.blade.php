@@ -1,6 +1,6 @@
 @extends('_layouts.help')
 
-@section('title', 'Central de Ajuda')
+@section('title', @lang('help_center'))
 
 @section('content')
   <x-help.header />

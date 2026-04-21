@@ -1,32 +1,32 @@
 @extends('_layouts.app')
 
-@section('title', 'Pesquisa: UseTatiModas')
+@section('title', __('search_products') . ': UseTatiModas')
 
 @section('content')
   <main class="h-full">
     <div class="flex mx-24 justify-center gap-8 mt-12">
       <aside class="w-44 shrink-0">
-        <h1 class="text-lg font-bold text-gray-800 mb-6">HOME / CALÇAS</h1>
+        <h1 class="text-lg font-bold text-gray-800 mb-6">@lang('search_placeholder')</h1>
 
         <div class="space-y-6">
           <div>
-            <h2 class="text-md font-bold text-gray-800 mb-4">Filtros</h2>
+            <h2 class="text-md font-bold text-gray-800 mb-4">@lang('filters')</h2>
             <div class="space-y-2">
               <label class="flex items-center text-sm text-gray-600">
                 <input type="checkbox" class="mr-2 text-pink-600 focus:ring-pink-500 border-gray-300 rounded">
-                Em promoção
+                @lang('on_sale')
               </label>
               <select class="w-full text-sm p-2 border border-gray-200 rounded-sm text-gray-600 focus:border-pink-500 outline-none">
-                <option value="">Categoria</option>
+                <option value="">@lang('category')</option>
               </select>
             </div>
           </div>
 
           <div class="border-t border-gray-200 pt-6">
-            <h2 class="text-md font-bold text-gray-800 mb-4">Por categoria</h2>
+            <h2 class="text-md font-bold text-gray-800 mb-4">@lang('by_category')</h2>
             <div class="space-y-2">
-              <a href="#" class="block text-sm text-gray-600 hover:text-pink-600">Calça para Mulheres</a>
-              <a href="#" class="block text-sm text-gray-600 hover:text-pink-600">Calça Social</a>
+              <a href="#" class="block text-sm text-gray-600 hover:text-pink-600">@lang('category_item1')</a>
+              <a href="#" class="block text-sm text-gray-600 hover:text-pink-600">@lang('category_item2')</a>
             </div>
           </div>
         </div>
@@ -34,12 +34,12 @@
 
       <main class="flex-1">
         <div class="flex justify-between items-center mb-8 pb-4 border-b border-gray-200">
-          <span class="text-md text-gray-600">Resultado da pesquisa para <span class="font-bold text-pink-600">'Calças'</span></span>
+          <span class="text-md text-gray-600">@lang('search_result') <span class="font-bold text-pink-600">'Calças'</span></span>
           
           <div class="flex items-center gap-2">
-            <span class="text-sm text-gray-500">Classificar por:</span>
-            <button class="text-sm font-semibold text-gray-800 hover:text-pink-600">Relevância</button>
-            <button class="text-sm font-semibold text-gray-500 hover:text-pink-600">Mais recentes</button>
+            <span class="text-sm text-gray-500">@lang('sort_by'):</span>
+            <button class="text-sm font-semibold text-gray-800 hover:text-pink-600">@lang('relevance')</button>
+            <button class="text-sm font-semibold text-gray-500 hover:text-pink-600">@lang('newest')</button>
           </div>
         </div>
 
@@ -67,12 +67,12 @@
                     <div class="flex flex-col gap-2">
                         <a href="/product"
                             class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200">
-                            <span>Comprar</span>
+                            <span>@lang('buy')</span>
                             <x-heroicon-o-shopping-cart class="h-4 w-4" />
                         </a>
                         <button
                             class="group bg-white text-pink-600 flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
-                            <span>Carrinho</span>
+                            <span>@lang('cart')</span>
                             <x-heroicon-o-plus-circle class="h-4 w-4" />
                         </button>
                     </div>
@@ -83,7 +83,7 @@
 
         <div class="flex gap-2 mb-12 justify-center">
             <button class="group text-white bg-pink-600 flex items-center justify-center rounded-sm h-12 px-4 pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200" disabled>
-                <span>Anterior</span>
+                <span>@lang('previous')</span>
             </button>
             <button class="group bg-pink-300 text-white flex items-center justify-center rounded-sm h-12 px-4 pt-3 pb-3 gap-2 border-2 border-pink-300 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
                 <span>1</span>
@@ -101,7 +101,7 @@
                 <span>7</span>
             </button>
             <button class="group text-white bg-pink-600 flex items-center justify-center rounded-sm h-12 px-4 pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
-                <span>Próximo</span>
+                <span>@lang('next')</span>
             </button>
         </div>
       </main>

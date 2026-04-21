@@ -1,6 +1,6 @@
 @extends('_layouts.app')
 
-@section('title', 'Produto: UseTatiModas')
+@section('title', __('product_detail') . ': UseTatiModas')
 
 @section('content')
 <main class="mx-24 my-12">
@@ -21,7 +21,7 @@
             </div>
 
             <div class="flex flex-col gap-2 border-t border-pink-100 pt-3">
-                <label class="text-sm font-medium text-gray-700">Cor</label>
+                <label class="text-sm font-medium text-gray-700">@lang('color')</label>
                 <div class="flex gap-2">
                     <button class="w-7 h-7 rounded-full bg-black border-2 border-transparent hover:border-pink-500 transition-all" title="Preto"></button>
                     <button class="w-7 h-7 rounded-full bg-white border-2 border-gray-300 hover:border-pink-500 transition-all" title="Branco"></button>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="flex flex-col gap-2">
-                <label class="text-sm font-medium text-gray-700">Tamanho</label>
+                <label class="text-sm font-medium text-gray-700">@lang('size')</label>
                 <div class="flex gap-2">
                     @foreach (['P', 'M', 'G', 'GG'] as $size)
                     <button class="w-10 h-10 rounded-md border-2 border-pink-300 text-sm font-medium text-gray-700 hover:border-pink-600 hover:text-pink-600 transition-all duration-200">
@@ -49,12 +49,12 @@
                 </h1>
 
                 <div class="flex gap-6 text-sm">
-                    <span class="text-blue-600 border border-blue-600 px-2 py-0.5 rounded">
-                        SKU: 0000123
-                    </span>
-                    <span class="text-gray-500">
-                        PUBLICAÇÃO: 11/03/2026
-                    </span>
+<span class="text-blue-600 border border-blue-600 px-2 py-0.5 rounded">
+                         @lang('sku'): 0000123
+                     </span>
+                     <span class="text-gray-500">
+                         @lang('published'): 11/03/2026
+                     </span>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
                     <= 5; $star++)
                         <x-heroicon-s-star class="w-5 h-5 {{ $star <= 4 ? 'text-yellow-400' : 'text-gray-300' }}" />
                     @endfor
-                    <span class="text-sm text-gray-500 ml-1">(4.0) · 128 avaliações</span>
+                    <span class="text-sm text-gray-500 ml-1">(4.0) · 128 @lang('reviews')</span>
                 </div>
 
                 <div class="flex flex-col gap-1">
@@ -96,7 +96,7 @@
 
                 <div class="grid grid-cols-2 gap-3 text-sm text-gray-600 border border-pink-100 rounded-lg p-4 bg-pink-50/40">
                     <div class="flex flex-col gap-1">
-                        <span class="text-xs text-gray-400 uppercase">Categoria</span>
+                        <span class="text-xs text-gray-400 uppercase">@lang('category')</span>
                         <span class="font-medium">Moda Feminina</span>
                     </div>
                     <div class="flex flex-col gap-1">
@@ -104,11 +104,11 @@
                         <span class="font-medium">100% Algodão</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="text-xs text-gray-400 uppercase">Frete</span>
-                        <span class="font-medium text-green-600">Grátis</span>
+                        <span class="text-xs text-gray-400 uppercase">@lang('freight')</span>
+                        <span class="font-medium text-green-600">@lang('free')</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="text-xs text-gray-400 uppercase">Estoque</span>
+                        <span class="text-xs text-gray-400 uppercase">@lang('stock')</span>
                         <span class="font-medium">12 unidades</span>
                     </div>
                 </div>
@@ -116,12 +116,12 @@
                 <div class="flex gap-4">
                     <a href="/product"
                         class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200">
-                        <span>Comprar</span>
+<span>@lang('buy')</span>
                         <x-heroicon-o-plus-circle class="h-4 w-4" />
                     </a>
                     <button
                         class="group bg-white text-pink-600 flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
-                        <span>Adicionar ao Carrinho</span>
+                        <span>@lang('add_to_cart')</span>
                         <x-heroicon-o-shopping-cart class="h-4 w-4" />
                     </button>
                 </div>
@@ -130,8 +130,8 @@
 
     <section class="mt-16 flex flex-col gap-8 mx-16">
         <div class="flex flex-col gap-2 justify-center shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)]">
-            <h2 class="text-center text-4xl text-pink-600 font-bold">
-                PRODUTOS RELACIONADOS
+<h2 class="text-center text-4xl text-pink-600 font-bold">
+                @lang('related_products')
             </h2>
             <span class="w-full h-0.5 bg-pink-600"></span>
         </div>
@@ -143,7 +143,7 @@
                 class="flex flex-col bg-white rounded-lg shadow-md shadow-pink-500/30 p-4 items-center gap-3 hover:shadow-lg transition-all duration-200">
 
                 <div class="w-32 h-40 bg-pink-100 border border-pink-300 rounded-md flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">Produto</span>
+                    <span class="text-gray-400 text-sm">@lang('product')</span>
                 </div>
 
                 <div class="flex flex-col">

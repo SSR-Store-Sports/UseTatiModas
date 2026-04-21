@@ -1,6 +1,6 @@
 @extends('_layouts.help')
 
-@section('title', 'COMO ACESSAR MINHA CONTA')
+@section('title', __('how_access_account_title') . ' | ' . config('app.name'))
 
 @section('content')
   <x-help.header />

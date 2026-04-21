@@ -1,6 +1,6 @@
 @extends('_layouts.app')
 
-@section('title', 'Home: UseTatiModas')
+@section('title', __('dashboard') . ': UseTatiModas')
 
 @section('content')
     <main class="h-full">
@@ -20,8 +20,7 @@
             <div class="flex flex-col gap-2 justify-center shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)]">
                 <label class="flex px-16 items-center gap-2">
                     <x-heroicon-o-fire class="h-8 w-8 text-pink-600 drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]" />
-                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">PRODUTOS EM DESTAQUE
-                    </h1>
+                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('featured_products')</h1>
                 </label>
                 <span class="w-full h-0.5 bg-pink-600"></span>
             </div>
@@ -52,12 +51,12 @@
                                 <div class="flex flex-col gap-2">
                                     <a href="/product"
                                         class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200">
-                                        <span>Comprar</span>
+                                        <span>@lang('buy')</span>
                                         <x-heroicon-o-shopping-cart class="h-4 w-4" />
                                     </a>
                                     <button
                                         class="group bg-white text-pink-600 flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
-                                        <span>Carrinho</span>
+                                        <span>@lang('cart')</span>
                                         <x-heroicon-o-plus-circle class="h-4 w-4" />
                                     </button>
                                 </div>
@@ -78,7 +77,7 @@
                 <label class="flex px-16 items-center gap-2">
                     <x-heroicon-o-building-storefront
                         class="h-8 w-8 text-pink-600 drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]" />
-                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">PARCEIROS</h1>
+                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('partners')</h1>
                 </label>
                 <span class="w-full h-0.5 bg-pink-600"></span>
             </div>
@@ -101,7 +100,7 @@
             <div class="flex flex-col gap-2 justify-center shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)]">
                 <label class="flex px-16 items-center gap-2">
                     <x-heroicon-o-heart class="h-8 w-8 text-pink-600 drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]" />
-                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">PARA VOCÊ</h1>
+                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('for_you')</h1>
                 </label>
                 <span class="w-full h-0.5 bg-pink-600"></span>
             </div>
@@ -113,7 +112,7 @@
                             <div class="flex flex-col gap-1">
                                 <h3
                                     class="text-pink-500 text-xl font-semibold tracking-wide drop-shadow-[0_2px_4px_rgba(236,72,153,0.4)]">
-                                    PRODUTOS ESSENCIAIS
+                                    @lang('essential_products')
                                 </h3>
                                 <div class="flex flex-row gap-2 items-center">
                                     <span class="w-full h-px bg-pink-300"></span>
@@ -123,7 +122,7 @@
                             </div>
                             <a class="group bg-pink-500 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-white hover:border-pink-600 hover:text-pink-600 cursor-pointer outline-none transition-all duration-200 text-sm"
                                 href="/search">
-                                <span>Conferir</span>
+                                <span>@lang('check_out')</span>
                                 <x-heroicon-o-arrow-right class="h-3.5 w-3.5" />
                             </a>
                         </div>
@@ -145,7 +144,7 @@
             <div class="flex flex-col gap-2 justify-center shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)]">
                 <label class="flex px-16 items-center gap-2">
                     <x-heroicon-o-squares-2x2 class="h-8 w-8 text-pink-600 drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]" />
-                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">PRODUTOS EM GERAL</h1>
+                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('general_products')</h1>
                 </label>
                 <span class="w-full h-0.5 bg-pink-600"></span>
             </div>
@@ -178,12 +177,12 @@
                                 <div class="flex flex-col gap-2">
                                     <a href="/product"
                                         class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200">
-                                        <span>Comprar</span>
+                                        <span>@lang('buy')</span>
                                         <x-heroicon-o-shopping-cart class="h-4 w-4" />
                                     </a>
                                     <button
                                         class="group bg-white text-pink-600 flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
-                                        <span>Carrinho</span>
+                                        <span>@lang('cart')</span>
                                         <x-heroicon-o-plus-circle class="h-4 w-4" />
                                     </button>
                                 </div>
@@ -196,7 +195,7 @@
                     <button
                         class="group text-white bg-pink-600 flex items-center justify-center rounded-sm h-12 px-4 pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200"
                         disabled>
-                        <span>Anterior</span>
+                        <span>@lang('previous')</span>
                     </button>
                     <button
                         class="group bg-pink-300 text-white flex items-center justify-center rounded-sm h-12 px-4 pt-3 pb-3 gap-2 border-2 border-pink-300 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
@@ -220,7 +219,7 @@
                     </button>
                     <button
                         class="group text-white bg-pink-600 flex items-center justify-center rounded-sm h-12 px-4 pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
-                        <span>Próximo</span>
+                        <span>@lang('next')</span>
                     </button>
                 </div>
             </div>
@@ -230,7 +229,7 @@
             <div class="flex flex-col gap-2 justify-center shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)]">
                 <label class="flex px-16 items-center gap-2">
                     <x-heroicon-o-sparkles class="h-8 w-8 text-pink-600 drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]" />
-                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">ACABARAM DE CHEGAR</h1>
+                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('new_arrivals')</h1>
                 </label>
                 <span class="w-full h-0.5 bg-pink-600"></span>
             </div>
@@ -263,12 +262,12 @@
                                 <div class="flex flex-col gap-2">
                                     <a href="/product"
                                         class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200">
-                                        <span>Comprar</span>
+                                        <span>@lang('buy')</span>
                                         <x-heroicon-o-shopping-cart class="h-4 w-4" />
                                     </a>
                                     <button
                                         class="group bg-white text-pink-600 flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
-                                        <span>Carrinho</span>
+                                        <span>@lang('cart')</span>
                                         <x-heroicon-o-plus-circle class="h-4 w-4" />
                                     </button>
                                 </div>
@@ -289,7 +288,7 @@
                 <label class="flex px-16 items-center gap-2">
                     <x-heroicon-o-chat-bubble-left-right
                         class="h-8 w-8 text-pink-600 drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]" />
-                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">O QUE FALAM DA GENTE
+                    <h1 class="text-pink-600 text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('what_they_say')
                     </h1>
                 </label>
                 <span class="w-full h-0.5 bg-pink-600"></span>
@@ -306,8 +305,7 @@
                             @endfor
                         </div>
                         <p class="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                            Amei os produtos! A qualidade é incrível e o atendimento foi super rápido. Com certeza vou comprar
-                            novamente.
+                            @lang('love_products')
                         </p>
                         <div class="flex flex-row gap-2 items-center">
                             <span class="w-full h-px bg-pink-200"></span>
@@ -321,7 +319,7 @@
                             </div>
                             <div class="flex flex-col">
                                 <span class="text-sm font-semibold text-gray-800">Maria Silva</span>
-                                <span class="text-xs text-gray-400">Cliente verificada</span>
+                                <span class="text-xs text-gray-400">@lang('verified_customer')</span>
                             </div>
                         </div>
                     </div>

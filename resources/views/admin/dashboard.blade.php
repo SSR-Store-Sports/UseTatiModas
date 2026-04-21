@@ -1,25 +1,25 @@
 @extends('_layouts.app')
 
-@section('title', 'Dashboard: UseTatiModas')
+@section('title', __('dashboard') . ': UseTatiModas')
 
 @section('content')
   <main class="h-full">
     <div class="flex mx-24 justify-center">
       <aside>
-        <h1>Menu</h1>
+        <h1>@lang('menu')</h1>
 
         <div></div>
       </aside>
 
       <main>
-        <h2>Dashboard</h2>
+        <h2>@lang('dashboard')</h2>
 
         <div>
           <section>
-            <a href="">Home</a>
-            <a href="">Produtos</a>
-            <a href="">Categorias</a>
-            <a href="">Estoque</a>
+            <a href="">@lang('featured_products')</a>
+            <a href="">@lang('products_admin')</a>
+            <a href="">@lang('categories')</a>
+            <a href="">@lang('stock')</a>
           </section>
 
           <span></span>
@@ -28,62 +28,62 @@
             <div class="grid grid-cols-3">
               <div>
                 <p>
-                  <h3>Receita total (mês)</h3>
+                  <h3>@lang('total_revenue')</h3>
                   <img src="" alt="">
                 </p>
 
                 <div>
                   <span>R$ 1248,68</span>
-                  <span>+2% em relação ao mês passado</span>
+                  <span>@lang('revenue_change')</span>
                 </div>
               </div>
 
               <div>
                 <p>
-                  <h3>Pedidos (mês)</h3>
+                  <h3>@lang('orders_month')</h3>
                   <img src="" alt="">
                 </p>
 
                 <div>
                   <span>250</span>
-                  <span>+6% em relação ao mês passado</span>
+                  <span>@lang('orders_month_change')</span>
                 </div>
               </div>
 
               <div>
                 <p>
-                  <h3>Pedidos (dia)</h3>
+                  <h3>@lang('orders_day')</h3>
                   <img src="" alt="">
                 </p>
 
                 <div>
                   <span>12</span>
-                  <span>-4% em relação a ontem</span>
+                  <span>@lang('orders_day_change')</span>
                 </div>
               </div>
 
               <div>
                 <p>
-                  <h3>Cancelamentos (mês)</h3>
+                  <h3>@lang('cancellations_month')</h3>
                   <img src="" alt="">
                 </p>
 
                 <div>
                   <span>32</span>
-                  <span>+2% em relação ao mês passado</span>
+                  <span>@lang('cancellations_month_change')</span>
                 </div>
               </div>
             </div>
 
             <div class="grid grid-cols-2">
               <div>
-                <h3>Cancelamento (mês)</h3>
-                <p>Em breve</p>
+                <h3>@lang('cancellations')</h3>
+                <p>@lang('soon')</p>
               </div>
 
               <div>
-                <h3>Produtos populares</h3>
-                <p>Em breve</p>
+                <h3>@lang('popular_products')</h3>
+                <p>@lang('soon')</p>
               </div>
             </div>
           </section>

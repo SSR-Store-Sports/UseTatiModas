@@ -1,67 +1,64 @@
 <footer class="bg-gray-900 text-white pt-12 px-8 pb-4 mt-auto">
     <div class="max-w-300 mx-auto grid grid-cols-3 gap-8 md:grid-cols-3 md:text-center">
         <section class="flex flex-col gap-2">
-            <h2 class="text-pink-400 text-xl mb-4">Sobre nós</h2>
+            <h2 class="text-pink-400 text-xl mb-4">@lang('about_us')</h2>
             <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
-                Na UseTatiModas, unimos conforto, estilo e qualidade para quem
-                ama se sentir bem na academia e no dia a dia. Somos
-                especialistas em moda fitness, trazendo peças modernas que
-                valorizam cada movimento e cada conquista.
+                @lang('about_description')
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
-                <strong class="text-white">✓ Frete grátis</strong> para compras
-                acima de R$ 199
+                <strong class="text-white">@lang('free_shipping_benefit')</strong> @lang('for_purchases_above')
+                R$ 199
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
-                <strong class="text-white">✓ Parcelamento</strong> em até 12x
-                sem juros
+                <strong class="text-white">@lang('installment_benefit')</strong> @lang('in_installments')
+                12x @lang('interest_free')
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
-                <strong class="text-white">✓ Troca grátis</strong> em 30 dias
+                <strong class="text-white">@lang('exchange_benefit')</strong> @lang('in_days')
             </p>
         </section>
 
         <section class="flex flex-col gap-2">
-            <h2 class="text-pink-400 text-xl mb-4">Contato</h2>
+            <h2 class="text-pink-400 text-xl mb-4">@lang('contact')</h2>
             <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                 <i class="ph ph-phone text-pink-400 text-base min-w-4"></i>
-                Telefone: +55 11 97893-6260
+                @lang('phone'): +55 11 97893-6260
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                 <i class="ph ph-whatsapp-logo text-pink-400 text-base min-w-4"></i>
-                WhatsApp: +55 11 97893-6260
+                @lang('whatsapp'): +55 11 97893-6260
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                 <i class="ph ph-envelope text-pink-400 text-base min-w-4"></i>
-                Email: contato@tatifitwear.com.br
+                @lang('email'): contato@tatifitwear.com.br
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                 <i class="ph ph-clock text-pink-400 text-base min-w-4"></i>
-                Atendimento: Seg-Sex 8h às 18h
+                @lang('service_hours')
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                 <i class="ph ph-storefront text-pink-400 text-base min-w-4"></i>
-                Loja física: R. José Bochiglieri, 186 - Vila São José
+                @lang('physical_store')
             </p>
             <div class="mt-4">
                 <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
-                    <strong class="text-white">Formas de pagamento:</strong>
+                    <strong class="text-white">@lang('payment_methods'):</strong>
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                     <i class="ph ph-credit-card text-pink-400 text-base min-w-4"></i>
-                    Cartões de crédito
+                    @lang('credit_cards')
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                     <i class="ph ph-bank text-pink-400 text-base min-w-4"></i>
-                    PIX e boleto
+                    @lang('pix_boleto')
                 </p>
             </div>
         </section>
 
         <section class="flex flex-col gap-2">
-            <h2 class="text-pink-400 text-xl mb-4">Siga-nos</h2>
+            <h2 class="text-pink-400 text-xl mb-4">@lang('follow_us')</h2>
             <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
-                Acompanhe nossas novidades e promoções!
+                @lang('follow_description')
             </p>
             <div class="flex gap-4 my-4 md:justify-center">
                 <a href="#" aria-label="Facebook"
@@ -86,26 +83,23 @@
 
             <div class="mt-4">
                 <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
-                    <strong class="text-white">Links úteis:</strong>
+                    <strong class="text-white">@lang('useful_links'):</strong>
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                     <a href="/guia-tamanhos"
-                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">Guia de
-                        tamanhos</a>
+                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">@lang('size_guide')</a>
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                     <a href="/cuidar-pecas"
-                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">Como
-                        cuidar das peças</a>
+                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">@lang('care_instructions')</a>
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                     <a href="/politica-troca"
-                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">Política
-                        de trocas</a>
+                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">@lang('exchange_policy')</a>
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-center gap-2 md:justify-center">
                     <a href="/privacidade"
-                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">Privacidade</a>
+                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">@lang('privacy')</a>
                 </p>
             </div>
         </section>
@@ -113,7 +107,7 @@
 
     <div class="border-t border-gray-300 mt-8 pt-4 text-center">
         <p class="text-gray-300 text-xs">
-            CNPJ: xx.xxx.678/0001-90 - Todos os direitos reservados.
+            @lang('rights_reserved')
         </p>
     </div>
 </footer>

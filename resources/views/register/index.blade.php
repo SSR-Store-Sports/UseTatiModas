@@ -1,6 +1,6 @@
 @extends('_layouts.auth')
 
-@section('title', 'Register')
+@section('title', __('register_title'))
 
 @section('content')
   <img class="h-full w-full" src="{{ asset('assets/model_login.png') }}"
@@ -9,7 +9,7 @@
   <main class="flex flex-col w-full items-center justify-center overflow-y-auto border-l-2 border-l-pink-500">
     <div class="flex flex-col gap-4 lg:gap-8 w-118 items-center">
       <div class="flex flex-col md:gap-2 lg:gap-4 text-center items-center justify-center">
-        <h1 class="text-black md:text-2xl lg:text-4xl font-light">Efetuar Registro</h1>
+        <h1 class="text-black md:text-2xl lg:text-4xl font-light">@lang('register_title')</h1>
         <span class="bg-gray-300 h-0.5 w-32"></span>
       </div>
 
@@ -18,14 +18,14 @@
 
         <div class="flex flex-col gap-4">
           <div class="flex flex-col gap-2 flex-1">
-            <span class="text-sm lg:text-lg">Nome Completo</span>
+            <span class="text-sm lg:text-lg">@lang('full_name')</span>
             <input
               class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
               type="name" name="name" id="name" placeholder="Henrique Maximo Lima da Silva" />
           </div>
 
           <div class="flex flex-col gap-2 flex-1">
-            <span class="text-sm lg:text-lg">E-mail</span>
+            <span class="text-sm lg:text-lg">@lang('email')</span>
             <input
               class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
               type="email" name="email" id="email" placeholder="exemplo@email.com" />
@@ -33,14 +33,14 @@
 
           <div class="grid grid-cols-2 gap-4">
             <div class="flex flex-col gap-2 flex-1">
-              <span class="text-sm lg:text-lg">Telefone</span>
+              <span class="text-sm lg:text-lg">@lang('phone')</span>
               <input
                 class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
                 type="phone" name="phone" id="phone" placeholder="11 9343-5343" />
             </div>
 
             <div class="flex flex-col gap-2 flex-1">
-              <span class="text-sm lg:text-lg">CPF</span>
+              <span class="text-sm lg:text-lg">@lang('cpf')</span>
               <input
                 class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
                 type="number" name="number" id="number" placeholder="137.203.132-82" />
@@ -49,20 +49,20 @@
 
           <div>
             <div class="flex flex-col gap-2 flex-1">
-              <span class="text-sm lg:text-lg">Senha</span>
+              <span class="text-sm lg:text-lg">@lang('password')</span>
 
               <label for="password"
                 class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
-                <input class="w-full outline-none" type="password" name="password" id="password" placeholder="Senha" />
+                <input class="w-full outline-none" type="password" name="password" id="password" placeholder="@lang('password')" />
                 <img class="h-4 w-4" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
               </label>
             </div>
 
             <div class="flex flex-col gap-2 flex-1">
-              <span class="text-sm lg:text-lg">Confirmar Senha</span>
+              <span class="text-sm lg:text-lg">@lang('confirm_password')</span>
               <label for="password"
                 class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
-                <input class="w-full outline-none" type="password" name="password" id="password" placeholder="Senha" />
+                <input class="w-full outline-none" type="password" name="password" id="password" placeholder="@lang('password')" />
                 <img class="h-4 w-4" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
               </label>
             </div>
@@ -71,9 +71,7 @@
 
         <button
           class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200 ">
-          <span>Entrar</span>
-          <!-- <img class="h-4 w-4   group-hover:text-pink-600" src="{{ asset('assets/sign_in.png') }}"
-              alt="Icon representando uma porta realizando uma analogia de entrada ou acessando a aplicação" /> -->
+          <span>@lang('enter')</span>
           <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
             className="size-6">
             <path fillRule="evenodd"
@@ -87,9 +85,9 @@
       <span class="bg-gray-300 h-0.5 w-82"></span>
 
       <section class="flex flex-col gap-4 lg:gap-8 items-center justify-center">
-        <p>Já tem conta?
+        <p>@lang('already_have_account_short')
           <a href="/login" class="text-blue-600 hover:underline">
-            Login
+            @lang('login')
           </a>
         </p>
 
@@ -102,7 +100,7 @@
                 clip-rule="evenodd" />
             </svg>
 
-            <span class="text-pink-400 text-lg group-hover:text-pink-600">Ajuda</span>
+            <span class="text-pink-400 text-lg group-hover:text-pink-600">@lang('help')</span>
           </div>
         </a>
       </section>
