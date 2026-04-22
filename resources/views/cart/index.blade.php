@@ -21,7 +21,7 @@
           <img src="" alt="Calça Feminina" class="w-28 h-28 object-cover rounded-lg bg-pink-50 border border-pink-200">
 
           <div class="flex flex-col gap-2 flex-1">
-            <p class="font-medium text-gray-800">Calça Feminina</p>
+            <p class="font-medium text-gray-800">@lang('title_cart_product')</p>
             <span class="text-xs text-green-600 font-medium">@lang('free_shipping_short')</span>
 
             <div class="flex items-center gap-2">

@@ -31,6 +31,8 @@
     "general_products": "GENERAL PRODUCTS",
     "check_out": "Check out",
     "buy": "Buy",
+    "title_product": "NC clothing female...",
+    "description_product": "Exclusive garment with...",
     "cart": "Cart",
     "previous": "Previous",
     "next": "Next",
@@ -174,6 +176,7 @@
     "days_exchange": "DAYS TO EXCHANGE",
 
     "free": "Free",
+    "title_cart_product": "Women's Pants",
     "free_shipping_short": "Free Shipping",
     "or": "or",
 

@@ -43,8 +43,8 @@
                             </div>
                             <div class="flex flex-col gap-4 justify-center px-4 py-4">
                                 <div class="flex flex-col">
-                                    <label class="text-black text-left px-2 text-lg font-bold">NC roupa feminina...</label>
-                                    <label class="text-gray-600 text-left px-2 text-sm">Peça de roupa exclusiva com...</label>
+                                    <label class="text-black text-left px-2 text-lg font-bold">@lang('title_product')</label>
+                                    <label class="text-gray-600 text-left px-2 text-sm">@lang('description_product')</label>
                                     <label class="text-gray-600 text-left text-sm px-2 line-through">R$ 3.500</label>
                                     <label class="text-black text-left text-2xl px-2">R$ 3.000</label>
                                 </div>
@@ -167,10 +167,8 @@
                             </div>
                             <div class="flex flex-col gap-4 justify-center px-4 py-4">
                                 <div class="flex flex-col">
-                                    <label class="text-black text-left px-2 text-lg font-bold line-clamp-1">NC roupa feminina
-                                        top de linha ultra fina</label>
-                                    <label class="text-gray-600 text-left px-2 text-sm line-clamp-2">Peça de roupa exclusiva com
-                                        duplo preenchimento e reforço em</label>
+                                    <label class="text-black text-left px-2 text-lg font-bold line-clamp-1">@lang('title_product')</label>
+                                    <label class="text-gray-600 text-left px-2 text-sm line-clamp-2">@lang('description_product')</label>
                                     <label class="text-gray-600 text-left text-sm px-2 line-through truncate">R$ 3.500</label>
                                     <label class="text-black text-left text-2xl px-2">R$ 3.000</label>
                                 </div>
@@ -252,10 +250,8 @@
                             </div>
                             <div class="flex flex-col gap-4 justify-center px-4 py-4">
                                 <div class="flex flex-col">
-                                    <label class="text-black text-left px-2 text-lg font-bold line-clamp-1">NC roupa feminina
-                                        top de linha ultra fina</label>
-                                    <label class="text-gray-600 text-left px-2 text-sm line-clamp-2">Peça de roupa exclusiva com
-                                        duplo preenchimento e reforço em</label>
+                                    <label class="text-black text-left px-2 text-lg font-bold line-clamp-1">@lang('title_product')</label>
+                                    <label class="text-gray-600 text-left px-2 text-sm line-clamp-2">@lang('description_product')</label>
                                     <label class="text-gray-600 text-left text-sm px-2 line-through truncate">R$ 3.500</label>
                                     <label class="text-black text-left text-2xl px-2">R$ 3.000</label>
                                 </div>

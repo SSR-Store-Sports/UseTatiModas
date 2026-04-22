@@ -31,6 +31,8 @@
     "general_products": "PRODUTOS EM GERAL",
     "check_out": "Conferir",
     "buy": "Comprar",
+    "title_product": "NC roupa feminina...",
+    "description_product": "Peça de roupa exclusiva com...",
     "cart": "Carrinho",
     "previous": "Anterior",
     "next": "Próximo",
@@ -174,6 +176,7 @@
     "days_exchange": "DIAS PARA TROCA",
 
     "free": "Grátis",
+    "title_cart_product": "Calça Feminina",
     "free_shipping_short": "Frete Grátis",
     "or": "ou",
 
