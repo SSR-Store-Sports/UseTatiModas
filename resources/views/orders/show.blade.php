@@ -27,7 +27,7 @@
       <div class="space-y-4 mb-10">
         @for($i = 0; $i < 3; $i++)
           <div class="flex items-center gap-6 border-b border-gray-100 pb-4">
-          <div class="w-20 h-20 bg-gray-100 border border-gray-200"></div>
+          <img src="{{ asset('assets/model_card.png') }}" class="w-20 h-20 bg-gray-100 border border-gray-200"></img>
           <div class="flex-1">
             <p class="font-semibold text-gray-800">Conjunto Delicado</p>
             <p class="text-sm text-gray-500">@lang('quantity'): 2 | R$ 249,50 @lang('each')</p>

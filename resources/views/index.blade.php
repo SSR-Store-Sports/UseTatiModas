@@ -5,7 +5,7 @@
 @section('content')
     <main class="h-full">
         <div class="relative overflow-hidden rounded-sm border-b-4 border-t-8 border-pink-600">
-            <img src="{{ asset('assets/banner.png') }}" class="h-142 w-full object-cover" alt="Logo">
+            <img  class="h-142 w-full object-cover" alt="Logo">
 
             <div class="absolute inset-0 shadow-[inset_0_0_50px_rgba(219,39,119,0.5)] pointer-events-none"></div>
 

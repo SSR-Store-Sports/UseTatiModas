@@ -29,7 +29,7 @@
             <div class="flex flex-col gap-4">
               @for($j = 0; $j < 2; $j++)
                 <div class="flex items-center gap-4 border-b border-gray-100 pb-4">
-                <div class="w-16 h-16 bg-gray-100 border border-gray-200"></div>
+                <img src="{{ asset('assets/model_card.png') }}" class="w-16 h-16 bg-gray-100 border border-gray-200"></img>
                 <div>
                   <p class="font-semibold text-gray-800">Conjunto Delicado</p>
                   <p class="text-sm text-gray-500">@lang('quantity'): 2 | R$ 249,50</p>
