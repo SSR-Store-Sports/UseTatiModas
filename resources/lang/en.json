@@ -222,5 +222,10 @@
     "each": "each",
     "product": "Product",
     "back": "Back",
-    "to_orders": "to orders"
+    "to_orders": "to orders",
+    "product_name": "Black Female Shirt",
+    "product_description": "The Basic Black Female Shirt is the definition of less is more. Made from 100% high-quality cotton fabric, it offers soft touch and excellent breathability, ensuring comfort all day long.",
+    "material": "Material",
+    "material_value": "100% Cotton",
+    "units_available": "12 units"
 }

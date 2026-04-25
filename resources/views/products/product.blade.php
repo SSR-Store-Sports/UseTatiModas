@@ -23,9 +23,9 @@
             <div class="flex flex-col gap-2 border-t border-pink-100 pt-3">
                 <label class="text-sm font-medium text-gray-700">@lang('color')</label>
                 <div class="flex gap-2">
-                    <button class="w-7 h-7 rounded-full bg-black border-2 border-transparent hover:border-pink-500 transition-all" title="Preto"></button>
-                    <button class="w-7 h-7 rounded-full bg-white border-2 border-gray-300 hover:border-pink-500 transition-all" title="Branco"></button>
-                    <button class="w-7 h-7 rounded-full bg-pink-400 border-2 border-transparent hover:border-pink-600 transition-all" title="Rosa"></button>
+                    <button class="w-7 h-7 rounded-full bg-black border-2 border-transparent hover:border-pink-500 transition-all" title="@lang('black')"></button>
+                    <button class="w-7 h-7 rounded-full bg-white border-2 border-gray-300 hover:border-pink-500 transition-all" title="@lang('white')"></button>
+                    <button class="w-7 h-7 rounded-full bg-pink-400 border-2 border-transparent hover:border-pink-600 transition-all" title="@lang('pink')"></button>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
         <div class="flex flex-col gap-6 flex-1 mx-4">
             <div class="flex flex-col gap-2">
                 <h1 class="text-3xl font-bold text-black">
-                    Camisa Feminina Preta
+                    @lang('product_name')
                 </h1>
 
                 <div class="flex gap-6 text-sm">
@@ -59,11 +59,7 @@
             </div>
 
             <p class="text-gray-600 leading-relaxed">
-                A Camiseta Básica Preta Feminina é a definição de "menos é mais".
-                Confeccionada em malha 100% algodão de alta qualidade, ela oferece toque macio e excelente
-                respirabilidade, garantindo conforto o dia todo. Com modelagem clássica que valoriza a silhueta sem apertar,
-                esta peça possui gola em ribana resistente e costura reforçada, perfeita para transitar entre o trabalho e o lazer.
-                O básico indispensável que eleva qualquer look.
+                @lang('product_description')
             </p>
 
             <div class="flex flex-col gap-2 border-t border-pink-100 pt-4">
@@ -78,7 +74,7 @@
                 <div class="flex flex-col gap-1">
                     <span class="text-sm text-gray-400 line-through">R$ 120,00</span>
                     <span class="text-3xl font-bold text-pink-600">R$ 62,00</span>
-                    <span class="text-xs text-gray-500">ou 4x de R$ 15,50 sem juros</span>
+                    <span class="text-xs text-gray-500">@lang('installments')</span>
                     <div class="flex items-center border border-pink-200 rounded-md overflow-hidden w-fit mt-1">
                         <button class="px-2 py-1 text-pink-600 hover:bg-pink-50 transition-all">−</button>
 
@@ -100,8 +96,8 @@
                         <span class="font-medium">Moda Feminina</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <span class="text-xs text-gray-400 uppercase">Material</span>
-                        <span class="font-medium">100% Algodão</span>
+                        <span class="text-xs text-gray-400 uppercase">@lang('material')</span>
+                        <span class="font-medium">@lang('material_value')</span>
                     </div>
                     <div class="flex flex-col gap-1">
                         <span class="text-xs text-gray-400 uppercase">@lang('freight')</span>
@@ -109,7 +105,7 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <span class="text-xs text-gray-400 uppercase">@lang('stock')</span>
-                        <span class="font-medium">12 unidades</span>
+                        <span class="font-medium">@lang('units_available')</span>
                     </div>
                 </div>
 
@@ -153,11 +149,11 @@
                     <label class="text-black text-left text-2xl px-2">R$ 3.000</label>
                 </div>
 
-                <button
-                    class="group bg-white text-pink-600 flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
-                    <span>Comprar</span>
-                    <x-heroicon-o-plus-circle class="h-4 w-4" />
-                </button>
+<button
+                        class="group bg-white text-pink-600 flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-2 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200">
+                        <span>@lang('buy')</span>
+                        <x-heroicon-o-plus-circle class="h-4 w-4" />
+                    </button>
 
         </div>
         @endfor

@@ -222,5 +222,11 @@
     "each": "cada",
     "product": "Produto",
     "back": "Voltar",
-    "to_orders": "para pedidos"
+    "to_orders": "para pedidos",
+    "product_name": "Camisa Feminina Preta",
+    "product_description": "A Camiseta Básica Preta Feminina é a definição de menos é mais. Confeccionada em malha 100% algodão de alta qualidade, ela oferece toque macio e excelente respirabilidade, garantindo conforto o dia todo.",
+    "material": "Material",
+    "material_value": "100% Algodão",
+    "units_available": "12 unidades",
+    "installments": "ou 4x de R$ 15,50 sem juros"
 }
