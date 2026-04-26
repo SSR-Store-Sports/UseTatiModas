@@ -6,6 +6,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+
 
 Route::get('/login', [UsersController::class, 'login']);
 Route::get('/register', [UsersController::class, 'register']);
@@ -25,3 +27,6 @@ Route::get('/cart', [CartController::class, 'index']);
 
 Route::get('/orders', [OrderController::class, 'index']);
 Route::get('/orders/details', [OrderController::class, 'details']);
+
+Route::get('/admin/orders', [AdminOrderController::class, 'index'])->name('admin.orders');
+Route::delete('/admin/orders/{id}', [AdminOrderController::class, 'destroy'])->name('admin.orders.destroy');
