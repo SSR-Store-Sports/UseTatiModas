@@ -3,13 +3,13 @@
 @section('title', __('register_title'))
 
 @section('content')
-  <img class="h-full w-full" src="{{ asset('assets/model_login.png') }}"
+  <img class="hidden md:block h-full w-full object-cover" src="{{ asset('assets/model_login.png') }}"
     alt="Imagem de uma mulher com o cabelo castanho em pé em uma loja, segurando uma bolsa em uma loja de roupas" />
 
-  <main class="flex flex-col w-full items-center justify-center overflow-y-auto border-l-2 border-l-pink-500">
-    <div class="flex flex-col gap-4 lg:gap-8 w-118 items-center">
-      <div class="flex flex-col md:gap-2 lg:gap-4 text-center items-center justify-center">
-        <h1 class="text-black md:text-2xl lg:text-4xl font-light">@lang('register_title')</h1>
+  <main class="flex flex-col w-full items-center overflow-y-auto border-l-0 md:border-l-2 border-l-pink-500 px-4 py-8">
+    <div class="flex flex-col gap-4 lg:gap-6 w-full max-w-md items-center">
+      <div class="flex flex-col gap-2 md:gap-4 text-center items-center justify-center">
+        <h1 class="text-black text-2xl md:text-3xl lg:text-4xl font-light">@lang('register_title')</h1>
         <span class="bg-gray-300 h-0.5 w-32"></span>
       </div>
 
@@ -18,52 +18,52 @@
 
         <div class="flex flex-col gap-4">
           <div class="flex flex-col gap-2 flex-1">
-            <span class="text-sm lg:text-lg">@lang('full_name')</span>
+            <span class="text-sm md:text-base lg:text-lg">@lang('full_name')</span>
             <input
               class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
               type="name" name="name" id="name" placeholder="Henrique Maximo Lima da Silva" />
           </div>
 
           <div class="flex flex-col gap-2 flex-1">
-            <span class="text-sm lg:text-lg">@lang('email')</span>
+            <span class="text-sm md:text-base lg:text-lg">@lang('email')</span>
             <input
               class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
               type="email" name="email" id="email" placeholder="exemplo@email.com" />
           </div>
 
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="flex flex-col gap-2 flex-1">
-              <span class="text-sm lg:text-lg">@lang('phone')</span>
+              <span class="text-sm md:text-base lg:text-lg">@lang('phone')</span>
               <input
                 class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
                 type="phone" name="phone" id="phone" placeholder="11 9343-5343" />
             </div>
 
             <div class="flex flex-col gap-2 flex-1">
-              <span class="text-sm lg:text-lg">@lang('cpf')</span>
+              <span class="text-sm md:text-base lg:text-lg">@lang('cpf')</span>
               <input
                 class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
                 type="number" name="number" id="number" placeholder="137.203.132-82" />
             </div>
           </div>
 
-          <div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="flex flex-col gap-2 flex-1">
-              <span class="text-sm lg:text-lg">@lang('password')</span>
+              <span class="text-sm md:text-base lg:text-lg">@lang('password')</span>
 
               <label for="password"
-                class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
-                <input class="w-full outline-none" type="password" name="password" id="password" placeholder="@lang('password')" />
-                <img class="h-4 w-4" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
+                class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus-within:border-pink-500 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
+                <input class="w-full outline-none bg-transparent" type="password" name="password" id="password" placeholder="@lang('password')" />
+                <img class="h-4 w-4 shrink-0" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
               </label>
             </div>
 
             <div class="flex flex-col gap-2 flex-1">
-              <span class="text-sm lg:text-lg">@lang('confirm_password')</span>
-              <label for="password"
-                class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
-                <input class="w-full outline-none" type="password" name="password" id="password" placeholder="@lang('password')" />
-                <img class="h-4 w-4" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
+              <span class="text-sm md:text-base lg:text-lg">@lang('confirm_password')</span>
+              <label for="password_confirmation"
+                class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus-within:border-pink-500 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
+                <input class="w-full outline-none bg-transparent" type="password" name="password_confirmation" id="password_confirmation" placeholder="@lang('password')" />
+                <img class="h-4 w-4 shrink-0" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
               </label>
             </div>
           </div>
@@ -82,11 +82,11 @@
         </button>
       </form>
 
-      <span class="bg-gray-300 h-0.5 w-82"></span>
+      <span class="bg-gray-300 h-0.5 w-full max-w-xs"></span>
 
-      <section class="flex flex-col gap-4 lg:gap-8 items-center justify-center">
-        <p>@lang('already_have_account_short')
-          <a href="/login" class="text-blue-600 hover:underline">
+      <section class="flex flex-col gap-4 lg:gap-6 items-center justify-center mb-8">
+        <p class="text-sm md:text-base">@lang('already_have_account_short')
+          <a href="/sign-in" class="text-blue-600 hover:underline">
             @lang('login')
           </a>
         </p>
@@ -100,7 +100,7 @@
                 clip-rule="evenodd" />
             </svg>
 
-            <span class="text-pink-400 text-lg group-hover:text-pink-600">@lang('help')</span>
+            <span class="text-pink-400 text-base md:text-lg group-hover:text-pink-600">@lang('help')</span>
           </div>
         </a>
       </section>

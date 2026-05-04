@@ -1,51 +1,69 @@
 @extends('_layouts.help')
 
-@section('title', @lang('help_center'))
+@section('title', __('help_center'))
 
 @section('content')
-  <x-help.header />
-
-  <main class="flex flex-col justify-center items-center gap-4">
-    <header class="flex flex-col gap-2 justify-center items-center text-center mb-8">
-      <h1 class="text-4xl">@lang('help_center')</h1>
-      <span class="h-0.5 w-52 mt-2 bg-gray-300"></span>
+  <main class="flex flex-col items-center gap-8 px-4 md:px-8 py-8 md:py-12 max-w-4xl mx-auto">
+    <header class="flex flex-col gap-3 items-center text-center">
+      <div class="p-3 bg-pink-100 rounded-full">
+        <x-heroicon-o-question-mark-circle class="h-10 w-10 text-pink-600" />
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800">Como podemos ajudar?</h2>
+      <p class="text-sm text-gray-600 max-w-md">Encontre respostas para as perguntas mais frequentes</p>
     </header>
 
-    <section class="flex flex-col gap-4">
-      <button class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 pl-12 pr-12 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200">
-        <x-heroicon-o-arrow-right class="h-4 w-4" />
-        <span>@lang('how_access_account')</span>
-      </button>
+    <section class="flex flex-col gap-3 w-full">
+      <h3 class="text-base md:text-lg font-semibold text-gray-700 px-2">Perguntas Frequentes</h3>
+      
+      <a href="/help-guide" class="group bg-white text-gray-800 flex items-center justify-between rounded-lg w-full py-3.5 px-4 gap-3 border border-gray-200 hover:border-pink-500 hover:shadow-md hover:shadow-pink-500/10 cursor-pointer outline-none transition-all duration-200">
+        <div class="flex items-center gap-3">
+          <div class="p-2 bg-pink-100 rounded-lg group-hover:bg-pink-500 transition-colors shrink-0">
+            <x-heroicon-o-user-circle class="h-5 w-5 text-pink-600 group-hover:text-white transition-colors" />
+          </div>
+          <span class="text-left text-sm md:text-base font-medium">@lang('how_access_account')</span>
+        </div>
+        <x-heroicon-o-chevron-right class="h-5 w-5 text-gray-400 group-hover:text-pink-600 transition-colors shrink-0" />
+      </a>
 
-      <button class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 pl-12 pr-12 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200">
-        <x-heroicon-o-arrow-right class="h-4 w-4" />
-        <span>@lang('how_register')</span>
-      </button>
+      <a href="/help-guide" class="group bg-white text-gray-800 flex items-center justify-between rounded-lg w-full py-3.5 px-4 gap-3 border border-gray-200 hover:border-pink-500 hover:shadow-md hover:shadow-pink-500/10 cursor-pointer outline-none transition-all duration-200">
+        <div class="flex items-center gap-3">
+          <div class="p-2 bg-pink-100 rounded-lg group-hover:bg-pink-500 transition-colors shrink-0">
+            <x-heroicon-o-pencil-square class="h-5 w-5 text-pink-600 group-hover:text-white transition-colors" />
+          </div>
+          <span class="text-left text-sm md:text-base font-medium">@lang('how_register')</span>
+        </div>
+        <x-heroicon-o-chevron-right class="h-5 w-5 text-gray-400 group-hover:text-pink-600 transition-colors shrink-0" />
+      </a>
 
-      <button class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 pl-12 pr-12 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200">
-        <x-heroicon-o-arrow-right class="h-4 w-4" />
-        <span>@lang('how_recover_account')</span>
-      </button>
+      <a href="/help-guide" class="group bg-white text-gray-800 flex items-center justify-between rounded-lg w-full py-3.5 px-4 gap-3 border border-gray-200 hover:border-pink-500 hover:shadow-md hover:shadow-pink-500/10 cursor-pointer outline-none transition-all duration-200">
+        <div class="flex items-center gap-3">
+          <div class="p-2 bg-pink-100 rounded-lg group-hover:bg-pink-500 transition-colors shrink-0">
+            <x-heroicon-o-lock-closed class="h-5 w-5 text-pink-600 group-hover:text-white transition-colors" />
+          </div>
+          <span class="text-left text-sm md:text-base font-medium">@lang('how_recover_account')</span>
+        </div>
+        <x-heroicon-o-chevron-right class="h-5 w-5 text-gray-400 group-hover:text-pink-600 transition-colors shrink-0" />
+      </a>
     </section>
 
-    <section class="flex flex-col flex-1 gap-2 mt-12">
-      <div class="flex gap-4 items-center mb-4 justify-center text-center">
-        <span class="h-0.5 w-24 bg-gray-300"></span>
-        <h2 class="text-2xl text-gray-400 uppercase">@lang('support')</h2>
-        <span class="h-0.5 w-24 bg-gray-300"></span>
-      </div>
+    <div class="flex items-center gap-3 w-full my-2">
+      <span class="h-px flex-1 bg-gray-300"></span>
+      <span class="text-xs text-gray-500 uppercase font-medium">Suporte</span>
+      <span class="h-px flex-1 bg-gray-300"></span>
+    </div>
 
-      <button class="group bg-orange-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-orange-600 hover:text-orange-600 cursor-pointer text-center outline-none transition-all duration-200">
-        <x-heroicon-o-document-text class="h-4 w-4" />
-        <span>@lang('terms_of_service')</span>
+    <section class="flex flex-col gap-3 w-full">
+      <button class="group bg-gradient-to-r from-orange-500 to-orange-600 text-white flex items-center justify-center rounded-lg w-full py-3.5 px-6 gap-2 border border-transparent hover:from-white hover:to-white hover:border-orange-600 hover:text-orange-600 hover:shadow-md cursor-pointer outline-none transition-all duration-200">
+        <x-heroicon-o-document-text class="h-5 w-5 shrink-0" />
+        <span class="text-sm md:text-base font-medium">@lang('terms_of_service')</span>
       </button>
 
-      <span class="h-0.5 w-full mt-4 mb-4 bg-gray-300"></span>
-
-      <p class="flex text-lg text-center gap-2 items-center justify-center">
-        @lang('already_have_account')
-        <a href="" class="text-blue-500 hover:decoration-blue-500 hover:underline">@lang('login')</a>
-      </p>
+      <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+        <p class="flex flex-col sm:flex-row text-sm text-gray-700 gap-1 items-center justify-center">
+          <span>@lang('already_have_account')</span>
+          <a href="/sign-in" class="text-pink-600 font-semibold hover:text-pink-700 hover:underline transition-colors">@lang('login')</a>
+        </p>
+      </div>
     </section>
   </main>
 @endsection

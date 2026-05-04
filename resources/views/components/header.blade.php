@@ -1,53 +1,94 @@
-<header class="grid grid-cols-[auto_1fr_auto] gap-8 items-center h-28 px-18 shadow-[0_0_10px_10px_rgba(236,72,153,0.4)]">
-    <a href="/">
-        <img src="{{asset('assets/logo.png')}}" alt="" class="h-24 w-24">
-    </a>
-
-    <div class="flex flex-col gap-2 flex-1 items-center justify-center">
-        <form action="/search" method="GET">
-            <input
-            class="w-64 h-12 px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-            type="text" name="product" id="product" placeholder="@lang('search_placeholder')"  />
-        </form>
-
-        <div class="flex gap-4 w-full items-center">
-            <select class="h-8 px-4 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] cursor-pointer">
-                <option value="">@lang('category')</option>
-                <option value="">Calças</option>
-                <option value="">Camisas</option>
-                <option value="">Croppeds</option>
-                <option value="">Shorts</option>
-                <option value="">Tênis</option>
-                <option value="">Saia</option>
-            </select>
-
-            <a
-                class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-38 h-4 pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200"
-                href="/search">
-                <span>@lang('best_sellers')</span>
+<header class="bg-white shadow-lg shadow-pink-500/20 sticky top-0 z-50">
+    <div class="px-4 md:px-8 lg:px-16 py-3 md:py-4">
+        <div class="hidden md:grid md:grid-cols-[auto_1fr_auto] gap-6 items-center">
+            <a href="/" class="shrink-0">
+                <img src="{{asset('assets/logo.png')}}" alt="UseTatiModas" class="h-16 w-16 lg:h-20 lg:w-20 hover:scale-105 transition-transform duration-200">
             </a>
+
+            <div class="flex flex-col gap-3 max-w-3xl mx-auto w-full">
+                <form action="/search" method="GET" class="relative">
+                    <input
+                        class="w-full h-11 pl-4 pr-12 rounded-lg border-2 border-gray-200 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200"
+                        type="text" name="product" id="product" placeholder="@lang('search_placeholder')" />
+                    <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-pink-600 hover:text-pink-700 transition-colors">
+                        <x-heroicon-o-magnifying-glass class="w-5 h-5" />
+                    </button>
+                </form>
+
+                <div class="flex gap-2 items-center">
+                    <select class="h-9 px-3 rounded-md border border-gray-200 bg-gray-50 text-gray-700 text-xs outline-none transition-all duration-200 hover:border-pink-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 cursor-pointer">
+                        <option value="">@lang('category')</option>
+                        <option value="">Calças</option>
+                        <option value="">Camisas</option>
+                        <option value="">Croppeds</option>
+                        <option value="">Shorts</option>
+                        <option value="">Tênis</option>
+                        <option value="">Saia</option>
+                    </select>
+
+                    <a href="/search" class="px-4 py-1.5 bg-pink-50 text-pink-600 text-xs font-medium rounded-md border border-pink-200 hover:bg-pink-600 hover:text-white transition-all duration-200">
+                        @lang('best_sellers')
+                    </a>
+                </div>
+            </div>
+
+            <nav class="flex gap-2 shrink-0">
+                <a href="/cart" class="relative p-2.5 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-all duration-200 group" title="Carrinho">
+                    <x-heroicon-o-shopping-cart class="w-5 h-5" />
+                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+                </a>
+                <a href="" class="p-2.5 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-all duration-200" title="Notificações">
+                    <x-heroicon-o-bell class="w-5 h-5" />
+                </a>
+                <a href="/profile" class="p-2.5 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-all duration-200" title="Configurações">
+                    <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
+                </a>
+                <a href="/sign-in" class="p-2.5 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-all duration-200" title="Entrar">
+                    <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
+                </a>
+            </nav>
+        </div>
+
+        <div class="md:hidden">
+            <div class="flex items-center justify-between mb-3">
+                <a href="/" class="shrink-0">
+                    <img src="{{asset('assets/logo.png')}}" alt="UseTatiModas" class="h-14 w-14">
+                </a>
+
+                <nav class="flex gap-2">
+                    <a href="/cart" class="relative p-2 bg-pink-600 text-white rounded-lg" title="Carrinho">
+                        <x-heroicon-o-shopping-cart class="w-5 h-5" />
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+                    </a>
+                    <a href="/sign-in" class="p-2 bg-pink-600 text-white rounded-lg" title="Entrar">
+                        <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
+                    </a>
+                </nav>
+            </div>
+
+            <form action="/search" method="GET" class="relative mb-2">
+                <input
+                    class="w-full h-10 pl-4 pr-12 rounded-lg border-2 border-gray-200 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-200"
+                    type="text" name="product" id="product-mobile" placeholder="@lang('search_placeholder')" />
+                <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-pink-600">
+                    <x-heroicon-o-magnifying-glass class="w-5 h-5" />
+                </button>
+            </form>
+
+            <div class="flex gap-2">
+                <select class="flex-1 h-9 px-3 rounded-md border border-gray-200 bg-gray-50 text-gray-700 text-xs outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-200">
+                    <option value="">@lang('category')</option>
+                    <option value="">Calças</option>
+                    <option value="">Camisas</option>
+                    <option value="">Croppeds</option>
+                    <option value="">Shorts</option>
+                    <option value="">Tênis</option>
+                    <option value="">Saia</option>
+                </select>
+                <a href="/search" class="px-3 py-1.5 bg-pink-50 text-pink-600 text-xs font-medium rounded-md border border-pink-200 hover:bg-pink-600 hover:text-white transition-all duration-200 whitespace-nowrap">
+                    @lang('best_sellers')
+                </a>
+            </div>
         </div>
     </div>
-
-    <nav class="flex gap-2 justify-center items-center">
-        <!-- <a href="" class="bg-pink-700 text-white rounded-sm px-2 py-1">
-            <x-heroicon-o-user class="w-6 h-6" />
-        </a> -->
-        <a href="/cart"
-            class="bg-pink-600 text-white rounded-sm px-2 py-1 border-2 border-pink-600 hover:bg-white hover:border-pink-600 hover:border-2 hover:text-pink-600">
-            <x-heroicon-o-shopping-cart class="w-6 h-6" />
-        </a>
-        <a href=""
-            class="bg-pink-600 text-white rounded-sm px-2 py-1 border-2 border-pink-600 hover:bg-white hover:border-pink-600 hover:border-2 hover:text-pink-600">
-            <x-heroicon-o-bell class="w-6 h-6" />
-        </a>
-        <a href="/profile"
-            class="bg-pink-600 text-white rounded-sm px-2 py-1 border-2 border-pink-600 hover:bg-white hover:border-pink-600 hover:border-2 hover:text-pink-600">
-            <x-heroicon-o-cog-8-tooth class="w-6 h-6" />
-        </a>
-        <a href="/login"
-            class="bg-pink-600 text-white rounded-sm px-2 py-1 border-2 border-pink-600 hover:bg-white hover:border-pink-600 hover:border-2 hover:text-pink-600">
-            <x-heroicon-o-arrow-right-end-on-rectangle class="w-6 h-6" />
-        </a>
-    </nav>
 </header>

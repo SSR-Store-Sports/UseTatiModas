@@ -1,32 +1,13 @@
 <?php
 
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\HelpController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 
-
-Route::get('/login', [UsersController::class, 'login']);
-Route::get('/register', [UsersController::class, 'register']);
-Route::get('/reset-shipping', [UsersController::class, 'resetShipping']);
-Route::get('/reset-password', [UsersController::class, 'resetPassword']);
-Route::get('/profile', [UsersController::class, 'indexUserPassword']);
-Route::get('/reset-user-password', [UsersController::class, 'resetUserPassword']);
-
-Route::get('/help', [HelpController::class, 'index']);
-Route::get('/help-guide', [HelpController::class, 'helpGuide']);
-
-Route::get('/', [ProductController::class, 'index']);
-Route::get('/product', [ProductController::class, 'show']);
-Route::get('/search', [ProductController::class, 'search']);
-
-Route::get('/cart', [CartController::class, 'index']);
-
-Route::get('/orders', [OrderController::class, 'index']);
-Route::get('/orders/details', [OrderController::class, 'details']);
-
-Route::get('/admin/orders', [AdminOrderController::class, 'index'])->name('admin.orders');
-Route::delete('/admin/orders/{id}', [AdminOrderController::class, 'destroy'])->name('admin.orders.destroy');
+Route::group([], base_path('routes/web/product.php'));
+Route::group([], base_path('routes/web/help.php'));
+Route::group([], base_path('routes/web/user.php'));
+Route::prefix('orders')
+    ->name('orders.')
+    ->group(base_path('routes/web/order.php'));
+Route::prefix('admin')
+    ->name('admin.')
+    ->group(base_path('routes/web/admin.php'));

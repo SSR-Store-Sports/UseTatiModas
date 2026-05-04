@@ -3,35 +3,35 @@
 @section('title', __('shopping_cart') . ': UseTatiModas')
 
 @section('content')
-<main class="px-24 py-12">
+<main class="px-4 md:px-12 lg:px-24 py-6 md:py-12">
 
-  <div class="grid grid-rows-[auto_1fr] gap-6">
-    <div class="flex justify-between items-center border-b border-pink-200 pb-4">
+  <div class="grid grid-rows-[auto_1fr] gap-4 md:gap-6">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-pink-200 pb-3 md:pb-4 gap-2">
       <div class="flex items-center gap-1.5">
         <x-heroicon-o-shopping-cart class="w-5 h-5 text-pink-600" />
-        <h1 class="font-bold text-2xl text-pink-600">@lang('shopping_cart')</h1>
+        <h1 class="font-bold text-xl md:text-2xl text-pink-600">@lang('shopping_cart')</h1>
       </div>
-      <span class="text-sm text-gray-500">0 @lang('products')</span>
+      <span class="text-xs md:text-sm text-gray-500">0 @lang('products')</span>
     </div>
-    <div class="grid grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
 
-      <section class="col-span-2 flex flex-col gap-4">
-        <div class="bg-white rounded-xl shadow-md shadow-pink-500/20 p-6 flex gap-4 items-start">
-          <input type="checkbox" class="w-4 h-4 mt-1 accent-pink-500 cursor-pointer">
-          <img src="" alt="Calça Feminina" class="w-28 h-28 object-cover rounded-lg bg-pink-50 border border-pink-200">
+      <section class="lg:col-span-2 flex flex-col gap-4">
+        <div class="bg-white rounded-xl shadow-md shadow-pink-500/20 p-4 md:p-6 flex flex-col sm:flex-row gap-4 items-start">
+          <input type="checkbox" class="w-4 h-4 mt-1 accent-pink-500 cursor-pointer shrink-0">
+          <img src="{{ asset('assets/model_card.png') }}" alt="Calça Feminina" class="w-full sm:w-28 h-48 sm:h-28 object-cover rounded-lg bg-pink-50 border border-pink-200 shrink-0">
 
-          <div class="flex flex-col gap-2 flex-1">
-            <p class="font-medium text-gray-800">@lang('title_cart_product')</p>
+          <div class="flex flex-col gap-2 flex-1 w-full">
+            <p class="font-medium text-sm md:text-base text-gray-800">@lang('title_cart_product')</p>
             <span class="text-xs text-green-600 font-medium">@lang('free_shipping_short')</span>
 
             <div class="flex items-center gap-2">
-              <label class="text-sm text-gray-500">@lang('quantity')</label>
+              <label class="text-xs md:text-sm text-gray-500">@lang('quantity')</label>
               <input type="number" min="1" max="10" value="1"
-                class="w-16 border border-pink-200 rounded-md px-2 py-1 text-sm outline-none focus:border-pink-400 focus:ring-1 focus:ring-pink-300">
+                class="w-16 border border-pink-200 rounded-md px-2 py-1 text-xs md:text-sm outline-none focus:border-pink-400 focus:ring-1 focus:ring-pink-300">
             </div>
 
-            <div class="flex justify-between items-center mt-auto">
-              <p class="text-sm text-gray-500">@lang('subtotal'): <span class="font-semibold text-gray-800">R$ 62,00</span></p>
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mt-auto">
+              <p class="text-xs md:text-sm text-gray-500">@lang('subtotal'): <span class="font-semibold text-gray-800">R$ 62,00</span></p>
               <button class="flex items-center gap-1 text-xs text-red-500 hover:text-red-700 hover:underline transition-all">
                 <x-heroicon-o-minus-circle class="w-4 h-4" />
                 @lang('remove')
@@ -41,12 +41,12 @@
         </div>
       </section>
 
-      <aside class="col-span-1">
-        <div class="bg-white p-5 rounded-xl shadow-md shadow-pink-500/20 flex flex-col gap-4">
+      <aside class="lg:col-span-1">
+        <div class="bg-white p-4 md:p-5 rounded-xl shadow-md shadow-pink-500/20 flex flex-col gap-4 sticky top-4">
 
-          <h2 class="font-bold text-lg text-pink-600 border-b border-pink-200 pb-3">@lang('checkout')</h2>
+          <h2 class="font-bold text-base md:text-lg text-pink-600 border-b border-pink-200 pb-3">@lang('checkout')</h2>
 
-          <div class="flex flex-col gap-2 text-sm text-gray-600">
+          <div class="flex flex-col gap-2 text-xs md:text-sm text-gray-600">
             <div class="flex justify-between">
               <span>@lang('item')</span>
               <span>R$ 62,00</span>
@@ -57,7 +57,7 @@
             </div>
           </div>
 
-          <div class="flex justify-between font-semibold text-base border-t border-dashed border-pink-300 pt-3">
+          <div class="flex justify-between font-semibold text-sm md:text-base border-t border-dashed border-pink-300 pt-3">
             <span>@lang('total')</span>
             <span>R$ 62,00</span>
           </div>

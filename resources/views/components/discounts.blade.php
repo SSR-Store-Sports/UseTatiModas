@@ -4,7 +4,7 @@
         <p class="text-pink-200 text-sm">@lang('newsletter_description')</p>
     </div>
 
-    <div class="flex gap-2 w-full max-w-md">
+    <div class="grid md:flex gap-2 w-full max-w-md">
         <input
             class="flex-1 px-4 py-3 rounded-md border border-pink-300 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 focus:shadow-[0_0_0_3px_rgba(255,255,255,0.3)]"
             type="email" name="newsletter" placeholder="@lang('email_placeholder')" />

@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function login()
+    public function signIn()
     {
-        return view('login.index');
+        return view('sign-in.index');
     }
 
-    public function register()
+    public function signUp()
     {
-        return view('register.index');
+        return view('sign-up.index');
     }
 
     public function resetShipping()

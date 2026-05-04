@@ -3,19 +3,20 @@
 @section('title', __('how_access_account_title') . ' | ' . config('app.name'))
 
 @section('content')
-  <x-help.header />
-
-  <main class="flex flex-col justify-center items-center gap-4">
-    <header class="flex flex-col gap-2 justify-center items-center text-center mb-8">
-      <h1 class="text-4xl font-light">@lang('how_access_account_title')</h1>
-      <span class="h-0.5 w-52 mt-2 bg-gray-300"></span>
-      <h2 class="text-sm text-gray-400 mt-2">11 de março de 2026 · <span>🧾</span></h2>
+  <main class="flex flex-col items-center gap-6 px-4 md:px-8 py-8 md:py-12 max-w-4xl mx-auto">
+    <header class="flex flex-col gap-3 items-center text-center">
+      <h1 class="text-2xl md:text-3xl font-bold text-gray-800">@lang('how_access_account_title')</h1>
+      <div class="flex items-center gap-2 text-xs md:text-sm text-gray-500">
+        <span>11 de março de 2026</span>
+        <span>·</span>
+        <span>🧾</span>
+      </div>
     </header>
 
-    <section class="flex flex-col gap-4 max-w-xl w-full">
-      <div class="flex flex-col gap-3 text-gray-700 text-base leading-relaxed bg-white rounded-lg shadow-sm shadow-pink-500/20 p-6 border border-gray-100">
-        <p>@lang('follow_instructions')</p>
-        <ol class="flex flex-col gap-2 list-none">
+    <section class="flex flex-col gap-4 w-full">
+      <div class="flex flex-col gap-4 text-gray-700 text-sm md:text-base leading-relaxed bg-white rounded-lg shadow-sm shadow-pink-500/20 p-4 md:p-6 border border-gray-100">
+        <p class="font-medium">@lang('follow_instructions')</p>
+        <ol class="flex flex-col gap-3 list-none">
           <li class="flex items-start gap-3">
             <span class="flex items-center justify-center w-6 h-6 rounded-full bg-pink-500 text-white text-xs font-bold shrink-0 mt-0.5">1</span>
             <span>@lang('open_site')</span>
@@ -36,24 +37,24 @@
       </div>
     </section>
 
-    <section class="flex flex-col flex-1 gap-2 mt-12 items-center max-w-xl w-full">
-      <div class="flex gap-4 items-center mb-4 justify-center text-center">
-        <span class="h-0.5 w-24 bg-gray-300"></span>
-        <h2 class="text-2xl text-gray-400 uppercase">@lang('support')</h2>
-        <span class="h-0.5 w-24 bg-gray-300"></span>
-      </div>
+    <div class="flex items-center gap-3 w-full my-2">
+      <span class="h-px flex-1 bg-gray-300"></span>
+      <span class="text-xs text-gray-500 uppercase font-medium">Suporte</span>
+      <span class="h-px flex-1 bg-gray-300"></span>
+    </div>
 
-      <button class="group bg-orange-500 text-white flex items-center justify-center rounded-sm w-62 pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-orange-600 hover:text-orange-600 cursor-pointer text-center outline-none transition-all duration-200">
-        <x-heroicon-o-document-text class="h-4 w-4" />
-        <span>@lang('terms_of_service')</span>
+    <section class="flex flex-col gap-3 w-full">
+      <button class="group bg-gradient-to-r from-orange-500 to-orange-600 text-white flex items-center justify-center rounded-lg w-full py-3.5 px-6 gap-2 border border-transparent hover:from-white hover:to-white hover:border-orange-600 hover:text-orange-600 hover:shadow-md cursor-pointer outline-none transition-all duration-200">
+        <x-heroicon-o-document-text class="h-5 w-5 shrink-0" />
+        <span class="text-sm md:text-base font-medium">@lang('terms_of_service')</span>
       </button>
 
-      <span class="h-0.5 w-full mt-4 mb-4 bg-gray-300"></span>
-
-      <p class="flex text-lg text-center gap-2 items-center justify-center">
-        @lang('already_have_account')
-        <a href="" class="text-blue-500 hover:decoration-blue-500 hover:underline">@lang('login')</a>
-      </p>
+      <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+        <p class="flex flex-col sm:flex-row text-sm text-gray-700 gap-1 items-center justify-center">
+          <span>@lang('already_have_account')</span>
+          <a href="/sign-in" class="text-pink-600 font-semibold hover:text-pink-700 hover:underline transition-colors">@lang('login')</a>
+        </p>
+      </div>
     </section>
   </main>
 @endsection
