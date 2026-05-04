@@ -44,7 +44,7 @@
     </div>
 
     <section class="flex flex-col gap-3 w-full">
-      <button class="group bg-gradient-to-r from-orange-500 to-orange-600 text-white flex items-center justify-center rounded-lg w-full py-3.5 px-6 gap-2 border border-transparent hover:from-white hover:to-white hover:border-orange-600 hover:text-orange-600 hover:shadow-md cursor-pointer outline-none transition-all duration-200">
+      <button class="group bg-linear-to-r from-orange-500 to-orange-600 text-white flex items-center justify-center rounded-lg w-full py-3.5 px-6 gap-2 border border-transparent hover:from-white hover:to-white hover:border-orange-600 hover:text-orange-600 hover:shadow-md cursor-pointer outline-none transition-all duration-200">
         <x-heroicon-o-document-text class="h-5 w-5 shrink-0" />
         <span class="text-sm md:text-base font-medium">@lang('terms_of_service')</span>
       </button>

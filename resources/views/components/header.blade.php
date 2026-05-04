@@ -35,7 +35,7 @@
             <nav class="flex gap-2 shrink-0">
                 <a href="/cart" class="relative p-2.5 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-all duration-200 group" title="Carrinho">
                     <x-heroicon-o-shopping-cart class="w-5 h-5" />
-                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-pink-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
                 </a>
                 <a href="" class="p-2.5 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-all duration-200" title="Notificações">
                     <x-heroicon-o-bell class="w-5 h-5" />
