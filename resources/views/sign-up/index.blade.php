@@ -13,7 +13,7 @@
         <span class="bg-gray-300 h-0.5 w-32"></span>
       </div>
 
-      <form action="/session" method="POST" class="flex flex-col w-full gap-4 lg:gap-6">
+      <form action="{{ route('register') }}" method="POST" class="flex flex-col w-full gap-4 lg:gap-6">
         @csrf
 
         <div class="flex flex-col gap-4">
@@ -22,6 +22,9 @@
             <input
               class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
               type="name" name="name" id="name" placeholder="Henrique Maximo Lima da Silva" />
+            @error('name')
+              <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
           </div>
 
           <div class="flex flex-col gap-2 flex-1">
@@ -29,6 +32,9 @@
             <input
               class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
               type="email" name="email" id="email" placeholder="exemplo@email.com" />
+            @error('email')
+              <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -37,6 +43,9 @@
               <input
                 class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
                 type="phone" name="phone" id="phone" placeholder="11 9343-5343" />
+              @error('phone')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+              @enderror
             </div>
 
             <div class="flex flex-col gap-2 flex-1">
@@ -44,6 +53,9 @@
               <input
                 class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
                 type="number" name="number" id="number" placeholder="137.203.132-82" />
+              @error('cpf')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+              @enderror
             </div>
           </div>
 
@@ -53,20 +65,32 @@
 
               <label for="password"
                 class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus-within:border-pink-500 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
-                <input class="w-full outline-none bg-transparent" type="password" name="password" id="password" placeholder="@lang('password')" />
+                <input class="w-full outline-none bg-transparent" type="password" name="password" id="password"
+                  placeholder="@lang('password')" />
                 <img class="h-4 w-4 shrink-0" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
               </label>
+              @error('password')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+              @enderror
             </div>
 
             <div class="flex flex-col gap-2 flex-1">
               <span class="text-sm md:text-base lg:text-lg">@lang('confirm_password')</span>
               <label for="password_confirmation"
                 class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus-within:border-pink-500 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
-                <input class="w-full outline-none bg-transparent" type="password" name="password_confirmation" id="password_confirmation" placeholder="@lang('password')" />
+                <input class="w-full outline-none bg-transparent" type="password" name="password_confirmation"
+                  id="password_confirmation" placeholder="@lang('password')" />
                 <img class="h-4 w-4 shrink-0" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
               </label>
+              @error('password_confirmation')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+              @enderror
             </div>
           </div>
+
+          @if ($message = session()->get("message"))
+            <div class="text-red-500 text-sm">{{ $message }}</div>
+          @endif
         </div>
 
         <button

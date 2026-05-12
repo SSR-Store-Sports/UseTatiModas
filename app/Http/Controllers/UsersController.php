@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MakeLoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -29,6 +30,16 @@ class UsersController extends Controller
     public function signUp()
     {
         return view('sign-up.index');
+    }
+
+    public function signUpRegister(RegisterRequest $request)
+    {
+        if ($request->tryToRegister()) {
+            return to_route('home');
+        }
+
+        return back()->with(['message' => 'Not be able register user.']);
+        // return view('sign-up.index');
     }
 
     public function resetShipping()
