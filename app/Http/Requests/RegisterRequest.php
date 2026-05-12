@@ -35,18 +35,20 @@ class RegisterRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'min:3', 'max:80'],
             'email' => ['required', 'email', 'unique:users'],
-            // 'phone' => ['required', 'min:10', 'max:10'],
-            // 'cpf' => ['required', 'min:11', 'max:11'],
+            'phone' => ['required', 'min:1', 'max:13'],
+            'cpf' => ['required', 'min:1', 'max:13'],
             'password' => ['required', 'min:6', 'max:20', 'confirmed'],
         ];
     }
 
     public function tryToRegister() {
-        // 1. Criar usuário
+        // 1. Create user using 
         $user = new User;
         $user->name = $this->name;
-        $user->password = $this->password;
         $user->email = $this->email;
+        $user->phone = $this->phone;
+        $user->cpf = $this->cpf;
+        $user->password = $this->password;
         // $user->phone = $this->phone;
         $user->save();
 
