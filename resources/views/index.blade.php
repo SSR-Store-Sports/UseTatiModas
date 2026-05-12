@@ -3,7 +3,7 @@
 @section('title', __('dashboard') . ': UseTatiModas')
 
 @section('content')
-    @dump(auth()->id())
+    <!-- @dump(auth()->id()) -->
     <main class="h-full">
         <div class="relative overflow-hidden rounded-sm border-b-4 border-t-8 border-pink-600">
             <img src="{{ asset('assets/banner.png') }}" class="h-64 md:h-142 w-full object-cover" alt="Logo">
