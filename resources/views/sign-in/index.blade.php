@@ -13,7 +13,7 @@
         <span class="bg-gray-300 h-0.5 w-32"></span>
       </div>
 
-      <form action="/session" method="POST" class="flex flex-col w-full gap-6 md:gap-8">
+      <form action="/sign-in" method="POST" class="flex flex-col w-full gap-6 md:gap-8">
         @csrf
 
         <div class="flex flex-col gap-4">
@@ -21,7 +21,10 @@
             <span class="text-base md:text-lg">@lang('email')</span>
             <input
               class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-              type="email" name="email" id="email" placeholder="exemplo@email.com" />
+              type="email" name="email" value="{{ old('email') }}" id="email" placeholder="exemplo@email.com" />
+              @error('email')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+              @enderror
           </div>
 
           <div class="flex flex-col gap-2 flex-1">
@@ -36,7 +39,13 @@
               <input class="w-full outline-none bg-transparent" type="password" name="password" id="password" placeholder="@lang('password')" />
               <img class="h-4 w-4 shrink-0" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
             </label>
+            @error('password')
+              <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
           </div>
+          @if ($message = session()->get("message"))
+            <div class="text-red-500 text-sm">{{ $message }}</div>
+          @endif
         </div>
 
         <button

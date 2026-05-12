@@ -2,14 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MakeLoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
     public function signIn()
     {
         return view('sign-in.index');
+    }
+
+    public function signInSessions(MakeLoginRequest $request)
+    {
+        if($request->attempt()) {
+            return to_route('home');
+        };
+        
+        return back()->with(['message' => 'Credentials invalid.']);
+        // dd($user);
+        // dd(request()->all());
+        // return view('sign-in.index');
     }
 
     public function signUp()

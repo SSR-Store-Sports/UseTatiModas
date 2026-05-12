@@ -107,3 +107,13 @@ A instituição decide, o proprietário do software dita.
 
 - php artisan config:clear
 [comando responsável por realizar uma limpeza no cache do laravel, assim sendo possível utilizar valores recentes do ".env". No caso, utilizado para mudança de idioma]
+
+- php artisan migrate
+- php artisan migrate:rollback
+
+- dd(User::factory()->make());
+- dd(User::factory()->create());
+- dd(User::factory()->count(100)->create());
+- php artisan migrate:fresh
+- php artisan db:seed
+- dump();

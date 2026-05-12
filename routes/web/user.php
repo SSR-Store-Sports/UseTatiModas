@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(UsersController::class)->group(function () {
     Route::get('/sign-in', 'signIn');
+    Route::post('/sign-in', 'signInSessions');
+
     Route::get('/sign-up', 'signUp');
 
     Route::get('/reset-shipping', 'resetShipping');
