@@ -9,9 +9,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-full flex flex-col overflow-hidden">
+<body class="h-full flex flex-col">
     <x-auth.header />
-    <div class="grid grid-cols-1 md:grid-cols-2 flex-1 overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 flex-1 min-h-0">
         @yield('content')
     </div>
 </body>

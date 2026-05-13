@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="flex flex-col lg:flex-row gap-4 md:gap-6 px-4 md:px-12 lg:px-24 py-6 md:py-12">
-        <aside class="w-full lg:w-72 bg-white shadow-md p-4 md:p-5 rounded-2xl flex flex-col gap-4 md:gap-6 shadow-pink-500/90 shadow-xl/30 shrink-0">
+        <aside class="w-full lg:w-72 bg-white shadow-md p-4 md:p-5 rounded-2xl flex flex-col gap-4 md:gap-6 shadow-md shadow-xl/30 shrink-0">
 
             <h1 class="font-semibold text-lg md:text-xl">@lang('user_information')</h1>
 
@@ -22,17 +22,17 @@
                 <h2 class="text-xs md:text-sm font-semibold text-gray-500">Minha Conta</h2>
 
                 <a href="#"
-                    class="flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition">
+                    class="flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50 hover:text-[#7A5A12] transition">
                     <span>@lang('my_address')</span>
                 </a>
 
                 <a href="/orders"
-                    class="flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition">
+                    class="flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50 hover:text-[#7A5A12] transition">
                     <span>@lang('my_orders')</span>
                 </a>
             </div>
         </aside>
-        <section class="flex-1 bg-white shadow-md p-4 md:p-6 rounded-2xl shadow-pink-500/90 shadow-xl/30">
+        <section class="flex-1 bg-white shadow-md p-4 md:p-6 rounded-2xl shadow-md shadow-xl/30">
             <h1 class="font-semibold text-xl md:text-2xl mb-4 md:mb-6">@lang('my_profile')</h1>
             <div class="flex flex-col gap-4 md:gap-6">
                 <div class="flex flex-col gap-2">
@@ -52,7 +52,7 @@
                         <span class="text-gray-600">@lang('email_profile')</span>
                         <div class="flex items-center gap-3">
                             <span class="text-gray-900">@lang('placeholder_email')</span>
-                            <a href="#" class="text-pink-600 hover:underline">@lang('change')</a>
+                            <a href="#" class="text-[#7A5A12] hover:underline">@lang('change')</a>
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@
                         <span class="text-gray-600">@lang('phone_profile')</span>
                         <div class="flex items-center gap-3">
                             <span class="text-gray-900">@lang('placeholder_phone')</span>
-                            <a href="#" class="text-pink-600 hover:underline">@lang('change')</a>
+                            <a href="#" class="text-[#7A5A12] hover:underline">@lang('change')</a>
                         </div>
                     </div>
 
@@ -68,7 +68,7 @@
                         <span class="text-gray-600">@lang('cpf_profile')</span>
                         <div class="flex items-center gap-3">
                             <span class="text-gray-900">@lang('placeholder_cpf')</span>
-                            <a href="#" class="text-pink-600 hover:underline">@lang('change')</a>
+                            <a href="#" class="text-[#7A5A12] hover:underline">@lang('change')</a>
                         </div>
                     </div>
                 </div>
@@ -77,11 +77,11 @@
 
                 <div class="flex flex-col sm:flex-row gap-3 md:gap-4 mt-auto">
                     <button
-                        class="group bg-pink-500 text-white flex items-center justify-center rounded-md w-full py-3 gap-2 border-2 border-transparent hover:bg-white hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
+                        class="group bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-3 gap-2 border-2 border-transparent hover:bg-white hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
                         <span>@lang('delete_account')</span>
                     </button>
                     <button
-                        class="group bg-white text-pink-600 flex items-center justify-center rounded-md w-full py-3 gap-2 border-2 border-pink-600 hover:bg-gray-100 hover:border-pink-700 hover:text-pink-700 cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
+                        class="group bg-white text-[#7A5A12] flex items-center justify-center rounded-md w-full py-3 gap-2 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
                         <span>@lang('update_information')</span>
                     </button>
                 </div>

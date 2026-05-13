@@ -14,7 +14,7 @@
             <x-heroicon-o-plus class="w-4 h-4" />
             Nova Categoria
           </a>
-          <button class="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition-colors text-sm font-medium flex items-center gap-2">
+          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-[#7A5A12] transition-colors text-sm font-medium flex items-center gap-2">
             <x-heroicon-o-arrow-path class="w-4 h-4" />
             Atualizar
           </button>
@@ -26,15 +26,15 @@
           <input 
             type="text" 
             placeholder="Buscar por nome" 
-            class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200">
+            class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
           
-          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200">
+          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
             <option value="">Todos status</option>
             <option value="active">Ativo</option>
             <option value="inactive">Inativo</option>
           </select>
 
-          <button class="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition-colors text-sm font-medium">
+          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-[#7A5A12] transition-colors text-sm font-medium">
             <span class="flex items-center gap-2">
               <x-heroicon-o-funnel class="w-4 h-4" />
               Filtrar
@@ -50,7 +50,7 @@
         </div>
 
         <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-md border border-gray-200">
-          <input type="checkbox" id="select-all" class="w-4 h-4 accent-pink-500 rounded">
+          <input type="checkbox" id="select-all" class="w-4 h-4 accent-[#C79B2B] rounded">
           <label for="select-all" class="text-sm text-gray-600 cursor-pointer">Selecionar todos</label>
           
           <div class="flex gap-2 ml-auto">
@@ -71,7 +71,7 @@
               <thead>
                 <tr class="border-b border-gray-200 bg-gray-50">
                   <th class="px-4 py-3 text-left font-medium text-gray-700 w-16">
-                    <input type="checkbox" class="w-4 h-4 accent-pink-500 rounded">
+                    <input type="checkbox" class="w-4 h-4 accent-[#C79B2B] rounded">
                   </th>
                   <th class="px-4 py-3 text-left font-medium text-gray-700">ID</th>
                   <th class="px-4 py-3 text-left font-medium text-gray-700">Nome</th>
@@ -85,9 +85,9 @@
 
               <tbody class="divide-y divide-gray-100">
                 @forelse ($categories as $category)
-                  <tr class="hover:bg-pink-50/40 transition-colors">
+                  <tr class="hover:bg-gray-100/40 transition-colors">
                     <td class="px-4 py-4">
-                      <input type="checkbox" class="w-4 h-4 accent-pink-500 rounded">
+                      <input type="checkbox" class="w-4 h-4 accent-[#C79B2B] rounded">
                     </td>
 
                     <td class="px-4 py-4 font-mono text-xs text-gray-600">
@@ -96,8 +96,8 @@
 
                     <td class="px-4 py-4">
                       <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center">
-                          <x-heroicon-o-tag class="w-4 h-4 text-pink-600" />
+                        <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+                          <x-heroicon-o-tag class="w-4 h-4 text-[#7A5A12]" />
                         </div>
                         <span class="font-semibold text-gray-800">{{ $category->name ?? 'Moda Feminina' }}</span>
                       </div>
@@ -179,7 +179,7 @@
 
             @foreach ($categories->getUrlRange(1, $categories->lastPage()) as $page => $url)
               @if ($page == $categories->currentPage())
-                <span class="px-3 py-2 rounded-md bg-pink-500 text-white font-medium">{{ $page }}</span>
+                <span class="px-3 py-2 rounded-md bg-gray-500 text-white font-medium">{{ $page }}</span>
               @else
                 <a href="{{ $url }}" class="px-3 py-2 rounded-md bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">{{ $page }}</a>
               @endif

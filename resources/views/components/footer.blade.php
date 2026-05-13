@@ -1,7 +1,7 @@
 <footer class="bg-gray-900 text-white pt-12 px-4 md:px-8 pb-4 mt-auto overflow-x-hidden">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left md:text-center">
         <section class="flex flex-col gap-2">
-            <h2 class="text-pink-400 text-xl mb-4">@lang('about_us')</h2>
+            <h2 class="text-[#F1C24A] text-xl mb-4">@lang('about_us')</h2>
             <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
                 @lang('about_description')
             </p>
@@ -19,25 +19,25 @@
         </section>
 
         <section class="flex flex-col gap-2">
-            <h2 class="text-pink-400 text-xl mb-4">@lang('contact')</h2>
+            <h2 class="text-[#F1C24A] text-xl mb-4">@lang('contact')</h2>
             <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
-                <i class="ph ph-phone text-pink-400 text-base min-w-4 shrink-0"></i>
+                <i class="ph ph-phone text-[#F1C24A] text-base min-w-4 shrink-0"></i>
                 <span>@lang('phone'): +55 11 97893-6260</span>
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
-                <i class="ph ph-whatsapp-logo text-pink-400 text-base min-w-4 shrink-0"></i>
+                <i class="ph ph-whatsapp-logo text-[#F1C24A] text-base min-w-4 shrink-0"></i>
                 <span>@lang('whatsapp'): +55 11 97893-6260</span>
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
-                <i class="ph ph-envelope text-pink-400 text-base min-w-4 shrink-0"></i>
+                <i class="ph ph-envelope text-[#F1C24A] text-base min-w-4 shrink-0"></i>
                 <span class="break-all">@lang('email'): contato@tatifitwear.com.br</span>
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
-                <i class="ph ph-clock text-pink-400 text-base min-w-4 shrink-0"></i>
+                <i class="ph ph-clock text-[#F1C24A] text-base min-w-4 shrink-0"></i>
                 <span>@lang('service_hours')</span>
             </p>
             <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
-                <i class="ph ph-storefront text-pink-400 text-base min-w-4 shrink-0"></i>
+                <i class="ph ph-storefront text-[#F1C24A] text-base min-w-4 shrink-0"></i>
                 <span>@lang('physical_store')</span>
             </p>
             <div class="mt-4">
@@ -45,38 +45,38 @@
                     <strong class="text-white">@lang('payment_methods'):</strong>
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
-                    <i class="ph ph-credit-card text-pink-400 text-base min-w-4 shrink-0"></i>
+                    <i class="ph ph-credit-card text-[#F1C24A] text-base min-w-4 shrink-0"></i>
                     <span>@lang('credit_cards')</span>
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
-                    <i class="ph ph-bank text-pink-400 text-base min-w-4 shrink-0"></i>
+                    <i class="ph ph-bank text-[#F1C24A] text-base min-w-4 shrink-0"></i>
                     <span>@lang('pix_boleto')</span>
                 </p>
             </div>
         </section>
 
         <section class="flex flex-col gap-2">
-            <h2 class="text-pink-400 text-xl mb-4">@lang('follow_us')</h2>
+            <h2 class="text-[#F1C24A] text-xl mb-4">@lang('follow_us')</h2>
             <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
                 @lang('follow_description')
             </p>
             <div class="flex gap-4 my-4 justify-start md:justify-center">
                 <a href="#" aria-label="Facebook"
-                    class="bg-transparent border-2 border-pink-400 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-pink-400 hover:-translate-y-0.5 shrink-0">
+                    class="bg-transparent border-2 border-[#C79B2B] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-[#C79B2B] hover:-translate-y-0.5 shrink-0">
                     <img src="{{ asset('assets/facebook_logo.svg') }}" class="w-5 h-5 invert" alt="Facebook" />
                 </a>
                 <a href="https://www.instagram.com/tatifitmodas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                     aria-label="Instagram" target="_blank"
-                    class="bg-transparent border-2 border-pink-400 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-pink-400 hover:-translate-y-0.5 shrink-0">
+                    class="bg-transparent border-2 border-[#C79B2B] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-[#C79B2B] hover:-translate-y-0.5 shrink-0">
                     <img src="{{ asset('assets/instagram_logo.svg') }}" class="w-5 h-5 invert" alt="Instagram" />
                 </a>
                 <a href="https://api.whatsapp.com/send/?phone=5511978936260&text&type=phone_number&app_absent=0&utm_source=ig"
                     aria-label="WhatsApp"
-                    class="bg-transparent border-2 border-pink-400 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-pink-400 hover:-translate-y-0.5 shrink-0">
+                    class="bg-transparent border-2 border-[#C79B2B] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-[#C79B2B] hover:-translate-y-0.5 shrink-0">
                     <img src="{{ asset('assets/whatsapp_logo.svg') }}" class="w-5 h-5 invert" alt="WhatsApp" />
                 </a>
                 <a href="https://www.tiktok.com/@tatifitwear1?is_from_webapp=1&sender_device=pc" aria-label="TikTok"
-                    class="bg-transparent border-2 border-pink-400 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-pink-400 hover:-translate-y-0.5 shrink-0">
+                    class="bg-transparent border-2 border-[#C79B2B] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-[#C79B2B] hover:-translate-y-0.5 shrink-0">
                     <img src="{{ asset('assets/tiktok_logo.svg') }}" class=" w-5 h-5 invert" alt="TikTok" />
                 </a>
             </div>
@@ -87,19 +87,19 @@
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
                     <a href="/guia-tamanhos"
-                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">@lang('size_guide')</a>
+                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-[#F1C24A]">@lang('size_guide')</a>
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
                     <a href="/cuidar-pecas"
-                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">@lang('care_instructions')</a>
+                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-[#F1C24A]">@lang('care_instructions')</a>
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
                     <a href="/politica-troca"
-                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">@lang('exchange_policy')</a>
+                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-[#F1C24A]">@lang('exchange_policy')</a>
                 </p>
                 <p class="leading-relaxed text-gray-300 text-sm flex items-start md:items-center gap-2 md:justify-center wrap-break-word">
                     <a href="/privacidade"
-                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-pink-400">@lang('privacy')</a>
+                        class="text-gray-300 no-underline transition-colors duration-300 hover:text-[#F1C24A]">@lang('privacy')</a>
                 </p>
             </div>
         </section>

@@ -14,23 +14,23 @@
     </header>
 
     <section class="flex flex-col gap-4 w-full">
-      <div class="flex flex-col gap-4 text-gray-700 text-sm md:text-base leading-relaxed bg-white rounded-lg shadow-sm shadow-pink-500/20 p-4 md:p-6 border border-gray-100">
+      <div class="flex flex-col gap-4 text-gray-700 text-sm md:text-base leading-relaxed bg-white rounded-lg shadow-sm shadow-[#C79B2B]/20 p-4 md:p-6 border border-gray-100">
         <p class="font-medium">@lang('follow_instructions')</p>
         <ol class="flex flex-col gap-3 list-none">
           <li class="flex items-start gap-3">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-pink-500 text-white text-xs font-bold shrink-0 mt-0.5">1</span>
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-500 text-white text-xs font-bold shrink-0 mt-0.5">1</span>
             <span>@lang('open_site')</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-pink-500 text-white text-xs font-bold shrink-0 mt-0.5">2</span>
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-500 text-white text-xs font-bold shrink-0 mt-0.5">2</span>
             <span>@lang('initial_screen')</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-pink-500 text-white text-xs font-bold shrink-0 mt-0.5">3</span>
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-500 text-white text-xs font-bold shrink-0 mt-0.5">3</span>
             <span>@lang('enter_credentials')</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-pink-500 text-white text-xs font-bold shrink-0 mt-0.5">4</span>
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-500 text-white text-xs font-bold shrink-0 mt-0.5">4</span>
             <span>@lang('click_access')</span>
           </li>
         </ol>
@@ -52,7 +52,7 @@
       <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
         <p class="flex flex-col sm:flex-row text-sm text-gray-700 gap-1 items-center justify-center">
           <span>@lang('already_have_account')</span>
-          <a href="/sign-in" class="text-pink-600 font-semibold hover:text-pink-700 hover:underline transition-colors">@lang('login')</a>
+          <a href="/sign-in" class="text-[#7A5A12] font-semibold hover:text-[#7A5A12] hover:underline transition-colors">@lang('login')</a>
         </p>
       </div>
     </section>

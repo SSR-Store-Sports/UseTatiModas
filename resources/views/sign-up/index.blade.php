@@ -6,7 +6,7 @@
   <img class="hidden md:block h-full w-full object-cover" src="{{ asset('assets/model_login.png') }}"
     alt="Imagem de uma mulher com o cabelo castanho em pé em uma loja, segurando uma bolsa em uma loja de roupas" />
 
-  <main class="flex flex-col w-full items-center overflow-y-auto border-l-0 md:border-l-2 border-l-pink-500 px-4 py-8">
+  <main class="flex flex-col w-full items-center justify-center overflow-y-auto border-l-0 md:border-l-2 border-l-[#C79B2B] px-4 py-8">
     <div class="flex flex-col gap-4 lg:gap-6 w-full max-w-md items-center">
       <div class="flex flex-col gap-2 md:gap-4 text-center items-center justify-center">
         <h1 class="text-black text-2xl md:text-3xl lg:text-4xl font-light">@lang('register_title')</h1>
@@ -20,8 +20,8 @@
           <div class="flex flex-col gap-2 flex-1">
             <span class="text-sm md:text-base lg:text-lg">@lang('full_name')</span>
             <input
-              class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-              type="text" name="name" id="name" placeholder="Henrique Maximo Lima da Silva" />
+              class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
+              type="name" name="name" id="name" placeholder="Henrique Maximo Lima da Silva" />
             @error('name')
               <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
@@ -30,8 +30,8 @@
           <div class="flex flex-col gap-2 flex-1">
             <span class="text-sm md:text-base lg:text-lg">@lang('email')</span>
             <input
-              class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-              type="email" name="email" id="email" placeholder="exemplo@email.com" />
+              class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
+              type="email" name="email" id="email" value="{{ old('email') }}" placeholder="exemplo@email.com" />
             @error('email')
               <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
@@ -41,8 +41,8 @@
             <div class="flex flex-col gap-2 flex-1">
               <span class="text-sm md:text-base lg:text-lg">@lang('phone')</span>
               <input
-                class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-                type="number" name="phone" id="phone" placeholder="11 9343-5343" />
+                class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
+                type="number" name="phone" id="phone" value="{{ old('phone') }}" placeholder="11 9343-5343" />
               @error('phone')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
               @enderror
@@ -51,8 +51,8 @@
             <div class="flex flex-col gap-2 flex-1">
               <span class="text-sm md:text-base lg:text-lg">@lang('cpf')</span>
               <input
-                class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-                type="number" name="cpf" id="cpf" placeholder="137.203.132-82" />
+                class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
+                type="number" name="cpf" id="cpf" value="{{ old('cpf') }}" placeholder="137.203.132-82" />
               @error('cpf')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
               @enderror
@@ -64,7 +64,7 @@
               <span class="text-sm md:text-base lg:text-lg">@lang('password')</span>
 
               <label for="password"
-                class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus-within:border-pink-500 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
+                class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus-within:border-[#C79B2B] focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(199,155,43,0.15)] text-center justify-center align-center">
                 <input class="w-full outline-none bg-transparent" type="password" name="password" id="password"
                   placeholder="@lang('password')" />
                 <img class="h-4 w-4 shrink-0" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
@@ -77,7 +77,7 @@
             <div class="flex flex-col gap-2 flex-1">
               <span class="text-sm md:text-base lg:text-lg">@lang('confirm_password')</span>
               <label for="password_confirmation"
-                class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus-within:border-pink-500 focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(236,72,153,0.15)] text-center justify-center align-center">
+                class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus-within:border-[#C79B2B] focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(199,155,43,0.15)] text-center justify-center align-center">
                 <input class="w-full outline-none bg-transparent" type="password" name="password_confirmation"
                   id="password_confirmation" placeholder="@lang('password')" />
                 <img class="h-4 w-4 shrink-0" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
@@ -94,7 +94,7 @@
         </div>
 
         <button
-          class="group bg-pink-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-pink-600 hover:text-pink-600 cursor-pointer text-center outline-none transition-all duration-200 ">
+          class="group bg-gray-900 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-[#C79B2B] cursor-pointer text-center outline-none transition-all duration-200">
           <span>@lang('enter')</span>
           <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
             className="size-6">
@@ -118,13 +118,13 @@
         <a href="/help">
           <div class="group flex flex-col gap-2 items-center justify-center align-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-              class="h-8 w-8 text-pink-400 group-hover:text-pink-600">
+              class="h-8 w-8 text-gray-900 group-hover:text-[#C79B2B]">
               <path fill-rule="evenodd"
                 d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
                 clip-rule="evenodd" />
             </svg>
 
-            <span class="text-pink-400 text-base md:text-lg group-hover:text-pink-600">@lang('help')</span>
+            <span class="text-gray-900 text-base md:text-lg group-hover:text-[#C79B2B]">@lang('help')</span>
           </div>
         </a>
       </section>

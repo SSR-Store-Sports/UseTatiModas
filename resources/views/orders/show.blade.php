@@ -5,15 +5,15 @@
 @section('content')
 <main class="py-6 md:py-12 px-4 md:px-8 lg:px-18">
   <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 border-b-2 border-pink-500 pb-2 shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)] gap-3 md:gap-4">
-      <h1 class="text-pink-600 text-2xl md:text-3xl lg:text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('order') #PED000013</h1>
-      <a href="/orders" class="text-gray-500 hover:text-pink-600 font-semibold transition text-xs md:text-sm lg:text-base whitespace-nowrap">← @lang('back') @lang('to_orders')</a>
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 border-b-2 border-[#C79B2B] pb-2 shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)] gap-3 md:gap-4">
+      <h1 class="text-[#7A5A12] text-2xl md:text-3xl lg:text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('order') #PED000013</h1>
+      <a href="/orders" class="text-gray-500 hover:text-[#7A5A12] font-semibold transition text-xs md:text-sm lg:text-base whitespace-nowrap">← @lang('back') @lang('to_orders')</a>
     </div>
     
-    <section class="border border-gray-200 bg-white rounded-lg md:rounded-xl shadow-md shadow-pink-500/20 p-4 md:p-6 transition-colors duration-200">
+    <section class="border border-gray-200 bg-white rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 p-4 md:p-6 transition-colors duration-200">
       <div class="flex flex-col sm:flex-row justify-between items-start mb-6 md:mb-10 border-b border-gray-100 pb-4 md:pb-6 gap-4 md:gap-6">
         <div>
-          <h2 class="text-base md:text-lg font-bold text-gray-800 mb-1">@lang('status'): <span class="text-pink-600">@lang('preparing')</span></h2>
+          <h2 class="text-base md:text-lg font-bold text-gray-800 mb-1">@lang('status'): <span class="text-[#7A5A12]">@lang('preparing')</span></h2>
           <p class="text-xs md:text-sm text-gray-500">@lang('placed_on'): 05/12/2025</p>
         </div>
         <div class="text-left sm:text-right">
@@ -48,7 +48,7 @@
       </div>
       <div class="border-t border-gray-200 pt-3 md:pt-4 flex justify-between">
         <span class="font-bold text-gray-800 text-base md:text-lg">@lang('total'):</span>
-        <span class="font-bold text-pink-600 text-base md:text-lg">R$ 749,70</span>
+        <span class="font-bold text-[#7A5A12] text-base md:text-lg">R$ 749,70</span>
       </div>
     </div>
   </div>

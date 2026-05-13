@@ -6,12 +6,12 @@
 <main class="py-6 md:py-12 px-4 md:px-8 lg:px-18">
   <div class="max-w-6xl mx-auto">
     <div class="flex-col flex mb-6 md:mb-8 gap-2 shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)]">
-      <h1 class="text-pink-600 text-2xl md:text-3xl lg:text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('my_orders')</h1>
-      <span class="w-full h-0.5 bg-pink-600"></span>
+      <h1 class="text-[#7A5A12] text-2xl md:text-3xl lg:text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('my_orders')</h1>
+      <span class="w-full h-0.5 bg-[#7A5A12]"></span>
     </div>
     <section class="flex flex-col gap-4 md:gap-6">
       @for($i = 0; $i < 2; $i++)
-        <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-pink-500/20 p-4 md:p-6 transition-colors duration-200">
+        <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 p-4 md:p-6 transition-colors duration-200">
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 md:mb-6 gap-3 md:gap-4">
           <div>
             <h2 class="text-base md:text-lg font-bold text-gray-800">Pedido #PED000013</h2>
@@ -19,7 +19,7 @@
           </div>
           <div class="flex flex-col sm:flex-row gap-2 md:gap-4 items-stretch sm:items-center w-full sm:w-auto">
             <span class="text-xs md:text-sm font-medium text-gray-600 border border-gray-200 px-3 py-1.5 text-center rounded">@lang('preparing')</span>
-            <a href="/orders/details" class="bg-pink-500 text-white px-4 md:px-6 py-1.5 md:py-2 rounded-sm border-2 border-transparent hover:bg-white hover:border-pink-600 hover:text-pink-600 transition-all duration-200 text-xs md:text-sm font-semibold text-center">@lang('view_details')</a>
+            <a href="/orders/details" class="bg-gray-500 text-white px-4 md:px-6 py-1.5 md:py-2 rounded-sm border-2 border-transparent hover:bg-white hover:border-[#7A5A12] hover:text-[#7A5A12] transition-all duration-200 text-xs md:text-sm font-semibold text-center">@lang('view_details')</a>
           </div>
         </div>
 
@@ -51,10 +51,10 @@
           </div>
           <div class="border-t border-gray-200 pt-2 md:pt-3 flex justify-between">
             <span class="font-bold text-gray-800 text-sm md:text-base">@lang('total'):</span>
-            <span class="font-bold text-pink-600 text-sm md:text-base">R$ 749,70</span>
+            <span class="font-bold text-[#7A5A12] text-sm md:text-base">R$ 749,70</span>
           </div>
 
-          <a href="#" class="block mt-4 md:mt-6 text-center text-pink-600 hover:text-pink-700 text-xs md:text-sm font-semibold underline">@lang('need_help_order')</a>
+          <a href="#" class="block mt-4 md:mt-6 text-center text-[#7A5A12] hover:text-[#7A5A12] text-xs md:text-sm font-semibold underline">@lang('need_help_order')</a>
         </div>
   </div>
   </div>

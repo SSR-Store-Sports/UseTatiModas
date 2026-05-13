@@ -11,17 +11,17 @@
             <div class="p-4 border-b border-gray-50 hover:bg-gray-50 transition-colors cursor-pointer">
                 <p class="text-sm font-semibold text-gray-800">@lang('order_sent')</p>
                 <p class="text-xs text-gray-500 mt-1">@lang('order_message', ['order' => 'PED000013'])</p>
-                <span class="text-[10px] text-pink-500 font-bold mt-2 block">@lang('hours_ago', ['time' => 2])</span>
+                <span class="text-[10px] text-[#C79B2B] font-bold mt-2 block">@lang('hours_ago', ['time' => 2])</span>
             </div>
             <div class="p-4 border-b border-gray-50 hover:bg-gray-50 transition-colors cursor-pointer">
                 <p class="text-sm font-semibold text-gray-800">@lang('promotion')</p>
                 <p class="text-xs text-gray-500 mt-1">@lang('promotion_message')</p>
-                <span class="text-[10px] text-pink-500 font-bold mt-2 block">@lang('days_ago', ['time' => 1])</span>
+                <span class="text-[10px] text-[#C79B2B] font-bold mt-2 block">@lang('days_ago', ['time' => 1])</span>
             </div>
         </main>
 
         <footer class="p-4 border-t border-gray-100 text-center">
-            <a href="#" class="text-sm text-pink-600 hover:text-pink-700 font-semibold underline">@lang('view_all')</a>
+            <a href="#" class="text-sm text-[#7A5A12] hover:text-[#7A5A12] font-semibold underline">@lang('view_all')</a>
         </footer>
     </div>
 </div>

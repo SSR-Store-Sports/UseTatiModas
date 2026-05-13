@@ -10,7 +10,7 @@
         <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-800">Gerenciar Pedidos</h1>
         
         <div class="flex gap-2">
-          <button class="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition-colors text-sm font-medium flex items-center gap-2">
+          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-[#7A5A12] transition-colors text-sm font-medium flex items-center gap-2">
             <x-heroicon-o-arrow-path class="w-4 h-4" />
             Atualizar
           </button>
@@ -26,9 +26,9 @@
           <input 
             type="text" 
             placeholder="Buscar por ID, cliente ou produto" 
-            class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200">
+            class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
           
-          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200">
+          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
             <option value="">Todos os status</option>
             <option value="pending">Pendente</option>
             <option value="processing">Processando</option>
@@ -37,7 +37,7 @@
             <option value="cancelled">Cancelado</option>
           </select>
 
-          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200">
+          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
             <option value="">Período</option>
             <option value="today">Hoje</option>
             <option value="week">Última semana</option>
@@ -45,7 +45,7 @@
             <option value="year">Último ano</option>
           </select>
 
-          <button class="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition-colors text-sm font-medium">
+          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-[#7A5A12] transition-colors text-sm font-medium">
             <span class="flex items-center gap-2">
               <x-heroicon-o-funnel class="w-4 h-4" />
               Filtrar
@@ -61,7 +61,7 @@
         </div>
 
         <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-md border border-gray-200">
-          <input type="checkbox" id="select-all" class="w-4 h-4 accent-pink-500 rounded">
+          <input type="checkbox" id="select-all" class="w-4 h-4 accent-[#C79B2B] rounded">
           <label for="select-all" class="text-sm text-gray-600 cursor-pointer">Selecionar todos</label>
           
           <div class="flex gap-2 ml-auto">
@@ -82,7 +82,7 @@
               <thead>
                 <tr class="border-b border-gray-200 bg-gray-50">
                   <th class="px-4 py-3 text-left font-medium text-gray-700 w-16">
-                    <input type="checkbox" class="w-4 h-4 accent-pink-500 rounded">
+                    <input type="checkbox" class="w-4 h-4 accent-[#C79B2B] rounded">
                   </th>
                   <th class="px-4 py-3 text-left font-medium text-gray-700">ID</th>
                   <th class="px-4 py-3 text-left font-medium text-gray-700">Cliente</th>
@@ -96,9 +96,9 @@
 
               <tbody class="divide-y divide-gray-100">
                 @forelse ($orders as $order)
-                  <tr class="hover:bg-pink-50/40 transition-colors">
+                  <tr class="hover:bg-gray-100/40 transition-colors">
                     <td class="px-4 py-4">
-                      <input type="checkbox" class="w-4 h-4 accent-pink-500 rounded">
+                      <input type="checkbox" class="w-4 h-4 accent-[#C79B2B] rounded">
                     </td>
 
                     <td class="px-4 py-4 font-mono text-xs text-gray-600">
@@ -206,7 +206,7 @@
 
             @foreach ($orders->getUrlRange(1, $orders->lastPage()) as $page => $url)
               @if ($page == $orders->currentPage())
-                <span class="px-3 py-2 rounded-md bg-pink-500 text-white font-medium">
+                <span class="px-3 py-2 rounded-md bg-gray-500 text-white font-medium">
                   {{ $page }}
                 </span>
               @else
