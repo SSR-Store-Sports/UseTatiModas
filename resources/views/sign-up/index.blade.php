@@ -21,7 +21,7 @@
             <span class="text-sm md:text-base lg:text-lg">@lang('full_name')</span>
             <input
               class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-              type="name" name="name" id="name" placeholder="Henrique Maximo Lima da Silva" />
+              type="text" name="name" id="name" placeholder="Henrique Maximo Lima da Silva" />
             @error('name')
               <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
@@ -42,7 +42,7 @@
               <span class="text-sm md:text-base lg:text-lg">@lang('phone')</span>
               <input
                 class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-                type="phone" name="phone" id="phone" placeholder="11 9343-5343" />
+                type="number" name="phone" id="phone" placeholder="11 9343-5343" />
               @error('phone')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
               @enderror
@@ -52,7 +52,7 @@
               <span class="text-sm md:text-base lg:text-lg">@lang('cpf')</span>
               <input
                 class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-pink-400 hover:bg-white focus:border-pink-500 focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
-                type="number" name="number" id="number" placeholder="137.203.132-82" />
+                type="number" name="cpf" id="cpf" placeholder="137.203.132-82" />
               @error('cpf')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
               @enderror

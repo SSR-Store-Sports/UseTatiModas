@@ -9,10 +9,9 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
  * @property-read string $name
  * @property-read string $email
-//  * @property-read string $phone
-//  * @property-read string $cpf
+ * @property-read string $phone
+ * @property-read string $cpf
  * @property-read string $password
-//  * @property-read string $password_confirmation
  */
 
 class RegisterRequest extends FormRequest
@@ -35,8 +34,8 @@ class RegisterRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'min:3', 'max:80'],
             'email' => ['required', 'email', 'unique:users'],
-            'phone' => ['required', 'min:1', 'max:13'],
             'cpf' => ['required', 'min:1', 'max:13'],
+            'phone' => ['required', 'min:1', 'max:13'],
             'password' => ['required', 'min:6', 'max:20', 'confirmed'],
         ];
     }
@@ -49,7 +48,6 @@ class RegisterRequest extends FormRequest
         $user->phone = $this->phone;
         $user->cpf = $this->cpf;
         $user->password = $this->password;
-        // $user->phone = $this->phone;
         $user->save();
 
         // 2. Logar com o usuário
