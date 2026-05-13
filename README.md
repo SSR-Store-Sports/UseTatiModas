@@ -117,3 +117,8 @@ A instituição decide, o proprietário do software dita.
 - php artisan migrate:fresh
 - php artisan db:seed
 - dump();
+
+
+<!-- @if(auth()->user()->isAdmin())
+        <a href="">Olá, administrador!</a>
+    @endif -->

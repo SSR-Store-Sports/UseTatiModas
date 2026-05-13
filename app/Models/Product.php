@@ -8,14 +8,25 @@ class Product extends Model
 {
     protected $fillable = [
         'name',
+        'slug',
         'description',
         'sku',
         'price',
+        'old_price',
         'stock',
         'category_id',
         'supplier_id',
-        'image',
+        'material',
+        'free_shipping',
+        'rating',
+        'reviews_count',
         'status',
+        'published_at',
+    ];
+
+    protected $casts = [
+        'free_shipping' => 'boolean',
+        'published_at' => 'datetime',
     ];
 
     public function category()
@@ -26,5 +37,20 @@ class Product extends Model
     public function supplier()
     {
         return $this->belongsTo(Supplier::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
+    public function variants()
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
+
+    public function primaryImage()
+    {
+        return $this->hasOne(ProductImage::class)->where('is_primary', true);
     }
 }

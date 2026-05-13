@@ -9,7 +9,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $products = Product::with('images')->get();
+
+        return view('index', compact('products'));
     }
 
     public function search() {

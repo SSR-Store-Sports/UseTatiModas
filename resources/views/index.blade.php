@@ -95,45 +95,78 @@
             <div class="flex flex-col gap-8 items-center">
                 <div
                     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 justify-center items-center w-full">
-                    @for ($i = 0; $i < 4; $i++)
+                    @foreach ($products as $product)
                         <div
                             class="flex flex-col w-full bg-white shadow-md rounded-lg gap-2 hover:shadow-xl cursor-pointer transition-all duration-300 hover:-translate-y-2 group border border-gray-100">
-                            <a href="/product" class="flex flex-col justify-center items-center gap-2">
+
+                            <a href="/product/{{ $product->id }}" class="flex flex-col justify-center items-center gap-2">
+
                                 <div class="overflow-hidden rounded-lg w-full">
-                                    <img src="{{ asset('assets/model_card.png') }}" alt=""
+                                    <img src="{{ asset($product->images->first()->image ?? 'assets/model_card.png') }}"
+                                        alt="{{ $product->name }}"
                                         class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
                                 </div>
+
+                                {{-- bolinhas (fixo por enquanto) --}}
                                 <div class="flex gap-2">
                                     <span class="h-2 w-4 rounded-full bg-gray-900 border-2 border-gray-900"></span>
                                     <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span>
                                     <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span>
                                 </div>
+
                             </a>
+
                             <div class="flex flex-col gap-4 justify-center px-4 py-4">
-                                <a href="/product" class="flex flex-col">
-                                    <label
-                                        class="text-black text-left px-2 text-lg font-bold cursor-pointer">@lang('title_product')</label>
-                                    <label
-                                        class="text-gray-600 text-left px-2 text-sm cursor-pointer">@lang('description_product')</label>
-                                    <label class="text-gray-600 text-left text-sm px-2 line-through cursor-pointer">R$
-                                        3.500</label>
-                                    <label class="text-black text-left text-2xl px-2 cursor-pointer">R$ 3.000</label>
+
+                                <a href="/product/{{ $product->id }}" class="flex flex-col">
+
+                                    {{-- nome real --}}
+                                    <label class="text-black text-left px-2 text-lg font-bold cursor-pointer">
+                                        {{ $product->name }}
+                                    </label>
+
+                                    {{-- descrição real --}}
+                                    <label class="text-gray-600 text-left px-2 text-sm cursor-pointer">
+                                        {{ $product->description }}
+                                    </label>
+
+                                    {{-- preço antigo --}}
+                                    @if($product->old_price)
+                                        <label class="text-gray-600 text-left text-sm px-2 line-through cursor-pointer">
+                                            R$ {{ number_format($product->old_price, 2, ',', '.') }}
+                                        </label>
+                                    @endif
+
+                                    {{-- preço atual --}}
+                                    <label class="text-black text-left text-2xl px-2 cursor-pointer">
+                                        R$ {{ number_format($product->price, 2, ',', '.') }}
+                                    </label>
+
                                 </a>
+
                                 <div class="flex flex-col md:flex-row gap-2">
+
                                     <button
                                         class="bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-[#C79B2B] cursor-pointer outline-none transition-all duration-200">
+
                                         <x-heroicon-o-shopping-bag class="h-4 w-4" />
                                         <span class="text-sm">@lang('buy')</span>
+
                                     </button>
+
                                     <button
                                         class="bg-white text-gray-900 flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer outline-none transition-all duration-200">
+
                                         <x-heroicon-o-shopping-cart class="h-4 w-4" />
                                         <span class="text-sm">@lang('cart')</span>
+
                                     </button>
+
                                 </div>
+
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
                 <div class="flex gap-2 mt-4">
                     <span class="h-4 w-4 rounded-full bg-gray-900 border-2 border-gray-900"></span>
@@ -181,7 +214,8 @@
                         <div class="flex flex-col gap-2 sm:gap-3 justify-center px-4 sm:px-6 py-3 sm:py-4 flex-1">
                             <div class="flex flex-col gap-1">
                                 <h3 class="text-gray-900 text-base sm:text-xl font-semibold tracking-wide">
-                                    @lang('essential_products')</h3>
+                                    @lang('essential_products')
+                                </h3>
                                 <div class="flex flex-row gap-2 items-center">
                                     <span class="w-full h-px bg-gray-200"></span>
                                     <span class="w-1.5 h-1.5 rounded-full bg-[#C79B2B] shrink-0"></span>

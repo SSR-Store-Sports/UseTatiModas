@@ -15,11 +15,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // cadastrar produtos para teste
+        $this->call(ProductSeeder::class);
         // User::factory(10)->create();
+        
+        // Usuário administrativo padrão para desenvolvimento
+        // User::create([
+        //     'name' => 'Henrique',
+        //     'email' => 'admin@email.com',
+        //     'password' => bcrypt('12345678'),
+        //     'role' => 'admin',
+        // ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }

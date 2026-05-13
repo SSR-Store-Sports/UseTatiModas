@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Models\User;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
 
 /**
  * @property-read string $name
@@ -36,7 +37,7 @@ class RegisterRequest extends FormRequest
             'email' => ['required', 'email', 'unique:users'],
             'cpf' => ['required', 'min:1', 'max:13'],
             'phone' => ['required', 'min:1', 'max:13'],
-            'password' => ['required', 'min:6', 'max:20', 'confirmed'],
+            'password' => ['required', Password::defaults(), 'confirmed'],
         ];
     }
 
