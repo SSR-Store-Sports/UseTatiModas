@@ -4,13 +4,43 @@
 
 @section('content')
     <main class="h-full">
-        <div class="relative overflow-hidden rounded-sm">
-            <img src="{{ asset('assets/banner.png') }}" class="h-64 md:h-142 w-full object-cover" alt="Logo">
+        @php
+            $heroSlides = [
+                ['image' => 'assets/banner.png', 'alt' => 'Novidades da moda'],
+                ['image' => 'assets/banner dourado.png', 'alt' => 'Banner dourado'],
+                ['image' => 'assets/beleza_gold.png', 'alt' => 'Beleza gold'],
+            ];
+        @endphp
+
+        <div class="relative overflow-hidden rounded-sm" data-hero-carousel>
+            <div class="relative h-64 md:h-142 w-full">
+                @foreach ($heroSlides as $index => $slide)
+                    <img src="{{ asset($slide['image']) }}"
+                        class="absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out {{ $index === 0 ? 'opacity-100' : 'opacity-0' }}"
+                        alt="{{ $slide['alt'] }}" data-hero-slide aria-hidden="{{ $index === 0 ? 'false' : 'true' }}">
+                @endforeach
+            </div>
             <div class="absolute inset-0 shadow-[inset_0_0_50px_rgba(199,155,43,0.3)] pointer-events-none"></div>
+
+            <button type="button"
+                class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 md:h-11 md:w-11 items-center justify-center rounded-full bg-white/75 text-[#C79B2B] shadow-md transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#C79B2B]"
+                data-hero-prev aria-label="Banner anterior">
+                <x-heroicon-o-chevron-left class="h-5 w-5 md:h-6 md:w-6" />
+            </button>
+
+            <button type="button"
+                class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 md:h-11 md:w-11 items-center justify-center rounded-full bg-white/75 text-[#C79B2B] shadow-md transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#C79B2B]"
+                data-hero-next aria-label="Proximo banner">
+                <x-heroicon-o-chevron-right class="h-5 w-5 md:h-6 md:w-6" />
+            </button>
+
             <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                <span class="h-2.5 w-2.5 rounded-full bg-[#C79B2B] cursor-pointer"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-white/70 border border-[#C79B2B] cursor-pointer"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-white/70 border border-[#C79B2B] cursor-pointer"></span>
+                @foreach ($heroSlides as $index => $slide)
+                    <button type="button"
+                        class="h-2.5 w-2.5 rounded-full border border-[#C79B2B] transition {{ $index === 0 ? 'bg-[#C79B2B]' : 'bg-white/70' }}"
+                        data-hero-dot data-slide-index="{{ $index }}" aria-label="Ir para banner {{ $index + 1 }}"
+                        aria-current="{{ $index === 0 ? 'true' : 'false' }}"></button>
+                @endforeach
             </div>
         </div>
 
@@ -396,4 +426,71 @@
 
         <x-discounts />
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-hero-carousel]').forEach((carousel) => {
+                const slides = Array.from(carousel.querySelectorAll('[data-hero-slide]'));
+                const dots = Array.from(carousel.querySelectorAll('[data-hero-dot]'));
+                const prevButton = carousel.querySelector('[data-hero-prev]');
+                const nextButton = carousel.querySelector('[data-hero-next]');
+                let activeIndex = 0;
+                let autoplay;
+
+                const showSlide = (nextIndex) => {
+                    activeIndex = (nextIndex + slides.length) % slides.length;
+
+                    slides.forEach((slide, index) => {
+                        const isActive = index === activeIndex;
+                        slide.classList.toggle('opacity-100', isActive);
+                        slide.classList.toggle('opacity-0', !isActive);
+                        slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+                    });
+
+                    dots.forEach((dot, index) => {
+                        const isActive = index === activeIndex;
+                        dot.classList.toggle('bg-[#C79B2B]', isActive);
+                        dot.classList.toggle('bg-white/70', !isActive);
+                        dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+                    });
+                };
+
+                const startAutoplay = () => {
+                    stopAutoplay();
+                    autoplay = window.setInterval(() => showSlide(activeIndex + 1), 5000);
+                };
+
+                const stopAutoplay = () => {
+                    if (autoplay) {
+                        window.clearInterval(autoplay);
+                    }
+                };
+
+                prevButton?.addEventListener('click', () => {
+                    showSlide(activeIndex - 1);
+                    startAutoplay();
+                });
+
+                nextButton?.addEventListener('click', () => {
+                    showSlide(activeIndex + 1);
+                    startAutoplay();
+                });
+
+                dots.forEach((dot) => {
+                    dot.addEventListener('click', () => {
+                        showSlide(Number(dot.dataset.slideIndex));
+                        startAutoplay();
+                    });
+                });
+
+                carousel.addEventListener('mouseenter', stopAutoplay);
+                carousel.addEventListener('mouseleave', startAutoplay);
+                carousel.addEventListener('focusin', stopAutoplay);
+                carousel.addEventListener('focusout', startAutoplay);
+
+                showSlide(0);
+                startAutoplay();
+            });
+        });
+    </script>
 @endsection
