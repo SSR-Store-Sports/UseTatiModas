@@ -4,13 +4,43 @@
 
 @section('content')
     <main class="h-full">
-        <div class="relative overflow-hidden rounded-sm">
-            <img src="{{ asset('assets/banner.png') }}" class="h-64 md:h-142 w-full object-cover" alt="Logo">
+        @php
+            $heroSlides = [
+                ['image' => 'assets/banner_novo_doud.png', 'alt' => 'Novidades da moda'],
+                ['image' => 'assets/banner dourado.png', 'alt' => 'Banner dourado'],
+                ['image' => 'assets/beleza_gold.png', 'alt' => 'Beleza gold'],
+            ];
+        @endphp
+
+        <div class="relative overflow-hidden rounded-sm" data-hero-carousel>
+            <div class="relative h-64 md:h-142 w-full">
+                @foreach ($heroSlides as $index => $slide)
+                    <img src="{{ asset($slide['image']) }}"
+                        class="absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out {{ $index === 0 ? 'opacity-100' : 'opacity-0' }}"
+                        alt="{{ $slide['alt'] }}" data-hero-slide aria-hidden="{{ $index === 0 ? 'false' : 'true' }}">
+                @endforeach
+            </div>
             <div class="absolute inset-0 shadow-[inset_0_0_50px_rgba(199,155,43,0.3)] pointer-events-none"></div>
+
+            <button type="button"
+                class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 md:h-11 md:w-11 items-center justify-center rounded-full bg-white/75 text-gold-medium shadow-md transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-gold-medium"
+                data-hero-prev aria-label="Banner anterior">
+                <x-heroicon-o-chevron-left class="h-5 w-5 md:h-6 md:w-6" />
+            </button>
+
+            <button type="button"
+                class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 md:h-11 md:w-11 items-center justify-center rounded-full bg-white/75 text-gold-medium shadow-md transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-gold-medium"
+                data-hero-next aria-label="Proximo banner">
+                <x-heroicon-o-chevron-right class="h-5 w-5 md:h-6 md:w-6" />
+            </button>
+
             <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                <span class="h-2.5 w-2.5 rounded-full bg-gold-medium cursor-pointer"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-white/70 border border-gold-medium cursor-pointer"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-white/70 border border-gold-medium cursor-pointer"></span>
+                @foreach ($heroSlides as $index => $slide)
+                    <button type="button"
+                        class="h-2.5 w-2.5 rounded-full border border-gold-medium transition {{ $index === 0 ? 'bg-gold-medium' : 'bg-white/70' }}"
+                        data-hero-dot data-slide-index="{{ $index }}" aria-label="Ir para banner {{ $index + 1 }}"
+                        aria-current="{{ $index === 0 ? 'true' : 'false' }}"></button>
+                @endforeach
             </div>
         </div>
 
@@ -393,3 +423,7 @@
     </main>
 @endsection
 
+
+@push('scripts')
+    <script src="{{ asset('js/carrossel.js') }}"></script>
+@endpush

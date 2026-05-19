@@ -17,6 +17,8 @@
     <x-footer />
     <!-- <x-modal.modal-notifications /> -->
     <!-- <x-modal /> -->
+
+    @stack('scripts')
 </body>
 
 </html>
