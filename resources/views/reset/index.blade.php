@@ -19,12 +19,12 @@
         <div class="flex flex-col gap-2 flex-1">
           <span class="text-base md:text-lg">@lang('email')</span>
           <input
-            class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:shadow-[0_0_0_3px_rgba(236,72,153,0.15)]"
+            class="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
             type="email" name="email" id="email" placeholder="exemplo@email.com" />
         </div>
 
         <button
-          class="group bg-gray-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 ">
+          class="group bg-gray-900 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-[#C79B2B] cursor-pointer text-center outline-none transition-all duration-200">
           <span>@lang('send')</span>
           <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
             className="size-6">
@@ -47,13 +47,13 @@
         <a href="/help">
           <div class="group flex flex-col gap-2 items-center justify-center align-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-              class="h-8 w-8 text-[#F1C24A] group-hover:text-[#7A5A12]">
+              class="h-8 w-8 text-gray-900 group-hover:text-[#C79B2B]">
               <path fill-rule="evenodd"
                 d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
                 clip-rule="evenodd" />
             </svg>
 
-            <span class="text-[#F1C24A] text-base md:text-lg group-hover:text-[#7A5A12]">@lang('help')</span>
+            <span class="text-gray-900 text-base md:text-lg group-hover:text-[#C79B2B]">@lang('help')</span>
           </div>
         </a>
       </section>

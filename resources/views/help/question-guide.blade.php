@@ -18,19 +18,19 @@
         <p class="font-medium">@lang('follow_instructions')</p>
         <ol class="flex flex-col gap-3 list-none">
           <li class="flex items-start gap-3">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-500 text-white text-xs font-bold shrink-0 mt-0.5">1</span>
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-bold shrink-0 mt-0.5">1</span>
             <span>@lang('open_site')</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-500 text-white text-xs font-bold shrink-0 mt-0.5">2</span>
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-bold shrink-0 mt-0.5">2</span>
             <span>@lang('initial_screen')</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-500 text-white text-xs font-bold shrink-0 mt-0.5">3</span>
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-bold shrink-0 mt-0.5">3</span>
             <span>@lang('enter_credentials')</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-500 text-white text-xs font-bold shrink-0 mt-0.5">4</span>
+            <span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-bold shrink-0 mt-0.5">4</span>
             <span>@lang('click_access')</span>
           </li>
         </ol>
@@ -44,7 +44,7 @@
     </div>
 
     <section class="flex flex-col gap-3 w-full">
-      <button class="group bg-linear-to-r from-orange-500 to-orange-600 text-white flex items-center justify-center rounded-lg w-full py-3.5 px-6 gap-2 border border-transparent hover:from-white hover:to-white hover:border-orange-600 hover:text-orange-600 hover:shadow-md cursor-pointer outline-none transition-all duration-200">
+      <button class="group bg-gray-900 text-white flex items-center justify-center rounded-lg w-full py-3.5 px-6 gap-2 border-2 border-transparent hover:bg-[#C79B2B] cursor-pointer outline-none transition-all duration-200">
         <x-heroicon-o-document-text class="h-5 w-5 shrink-0" />
         <span class="text-sm md:text-base font-medium">@lang('terms_of_service')</span>
       </button>
