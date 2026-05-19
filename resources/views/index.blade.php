@@ -6,7 +6,7 @@
     <main class="h-full">
         @php
             $heroSlides = [
-                ['image' => 'assets/banner.png', 'alt' => 'Novidades da moda'],
+                ['image' => 'assets/banner_novo_doud.png', 'alt' => 'Novidades da moda'],
                 ['image' => 'assets/banner dourado.png', 'alt' => 'Banner dourado'],
                 ['image' => 'assets/beleza_gold.png', 'alt' => 'Beleza gold'],
             ];
