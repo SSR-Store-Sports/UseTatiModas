@@ -14,7 +14,7 @@
             <x-heroicon-o-plus class="w-4 h-4" />
             Novo Produto
           </a>
-          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-[#7A5A12] transition-colors text-sm font-medium flex items-center gap-2">
+          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gold-dark transition-colors text-sm font-medium flex items-center gap-2">
             <x-heroicon-o-arrow-path class="w-4 h-4" />
             Atualizar
           </button>
@@ -26,22 +26,22 @@
           <input 
             type="text" 
             placeholder="Buscar por nome ou SKU" 
-            class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
+            class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
           
-          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
+          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
             <option value="">Todas categorias</option>
             <option value="1">Moda Feminina</option>
             <option value="2">Moda Masculina</option>
             <option value="3">Acessórios</option>
           </select>
 
-          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
+          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
             <option value="">Todos status</option>
             <option value="active">Ativo</option>
             <option value="inactive">Inativo</option>
           </select>
 
-          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-[#7A5A12] transition-colors text-sm font-medium">
+          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gold-dark transition-colors text-sm font-medium">
             <span class="flex items-center gap-2">
               <x-heroicon-o-funnel class="w-4 h-4" />
               Filtrar
@@ -215,3 +215,5 @@
   </div>
 </main>
 @endsection
+
+

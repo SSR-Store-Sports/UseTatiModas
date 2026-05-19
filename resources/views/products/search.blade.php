@@ -13,11 +13,11 @@
             <h2 class="text-sm md:text-md font-bold text-gray-800 mb-3 md:mb-4">@lang('filters')</h2>
             <div class="space-y-2">
               <label class="flex items-center text-xs md:text-sm text-gray-600">
-                <input type="checkbox" class="mr-2 text-[#7A5A12] focus:ring-[#C79B2B] border-gray-300 rounded">
+                <input type="checkbox" class="mr-2 text-gold-dark focus:ring-[#C79B2B] border-gray-300 rounded">
                 @lang('on_sale')
               </label>
               <select
-                class="w-full text-xs md:text-sm p-2 border border-gray-200 rounded-sm text-gray-600 focus:border-[#C79B2B] outline-none">
+                class="w-full text-xs md:text-sm p-2 border border-gray-200 rounded-sm text-gray-600 focus:border-gold-medium outline-none">
                 <option value="">@lang('category')</option>
               </select>
             </div>
@@ -26,8 +26,8 @@
           <div class="border-t border-gray-200 pt-4 md:pt-6">
             <h2 class="text-sm md:text-md font-bold text-gray-800 mb-3 md:mb-4">@lang('by_category')</h2>
             <div class="space-y-2">
-              <a href="#" class="block text-xs md:text-sm text-gray-600 hover:text-[#7A5A12]">@lang('category_item1')</a>
-              <a href="#" class="block text-xs md:text-sm text-gray-600 hover:text-[#7A5A12]">@lang('category_item2')</a>
+              <a href="#" class="block text-xs md:text-sm text-gray-600 hover:text-gold-dark">@lang('category_item1')</a>
+              <a href="#" class="block text-xs md:text-sm text-gray-600 hover:text-gold-dark">@lang('category_item2')</a>
             </div>
           </div>
         </div>
@@ -37,12 +37,12 @@
         <div
           class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 md:mb-8 pb-3 md:pb-4 border-b border-gray-200 gap-3">
           <span class="text-sm md:text-md text-gray-600">@lang('search_result') <span
-              class="font-bold text-[#7A5A12]">'Calças'</span></span>
+              class="font-bold text-gold-dark">'Calças'</span></span>
 
           <div class="flex items-center gap-2">
             <span class="text-xs md:text-sm text-gray-500">@lang('sort_by'):</span>
-            <button class="text-xs md:text-sm font-semibold text-gray-800 hover:text-[#7A5A12]">@lang('relevance')</button>
-            <button class="text-xs md:text-sm font-semibold text-gray-500 hover:text-[#7A5A12]">@lang('newest')</button>
+            <button class="text-xs md:text-sm font-semibold text-gray-800 hover:text-gold-dark">@lang('relevance')</button>
+            <button class="text-xs md:text-sm font-semibold text-gray-500 hover:text-gold-dark">@lang('newest')</button>
           </div>
         </div>
 
@@ -56,9 +56,9 @@
                     class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
                 </div>
                 <div class="flex gap-2">
-                  <span class="h-2 w-4 rounded-full bg-gray-500 border-2 border-[#C79B2B]"></span>
-                  <span class="h-2 w-4 rounded-full bg-white border-2 border-[#C79B2B]"></span>
-                  <span class="h-2 w-4 rounded-full bg-white border-2 border-[#C79B2B]"></span>
+                  <span class="h-2 w-4 rounded-full bg-gray-500 border-2 border-gold-medium"></span>
+                  <span class="h-2 w-4 rounded-full bg-white border-2 border-gold-medium"></span>
+                  <span class="h-2 w-4 rounded-full bg-white border-2 border-gold-medium"></span>
                 </div>
               </a>
               <div class="flex flex-col gap-4 justify-center px-4 py-4">
@@ -72,12 +72,12 @@
                 </a>
                 <div class="flex flex-col md:flex-row gap-2">
                   <button
-                    class="bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-white hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer outline-none transition-all duration-200">
+                    class="bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-white hover:border-gold-dark hover:text-gold-dark cursor-pointer outline-none transition-all duration-200">
                     <x-heroicon-o-shopping-bag class="h-4 w-4" />
                     <span class="text-sm">@lang('buy')</span>
                   </button>
                   <button
-                    class="bg-white text-[#C79B2B] flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-[#C79B2B] hover:bg-gray-1000 hover:text-white cursor-pointer outline-none transition-all duration-200">
+                    class="bg-white text-gold-medium flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-gold-medium hover:bg-gray-1000 hover:text-white cursor-pointer outline-none transition-all duration-200">
                     <x-heroicon-o-shopping-cart class="h-4 w-4" />
                     <span class="text-sm">@lang('cart')</span>
                   </button>
@@ -89,32 +89,32 @@
 
         <div class="flex flex-wrap gap-2 mb-8 md:mb-12 justify-center">
           <button
-            class="group text-white bg-[#7A5A12] flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm"
+            class="group text-white bg-gold-dark flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-gold-dark hover:bg-gray-100 hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm"
             disabled>
             <span>@lang('previous')</span>
           </button>
           <button
-            class="group bg-[#F9E446] text-white flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-[#F9E446] hover:bg-gray-100 hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
+            class="group bg-[#F9E446] text-white flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-[#F9E446] hover:bg-gray-100 hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
             <span>1</span>
           </button>
           <button
-            class="group bg-white text-[#7A5A12] flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
+            class="group bg-white text-gold-dark flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-gold-dark hover:bg-gray-100 hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
             <span>2</span>
           </button>
           <button
-            class="group bg-white text-[#7A5A12] flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
+            class="group bg-white text-gold-dark flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-gold-dark hover:bg-gray-100 hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
             <span>3</span>
           </button>
           <button
-            class="group bg-white text-[#7A5A12] flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
+            class="group bg-white text-gold-dark flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-gold-dark hover:bg-gray-100 hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
             <span>...</span>
           </button>
           <button
-            class="group bg-white text-[#7A5A12] flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
+            class="group bg-white text-gold-dark flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-gold-dark hover:bg-gray-100 hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
             <span>7</span>
           </button>
           <button
-            class="group text-white bg-[#7A5A12] flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
+            class="group text-white bg-gold-dark flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 border-2 border-gold-dark hover:bg-gray-100 hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200 text-xs md:text-sm">
             <span>@lang('next')</span>
           </button>
         </div>
@@ -124,3 +124,4 @@
     <x-discounts />
   </main>
 @endsection
+

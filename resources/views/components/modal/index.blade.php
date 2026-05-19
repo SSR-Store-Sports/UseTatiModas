@@ -14,14 +14,15 @@
 
       <div class="flex justify-end gap-4">
         <button
-          class="group bg-gray-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200">
+          class="group bg-gray-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200">
           <span>@lang('delete')</span>
         </button>
         <button
-          class="group bg-white text-[#7A5A12] flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200">
+          class="group bg-white text-gold-dark flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-gold-dark hover:bg-gray-100 hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200">
           <span>@lang('cancel')</span>
         </button>
       </div>
     </main>
   </div>
 </div>
+

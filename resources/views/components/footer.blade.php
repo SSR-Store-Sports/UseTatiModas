@@ -62,21 +62,21 @@
             </p>
             <div class="flex gap-4 my-4 justify-start md:justify-center">
                 <a href="#" aria-label="Facebook"
-                    class="bg-transparent border-2 border-[#C79B2B] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-[#C79B2B] hover:-translate-y-0.5 shrink-0">
+                    class="bg-transparent border-2 border-gold-medium rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-gold-medium hover:-translate-y-0.5 shrink-0">
                     <img src="{{ asset('assets/facebook_logo.svg') }}" class="w-5 h-5 invert" alt="Facebook" />
                 </a>
                 <a href="https://www.instagram.com/tatifitmodas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                     aria-label="Instagram" target="_blank"
-                    class="bg-transparent border-2 border-[#C79B2B] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-[#C79B2B] hover:-translate-y-0.5 shrink-0">
+                    class="bg-transparent border-2 border-gold-medium rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-gold-medium hover:-translate-y-0.5 shrink-0">
                     <img src="{{ asset('assets/instagram_logo.svg') }}" class="w-5 h-5 invert" alt="Instagram" />
                 </a>
                 <a href="https://api.whatsapp.com/send/?phone=5511978936260&text&type=phone_number&app_absent=0&utm_source=ig"
                     aria-label="WhatsApp"
-                    class="bg-transparent border-2 border-[#C79B2B] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-[#C79B2B] hover:-translate-y-0.5 shrink-0">
+                    class="bg-transparent border-2 border-gold-medium rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-gold-medium hover:-translate-y-0.5 shrink-0">
                     <img src="{{ asset('assets/whatsapp_logo.svg') }}" class="w-5 h-5 invert" alt="WhatsApp" />
                 </a>
                 <a href="https://www.tiktok.com/@tatifitwear1?is_from_webapp=1&sender_device=pc" aria-label="TikTok"
-                    class="bg-transparent border-2 border-[#C79B2B] rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-[#C79B2B] hover:-translate-y-0.5 shrink-0">
+                    class="bg-transparent border-2 border-gold-medium rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:bg-gold-medium hover:-translate-y-0.5 shrink-0">
                     <img src="{{ asset('assets/tiktok_logo.svg') }}" class=" w-5 h-5 invert" alt="TikTok" />
                 </a>
             </div>
@@ -111,3 +111,4 @@
         </p>
     </div>
 </footer>
+

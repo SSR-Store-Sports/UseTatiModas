@@ -14,7 +14,7 @@
     </header>
 
     <section class="flex flex-col gap-4 w-full">
-      <div class="flex flex-col gap-4 text-gray-700 text-sm md:text-base leading-relaxed bg-white rounded-lg shadow-sm shadow-[#C79B2B]/20 p-4 md:p-6 border border-gray-100">
+      <div class="flex flex-col gap-4 text-gray-700 text-sm md:text-base leading-relaxed bg-white rounded-lg shadow-sm shadow-gold-medium/20 p-4 md:p-6 border border-gray-100">
         <p class="font-medium">@lang('follow_instructions')</p>
         <ol class="flex flex-col gap-3 list-none">
           <li class="flex items-start gap-3">
@@ -44,7 +44,7 @@
     </div>
 
     <section class="flex flex-col gap-3 w-full">
-      <button class="group bg-gray-900 text-white flex items-center justify-center rounded-lg w-full py-3.5 px-6 gap-2 border-2 border-transparent hover:bg-[#C79B2B] cursor-pointer outline-none transition-all duration-200">
+      <button class="group bg-gray-900 text-white flex items-center justify-center rounded-lg w-full py-3.5 px-6 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer outline-none transition-all duration-200">
         <x-heroicon-o-document-text class="h-5 w-5 shrink-0" />
         <span class="text-sm md:text-base font-medium">@lang('terms_of_service')</span>
       </button>
@@ -52,9 +52,11 @@
       <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
         <p class="flex flex-col sm:flex-row text-sm text-gray-700 gap-1 items-center justify-center">
           <span>@lang('already_have_account')</span>
-          <a href="/sign-in" class="text-[#7A5A12] font-semibold hover:text-[#7A5A12] hover:underline transition-colors">@lang('login')</a>
+          <a href="/sign-in" class="text-gold-dark font-semibold hover:text-gold-dark hover:underline transition-colors">@lang('login')</a>
         </p>
       </div>
     </section>
   </main>
 @endsection
+
+

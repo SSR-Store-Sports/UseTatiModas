@@ -10,7 +10,7 @@
         <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-800">Gerenciar Pedidos</h1>
         
         <div class="flex gap-2">
-          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-[#7A5A12] transition-colors text-sm font-medium flex items-center gap-2">
+          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gold-dark transition-colors text-sm font-medium flex items-center gap-2">
             <x-heroicon-o-arrow-path class="w-4 h-4" />
             Atualizar
           </button>
@@ -26,9 +26,9 @@
           <input 
             type="text" 
             placeholder="Buscar por ID, cliente ou produto" 
-            class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
+            class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
           
-          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
+          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
             <option value="">Todos os status</option>
             <option value="pending">Pendente</option>
             <option value="processing">Processando</option>
@@ -37,7 +37,7 @@
             <option value="cancelled">Cancelado</option>
           </select>
 
-          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
+          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
             <option value="">Período</option>
             <option value="today">Hoje</option>
             <option value="week">Última semana</option>
@@ -45,7 +45,7 @@
             <option value="year">Último ano</option>
           </select>
 
-          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-[#7A5A12] transition-colors text-sm font-medium">
+          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gold-dark transition-colors text-sm font-medium">
             <span class="flex items-center gap-2">
               <x-heroicon-o-funnel class="w-4 h-4" />
               Filtrar
@@ -233,3 +233,4 @@
   </div>
 </main>
 @endsection
+

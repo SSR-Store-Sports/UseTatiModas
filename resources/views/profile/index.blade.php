@@ -22,12 +22,12 @@
                 <h2 class="text-xs md:text-sm font-semibold text-gray-500">Minha Conta</h2>
 
                 <a href="#"
-                    class="flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50 hover:text-[#7A5A12] transition">
+                    class="flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50 hover:text-gold-dark transition">
                     <span>@lang('my_address')</span>
                 </a>
 
                 <a href="/orders"
-                    class="flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50 hover:text-[#7A5A12] transition">
+                    class="flex items-center justify-between px-4 py-3 rounded-xl border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50 hover:text-gold-dark transition">
                     <span>@lang('my_orders')</span>
                 </a>
             </div>
@@ -52,7 +52,7 @@
                         <span class="text-gray-600">@lang('email_profile')</span>
                         <div class="flex items-center gap-3">
                             <span class="text-gray-900">@lang('placeholder_email')</span>
-                            <a href="#" class="text-[#7A5A12] hover:underline">@lang('change')</a>
+                            <a href="#" class="text-gold-dark hover:underline">@lang('change')</a>
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@
                         <span class="text-gray-600">@lang('phone_profile')</span>
                         <div class="flex items-center gap-3">
                             <span class="text-gray-900">@lang('placeholder_phone')</span>
-                            <a href="#" class="text-[#7A5A12] hover:underline">@lang('change')</a>
+                            <a href="#" class="text-gold-dark hover:underline">@lang('change')</a>
                         </div>
                     </div>
 
@@ -68,7 +68,7 @@
                         <span class="text-gray-600">@lang('cpf_profile')</span>
                         <div class="flex items-center gap-3">
                             <span class="text-gray-900">@lang('placeholder_cpf')</span>
-                            <a href="#" class="text-[#7A5A12] hover:underline">@lang('change')</a>
+                            <a href="#" class="text-gold-dark hover:underline">@lang('change')</a>
                         </div>
                     </div>
                 </div>
@@ -77,11 +77,11 @@
 
                 <div class="flex flex-col sm:flex-row gap-3 md:gap-4 mt-auto">
                     <button
-                        class="group bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-3 gap-2 border-2 border-transparent hover:bg-white hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
+                        class="group bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-3 gap-2 border-2 border-transparent hover:bg-white hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
                         <span>@lang('delete_account')</span>
                     </button>
                     <button
-                        class="group bg-white text-[#7A5A12] flex items-center justify-center rounded-md w-full py-3 gap-2 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
+                        class="group bg-white text-gold-dark flex items-center justify-center rounded-md w-full py-3 gap-2 border-2 border-gold-dark hover:bg-gray-100 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
                         <span>@lang('update_information')</span>
                     </button>
                 </div>
@@ -89,3 +89,5 @@
         </section>
     </main>
 @endsection
+
+

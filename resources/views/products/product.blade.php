@@ -26,13 +26,13 @@
                     <label class="text-sm font-medium text-gray-700">@lang('color')</label>
                     <div class="flex gap-2">
                         <button
-                            class="w-7 h-7 rounded-full bg-black border-2 border-transparent hover:border-[#C79B2B] transition-all"
+                            class="w-7 h-7 rounded-full bg-black border-2 border-transparent hover:border-gold-medium transition-all"
                             title="@lang('black')"></button>
                         <button
-                            class="w-7 h-7 rounded-full bg-white border-2 border-gray-300 hover:border-[#C79B2B] transition-all"
+                            class="w-7 h-7 rounded-full bg-white border-2 border-gray-300 hover:border-gold-medium transition-all"
                             title="@lang('white')"></button>
                         <button
-                            class="w-7 h-7 rounded-full bg-[#F1C24A] border-2 border-transparent hover:border-[#7A5A12] transition-all"
+                            class="w-7 h-7 rounded-full bg-[#F1C24A] border-2 border-transparent hover:border-gold-dark transition-all"
                             title="@lang('pink')"></button>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                     <div class="flex gap-2">
                         @foreach (['P', 'M', 'G', 'GG'] as $size)
                             <button
-                                class="w-10 h-10 rounded-md border-2 border-[#F9E446] text-sm font-medium text-gray-700 hover:border-[#7A5A12] hover:text-[#7A5A12] transition-all duration-200">
+                                class="w-10 h-10 rounded-md border-2 border-[#F9E446] text-sm font-medium text-gray-700 hover:border-gold-dark hover:text-gold-dark transition-all duration-200">
                                 {{ $size }}
                             </button>
                         @endforeach
@@ -86,15 +86,15 @@
 
                     <div class="flex flex-col gap-1">
                         <span class="text-sm text-gray-400 line-through">R$ 120,00</span>
-                        <span class="text-3xl font-bold text-[#7A5A12]">R$ 62,00</span>
+                        <span class="text-3xl font-bold text-gold-dark">R$ 62,00</span>
                         <span class="text-xs text-gray-500">@lang('installments')</span>
                         <div class="flex items-center border border-gray-200 rounded-md overflow-hidden w-fit mt-1">
-                            <button class="px-2 py-1 text-[#7A5A12] hover:bg-gray-100 transition-all">−</button>
+                            <button class="px-2 py-1 text-gold-dark hover:bg-gray-100 transition-all">−</button>
 
                             <input id="qty" type="number" min="1" max="10" value="1"
                                 class="w-8 text-center text-sm outline-none border-x border-gray-200 py-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
 
-                            <button class="px-2 py-1 text-[#7A5A12] hover:bg-gray-100 transition-all">+</button>
+                            <button class="px-2 py-1 text-gold-dark hover:bg-gray-100 transition-all">+</button>
                         </div>
                     </div>
 
@@ -120,12 +120,12 @@
 
                     <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
                         <a href="/product"
-                            class="group bg-gray-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200">
+                            class="group bg-gray-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200">
                             <span>@lang('buy')</span>
                             <x-heroicon-o-plus-circle class="h-4 w-4" />
                         </a>
                         <button
-                            class="group bg-white text-[#7A5A12] flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-2 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer text-center outline-none transition-all duration-200">
+                            class="group bg-white text-gold-dark flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-gold-dark hover:bg-gray-100 hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200">
                             <span>@lang('add_to_cart')</span>
                             <x-heroicon-o-shopping-cart class="h-4 w-4" />
                         </button>
@@ -134,26 +134,26 @@
         </section>
 
         <section class="mt-8 md:mt-16 flex flex-col gap-6 md:gap-8 px-0 md:px-8 lg:px-16">
-            <div class="flex flex-col gap-2 justify-center shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)]">
-                <h2 class="text-center text-2xl md:text-4xl text-[#7A5A12] font-bold">
-                    @lang('related_products')
-                </h2>
-                <span class="w-full h-0.5 bg-[#7A5A12]"></span>
+            <div class="flex flex-col gap-4 pb-4 border-b-2 border-gray-200">
+                <div class="flex px-4 md:px-16 items-center gap-3">
+                    <x-heroicon-o-squares-2x2 class="h-8 w-8 md:h-10 md:w-10 text-gray-900" />
+                    <h1 class="text-gray-900 text-2xl md:text-4xl font-bold">@lang('related_products')</h1>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                 @for ($i = 0; $i < 4; $i++)
                     <div
-                        class="flex flex-col w-full bg-white shadow-md rounded-lg gap-2 hover:shadow-2xl hover:shadow-lg shadow-xl/30 cursor-pointer transition-all duration-300 hover:-translate-y-2 group">
+                        class="flex flex-col w-full bg-white shadow-md rounded-lg gap-2 hover:shadow-2xl shadow-xl/30 cursor-pointer transition-all duration-300 hover:-translate-y-2 group">
                         <a href="/product" class="flex flex-col justify-center items-center gap-2">
                             <div class="overflow-hidden rounded-lg w-full">
                                 <img src="{{ asset('assets/model_card.png') }}" alt=""
                                     class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
                             </div>
                             <div class="flex gap-2">
-                                <span class="h-2 w-4 rounded-full bg-gray-500 border-2 border-[#C79B2B]"></span>
-                                <span class="h-2 w-4 rounded-full bg-white border-2 border-[#C79B2B]"></span>
-                                <span class="h-2 w-4 rounded-full bg-white border-2 border-[#C79B2B]"></span>
+                                <span class="h-2 w-4 rounded-full bg-gray-500 border-2 border-gold-medium"></span>
+                                <span class="h-2 w-4 rounded-full bg-white border-2 border-gold-medium"></span>
+                                <span class="h-2 w-4 rounded-full bg-white border-2 border-gold-medium"></span>
                             </div>
                         </a>
                         <div class="flex flex-col gap-4 justify-center px-4 py-4">
@@ -168,12 +168,12 @@
                             </a>
                             <div class="flex flex-col md:flex-row gap-2">
                                 <button
-                                    class="bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-white hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer outline-none transition-all duration-200">
+                                    class="bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-white hover:border-gold-dark hover:text-gold-dark cursor-pointer outline-none transition-all duration-200">
                                     <x-heroicon-o-shopping-bag class="h-4 w-4" />
                                     <span class="text-sm">@lang('buy')</span>
                                 </button>
                                 <button
-                                    class="bg-white text-[#C79B2B] flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-[#C79B2B] hover:bg-gray-1000 hover:text-white cursor-pointer outline-none transition-all duration-200">
+                                    class="bg-white text-gold-medium flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-gold-medium hover:bg-gray-1000 hover:text-white cursor-pointer outline-none transition-all duration-200">
                                     <x-heroicon-o-shopping-cart class="h-4 w-4" />
                                     <span class="text-sm">@lang('cart')</span>
                                 </button>
@@ -187,3 +187,4 @@
 
     </main>
 @endsection
+

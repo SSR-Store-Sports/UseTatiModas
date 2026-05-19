@@ -17,7 +17,7 @@
             echo 'Boa noite';
           }
         @endphp
-        <span class="text-[#7A5A12]">Administrador</span>
+        <span class="text-gold-dark">Administrador</span>
       </h1>
       <p class="text-gray-500 text-sm md:text-base mt-1">
         Dashboard: resumo das vendas e estatísticas da loja.
@@ -29,7 +29,7 @@
         <div class="flex items-center justify-between mb-3">
           <h3 class="text-xs md:text-sm font-medium text-gray-600">@lang('total_revenue')</h3>
           <div class="p-2 bg-gray-100 rounded-lg">
-            <x-heroicon-o-currency-dollar class="w-5 h-5 text-[#7A5A12]" />
+            <x-heroicon-o-currency-dollar class="w-5 h-5 text-gold-dark" />
           </div>
         </div>
         <div class="flex flex-col gap-1">
@@ -86,7 +86,7 @@
             <p class="text-xs md:text-sm text-gray-500 mt-1">Últimos 30 dias</p>
           </div>
           <div class="p-2 bg-gray-100 rounded-lg">
-            <x-heroicon-o-chart-bar-square class="w-5 h-5 text-[#7A5A12]" />
+            <x-heroicon-o-chart-bar-square class="w-5 h-5 text-gold-dark" />
           </div>
         </div>
         
@@ -106,14 +106,14 @@
             <p class="text-xs md:text-sm text-gray-500 mt-1">Top 5 vendidos</p>
           </div>
           <div class="p-2 bg-gray-100 rounded-lg">
-            <x-heroicon-o-fire class="w-5 h-5 text-[#7A5A12]" />
+            <x-heroicon-o-fire class="w-5 h-5 text-gold-dark" />
           </div>
         </div>
 
         <div class="flex flex-col gap-3">
           @for($i = 1; $i <= 5; $i++)
           <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-            <div class="flex items-center justify-center w-8 h-8 bg-[#7A5A12] text-white rounded-full text-sm font-bold">
+            <div class="flex items-center justify-center w-8 h-8 bg-gold-dark text-white rounded-full text-sm font-bold">
               {{ $i }}
             </div>
             <div class="flex-1 min-w-0">
@@ -121,7 +121,7 @@
               <p class="text-xs text-gray-500">{{ 150 - ($i * 20) }} vendas</p>
             </div>
             <div class="text-right">
-              <p class="text-sm font-bold text-[#7A5A12]">R$ {{ number_format(299.90 - ($i * 30), 2, ',', '.') }}</p>
+              <p class="text-sm font-bold text-gold-dark">R$ {{ number_format(299.90 - ($i * 30), 2, ',', '.') }}</p>
             </div>
           </div>
           @endfor
@@ -132,8 +132,8 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 md:mt-8">
       <a href="/admin/products" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 p-4 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
         <div class="flex flex-col items-center gap-2 text-center">
-          <div class="p-3 bg-gray-100 rounded-lg group-hover:bg-[#7A5A12] transition-colors">
-            <x-heroicon-o-squares-2x2 class="w-6 h-6 text-[#7A5A12] group-hover:text-white transition-colors" />
+          <div class="p-3 bg-gray-100 rounded-lg group-hover:bg-gold-dark transition-colors">
+            <x-heroicon-o-squares-2x2 class="w-6 h-6 text-gold-dark group-hover:text-white transition-colors" />
           </div>
           <span class="text-sm font-semibold text-gray-800">@lang('products_admin')</span>
         </div>
@@ -169,3 +169,4 @@
   </div>
 </main>
 @endsection
+

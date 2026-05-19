@@ -8,8 +8,8 @@
   <div class="grid grid-rows-[auto_1fr] gap-4 md:gap-6">
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-200 pb-3 md:pb-4 gap-2">
       <div class="flex items-center gap-1.5">
-        <x-heroicon-o-shopping-cart class="w-5 h-5 text-[#7A5A12]" />
-        <h1 class="font-bold text-xl md:text-2xl text-[#7A5A12]">@lang('shopping_cart')</h1>
+        <x-heroicon-o-shopping-cart class="w-5 h-5 text-gold-dark" />
+        <h1 class="font-bold text-xl md:text-2xl text-gold-dark">@lang('shopping_cart')</h1>
       </div>
       <span class="text-xs md:text-sm text-gray-500">0 @lang('products')</span>
     </div>
@@ -44,7 +44,7 @@
       <aside class="lg:col-span-1">
         <div class="bg-white p-4 md:p-5 rounded-xl shadow-md shadow-[#C79B2B]/20 flex flex-col gap-4 sticky top-4">
 
-          <h2 class="font-bold text-base md:text-lg text-[#7A5A12] border-b border-gray-200 pb-3">@lang('checkout')</h2>
+          <h2 class="font-bold text-base md:text-lg text-gold-dark border-b border-gray-200 pb-3">@lang('checkout')</h2>
 
           <div class="flex flex-col gap-2 text-xs md:text-sm text-gray-600">
             <div class="flex justify-between">
@@ -65,11 +65,11 @@
           <p class="text-xs text-gray-400 text-center">@lang('installments')</p>
 
           <div class="flex flex-col gap-2">
-            <button class="bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-3 border-2 border-transparent hover:bg-white hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer outline-none transition-all duration-200">
+            <button class="bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-3 border-2 border-transparent hover:bg-white hover:border-gold-dark hover:text-gold-dark cursor-pointer outline-none transition-all duration-200">
               @lang('checkout')
             </button>
             <p class="text-center text-xs text-gray-400">@lang('or')</p>
-            <button class="bg-white text-[#7A5A12] flex items-center justify-center rounded-md w-full py-3 border-2 border-[#7A5A12] hover:bg-gray-100 hover:border-[#7A5A12] hover:text-[#7A5A12] cursor-pointer outline-none transition-all duration-200">
+            <button class="bg-white text-gold-dark flex items-center justify-center rounded-md w-full py-3 border-2 border-gold-dark hover:bg-gray-100 hover:border-gold-dark hover:text-gold-dark cursor-pointer outline-none transition-all duration-200">
               @lang('continue_shopping')
             </button>
           </div>
@@ -86,3 +86,4 @@
 
   </main>
 @endsection
+

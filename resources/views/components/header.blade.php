@@ -12,14 +12,14 @@
                         class="w-full h-11 pl-4 pr-12 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gray-400 focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20"
                         type="text" name="product" id="product" placeholder="@lang('search_placeholder')" />
                     <button type="submit"
-                        class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-[#7A5A12] hover:text-[#C79B2B] transition-colors">
+                        class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gold-dark hover:text-gold-medium transition-colors">
                         <x-heroicon-o-magnifying-glass class="w-5 h-5" />
                     </button>
                 </form>
 
                 <div class="flex gap-2 items-center">
                     <select
-                        class="h-9 px-3 rounded-md border border-gray-300 bg-white text-gray-700 text-xs outline-none transition-all duration-200 hover:border-gray-400 focus:border-[#C79B2B] focus:ring-1 focus:ring-[#C79B2B]/20 cursor-pointer">
+                        class="h-9 px-3 rounded-md border border-gray-300 bg-white text-gray-700 text-xs outline-none transition-all duration-200 hover:border-gray-400 focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20 cursor-pointer">
                         <option value="">@lang('category')</option>
                         <option value="">Calças</option>
                         <option value="">Camisas</option>
@@ -30,7 +30,7 @@
                     </select>
 
                     <a href="/search"
-                        class="px-4 py-1.5 bg-[#F1C24A] text-[#7A5A12] text-xs font-medium rounded-md hover:bg-[#C79B2B] hover:text-white transition-all duration-200">
+                        class="px-4 py-1.5 bg-gold-light text-gold-dark text-xs font-medium rounded-md hover:bg-gold-medium hover:text-white transition-all duration-200">
                         @lang('best_sellers')
                     </a>
                 </div>
@@ -38,24 +38,24 @@
 
             <nav class="flex gap-2 shrink-0">
                 <a href="/cart"
-                    class="relative p-2.5 bg-[#C79B2B] text-white rounded-lg hover:bg-[#7A5A12] transition-all duration-200 group"
+                    class="relative p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 group"
                     title="Carrinho">
                     <x-heroicon-o-shopping-cart class="w-5 h-5" />
                     <span
-                        class="absolute -top-1 -right-1 w-4 h-4 bg-[#C79B2B] text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+                        class="absolute -top-1 -right-1 w-4 h-4 bg-gold-medium text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
                 </a>
                 <a href=""
-                    class="p-2.5 bg-[#C79B2B] text-white rounded-lg hover:bg-[#7A5A12] transition-all duration-200"
+                    class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
                     title="Notificações">
                     <x-heroicon-o-bell class="w-5 h-5" />
                 </a>
                 <a href="/profile"
-                    class="p-2.5 bg-[#C79B2B] text-white rounded-lg hover:bg-[#7A5A12] transition-all duration-200"
+                    class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
                     title="Configurações">
                     <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
                 </a>
                 <a href="/sign-in"
-                    class="p-2.5 bg-[#C79B2B] text-white rounded-lg hover:bg-[#7A5A12] transition-all duration-200"
+                    class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
                     title="Entrar">
                     <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
                 </a>
@@ -69,12 +69,12 @@
                 </a>
 
                 <nav class="flex gap-2">
-                    <a href="/cart" class="relative p-2 bg-[#C79B2B] text-white rounded-lg" title="Carrinho">
+                    <a href="/cart" class="relative p-2 bg-gold-medium text-white rounded-lg" title="Carrinho">
                         <x-heroicon-o-shopping-cart class="w-5 h-5" />
                         <span
                             class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
                     </a>
-                    <a href="/sign-in" class="p-2 bg-[#C79B2B] text-white rounded-lg" title="Entrar">
+                    <a href="/sign-in" class="p-2 bg-gold-medium text-white rounded-lg" title="Entrar">
                         <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
                     </a>
                 </nav>
@@ -82,16 +82,16 @@
 
             <form action="/search" method="GET" class="relative mb-2">
                 <input
-                    class="w-full h-10 pl-4 pr-12 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none focus:border-[#C79B2B] focus:ring-1 focus:ring-[#C79B2B]/20"
+                    class="w-full h-10 pl-4 pr-12 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20"
                     type="text" name="product" id="product-mobile" placeholder="@lang('search_placeholder')" />
-                <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-[#7A5A12]">
+                <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gold-dark">
                     <x-heroicon-o-magnifying-glass class="w-5 h-5" />
                 </button>
             </form>
 
             <div class="flex gap-2">
                 <select
-                    class="flex-1 h-9 px-3 rounded-md border border-gray-300 bg-white text-gray-700 text-xs outline-none focus:border-[#C79B2B] focus:ring-1 focus:ring-[#C79B2B]/20">
+                    class="flex-1 h-9 px-3 rounded-md border border-gray-300 bg-white text-gray-700 text-xs outline-none focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20">
                     <option value="">@lang('category')</option>
                     <option value="">Calças</option>
                     <option value="">Camisas</option>
@@ -101,10 +101,11 @@
                     <option value="">Saia</option>
                 </select>
                 <a href="/search"
-                    class="px-3 py-1.5 bg-[#F1C24A] text-[#7A5A12] text-xs font-medium rounded-md hover:bg-[#C79B2B] hover:text-white transition-all duration-200 whitespace-nowrap">
+                    class="px-3 py-1.5 bg-gold-light text-gold-dark text-xs font-medium rounded-md hover:bg-gold-medium hover:text-white transition-all duration-200 whitespace-nowrap">
                     @lang('best_sellers')
                 </a>
             </div>
         </div>
     </div>
 </header>
+

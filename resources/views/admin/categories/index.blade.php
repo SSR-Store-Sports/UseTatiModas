@@ -14,7 +14,7 @@
             <x-heroicon-o-plus class="w-4 h-4" />
             Nova Categoria
           </a>
-          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-[#7A5A12] transition-colors text-sm font-medium flex items-center gap-2">
+          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gold-dark transition-colors text-sm font-medium flex items-center gap-2">
             <x-heroicon-o-arrow-path class="w-4 h-4" />
             Atualizar
           </button>
@@ -26,15 +26,15 @@
           <input 
             type="text" 
             placeholder="Buscar por nome" 
-            class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
+            class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
           
-          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
+          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
             <option value="">Todos status</option>
             <option value="active">Ativo</option>
             <option value="inactive">Inativo</option>
           </select>
 
-          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-[#7A5A12] transition-colors text-sm font-medium">
+          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gold-dark transition-colors text-sm font-medium">
             <span class="flex items-center gap-2">
               <x-heroicon-o-funnel class="w-4 h-4" />
               Filtrar
@@ -97,7 +97,7 @@
                     <td class="px-4 py-4">
                       <div class="flex items-center gap-2">
                         <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
-                          <x-heroicon-o-tag class="w-4 h-4 text-[#7A5A12]" />
+                          <x-heroicon-o-tag class="w-4 h-4 text-gold-dark" />
                         </div>
                         <span class="font-semibold text-gray-800">{{ $category->name ?? 'Moda Feminina' }}</span>
                       </div>
@@ -198,3 +198,5 @@
   </div>
 </main>
 @endsection
+
+
