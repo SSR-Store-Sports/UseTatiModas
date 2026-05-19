@@ -14,7 +14,8 @@ class ProductController extends Controller
         return view('index', compact('products'));
     }
 
-    public function search() {
+    public function search()
+    {
         return view('products.search');
     }
 
@@ -25,21 +26,14 @@ class ProductController extends Controller
 
     public function create()
     {
+        return view('products.create');
     }
 
-    public function store(Request $request)
-    {
-    }
+    public function store(Request $request) {}
 
-    public function edit(Product $product)
-    {
-    }
+    public function edit(Product $product) {}
 
-    public function update(Request $request, Product $product)
-    {
-    }
+    public function update(Request $request, Product $product) {}
 
-    public function destroy(Product $product)
-    {
-    }
+    public function destroy(Product $product) {}
 }

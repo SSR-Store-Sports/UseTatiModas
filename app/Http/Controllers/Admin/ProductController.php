@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Models\Category;
+use App\Models\Supplier;
+
 
 class ProductController extends Controller
 {
@@ -16,12 +21,23 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.products.create');
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+        return view('admin.products.create', compact('categories', 'suppliers'));
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        // Product::create($request->all());
+        $validatedData = $request->validated(); // já vem validado
+
+        $validatedData['slug']          = Str::slug($validatedData['name']);
+        $validatedData['free_shipping'] = $request->boolean('free_shipping');
+        $validatedData['rating']        = 0;
+        $validatedData['reviews_count'] = 0;
+        $validatedData['published_at']  = now();
+
+        Product::create($validatedData);
+
         return redirect()->route('admin.products')->with('success', 'Produto criado com sucesso!');
     }
 
@@ -37,10 +53,12 @@ class ProductController extends Controller
         return view('admin.products.edit', compact('product'));
     }
 
-    public function update(Request $request, string $id)
+    public function update(ProductRequest $request, string $id)
     {
         $product = Product::findOrFail($id);
-        // $product->update($request->all());
+        $validatedData = $request->validated();
+        $validatedData['slug'] = Str::slug($validatedData['name']);
+        $product->update($validatedData);
         return redirect()->route('admin.products')->with('success', 'Produto atualizado com sucesso!');
     }
 
