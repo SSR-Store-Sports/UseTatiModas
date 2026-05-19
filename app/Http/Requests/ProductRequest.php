@@ -34,6 +34,8 @@ class ProductRequest extends FormRequest
             'supplier_id' => 'nullable|exists:suppliers,id',
             'status'      => 'required|in:active,inactive',
             'material'    => 'nullable|string',
+            'images'   => 'required|array',
+            'images.*' => 'image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
 
@@ -56,6 +58,10 @@ class ProductRequest extends FormRequest
             'supplier_id.exists'   => 'Fornecedor inválido.',
             'status.required'      => 'O status é obrigatório.',
             'status.in'            => 'Status inválido.',
+            'images.required'      => 'Selecione ao menos uma imagem.',
+            'images.*.image'       => 'O arquivo deve ser uma imagem.',
+            'images.*.mimes'       => 'Apenas JPG e PNG são permitidos.',
+            'images.*.max'         => 'Cada imagem deve ter no máximo 2MB.',
         ];
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
-use Illuminate\Http\Request;
+use App\Models\ProductImage;
 use Illuminate\Support\Str;
 use App\Models\Category;
 use App\Models\Supplier;
@@ -28,7 +28,7 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        $validatedData = $request->validated(); // já vem validado
+        $validatedData = $request->validated();
 
         $validatedData['slug']          = Str::slug($validatedData['name']);
         $validatedData['free_shipping'] = $request->boolean('free_shipping');
@@ -36,11 +36,21 @@ class ProductController extends Controller
         $validatedData['reviews_count'] = 0;
         $validatedData['published_at']  = now();
 
-        Product::create($validatedData);
+        $product = Product::create($validatedData);
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $index => $image) {
+                $path = $image->store('products', 'public');
+                ProductImage::create([
+                    'product_id' => $product->id,
+                    'image'      => $path,
+                    'is_primary' => $index === 0,
+                ]);
+            }
+        }
 
         return redirect()->route('admin.products')->with('success', 'Produto criado com sucesso!');
     }
-
     public function show(string $id)
     {
         $product = Product::findOrFail($id);
