@@ -21,10 +21,10 @@ class UsersController extends Controller
             return to_route('home');
         };
         
-        return back()->with(['message' => 'Credentials invalid.']);
         // dd($user);
         // dd(request()->all());
         // return view('sign-in.index');
+        return back()->with(['message' => 'Credentials invalid.']);
     }
 
     public function signUp()
@@ -38,8 +38,8 @@ class UsersController extends Controller
             return to_route('home');
         }
 
-        return back()->with(['message' => 'Not be able register user.']);
         // return view('sign-up.index');
+        return back()->with(['message' => 'Not be able register user.']);
     }
 
     public function resetShipping()

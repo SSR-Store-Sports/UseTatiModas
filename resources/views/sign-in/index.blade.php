@@ -13,7 +13,7 @@
         <span class="bg-gray-300 h-0.5 w-32"></span>
       </div>
 
-      <form action="/sign-in" method="POST" class="flex flex-col w-full gap-6 md:gap-8">
+      <form action={{ route('sign-in') }} method="POST" class="flex flex-col w-full gap-6 md:gap-8">
         @csrf
 
         <div class="flex flex-col gap-4">

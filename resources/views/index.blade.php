@@ -137,7 +137,7 @@
                                 <div
                                     class="flex flex-col w-full bg-white shadow-md rounded-lg gap-2 hover:shadow-xl cursor-pointer transition-all duration-300 hover:-translate-y-2 group border border-gray-100">
 
-                                    
+
                                     <a href="/product/{{ $product->id }}" class="flex flex-col justify-center items-center gap-2">
 
                                         <div class="overflow-hidden rounded-lg w-full">

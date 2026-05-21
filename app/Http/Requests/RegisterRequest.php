@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Models\User;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 
 /**
@@ -52,9 +53,9 @@ class RegisterRequest extends FormRequest
         $user->save();
 
         // 2. Logar com o usuário
-        auth()->login($user);
+        Auth::login($user);
 
-        return true;
         // dd($this);
+        return true;
     }
 }
