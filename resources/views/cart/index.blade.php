@@ -83,7 +83,7 @@
       </aside>
 
     </div>
-
+  </div>
   </main>
 @endsection
 
