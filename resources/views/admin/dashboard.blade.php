@@ -5,7 +5,8 @@
 @section('content')
 <main class="px-4 md:px-8 lg:px-24 py-6 md:py-12">
   <div class="max-w-7xl mx-auto">
-    <div class="mb-6 md:mb-8">
+    <div class="mb-6 md:mb-8 lg:flex lg:items-start lg:justify-between lg:gap-8">
+      <div class="shrink-0">
       <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-800">
         @php
           $hour = date('H');
@@ -22,6 +23,45 @@
       <p class="text-gray-500 text-sm md:text-base mt-1">
         Dashboard: resumo das vendas e estatísticas da loja.
       </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-5 lg:mt-0 lg:flex-1 lg:max-w-3xl">
+      <a href="/admin/products" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
+        <div class="flex flex-col items-center gap-1.5 text-center">
+          <div class="p-2 bg-gray-100 rounded-lg group-hover:bg-gold-dark transition-colors">
+            <x-heroicon-o-squares-2x2 class="w-5 h-5 text-gold-dark group-hover:text-white transition-colors" />
+          </div>
+          <span class="text-xs font-semibold text-gray-800">@lang('products_admin')</span>
+        </div>
+      </a>
+
+      <a href="/admin/categories" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
+        <div class="flex flex-col items-center gap-1.5 text-center">
+          <div class="p-2 bg-blue-100 rounded-lg group-hover:bg-blue-600 transition-colors">
+            <x-heroicon-o-tag class="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" />
+          </div>
+          <span class="text-xs font-semibold text-gray-800">@lang('categories')</span>
+        </div>
+      </a>
+
+      <a href="/admin/orders" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
+        <div class="flex flex-col items-center gap-1.5 text-center">
+          <div class="p-2 bg-green-100 rounded-lg group-hover:bg-green-600 transition-colors">
+            <x-heroicon-o-shopping-cart class="w-5 h-5 text-green-600 group-hover:text-white transition-colors" />
+          </div>
+          <span class="text-xs font-semibold text-gray-800">Pedidos</span>
+        </div>
+      </a>
+
+      <a href="/admin/suppliers" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
+        <div class="flex flex-col items-center gap-1.5 text-center">
+          <div class="p-2 bg-purple-100 rounded-lg group-hover:bg-purple-600 transition-colors">
+            <x-heroicon-o-building-storefront class="w-5 h-5 text-purple-600 group-hover:text-white transition-colors" />
+          </div>
+          <span class="text-xs font-semibold text-gray-800">Fornecedores</span>
+        </div>
+      </a>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6 md:mb-8">
@@ -129,44 +169,6 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 md:mt-8">
-      <a href="/admin/products" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 p-4 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
-        <div class="flex flex-col items-center gap-2 text-center">
-          <div class="p-3 bg-gray-100 rounded-lg group-hover:bg-gold-dark transition-colors">
-            <x-heroicon-o-squares-2x2 class="w-6 h-6 text-gold-dark group-hover:text-white transition-colors" />
-          </div>
-          <span class="text-sm font-semibold text-gray-800">@lang('products_admin')</span>
-        </div>
-      </a>
-
-      <a href="/admin/categories" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 p-4 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
-        <div class="flex flex-col items-center gap-2 text-center">
-          <div class="p-3 bg-blue-100 rounded-lg group-hover:bg-blue-600 transition-colors">
-            <x-heroicon-o-tag class="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" />
-          </div>
-          <span class="text-sm font-semibold text-gray-800">@lang('categories')</span>
-        </div>
-      </a>
-
-      <a href="/admin/orders" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 p-4 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
-        <div class="flex flex-col items-center gap-2 text-center">
-          <div class="p-3 bg-green-100 rounded-lg group-hover:bg-green-600 transition-colors">
-            <x-heroicon-o-shopping-cart class="w-6 h-6 text-green-600 group-hover:text-white transition-colors" />
-          </div>
-          <span class="text-sm font-semibold text-gray-800">Pedidos</span>
-        </div>
-      </a>
-
-      <a href="/admin/suppliers" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 p-4 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
-        <div class="flex flex-col items-center gap-2 text-center">
-          <div class="p-3 bg-purple-100 rounded-lg group-hover:bg-purple-600 transition-colors">
-            <x-heroicon-o-building-storefront class="w-6 h-6 text-purple-600 group-hover:text-white transition-colors" />
-          </div>
-          <span class="text-sm font-semibold text-gray-800">Fornecedores</span>
-        </div>
-      </a>
-    </div>
   </div>
 </main>
 @endsection
-
