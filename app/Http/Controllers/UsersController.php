@@ -18,12 +18,11 @@ class UsersController extends Controller
     public function signInSessions(MakeLoginRequest $request)
     {
         if($request->attempt()) {
+            app(\App\Services\CartService::class)->migrateSessionToDatabase();
+            
             return to_route('home');
         };
         
-        // dd($user);
-        // dd(request()->all());
-        // return view('sign-in.index');
         return back()->with(['message' => 'Credentials invalid.']);
     }
 
@@ -35,10 +34,11 @@ class UsersController extends Controller
     public function signUpRegister(RegisterRequest $request)
     {
         if ($request->tryToRegister()) {
+            app(\App\Services\CartService::class)->migrateSessionToDatabase();
+            
             return to_route('home');
         }
 
-        // return view('sign-up.index');
         return back()->with(['message' => 'Not be able register user.']);
     }
 

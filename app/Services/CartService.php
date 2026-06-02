@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Product;
+use App\Models\Cart;
 
 class CartService
 {
@@ -14,25 +15,50 @@ class CartService
             return false;
         }
 
-        $cart = session()->get('cart', []);
+        if (auth()->check()) {
+            $cartItem = Cart::where('user_id', auth()->id())
+                           ->where('product_id', $productId)
+                           ->first();
 
-        if (isset($cart[$productId])) {
-            $cart[$productId]['quantity'] += $quantity;
+            if ($cartItem) {
+                $cartItem->quantity += $quantity;
+                $cartItem->save();
+            } else {
+                Cart::create([
+                    'user_id' => auth()->id(),
+                    'product_id' => $productId,
+                    'quantity' => $quantity,
+                ]);
+            }
         } else {
-            $cart[$productId] = [
-                'name' => $product->name,
-                'price' => $product->price,
-                'quantity' => $quantity,
-                'image' => $product->images->first()->image ?? 'assets/model_card.png'
-            ];
+            $cart = session()->get('cart', []);
+
+            if (isset($cart[$productId])) {
+                $cart[$productId]['quantity'] += $quantity;
+            } else {
+                $cart[$productId] = [
+                    'name' => $product->name,
+                    'price' => $product->price,
+                    'quantity' => $quantity,
+                    'image' => $product->images->first()->image ?? 'assets/model_card.png'
+                ];
+            }
+
+            session()->put('cart', $cart);
         }
 
-        session()->put('cart', $cart);
         return true;
     }
 
     public function remove($productId)
     {
+        if (auth()->check()) {
+            Cart::where('user_id', auth()->id())
+                ->where('product_id', $productId)
+                ->delete();
+            return true;
+        }
+        
         $cart = session()->get('cart', []);
         
         if (isset($cart[$productId])) {
@@ -46,6 +72,23 @@ class CartService
 
     public function update($productId, $quantity)
     {
+        if (auth()->check()) {
+            if ($quantity <= 0) {
+                return $this->remove($productId);
+            }
+
+            $cartItem = Cart::where('user_id', auth()->id())
+                           ->where('product_id', $productId)
+                           ->first();
+
+            if ($cartItem) {
+                $cartItem->quantity = $quantity;
+                $cartItem->save();
+                return true;
+            }
+            return false;
+        }
+        
         $cart = session()->get('cart', []);
         
         if (isset($cart[$productId])) {
@@ -63,15 +106,32 @@ class CartService
 
     public function getItems()
     {
+        if (auth()->check()) {
+            $cartItems = Cart::where('user_id', auth()->id())
+                            ->with('product.images')
+                            ->get();
+
+            $items = [];
+            foreach ($cartItems as $item) {
+                $items[$item->product_id] = [
+                    'name' => $item->product->name,
+                    'price' => $item->product->price,
+                    'quantity' => $item->quantity,
+                    'image' => $item->product->images->first()->image ?? 'assets/model_card.png'
+                ];
+            }
+            return $items;
+        }
+
         return session()->get('cart', []);
     }
 
     public function getTotal()
     {
-        $cart = session()->get('cart', []);
+        $items = $this->getItems();
         $total = 0;
 
-        foreach ($cart as $item) {
+        foreach ($items as $item) {
             $total += $item['price'] * $item['quantity'];
         }
 
@@ -80,10 +140,10 @@ class CartService
 
     public function getCount()
     {
-        $cart = session()->get('cart', []);
+        $items = $this->getItems();
         $count = 0;
 
-        foreach ($cart as $item) {
+        foreach ($items as $item) {
             $count += $item['quantity'];
         }
 
@@ -92,6 +152,42 @@ class CartService
     
     public function clear()
     {
+        if (auth()->check()) {
+            Cart::where('user_id', auth()->id())->delete();
+        } else {
+            session()->forget('cart');
+        }
+    }
+
+    public function migrateSessionToDatabase()
+    {
+        if (!auth()->check()) {
+            return;
+        }
+
+        $sessionCart = session()->get('cart', []);
+
+        if (empty($sessionCart)) {
+            return;
+        }
+
+        foreach ($sessionCart as $productId => $item) {
+            $cartItem = Cart::where('user_id', auth()->id())
+                           ->where('product_id', $productId)
+                           ->first();
+
+            if ($cartItem) {
+                $cartItem->quantity += $item['quantity'];
+                $cartItem->save();
+            } else {
+                Cart::create([
+                    'user_id' => auth()->id(),
+                    'product_id' => $productId,
+                    'quantity' => $item['quantity'],
+                ]);
+            }
+        }
+
         session()->forget('cart');
     }
 }

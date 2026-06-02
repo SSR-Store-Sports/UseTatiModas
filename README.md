@@ -9,7 +9,7 @@
 
 ### 🔴 CRÍTICO - Implementar HOJE
 - [ ] **1. Sistema de Carrinho de Compras**
-  - [ ] SessionCart ou cookie para usuários não autenticados
+  - [x] SessionCart ou cookie para usuários não autenticados
   - [ ] Adicionar/remover produtos
   - [ ] Atualizar quantidade
   - [ ] Calcular total
