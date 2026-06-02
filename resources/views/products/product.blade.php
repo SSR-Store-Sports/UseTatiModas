@@ -9,14 +9,15 @@
             <div class="flex flex-col gap-4 w-full lg:w-80 shrink-0">
                 <div
                     class="w-full lg:w-80 h-64 md:h-80 lg:h-96 bg-gray-50 border-[#F9E446] rounded-lg flex items-center justify-center shadow-md">
-                    <img src="{{ asset('assets/model_card.png') }}" alt=""
+                    <img src="{{ $product->images->first() ? asset('storage/' . $product->images->first()->image_path) : asset('assets/model_card.png') }}" 
+                        alt="{{ $product->name }}"
                         class="h-full w-full rounded-lg transition-transform duration-300 hover:scale-105 cursor-pointer object-cover">
                 </div>
 
                 <div class="flex gap-3 justify-center">
-                    @foreach (range(1, 3) as $thumb)
+                    @foreach ($product->images->take(3) as $image)
                         <div class="w-16 h-16 bg-gray-100 border border-[#F9E446] rounded-md overflow-hidden">
-                            <img src="{{ asset('assets/model_card.png') }}" alt=""
+                            <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->name }}"
                                 class="h-full w-full object-cover hover:scale-110 transition-transform duration-300 cursor-pointer">
                         </div>
                     @endforeach
@@ -54,47 +55,45 @@
             <div class="flex flex-col gap-6 flex-1">
                 <div class="flex flex-col gap-2">
                     <h1 class="text-2xl md:text-3xl font-bold text-black">
-                        @lang('product_name')
+                        {{ $product->name }}
                     </h1>
 
                     <div class="flex flex-wrap gap-3 md:gap-6 text-xs md:text-sm">
                         <span class="text-blue-600 border border-blue-600 px-2 py-0.5 rounded">
-                            @lang('sku'): 0000123
+                            @lang('sku'): {{ $product->sku }}
                         </span>
                         <span class="text-gray-500">
-                            @lang('published'): 11/03/2026
+                            @lang('published'): {{ $product->created_at->format('d/m/Y') }}
                         </span>
                     </div>
                 </div>
 
                 <p class="text-gray-600 leading-relaxed">
-                    @lang('product_description')
+                    {{ $product->description }}
                 </p>
 
                 <div class="flex flex-col gap-2 border-t border-gray-100 pt-4">
                     <div class="flex items-center gap-1">
-                        @for (
-                                $star = 1;
-                                $star
-                                <= 5;
-                                $star++
-                            )
-                            <x-heroicon-s-star class="w-5 h-5 {{ $star <= 4 ? 'text-yellow-400' : 'text-gray-300' }}" />
+                        @for ($star = 1; $star <= 5; $star++)
+                            <x-heroicon-s-star class="w-5 h-5 {{ $star <= ($product->rating ?? 0) ? 'text-yellow-400' : 'text-gray-300' }}" />
                         @endfor
-                        <span class="text-sm text-gray-500 ml-1">(4.0) · 128 @lang('reviews')</span>
+                        <span class="text-sm text-gray-500 ml-1">({{ number_format($product->rating ?? 0, 1) }}) · {{ $product->reviews_count ?? 0 }} @lang('reviews')</span>
                     </div>
 
                     <div class="flex flex-col gap-1">
-                        <span class="text-sm text-gray-400 line-through">R$ 120,00</span>
-                        <span class="text-3xl font-bold text-gold-dark">R$ 62,00</span>
+                        @if($product->old_price)
+                            <span class="text-sm text-gray-400 line-through">R$ {{ number_format($product->old_price, 2, ',', '.') }}</span>
+                        @endif
+                        <span class="text-3xl font-bold text-gold-dark">R$ {{ number_format($product->price, 2, ',', '.') }}</span>
                         <span class="text-xs text-gray-500">@lang('installments')</span>
                         <div class="flex items-center border border-gray-200 rounded-md overflow-hidden w-fit mt-1">
-                            <button class="px-2 py-1 text-gold-dark hover:bg-gray-100 transition-all">−</button>
+                            <button type="button" onclick="decrementQty()" class="px-2 py-1 text-gold-dark hover:bg-gray-100 transition-all">−</button>
 
-                            <input id="qty" type="number" min="1" max="10" value="1"
+                            <input id="qty" type="number" min="1" max="{{ $product->stock }}" value="1"
+                                onchange="updateQuantity(this.value)"
                                 class="w-8 text-center text-sm outline-none border-x border-gray-200 py-1 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
 
-                            <button class="px-2 py-1 text-gold-dark hover:bg-gray-100 transition-all">+</button>
+                            <button type="button" onclick="incrementQty()" class="px-2 py-1 text-gold-dark hover:bg-gray-100 transition-all">+</button>
                         </div>
                     </div>
 
@@ -102,33 +101,42 @@
                         class="grid grid-cols-2 gap-2 md:gap-3 text-xs md:text-sm text-gray-600 border border-gray-100 rounded-lg p-3 md:p-4 bg-gray-50/40">
                         <div class="flex flex-col gap-1">
                             <span class="text-xs text-gray-400 uppercase">@lang('category')</span>
-                            <span class="font-medium">Moda Feminina</span>
+                            <span class="font-medium">{{ $product->category->name ?? 'N/A' }}</span>
                         </div>
                         <div class="flex flex-col gap-1">
                             <span class="text-xs text-gray-400 uppercase">@lang('material')</span>
-                            <span class="font-medium">@lang('material_value')</span>
+                            <span class="font-medium">{{ $product->material ?? __('material_value') }}</span>
                         </div>
                         <div class="flex flex-col gap-1">
                             <span class="text-xs text-gray-400 uppercase">@lang('freight')</span>
-                            <span class="font-medium text-green-600">@lang('free')</span>
+                            <span class="font-medium {{ $product->free_shipping ? 'text-green-600' : 'text-gray-600' }}">
+                                {{ $product->free_shipping ? __('free') : 'A calcular' }}
+                            </span>
                         </div>
                         <div class="flex flex-col gap-1">
                             <span class="text-xs text-gray-400 uppercase">@lang('stock')</span>
-                            <span class="font-medium">@lang('units_available')</span>
+                            <span class="font-medium {{ $product->stock > 0 ? 'text-green-600' : 'text-red-600' }}">
+                                {{ $product->stock > 0 ? $product->stock . ' disponíveis' : 'Esgotado' }}
+                            </span>
                         </div>
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
-                        <a href="/product"
-                            class="group bg-gray-500 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-white hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200">
+                        <a href="{{ route('checkout.index') }}"
+                            class="group bg-gray-900 text-white flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer text-center outline-none transition-all duration-200">
                             <span>@lang('buy')</span>
-                            <x-heroicon-o-plus-circle class="h-4 w-4" />
+                            <x-heroicon-o-shopping-bag class="h-4 w-4" />
                         </a>
-                        <button
-                            class="group bg-white text-gold-dark flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-gold-dark hover:bg-gray-100 hover:border-2 hover:border-gold-dark hover:text-gold-dark cursor-pointer text-center outline-none transition-all duration-200">
-                            <span>@lang('add_to_cart')</span>
-                            <x-heroicon-o-shopping-cart class="h-4 w-4" />
-                        </button>
+                        <form action="{{ route('cart.add') }}" method="POST" class="w-full">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" name="quantity" id="cart-quantity" value="1">
+                            <button type="submit" {{ $product->stock <= 0 ? 'disabled' : '' }}
+                                class="group bg-white text-gold-dark flex items-center justify-center rounded-sm w-full pt-3 pb-3 gap-2 border-2 border-gold-dark hover:bg-gray-100 cursor-pointer text-center outline-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <span>@lang('add_to_cart')</span>
+                                <x-heroicon-o-shopping-cart class="h-4 w-4" />
+                            </button>
+                        </form>
                     </div>
                 </div>
         </section>
@@ -186,5 +194,27 @@
         </section>
 
     </main>
+
+    <script>
+        function updateQuantity(value) {
+            const qty = Math.max(1, Math.min({{ $product->stock }}, parseInt(value) || 1));
+            document.getElementById('qty').value = qty;
+            document.getElementById('cart-quantity').value = qty;
+        }
+
+        function incrementQty() {
+            const input = document.getElementById('qty');
+            const newValue = Math.min({{ $product->stock }}, parseInt(input.value) + 1);
+            input.value = newValue;
+            updateQuantity(newValue);
+        }
+
+        function decrementQty() {
+            const input = document.getElementById('qty');
+            const newValue = Math.max(1, parseInt(input.value) - 1);
+            input.value = newValue;
+            updateQuantity(newValue);
+        }
+    </script>
 @endsection
 

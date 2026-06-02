@@ -84,7 +84,7 @@
 
           <div class="flex flex-col gap-2">
             @if(count($cartItems) > 0)
-              <a href="/checkout" class="bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-3 border-2 border-transparent hover:bg-white hover:border-gold-dark hover:text-gold-dark cursor-pointer outline-none transition-all duration-200">
+              <a href="/checkout" class="bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-3 border-2 border-transparent hover:bg-gold-medium cursor-pointer outline-none transition-all duration-200">
                 @lang('checkout')
               </a>
             @else
@@ -93,7 +93,7 @@
               </button>
             @endif
             
-            <a href="/" class="bg-white text-gold-dark flex items-center justify-center rounded-md w-full py-3 border-2 border-gold-dark hover:bg-gray-100 hover:border-gold-dark hover:text-gold-dark cursor-pointer outline-none transition-all duration-200">
+            <a href="/" class="bg-white text-gray-900 flex items-center justify-center rounded-md w-full py-3 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer outline-none transition-all duration-200">
               @lang('continue_shopping')
             </a>
           </div>

@@ -179,15 +179,14 @@
                                             </a>
 
                                             <div class="flex flex-col md:flex-row gap-2">
-                                                <button
+                                                <a href="{{ route('product.show', $product->id) }}"
                                                     class="bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer outline-none transition-all duration-200">
                                                     <x-heroicon-o-shopping-bag class="h-4 w-4" />
                                                     <span class="text-sm">@lang('buy')</span>
-                                                </button>
+                                                </a>
 
                                                 <!-- retomar o ponto de visualização do usuário na tela -->
-                                                <button type="submit"
-                                                    onclick="localStorage.setItem('scrollPos', window.scrollY);"
+                                                <button type="submit" onclick="localStorage.setItem('scrollPos', window.scrollY);"
                                                     class="bg-white text-gray-900 flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer outline-none transition-all duration-200">
                                                     <x-heroicon-o-shopping-cart class="h-4 w-4" />
                                                     <span class="text-sm">@lang('cart')</span>

@@ -19,9 +19,11 @@ class ProductController extends Controller
         return view('products.search');
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('products.product');
+        $product = Product::with(['images', 'category', 'supplier'])->findOrFail($id);
+        
+        return view('products.product', compact('product'));
     }
 
     public function create()

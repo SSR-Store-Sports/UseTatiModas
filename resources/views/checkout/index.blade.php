@@ -3,168 +3,138 @@
 @section('title', __('checkout') . ': UseTatiModas')
 
 @section('content')
-<main class="px-4 md:px-8 lg:px-24 py-6 md:py-12">
-  <div class="max-w-7xl mx-auto">
-    <div class="flex-col flex mb-6 md:mb-8 gap-2 shadow-[0_8px_4px_-4px_rgba(236,72,153,0.4)]">
-      <h1 class="text-gold-dark text-2xl md:text-3xl lg:text-4xl drop-shadow-[0_2px_4px_rgba(236,72,153,0.6)]">@lang('checkout')</h1>
-      <span class="w-full h-0.5 bg-gold-dark"></span>
+<main class="px-4 md:px-12 lg:px-24 py-6 md:py-12">
+  <div class="grid grid-rows-[auto_1fr] gap-4 md:gap-6">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-200 pb-3 md:pb-4 gap-2">
+      <div class="flex items-center gap-1.5">
+        <x-heroicon-o-shopping-bag class="w-5 h-5 text-gold-dark" />
+        <h1 class="font-bold text-xl md:text-2xl text-gold-dark">@lang('checkout')</h1>
+      </div>
+      <a href="{{ route('cart.index') }}" class="text-xs md:text-sm text-gray-500 hover:text-gold-dark transition-colors">
+        <x-heroicon-o-arrow-left class="w-4 h-4 inline" /> Voltar ao carrinho
+      </a>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
-      <section class="lg:col-span-2 flex flex-col gap-6">
-        <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 p-4 md:p-6">
-          <h2 class="font-bold text-base md:text-lg text-gold-dark border-b border-gray-200 pb-3 mb-4">@lang('shipping_address')</h2>
+      <section class="lg:col-span-2 flex flex-col gap-4">
+        <div class="bg-white rounded-xl shadow-md shadow-gold-medium/20 p-4 md:p-6">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="font-bold text-base md:text-lg text-gray-800">Endereço de Entrega</h2>
+            <button class="text-xs md:text-sm text-gold-dark hover:underline font-medium">Alterar</button>
+          </div>
           
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="md:col-span-2">
-              <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('full_name')</label>
-              <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="José Silva">
-            </div>
-
-            <div>
-              <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('cpf')</label>
-              <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="000.000.000-00">
-            </div>
-
-            <div>
-              <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('phone')</label>
-              <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="(11) 99999-9999">
-            </div>
-
-            <div class="md:col-span-2">
-              <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">CEP</label>
-              <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="00000-000">
-            </div>
-
-            <div class="md:col-span-2">
-              <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('address')</label>
-              <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="Rua das Flores">
-            </div>
-
-            <div>
-              <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('number')</label>
-              <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="123">
-            </div>
-
-            <div>
-              <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('complement')</label>
-              <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="Apto 101">
-            </div>
-
-            <div>
-              <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('neighborhood')</label>
-              <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="Centro">
-            </div>
-
-            <div>
-              <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('city')</label>
-              <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="São Paulo">
-            </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+            <p class="text-sm font-semibold text-gray-800">José Silva</p>
+            <p class="text-sm text-gray-600 mt-1">Rua das Flores, 123 - Centro</p>
+            <p class="text-sm text-gray-600">São Paulo, SP - CEP 01234-567</p>
+            <p class="text-sm text-gray-600 mt-2">Telefone: (11) 99999-9999</p>
           </div>
         </div>
 
-        <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 p-4 md:p-6">
-          <h2 class="font-bold text-base md:text-lg text-gold-dark border-b border-gray-200 pb-3 mb-4">@lang('payment_method')</h2>
+        <div class="bg-white rounded-xl shadow-md shadow-gold-medium/20 p-4 md:p-6">
+          <h2 class="font-bold text-base md:text-lg text-gray-800 mb-4">Forma de Entrega</h2>
           
           <div class="flex flex-col gap-3">
-            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[#F1C24A] transition-all duration-200 has-[:checked]:border-gold-medium has-[:checked]:bg-gray-50">
-              <input type="radio" name="payment" value="credit" class="w-4 h-4 accent-[#C79B2B]" checked>
-              <div class="flex items-center gap-2 flex-1">
-                <x-heroicon-o-credit-card class="w-5 h-5 text-gold-dark" />
-                <span class="text-sm md:text-base font-medium text-gray-800">@lang('credit_card')</span>
+            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-[:checked]:border-gold-medium has-[:checked]:bg-gold-light/5">
+              <input type="radio" name="delivery" value="standard" class="w-4 h-4 accent-gold-medium" checked>
+              <div class="flex-1">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <p class="font-semibold text-gray-800">Entrega Padrão</p>
+                    <p class="text-sm text-gray-500">Receba em até 7 dias úteis</p>
+                  </div>
+                  <span class="text-green-600 font-semibold">Grátis</span>
+                </div>
               </div>
             </label>
 
-            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[#F1C24A] transition-all duration-200 has-[:checked]:border-gold-medium has-[:checked]:bg-gray-50">
-              <input type="radio" name="payment" value="pix" class="w-4 h-4 accent-[#C79B2B]">
-              <div class="flex items-center gap-2 flex-1">
-                <x-heroicon-o-device-phone-mobile class="w-5 h-5 text-gold-dark" />
-                <span class="text-sm md:text-base font-medium text-gray-800">PIX</span>
-              </div>
-            </label>
-
-            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[#F1C24A] transition-all duration-200 has-[:checked]:border-gold-medium has-[:checked]:bg-gray-50">
-              <input type="radio" name="payment" value="boleto" class="w-4 h-4 accent-[#C79B2B]">
-              <div class="flex items-center gap-2 flex-1">
-                <x-heroicon-o-document-text class="w-5 h-5 text-gold-dark" />
-                <span class="text-sm md:text-base font-medium text-gray-800">@lang('boleto')</span>
+            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-[:checked]:border-gold-medium has-[:checked]:bg-gold-light/5">
+              <input type="radio" name="delivery" value="express" class="w-4 h-4 accent-gold-medium">
+              <div class="flex-1">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <p class="font-semibold text-gray-800">Entrega Expressa</p>
+                    <p class="text-sm text-gray-500">Receba em até 2 dias úteis</p>
+                  </div>
+                  <span class="text-gray-800 font-semibold">R$ 15,00</span>
+                </div>
               </div>
             </label>
           </div>
+        </div>
 
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="md:col-span-2">
-                <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('card_number')</label>
-                <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="0000 0000 0000 0000">
+        <div class="bg-white rounded-xl shadow-md shadow-gold-medium/20 p-4 md:p-6">
+          <h2 class="font-bold text-base md:text-lg text-gray-800 mb-4">Forma de Pagamento</h2>
+          
+          <div class="flex flex-col gap-3">
+            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-[:checked]:border-gold-medium has-[:checked]:bg-gold-light/5">
+              <input type="radio" name="payment" value="pix" class="w-4 h-4 accent-gold-medium" checked>
+              <x-heroicon-o-device-phone-mobile class="w-6 h-6 text-gold-dark" />
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">PIX</p>
+                <p class="text-sm text-gray-500">Aprovação imediata</p>
               </div>
+            </label>
 
-              <div class="md:col-span-2">
-                <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('cardholder_name')</label>
-                <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="Nome impresso no cartão">
+            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-checked:border-gold-medium has-checked:bg-gold-light/5">
+              <input type="radio" name="payment" value="credit" class="w-4 h-4 accent-gold-medium">
+              <x-heroicon-o-credit-card class="w-6 h-6 text-gold-dark" />
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">Cartão de Crédito</p>
+                <p class="text-sm text-gray-500">Parcele em até 12x sem juros</p>
               </div>
+            </label>
 
-              <div>
-                <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">@lang('expiry_date')</label>
-                <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="MM/AA">
+            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-checked:border-gold-medium has-checked:bg-gold-light/5">
+              <input type="radio" name="payment" value="boleto" class="w-4 h-4 accent-gold-medium">
+              <x-heroicon-o-document-text class="w-6 h-6 text-gold-dark" />
+              <div class="flex-1">
+                <p class="font-semibold text-gray-800">Boleto Bancário</p>
+                <p class="text-sm text-gray-500">Vencimento em 3 dias úteis</p>
               </div>
-
-              <div>
-                <label class="text-xs md:text-sm font-medium text-gray-700 mb-2 block">CVV</label>
-                <input type="text" class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20" placeholder="000">
-              </div>
-            </div>
+            </label>
           </div>
         </div>
       </section>
 
       <aside class="lg:col-span-1">
-        <div class="bg-white p-4 md:p-5 rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 flex flex-col gap-4 sticky top-4">
-          <h2 class="font-bold text-base md:text-lg text-gold-dark border-b border-gray-200 pb-3">@lang('order_summary')</h2>
+        <div class="bg-white p-4 md:p-5 rounded-xl shadow-md shadow-gold-medium/20 flex flex-col gap-4 sticky top-4">
+          <h2 class="font-bold text-base md:text-lg text-gold-dark border-b border-gray-200 pb-3">Resumo da Compra</h2>
 
-          <div class="flex flex-col gap-3 max-h-64 overflow-y-auto">
-            @for($i = 0; $i < 2; $i++)
-            <div class="flex gap-3 pb-3 border-b border-gray-100">
-              <img src="{{ asset('assets/model_card.png') }}" class="w-16 h-16 rounded-md object-cover bg-gray-100 border border-gray-200 flex-shrink-0" alt="Produto">
+          <div class="flex flex-col gap-3 max-h-80 overflow-y-auto">
+            @foreach($cartItems as $productId => $item)
+            <div class="flex gap-3 pb-3 border-b border-gray-100 last:border-0">
+              <img src="{{ asset($item['image']) }}" class="w-14 h-14 rounded-md object-cover bg-gray-100 border border-gray-200 flex-shrink-0" alt="{{ $item['name'] }}">
               <div class="flex-1 min-w-0">
-                <p class="text-sm font-semibold text-gray-800 truncate">Conjunto Delicado</p>
-                <p class="text-xs text-gray-500">@lang('quantity'): 1</p>
-                <p class="text-sm font-bold text-gray-800 mt-1">R$ 62,00</p>
+                <p class="text-sm font-semibold text-gray-800 line-clamp-2">{{ $item['name'] }}</p>
+                <p class="text-xs text-gray-500">Qtd: {{ $item['quantity'] }}</p>
+                <p class="text-sm font-bold text-gray-800 mt-1">R$ {{ number_format($item['price'] * $item['quantity'], 2, ',', '.') }}</p>
               </div>
             </div>
-            @endfor
+            @endforeach
           </div>
 
-          <div class="flex flex-col gap-2 text-xs md:text-sm text-gray-600 pt-2">
+          <div class="flex flex-col gap-2 text-xs md:text-sm text-gray-600">
             <div class="flex justify-between">
-              <span>@lang('subtotal')</span>
-              <span class="font-semibold text-gray-800">R$ 124,00</span>
+              <span>Produto</span>
+              <span>R$ {{ number_format($total, 2, ',', '.') }}</span>
             </div>
             <div class="flex justify-between">
-              <span>@lang('freight')</span>
-              <span class="text-green-600 font-medium">@lang('free')</span>
-            </div>
-            <div class="flex justify-between">
-              <span>@lang('discount')</span>
-              <span class="text-gold-dark font-medium">- R$ 12,40</span>
+              <span>Frete</span>
+              <span class="text-green-600 font-medium">Grátis</span>
             </div>
           </div>
 
-          <div class="flex justify-between font-semibold text-sm md:text-base border-t border-dashed border-[#F9E446] pt-3">
-            <span>@lang('total')</span>
-            <span class="text-gold-dark">R$ 111,60</span>
+          <div class="flex justify-between font-semibold text-sm md:text-base border-t border-dashed border-gold-soft pt-3">
+            <span>Total</span>
+            <span>R$ {{ number_format($total, 2, ',', '.') }}</span>
           </div>
 
           <p class="text-xs text-gray-400 text-center">@lang('installments')</p>
 
-          <div class="flex flex-col gap-2">
-            <button class="bg-gray-500 text-white flex items-center justify-center rounded-md w-full py-3 border-2 border-transparent hover:bg-white hover:border-gold-dark hover:text-gold-dark cursor-pointer outline-none transition-all duration-200 font-semibold">
-              @lang('finalize_order')
-            </button>
-            <a href="/cart" class="bg-white text-gold-dark flex items-center justify-center rounded-md w-full py-3 border-2 border-gold-dark hover:bg-gray-100 hover:border-gold-dark hover:text-gold-dark cursor-pointer outline-none transition-all duration-200 font-semibold">
-              @lang('back_to_cart')
-            </a>
-          </div>
+          <button class="bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-3 border-2 border-transparent hover:bg-gold-medium cursor-pointer outline-none transition-all duration-200">
+            Finalizar Pedido
+          </button>
 
           <p class="flex items-center justify-center gap-1 text-xs text-gray-500">
             <x-heroicon-o-check-badge class="w-4 h-4 text-green-500" />
@@ -176,5 +146,3 @@
   </div>
 </main>
 @endsection
-
-

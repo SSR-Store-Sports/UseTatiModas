@@ -2,64 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Checkout;
-use Illuminate\Http\Request;
+use App\Services\CartService;
 
 class CheckoutController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $cartService;
+
+    public function __construct(CartService $cartService)
+    {
+        $this->cartService = $cartService;
+    }
+
     public function index()
     {
-        //
-    }
+        $cartItems = $this->cartService->getItems();
+        $total = $this->cartService->getTotal();
+        $count = $this->cartService->getCount();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        if ($count === 0) {
+            return redirect()->route('cart.index')->with('error', 'Seu carrinho está vazio!');
+        }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Checkout $checkout)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Checkout $checkout)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Checkout $checkout)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Checkout $checkout)
-    {
-        //
+        return view('checkout.index', compact('cartItems', 'total', 'count'));
     }
 }
