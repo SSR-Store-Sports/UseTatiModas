@@ -71,7 +71,7 @@
                             <button type="submit"
                                 class="px-4 py-2.5 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors text-sm font-medium flex items-center justify-center gap-2">
                                 <x-heroicon-o-check class="w-4 h-4" />
-                                Salvar Categoria
+                                Adicionar Categoria
                             </button>
 
                             <a href="{{ route('admin.categories') }}"
