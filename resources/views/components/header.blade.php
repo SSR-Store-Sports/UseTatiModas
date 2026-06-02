@@ -41,8 +41,12 @@
                     class="relative p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 group"
                     title="Carrinho">
                     <x-heroicon-o-shopping-cart class="w-5 h-5" />
-                    <span
-                        class="absolute -top-1 -right-1 w-4 h-4 bg-gold-medium text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+                    @if($cartCount > 0)
+                        <span
+                            class="absolute -top-1 -right-1 w-5 h-5 bg-gold-light text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                            {{ $cartCount }}
+                        </span>
+                    @endif
                 </a>
                 <a href=""
                     class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
@@ -71,8 +75,12 @@
                 <nav class="flex gap-2">
                     <a href="/cart" class="relative p-2 bg-gold-medium text-white rounded-lg" title="Carrinho">
                         <x-heroicon-o-shopping-cart class="w-5 h-5" />
-                        <span
-                            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+                        @if($cartCount > 0)
+                            <span
+                                class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                                {{ $cartCount }}
+                            </span>
+                        @endif
                     </a>
                     <a href="/sign-in" class="p-2 bg-gold-medium text-white rounded-lg" title="Entrar">
                         <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
