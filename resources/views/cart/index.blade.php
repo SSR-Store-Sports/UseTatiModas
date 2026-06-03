@@ -26,14 +26,32 @@
                 <p class="font-medium text-sm md:text-base text-gray-800">{{ $item['name'] }}</p>
                 <span class="text-xs text-green-600 font-medium">@lang('free_shipping_short')</span>
 
-                <form action="{{ route('cart.update', $productId) }}" method="POST" class="flex items-center gap-2">
-                  @csrf
-                  @method('PUT')
+                <div class="flex items-center gap-2">
                   <label class="text-xs md:text-sm text-gray-500">@lang('quantity')</label>
-                  <input type="number" name="quantity" min="0" max="15" value="{{ $item['quantity'] }}"
-                    class="w-16 border border-gray-200 rounded-md px-2 py-1 text-xs md:text-sm outline-none focus:border-gold-light focus:ring-1 focus:ring-gold-soft">
-                  <button type="submit" class="text-xs text-blue-600 hover:underline">Atualizar</button>
-                </form>
+                  <div class="flex items-center border border-gray-200 rounded-md overflow-hidden">
+                    @if($item['quantity'] > 1)
+                      <form action="{{ route('cart.update', $productId) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="quantity" value="{{ $item['quantity'] - 1 }}">
+                        <button type="submit" class="px-2.5 py-1 text-gray-600 hover:bg-gray-100 transition-colors text-base font-medium">−</button>
+                      </form>
+                    @else
+                      <form action="{{ route('cart.remove', $productId) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="px-2.5 py-1 text-red-400 hover:bg-red-50 transition-colors text-base font-medium">−</button>
+                      </form>
+                    @endif
+                    <span class="w-8 text-center text-sm font-medium text-gray-800 border-x border-gray-200 py-1">{{ $item['quantity'] }}</span>
+                    <form action="{{ route('cart.update', $productId) }}" method="POST">
+                      @csrf
+                      @method('PUT')
+                      <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
+                      <button type="submit" class="px-2.5 py-1 text-gray-600 hover:bg-gray-100 transition-colors text-base font-medium" {{ $item['quantity'] >= 15 ? 'disabled' : '' }}>+</button>
+                    </form>
+                  </div>
+                </div>
 
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mt-auto">
                   <p class="text-xs md:text-sm text-gray-500">@lang('subtotal'): <span class="font-semibold text-gray-800">R$ {{ number_format($item['price'] * $item['quantity'], 2, ',', '.') }}</span></p>

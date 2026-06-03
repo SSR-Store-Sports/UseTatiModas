@@ -19,7 +19,6 @@
       </a>
     </div>
 
-    {{-- Status e data --}}
     <div class="bg-white rounded-xl shadow-md shadow-gold-medium/20 p-4 md:p-6 flex flex-col sm:flex-row justify-between gap-4">
       <div class="flex flex-col gap-1">
         <span class="text-xs text-gray-500 uppercase tracking-wide font-medium">@lang('status')</span>
@@ -57,7 +56,6 @@
       @endif
     </div>
 
-    {{-- Resumo --}}
     <div class="bg-white rounded-xl shadow-md shadow-gold-medium/20 p-4 md:p-6 flex flex-col gap-4">
       <h2 class="font-semibold text-gray-800 border-b border-gray-100 pb-3">Resumo do Pedido</h2>
 

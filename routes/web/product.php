@@ -14,3 +14,5 @@ Route::delete('/cart/remove/{productId}', [CartController::class, 'remove'])->na
 Route::put('/cart/update/{productId}', [CartController::class, 'update'])->name('cart.update');
 
 Route::middleware('auth')->get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::middleware('auth')->post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+Route::middleware('auth')->get('/checkout/confirmation', [CheckoutController::class, 'confirmation'])->name('checkout.confirmation');

@@ -72,6 +72,32 @@ class UsersController extends Controller
         return back()->with('success', 'Informações atualizadas com sucesso!');
     }
 
+    public function updateAddress(Request $request)
+    {
+        $request->validate([
+            'cep'          => 'required|string|max:9',
+            'street'       => 'required|string|max:255',
+            'number'       => 'required|string|max:10',
+            'complement'   => 'nullable|string|max:255',
+            'neighborhood' => 'required|string|max:255',
+            'city'         => 'required|string|max:255',
+            'state'        => 'required|string|size:2',
+        ]);
+
+        $user = auth()->user();
+
+        if ($user->address) {
+            $user->address->update($request->only(['cep', 'street', 'number', 'complement', 'neighborhood', 'city', 'state']));
+        } else {
+            $user->address()->create(array_merge(
+                $request->only(['cep', 'street', 'number', 'complement', 'neighborhood', 'city', 'state']),
+                ['user_id' => $user->id]
+            ));
+        }
+
+        return back()->with('success', 'Endereço atualizado com sucesso!');
+    }
+
     public function destroyProfile()
     {
         $user = auth()->user();
