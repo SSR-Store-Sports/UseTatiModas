@@ -131,11 +131,11 @@
                     </span>
                 </div>
                 @else
-                <div
-                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 justify-center items-center w-full">
-                    @foreach ($products as $product)
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 justify-center items-center w-full" data-featured-carousel>
+                    @foreach ($products->take(9) as $index => $product)
                     <div
-                        class="flex flex-col w-full bg-white shadow-md rounded-lg gap-2 hover:shadow-xl cursor-pointer transition-all duration-300 hover:-translate-y-2 group border border-gray-100">
+                        class="flex flex-col w-full bg-white shadow-md rounded-lg gap-2 hover:shadow-xl cursor-pointer transition-all duration-300 hover:-translate-y-2 group border border-gray-100 {{ $index >= 3 ? 'hidden' : '' }}"
+                        data-product-card>
 
                         <form action="{{ route('cart.add') }}" method="POST">
                             @csrf
@@ -145,25 +145,25 @@
                             <a href="/product/{{ $product->id }}"
                                 class="flex flex-col justify-center items-center gap-2">
                                 <div class="overflow-hidden rounded-lg w-full">
-                                    <img src="{{ $product->images->first() ? asset('storage/' . $product->images->first()->image) : asset('assets/model_card.png') }}"
+                                    <img src="{{ $product->images->first() ? asset($product->images->first()->image) : asset('assets/model_card.png') }}"
                                         alt="{{ $product->name }}"
                                         class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
                                 </div>
 
                                 <div class="flex gap-2">
-                                    <span class="h-2 w-4 rounded-full bg-gray-900 border-2 border-gray-900"></span>
-                                    <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span>
-                                    <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span>
+                                    @foreach($product->images->take(3) as $imgIndex => $image)
+                                    <span class="h-2 w-4 rounded-full border-2 border-gray-900 {{ $imgIndex === 0 ? 'bg-gray-900' : 'bg-white' }}"></span>
+                                    @endforeach
                                 </div>
                             </a>
 
                             <div class="flex flex-col gap-4 justify-center px-4 py-4">
                                 <a href="/product/{{ $product->id }}" class="flex flex-col">
-                                    <label class="text-black text-left px-2 text-lg font-bold cursor-pointer">
+                                    <label class="text-black text-left px-2 text-lg font-bold cursor-pointer line-clamp-1">
                                         {{ $product->name }}
                                     </label>
 
-                                    <label class="text-gray-600 text-left px-2 text-sm cursor-pointer">
+                                    <label class="text-gray-600 text-left px-2 text-sm cursor-pointer line-clamp-2">
                                         {{ $product->description }}
                                     </label>
 
@@ -185,7 +185,6 @@
                                         <span class="text-sm">@lang('buy')</span>
                                     </a>
 
-                                    <!-- retomar o ponto de visualização do usuário na tela -->
                                     <button type="submit" onclick="localStorage.setItem('scrollPos', window.scrollY);"
                                         class="bg-white text-gray-900 flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer outline-none transition-all duration-200">
                                         <x-heroicon-o-shopping-cart class="h-4 w-4" />
@@ -197,11 +196,17 @@
                     </div>
                     @endforeach
                 </div>
+                
+                @if($products->count() > 3)
                 <div class="flex gap-2 mt-4">
-                    <span class="h-4 w-4 rounded-full bg-gray-900 border-2 border-gray-900"></span>
-                    <span class="h-4 w-4 rounded-full bg-white border-2 border-gray-900"></span>
-                    <span class="h-4 w-4 rounded-full bg-white border-2 border-gray-900"></span>
+                    @for($i = 0; $i < ceil(min($products->count(), 9) / 3); $i++)
+                    <button type="button" 
+                        class="h-4 w-4 rounded-full border-2 border-gray-900 transition {{ $i === 0 ? 'bg-gray-900' : 'bg-white' }}" 
+                        data-featured-dot="{{ $i }}">
+                    </button>
+                    @endfor
                 </div>
+                @endif
                 @endif
             </div>
         </section>
@@ -284,49 +289,65 @@
         </div>
 
         <div class="flex flex-col gap-8 items-center">
+            @if ($products->isEmpty())
+            <div class="flex items-center justify-center w-full my-12">
+                <span class="text-lg">
+                    Não há produtos cadastrados!
+                </span>
+            </div>
+            @else
             <div
                 class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 justify-center items-center w-full">
-                @for ($i = 0; $i < 15; $i++)
+                @foreach ($products as $product)
                     <div
                     class="flex flex-col w-full bg-white shadow-md rounded-lg gap-2 hover:shadow-xl cursor-pointer transition-all duration-300 hover:-translate-y-2 group border border-gray-100">
-                    <a href="/product" class="flex flex-col justify-center items-center gap-2">
-                        <div class="overflow-hidden rounded-lg w-full">
-                            <img src="{{ asset('assets/model_card.png') }}" alt=""
-                                class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
-                        </div>
-                        <div class="flex gap-2">
-                            <span class="h-2 w-4 rounded-full bg-gray-900 border-2 border-gray-900"></span>
-                            <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span>
-                            <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span>
-                        </div>
-                    </a>
-                    <div class="flex flex-col gap-4 justify-center px-4 py-4">
-                        <a href="/product" class="flex flex-col">
-                            <label
-                                class="text-black text-left px-2 text-lg font-bold line-clamp-1 cursor-pointer">@lang('title_product')</label>
-                            <label
-                                class="text-gray-600 text-left px-2 text-sm line-clamp-2 cursor-pointer">@lang('description_product')</label>
-                            <label
-                                class="text-gray-600 text-left text-sm px-2 line-through truncate cursor-pointer">R$
-                                3.500</label>
-                            <label class="text-black text-left text-2xl px-2 cursor-pointer">R$ 3.000</label>
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="quantity" value="1">
+
+                        <a href="/product/{{ $product->id }}" class="flex flex-col justify-center items-center gap-2">
+                            <div class="overflow-hidden rounded-lg w-full">
+                                <img src="{{ $product->images->first() ? asset($product->images->first()->image) : asset('assets/model_card.png') }}" alt="{{ $product->name }}"
+                                    class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
+                            </div>
+                            <div class="flex gap-2">
+                                @foreach($product->images->take(3) as $imgIndex => $image)
+                                <span class="h-2 w-4 rounded-full border-2 border-gray-900 {{ $imgIndex === 0 ? 'bg-gray-900' : 'bg-white' }}"></span>
+                                @endforeach
+                            </div>
                         </a>
-                        <div class="flex flex-col md:flex-row gap-2">
-                            <button
-                                class="bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer outline-none transition-all duration-200">
-                                <x-heroicon-o-shopping-bag class="h-4 w-4" />
-                                <span class="text-sm">@lang('buy')</span>
-                            </button>
-                            <button
-                                class="bg-white text-gray-900 flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer outline-none transition-all duration-200">
-                                <x-heroicon-o-shopping-cart class="h-4 w-4" />
-                                <span class="text-sm">@lang('cart')</span>
-                            </button>
+                        <div class="flex flex-col gap-4 justify-center px-4 py-4">
+                            <a href="/product/{{ $product->id }}" class="flex flex-col">
+                                <label
+                                    class="text-black text-left px-2 text-lg font-bold line-clamp-1 cursor-pointer">{{ $product->name }}</label>
+                                <label
+                                    class="text-gray-600 text-left px-2 text-sm line-clamp-2 cursor-pointer">{{ $product->description }}</label>
+                                @if($product->old_price)
+                                <label
+                                    class="text-gray-600 text-left text-sm px-2 line-through cursor-pointer">R$
+                                    {{ number_format($product->old_price, 2, ',', '.') }}</label>
+                                @endif
+                                <label class="text-black text-left text-2xl px-2 cursor-pointer">R$ {{ number_format($product->price, 2, ',', '.') }}</label>
+                            </a>
+                            <div class="flex flex-col md:flex-row gap-2">
+                                <a href="{{ route('product.show', $product->id) }}"
+                                    class="bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer outline-none transition-all duration-200">
+                                    <x-heroicon-o-shopping-bag class="h-4 w-4" />
+                                    <span class="text-sm">@lang('buy')</span>
+                                </a>
+                                <button type="submit" onclick="localStorage.setItem('scrollPos', window.scrollY);"
+                                    class="bg-white text-gray-900 flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer outline-none transition-all duration-200">
+                                    <x-heroicon-o-shopping-cart class="h-4 w-4" />
+                                    <span class="text-sm">@lang('cart')</span>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
             </div>
-            @endfor
+            @endforeach
         </div>
+        @endif
         </div>
     </section>
 
@@ -339,54 +360,65 @@
         </div>
 
         <div class="flex flex-col gap-8 items-center">
+            @if ($products->isEmpty())
+            <div class="flex items-center justify-center w-full my-12">
+                <span class="text-lg">
+                    Não há produtos cadastrados!
+                </span>
+            </div>
+            @else
             <div
                 class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 justify-center items-center w-full">
-                @for ($i = 0; $i < 4; $i++)
+                @foreach ($products->take(4) as $product)
                     <div
                     class="flex flex-col w-full bg-white shadow-md rounded-lg gap-2 hover:shadow-xl cursor-pointer transition-all duration-300 hover:-translate-y-2 group border border-gray-100">
-                    <a href="/product" class="flex flex-col justify-center items-center gap-2">
-                        <div class="overflow-hidden rounded-lg w-full">
-                            <img src="{{ asset('assets/model_card.png') }}" alt=""
-                                class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
-                        </div>
-                        <div class="flex gap-2">
-                            <span class="h-2 w-4 rounded-full bg-gray-900 border-2 border-gray-900"></span>
-                            <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span>
-                            <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span>
-                        </div>
-                    </a>
-                    <div class="flex flex-col gap-4 justify-center px-4 py-4">
-                        <a href="/product" class="flex flex-col">
-                            <label
-                                class="text-black text-left px-2 text-lg font-bold line-clamp-1 cursor-pointer">@lang('title_product')</label>
-                            <label
-                                class="text-gray-600 text-left px-2 text-sm line-clamp-2 cursor-pointer">@lang('description_product')</label>
-                            <label
-                                class="text-gray-600 text-left text-sm px-2 line-through truncate cursor-pointer">R$
-                                3.500</label>
-                            <label class="text-black text-left text-2xl px-2 cursor-pointer">R$ 3.000</label>
+                    <form action="{{ route('cart.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="quantity" value="1">
+
+                        <a href="/product/{{ $product->id }}" class="flex flex-col justify-center items-center gap-2">
+                            <div class="overflow-hidden rounded-lg w-full">
+                                <img src="{{ $product->images->first() ? asset($product->images->first()->image) : asset('assets/model_card.png') }}" alt="{{ $product->name }}"
+                                    class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
+                            </div>
+                            <div class="flex gap-2">
+                                @foreach($product->images->take(3) as $imgIndex => $image)
+                                <span class="h-2 w-4 rounded-full border-2 border-gray-900 {{ $imgIndex === 0 ? 'bg-gray-900' : 'bg-white' }}"></span>
+                                @endforeach
+                            </div>
                         </a>
-                        <div class="flex flex-col md:flex-row gap-2">
-                            <button
-                                class="bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer outline-none transition-all duration-200">
-                                <x-heroicon-o-shopping-bag class="h-4 w-4" />
-                                <span class="text-sm">@lang('buy')</span>
-                            </button>
-                            <button
-                                class="bg-white text-gray-900 flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer outline-none transition-all duration-200">
-                                <x-heroicon-o-shopping-cart class="h-4 w-4" />
-                                <span class="text-sm">@lang('cart')</span>
-                            </button>
+                        <div class="flex flex-col gap-4 justify-center px-4 py-4">
+                            <a href="/product/{{ $product->id }}" class="flex flex-col">
+                                <label
+                                    class="text-black text-left px-2 text-lg font-bold line-clamp-1 cursor-pointer">{{ $product->name }}</label>
+                                <label
+                                    class="text-gray-600 text-left px-2 text-sm line-clamp-2 cursor-pointer">{{ $product->description }}</label>
+                                @if($product->old_price)
+                                <label
+                                    class="text-gray-600 text-left text-sm px-2 line-through cursor-pointer">R$
+                                    {{ number_format($product->old_price, 2, ',', '.') }}</label>
+                                @endif
+                                <label class="text-black text-left text-2xl px-2 cursor-pointer">R$ {{ number_format($product->price, 2, ',', '.') }}</label>
+                            </a>
+                            <div class="flex flex-col md:flex-row gap-2">
+                                <a href="{{ route('product.show', $product->id) }}"
+                                    class="bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer outline-none transition-all duration-200">
+                                    <x-heroicon-o-shopping-bag class="h-4 w-4" />
+                                    <span class="text-sm">@lang('buy')</span>
+                                </a>
+                                <button type="submit" onclick="localStorage.setItem('scrollPos', window.scrollY);"
+                                    class="bg-white text-gray-900 flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer outline-none transition-all duration-200">
+                                    <x-heroicon-o-shopping-cart class="h-4 w-4" />
+                                    <span class="text-sm">@lang('cart')</span>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
             </div>
-            @endfor
+            @endforeach
         </div>
-        <div class="flex gap-2 mt-4">
-            <span class="h-4 w-4 rounded-full bg-gray-900 border-2 border-gray-900"></span>
-            <span class="h-4 w-4 rounded-full bg-white border-2 border-gray-900"></span>
-            <span class="h-4 w-4 rounded-full bg-white border-2 border-gray-900"></span>
-        </div>
+        @endif
         </div>
     </section>
 
@@ -440,4 +472,5 @@
 
 @push('scripts')
 <script src="{{ asset('js/carrossel.js') }}"></script>
+<script src="{{ asset('js/featured-carousel.js') }}"></script>
 @endpush

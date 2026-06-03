@@ -18,18 +18,26 @@
                 </form>
 
                 <div class="flex gap-2 items-center">
-                    <select
-                        class="h-9 px-3 rounded-md border border-gray-300 bg-white text-gray-700 text-xs outline-none transition-all duration-200 hover:border-gray-400 focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20 cursor-pointer">
-                        <option value="">@lang('category')</option>
-                        <option value="">Calças</option>
-                        <option value="">Camisas</option>
-                        <option value="">Croppeds</option>
-                        <option value="">Shorts</option>
-                        <option value="">Tênis</option>
-                        <option value="">Saia</option>
-                    </select>
+                    <form action="/search" method="GET" class="flex gap-2 items-center">
+                        <select name="category" onchange="this.form.submit()"
+                            class="h-9 px-3 rounded-md border border-gray-300 bg-white text-gray-700 text-xs outline-none transition-all duration-200 hover:border-gray-400 focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20 cursor-pointer">
+                            <option value="">@lang('category')</option>
+                            @if(isset($categories))
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                @endforeach
+                            @else
+                                <option value="1">Calças</option>
+                                <option value="2">Camisas</option>
+                                <option value="3">Croppeds</option>
+                                <option value="4">Shorts</option>
+                                <option value="5">Tênis</option>
+                                <option value="6">Saia</option>
+                            @endif
+                        </select>
+                    </form>
 
-                    <a href="/search"
+                    <a href="/search?sort=popular"
                         class="px-4 py-1.5 bg-gold-light text-gold-dark text-xs font-medium rounded-md hover:bg-gold-medium hover:text-white transition-all duration-200">
                         @lang('best_sellers')
                     </a>
@@ -137,17 +145,25 @@
             </form>
 
             <div class="flex gap-2">
-                <select
-                    class="flex-1 h-9 px-3 rounded-md border border-gray-300 bg-white text-gray-700 text-xs outline-none focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20">
-                    <option value="">@lang('category')</option>
-                    <option value="">Calças</option>
-                    <option value="">Camisas</option>
-                    <option value="">Croppeds</option>
-                    <option value="">Shorts</option>
-                    <option value="">Tênis</option>
-                    <option value="">Saia</option>
-                </select>
-                <a href="/search"
+                <form action="/search" method="GET" class="flex gap-2 flex-1">
+                    <select name="category" onchange="this.form.submit()"
+                        class="flex-1 h-9 px-3 rounded-md border border-gray-300 bg-white text-gray-700 text-xs outline-none focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20">
+                        <option value="">@lang('category')</option>
+                        @if(isset($categories))
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                            @endforeach
+                        @else
+                            <option value="1">Calças</option>
+                            <option value="2">Camisas</option>
+                            <option value="3">Croppeds</option>
+                            <option value="4">Shorts</option>
+                            <option value="5">Tênis</option>
+                            <option value="6">Saia</option>
+                        @endif
+                    </select>
+                </form>
+                <a href="/search?sort=popular"
                     class="px-3 py-1.5 bg-gold-light text-gold-dark text-xs font-medium rounded-md hover:bg-gold-medium hover:text-white transition-all duration-200 whitespace-nowrap">
                     @lang('best_sellers')
                 </a>
