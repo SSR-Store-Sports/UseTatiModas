@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\MagicLinkController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(UsersController::class)->group(function () {
@@ -12,6 +13,9 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('/reset-shipping', 'resetShipping');
     Route::get('/reset-password', 'resetPassword');
 });
+
+Route::post('/magic-link', [MagicLinkController::class, 'send'])->name('magic-link.send');
+Route::get('/magic-link/{token}', [MagicLinkController::class, 'login'])->name('magic-link.login');
 
 Route::middleware('auth')->group(function () {
     Route::controller(UsersController::class)->group(function () {

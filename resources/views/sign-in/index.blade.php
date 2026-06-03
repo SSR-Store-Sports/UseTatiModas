@@ -10,7 +10,7 @@
         <span class="bg-gray-300 h-0.5 w-32"></span>
       </div>
 
-      <form action={{ route('sign-in') }} method="POST" class="flex flex-col w-full gap-5 md:gap-6">
+      <!-- <form action={{ route('sign-in') }} method="POST" class="flex flex-col w-full gap-5 md:gap-6">
         @csrf
 
         <div class="flex flex-col gap-4">
@@ -55,7 +55,45 @@
               clipRule="evenodd" />
           </svg>
         </button>
-      </form>
+      </form> -->
+
+      <!-- <span class="bg-gray-300 h-0.5 w-full max-w-xs"></span> -->
+
+      {{-- Magic Link --}}
+      <div class="w-full">
+        <p class="text-xs text-center text-gray-500 mb-3">Acesse sem senha via e-mail:</p>
+        <form action="{{ route('magic-link.send') }}" method="POST" class="flex flex-col gap-3">
+          @csrf
+          <input
+            class="w-full px-4 py-2.5 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light focus:border-gold-medium focus:bg-white"
+            type="email" name="email" placeholder="seu@email.com" required />
+          @if(session('magic_error'))
+            <span class="text-red-500 text-xs">{{ session('magic_error') }}</span>
+          @endif
+          <button type="submit"
+            class="bg-gold-medium text-white flex items-center justify-center rounded-md w-full py-2.5 gap-2 border-2 border-transparent hover:bg-gold-dark cursor-pointer outline-none transition-all duration-200 text-sm font-medium">
+            Enviar link de acesso
+          </button>
+        </form>
+
+        @if(session('magic_link'))
+          <div class="mt-4 p-4 bg-green-50 border border-green-200 rounded-md">
+            <p class="text-xs text-green-700 font-semibold mb-2">✓ Link gerado! Copie e cole na URL:</p>
+            <div class="flex items-center gap-2">
+              <input id="magic-link-input" type="text" readonly value="{{ session('magic_link') }}"
+                class="flex-1 text-xs px-2 py-1.5 border border-gray-300 rounded bg-white text-gray-700 outline-none" />
+              <button onclick="copyMagicLink()" type="button"
+                class="shrink-0 px-3 py-1.5 bg-gray-900 text-white text-xs rounded hover:bg-gold-medium transition-colors">
+                Copiar
+              </button>
+            </div>
+            <a href="{{ session('magic_link') }}"
+              class="mt-2 block text-center text-xs text-gold-dark underline font-medium">
+              Clique aqui para acessar diretamente
+            </a>
+          </div>
+        @endif
+      </div>
 
       <span class="bg-gray-300 h-0.5 w-full max-w-xs"></span>
 
@@ -81,5 +119,11 @@
       </section>
     </div>
   </main>
+<script>
+function copyMagicLink() {
+  const input = document.getElementById('magic-link-input');
+  navigator.clipboard.writeText(input.value).then(() => alert('Link copiado!'));
+}
+</script>
 @endsection
 
