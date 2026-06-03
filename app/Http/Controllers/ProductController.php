@@ -34,7 +34,7 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product = Product::with(['images', 'category', 'supplier'])->findOrFail($id);
+        $product = Product::with(['images', 'category', 'supplier', 'variants'])->findOrFail($id);
         
         return view('products.product', compact('product'));
     }
