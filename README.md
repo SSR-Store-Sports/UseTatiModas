@@ -3,7 +3,67 @@
 ![alt text](public/assets/logo.png)
 - A plataforma Use Tati Modas é um e-commerce desenvolvido com o ecossistema Laravel, focado em entregar uma experiência de compra centrada no usuário. O projeto foi arquitetado para priorizar a moda feminina, utilizando uma estética minimalista e moderna, sem abdicar da versatilidade necessária para a gestão de produtos de categorias diversas, como a moda masculina.
 
-> 🚧 **Status:** Em desenvolvimento
+> 🚧 **Status:** Em desenvolvimento - Deploy previsto para amanhã
+
+## 🎯 TAREFAS PARA DEPLOY (Prioridade Alta)
+
+### 🔴 CRÍTICO - Implementar HOJE
+- [ ] **1. Sistema de Carrinho de Compras**
+  - [x] SessionCart ou cookie para usuários não autenticados
+  - [ ] Adicionar/remover produtos
+  - [ ] Atualizar quantidade
+  - [ ] Calcular total
+
+- [ ] **2. Checkout e Pedidos**
+  - [ ] Processar pedido (criar Order)
+  - [ ] Vincular produtos ao pedido
+  - [ ] Atualizar estoque após compra
+  - [ ] Limpar carrinho após finalização
+
+- [ ] **3. CRUD Admin - Backend**
+  - [ ] CategoryController (store, update, destroy)
+  - [ ] SupplierController (store, update, destroy)  
+  - [ ] ProductController admin (update já existe)
+  - [ ] OrderController admin (update status)
+
+- [ ] **4. Busca e Filtros**
+  - [ ] Implementar busca de produtos
+  - [ ] Filtros por categoria
+  - [ ] Filtros por preço
+  - [ ] Ordenação
+
+- [ ] **5. Models e Relacionamentos**
+  - [ ] Completar Cart model (fillable, relationships)
+  - [ ] Completar Address model
+  - [ ] Completar Help model
+  - [ ] Ajustar Order model (relationships)
+
+### 🟡 IMPORTANTE - Se der tempo hoje
+- [ ] **6. Middleware e Autorização**
+  - [ ] Middleware para rotas admin (isAdmin)
+  - [ ] Proteger rotas de usuário autenticado
+
+- [ ] **7. Upload de Imagens**
+  - [ ] Storage configurado
+  - [ ] Validação de imagens
+  - [ ] Link simbólico (php artisan storage:link)
+
+- [ ] **8. Seeders**
+  - [ ] CategorySeeder
+  - [ ] ProductSeeder com imagens
+  - [ ] UserSeeder (admin + clientes)
+  - [ ] SupplierSeeder
+
+### 🟢 BÔNUS - Deploy amanhã
+- [ ] **9. Validações e Request Classes**
+  - [ ] CategoryRequest
+  - [ ] SupplierRequest
+  - [ ] CheckoutRequest
+
+- [ ] **10. Melhorias UX**
+  - [ ] Mensagens de sucesso/erro (flash messages)
+  - [ ] Paginação funcional
+  - [ ] Contador de carrinho dinâmico
 
 ## Estrutura do Repositório
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Address;
 use App\Models\User;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -14,6 +15,13 @@ use Illuminate\Validation\Rules\Password;
  * @property-read string $phone
  * @property-read string $cpf
  * @property-read string $password
+ * @property-read string $cep
+ * @property-read string $street
+ * @property-read string $number
+ * @property-read string $complement
+ * @property-read string $neighborhood
+ * @property-read string $city
+ * @property-read string $state
  */
 
 class RegisterRequest extends FormRequest
@@ -36,26 +44,42 @@ class RegisterRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'min:3', 'max:80'],
             'email' => ['required', 'email', 'unique:users'],
-            'cpf' => ['required', 'min:1', 'max:13'],
-            'phone' => ['required', 'min:1', 'max:13'],
+            'cpf' => ['required', 'min:11', 'max:14'],
+            'phone' => ['required', 'min:10', 'max:15'],
             'password' => ['required', Password::defaults(), 'confirmed'],
+            'cep' => ['required', 'string', 'max:9'],
+            'street' => ['required', 'string', 'max:255'],
+            'number' => ['required', 'string', 'max:10'],
+            'complement' => ['nullable', 'string', 'max:255'],
+            'neighborhood' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'size:2'],
         ];
     }
 
-    public function tryToRegister() {
-        // 1. Create user using 
-        $user = new User;
-        $user->name = $this->name;
-        $user->email = $this->email;
-        $user->phone = $this->phone;
-        $user->cpf = $this->cpf;
-        $user->password = $this->password;
-        $user->save();
+    public function tryToRegister()
+    {
+        $user = User::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'cpf' => $this->cpf,
+            'password' => $this->password,
+        ]);
 
-        // 2. Logar com o usuário
+        Address::create([
+            'user_id' => $user->id,
+            'cep' => $this->cep,
+            'street' => $this->street,
+            'number' => $this->number,
+            'complement' => $this->complement,
+            'neighborhood' => $this->neighborhood,
+            'city' => $this->city,
+            'state' => $this->state,
+        ]);
+
         Auth::login($user);
 
-        // dd($this);
         return true;
     }
 }

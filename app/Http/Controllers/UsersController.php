@@ -6,6 +6,7 @@ use App\Http\Requests\MakeLoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
@@ -18,12 +19,11 @@ class UsersController extends Controller
     public function signInSessions(MakeLoginRequest $request)
     {
         if($request->attempt()) {
+            app(\App\Services\CartService::class)->migrateSessionToDatabase();
+            
             return to_route('home');
         };
         
-        // dd($user);
-        // dd(request()->all());
-        // return view('sign-in.index');
         return back()->with(['message' => 'Credentials invalid.']);
     }
 
@@ -35,10 +35,11 @@ class UsersController extends Controller
     public function signUpRegister(RegisterRequest $request)
     {
         if ($request->tryToRegister()) {
+            app(\App\Services\CartService::class)->migrateSessionToDatabase();
+            
             return to_route('home');
         }
 
-        // return view('sign-up.index');
         return back()->with(['message' => 'Not be able register user.']);
     }
 
@@ -53,7 +54,14 @@ class UsersController extends Controller
     }
     public function indexUserPassword()
     {
-        return view('profile.index');
+        $user = auth()->user()->load('address');
+        return view('profile.index', compact('user'));
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 
     public function resetUserPassword()

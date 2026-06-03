@@ -17,11 +17,12 @@
     @yield('content')
     <x-promotions />
     <x-footer />
-    <!-- <x-modal.modal-notifications /> -->
-    <!-- <x-modal /> -->
+
+    <!-- toasts para operações na plataforma  -->
+    <x-toast />
+    <x-scroll-restore />
 
     @stack('scripts')
 </body>
 
 </html>
-

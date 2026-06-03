@@ -14,14 +14,27 @@ class ProductController extends Controller
         return view('index', compact('products'));
     }
 
-    public function search()
+    public function search(Request $request)
     {
-        return view('products.search');
+        $query = $request->input('product');
+        
+        $products = Product::with('images')
+            ->when($query, function($q) use ($query) {
+                $q->where('name', 'like', '%' . $query . '%')
+                  ->orWhere('description', 'like', '%' . $query . '%')
+                  ->orWhere('sku', 'like', '%' . $query . '%');
+            })
+            ->where('status', 'active')
+            ->paginate(12);
+
+        return view('products.search', compact('products', 'query'));
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('products.product');
+        $product = Product::with(['images', 'category', 'supplier'])->findOrFail($id);
+        
+        return view('products.product', compact('product'));
     }
 
     public function create()
