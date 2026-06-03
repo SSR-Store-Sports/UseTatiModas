@@ -141,13 +141,12 @@
                   </td>
 
                   <td class="px-4 py-4">
-                    <select class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border-0 outline-none cursor-pointer
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
                         @if(($product->status ?? 'active') == 'active') bg-green-100 text-green-700
                         @else bg-red-100 text-red-700
                         @endif">
-                      <option value="active" {{ ($product->status ?? 'active') == 'active' ? 'selected' : '' }}>Ativo</option>
-                      <option value="inactive" {{ ($product->status ?? 'active') == 'inactive' ? 'selected' : '' }}>Inativo</option>
-                    </select>
+                      {{ ($product->status ?? 'active') == 'active' ? 'Ativo' : 'Inativo' }}
+                    </span>
                   </td>
 
                   <td class="px-4 py-4">

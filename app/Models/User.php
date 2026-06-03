@@ -30,7 +30,7 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
-    protected $fillable = ['name', 'email', 'password', 'cpf', 'phone', 'role'];
+    protected $fillable = ['name', 'email', 'password', 'cpf', 'phone', 'role', 'status'];
 
     /**
      * Get the attributes that should be cast.
@@ -45,6 +45,11 @@ class User extends Authenticatable
         ];
 
     }
+    public function isActive(): bool
+    {
+        return $this->status === 'active';
+    }
+
     public function isAdmin(): bool
     {
         return $this->role === 'admin';

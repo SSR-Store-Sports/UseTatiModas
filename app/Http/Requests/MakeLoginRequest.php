@@ -43,6 +43,11 @@ class MakeLoginRequest extends FormRequest
     {
         // verifica se usuário existe e se senha é compatível pra direcionar para home
         if ($user = User::query()->where('email', '=', $this->email)->first()) {
+            // Verifica se o usuário está ativo
+            if ($user->status === 'inactive') {
+                return false;
+            }
+            
             if (Hash::check($this->password, $user->password)) {
                 auth()->login($user);
 
