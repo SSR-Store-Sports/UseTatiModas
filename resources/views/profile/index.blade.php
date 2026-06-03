@@ -1,7 +1,7 @@
 @extends('_layouts.app')
 
 @section('content')
-    <main class="flex flex-col lg:flex-row gap-4 md:gap-6 px-4 md:px-12 lg:px-24 py-6 md:py-12">
+    <main class="flex flex-col lg:flex-row gap-4 md:gap-6 px-4 md:px-12 lg:px-24 py-6 md:py-12 ">
         <aside class="w-full lg:w-72 bg-white shadow-md p-4 md:p-5 rounded-2xl flex flex-col gap-4 md:gap-6 shadow-xl/30 shrink-0">
 
             <h1 class="font-semibold text-lg md:text-xl">@lang('user_information')</h1>

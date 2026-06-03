@@ -3,7 +3,7 @@
 @section('title', __('product_detail') . ': UseTatiModas')
 
 @section('content')
-    <main class="px-4 md:px-12 lg:px-24 my-6 md:my-12">
+    <main class="px-4 md:px-12 lg:px-24 my-6 md:my-12 max-w-screen-2xl mx-auto">
         <section
             class="bg-white rounded-xl shadow-lg shadow-gold-medium/20 p-4 md:p-8 lg:p-10 flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12">
             <div class="flex flex-col gap-4 w-full lg:w-80 shrink-0">
