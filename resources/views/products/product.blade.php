@@ -9,10 +9,10 @@
         <div class="flex flex-col gap-4 w-full lg:w-80 shrink-0">
             <div
                 class="w-full lg:w-80 h-64 md:h-80 lg:h-96 bg-gray-50 border-gold-soft rounded-lg flex items-center justify-center shadow-md">
-                <img src="{{ $product->images->first() ? asset('storage/' . $product->images->first()->image) : asset('assets/model_card.png') }}"
-
+                <img id="main-image" src="{{ $product->images->first() ? asset('storage/' . $product->images->first()->image) : asset('assets/model_card.png') }}"
                     alt="{{ $product->name }}"
                     class="h-full w-full rounded-lg transition-transform duration-300 hover:scale-105 cursor-pointer object-cover">
+
             </div>
 
             <div class="flex gap-3 justify-center">
@@ -20,9 +20,11 @@
                 <div class="w-16 h-16 bg-gray-100 border border-gold-soft rounded-md overflow-hidden">
                     <img src="{{ asset('storage/' . $image->image) }}"
                         alt="{{ $product->name }}"
+                        onclick="document.getElementById('main-image').src = this.src"
                         class="h-full w-full object-cover hover:scale-110 transition-transform duration-300 cursor-pointer">
                 </div>
                 @endforeach
+
             </div>
 
             <div class="flex flex-col gap-2 border-t border-gray-100 pt-3">
