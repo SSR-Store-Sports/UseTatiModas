@@ -17,10 +17,20 @@
 
             <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4">
                 @csrf
+                @if ($errors->any())
+                <div class="bg-red-50 border border-red-200 rounded-md p-4">
+                    <ul class="text-red-600 text-sm list-disc list-inside">
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4"></div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 
-                    {{-- Coluna principal --}}
                     <div class="lg:col-span-2 flex flex-col gap-4">
 
                         <div class="rounded-md border border-gray-200 bg-white p-6 flex flex-col gap-4">
@@ -93,15 +103,15 @@
                                         <span class="text-sm text-gray-500">Clique para selecionar imagens</span>
                                         <span class="text-xs text-gray-400">PNG, JPG até 2MB</span>
                                     </div>
-                                    <input type="file" name="images[]" multiple accept="image/*" class="hidden">
+                                    <input id="images" type="file" name="images[]" multiple accept="image/*" class="hidden">
                                 </label>
+                                <div id="preview-images" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4"></div>
                                 @error('images') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                             </div>
                         </div>
 
                     </div>
 
-                    {{-- Coluna lateral --}}
                     <div class="flex flex-col gap-4">
 
                         <div class="rounded-md border border-gray-200 bg-white p-6 flex flex-col gap-4">
@@ -168,3 +178,7 @@
     </div>
 </main>
 @endsection
+
+@push('scripts')
+<script src="{{ asset('js/products-images.js') }}"></script>
+@endpush

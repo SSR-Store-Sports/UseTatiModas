@@ -34,7 +34,8 @@ class ProductRequest extends FormRequest
             'supplier_id' => 'nullable|exists:suppliers,id',
             'status'      => 'required|in:active,inactive',
             'material'    => 'nullable|string',
-            'images'   => 'required|array',
+            'images'   => 'nullable|array|max:3',
+            'images.max' => 'Você pode enviar no máximo 3 imagens.',
             'images.*' => 'image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
