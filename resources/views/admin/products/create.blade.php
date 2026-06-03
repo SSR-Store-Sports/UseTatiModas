@@ -132,7 +132,7 @@
                             </div>
 
                             <div class="flex flex-col gap-2">
-                                <label class="text-sm font-medium text-gray-700">Fornecedor</label>
+                                <label class="text-sm font-medium text-gray-700">Fornecedor <span class="text-red-500">*</span></label>
                                 <select name="supplier_id"
                                     class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
                                     <option value="">Selecione um fornecedor</option>
@@ -142,6 +142,7 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                @error('supplier_id') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                             </div>
 
                             <div class="flex flex-col gap-2">
