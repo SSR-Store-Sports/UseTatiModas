@@ -34,13 +34,9 @@ class UsersController extends Controller
 
     public function signUpRegister(RegisterRequest $request)
     {
-        if ($request->tryToRegister()) {
-            app(\App\Services\CartService::class)->migrateSessionToDatabase();
-            
-            return to_route('home');
-        }
+        $verifyLink = $request->tryToRegister();
 
-        return back()->with(['message' => 'Not be able register user.']);
+        return view('sign-up.verify', ['verifyLink' => $verifyLink]);
     }
 
     public function resetShipping()

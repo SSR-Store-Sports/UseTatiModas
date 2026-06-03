@@ -102,7 +102,7 @@
               class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
               type="text" name="cep" id="cep" value="{{ old('cep') }}" placeholder="00000-000" />
             @error('cep')
-              <span class="text-red-500 text-xs">{{ $message }}</span>
+              <span class="text-red-500 text-xs" data-field="cep">{{ $message }}</span>
             @enderror
           </div>
 
@@ -112,7 +112,7 @@
               class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
               type="text" name="street" id="street" value="{{ old('street') }}" placeholder="Rua das Flores" />
             @error('street')
-              <span class="text-red-500 text-xs">{{ $message }}</span>
+              <span class="text-red-500 text-xs" data-field="street">{{ $message }}</span>
             @enderror
           </div>
 
@@ -123,7 +123,7 @@
                 class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
                 type="text" name="number" id="number" value="{{ old('number') }}" placeholder="123" />
               @error('number')
-                <span class="text-red-500 text-xs">{{ $message }}</span>
+                <span class="text-red-500 text-xs" data-field="number">{{ $message }}</span>
               @enderror
             </div>
 
@@ -141,7 +141,7 @@
               class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
               type="text" name="neighborhood" id="neighborhood" value="{{ old('neighborhood') }}" placeholder="Centro" />
             @error('neighborhood')
-              <span class="text-red-500 text-xs">{{ $message }}</span>
+              <span class="text-red-500 text-xs" data-field="neighborhood">{{ $message }}</span>
             @enderror
           </div>
 
@@ -152,7 +152,7 @@
                 class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
                 type="text" name="city" id="city" value="{{ old('city') }}" placeholder="São Paulo" />
               @error('city')
-                <span class="text-red-500 text-xs">{{ $message }}</span>
+                <span class="text-red-500 text-xs" data-field="city">{{ $message }}</span>
               @enderror
             </div>
 
@@ -162,7 +162,7 @@
                 class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
                 type="text" name="state" id="state" value="{{ old('state') }}" placeholder="SP" maxlength="2" />
               @error('state')
-                <span class="text-red-500 text-xs">{{ $message }}</span>
+                <span class="text-red-500 text-xs" data-field="state">{{ $message }}</span>
               @enderror
             </div>
           </div>
@@ -210,6 +210,12 @@
   </main>
 
   <script>
+    const hasStep2Errors = !!document.querySelector('[data-field]');
+
+    if (hasStep2Errors) {
+      nextStep();
+    }
+
     function nextStep() {
       document.getElementById('step-1').classList.add('hidden');
       document.getElementById('step-2').classList.remove('hidden');

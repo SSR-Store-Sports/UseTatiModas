@@ -3,11 +3,12 @@
 namespace App\Http\Requests;
 
 use App\Models\Address;
+use App\Models\LoginToken;
 use App\Models\User;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Str;
 
 /**
  * @property-read string $name
@@ -57,30 +58,35 @@ class RegisterRequest extends FormRequest
         ];
     }
 
-    public function tryToRegister()
+    public function tryToRegister(): string
     {
         $user = User::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'phone' => $this->phone,
-            'cpf' => $this->cpf,
+            'name'     => $this->name,
+            'email'    => $this->email,
+            'phone'    => $this->phone,
+            'cpf'      => $this->cpf,
             'password' => $this->password,
-            'role' => 'member',
+            'role'     => 'member',
+            'status'   => 'inactive',
         ]);
 
         Address::create([
-            'user_id' => $user->id,
-            'cep' => $this->cep,
-            'street' => $this->street,
-            'number' => $this->number,
-            'complement' => $this->complement,
+            'user_id'      => $user->id,
+            'cep'          => $this->cep,
+            'street'       => $this->street,
+            'number'       => $this->number,
+            'complement'   => $this->complement,
             'neighborhood' => $this->neighborhood,
-            'city' => $this->city,
-            'state' => $this->state,
+            'city'         => $this->city,
+            'state'        => $this->state,
         ]);
 
-        Auth::login($user);
+        $token = LoginToken::create([
+            'user_id'    => $user->id,
+            'token'      => Str::random(64),
+            'expires_at' => now()->addHours(24),
+        ]);
 
-        return true;
+        return route('verify-email', ['token' => $token->token]);
     }
 }

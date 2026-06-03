@@ -17,6 +17,20 @@ Route::controller(UsersController::class)->group(function () {
 Route::post('/magic-link', [MagicLinkController::class, 'send'])->name('magic-link.send');
 Route::get('/magic-link/{token}', [MagicLinkController::class, 'login'])->name('magic-link.login');
 
+Route::get('/verify-email/{token}', function (string $token) {
+    $record = \App\Models\LoginToken::where('token', $token)->first();
+
+    if (!$record || !$record->isValid()) {
+        return redirect()->route('sign-in')->with('message', 'Link de verificação inválido ou expirado.');
+    }
+
+    $user = $record->user;
+    $user->update(['status' => 'active']);
+    $record->delete();
+
+    return redirect()->route('sign-in')->with('message', 'Conta ativada com sucesso! Faça login.');
+})->name('verify-email');
+
 Route::middleware('auth')->group(function () {
     Route::controller(UsersController::class)->group(function () {
         Route::get('/profile', 'indexUserPassword')->name('profile');
