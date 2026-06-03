@@ -11,7 +11,7 @@
                 <div
                     class="w-full lg:w-80 h-64 md:h-80 lg:h-96 bg-gray-50 border border-gold-soft rounded-lg overflow-hidden shadow-md">
                     <img id="main-image"
-                        src="{{ $product->images->first() ? asset($product->images->first()->image) : asset('assets/model_card.png') }}"
+                        src="{{ $product->images->first() ? $product->images->first()->url : asset('assets/model_card.png') }}"
                         alt="{{ $product->name }}"
                         class="h-full w-full object-cover transition-transform duration-300 hover:scale-105 cursor-pointer">
                 </div>
