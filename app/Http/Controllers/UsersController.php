@@ -54,7 +54,8 @@ class UsersController extends Controller
     }
     public function indexUserPassword()
     {
-        return view('profile.index');
+        $user = auth()->user()->load('address');
+        return view('profile.index', compact('user'));
     }
 
     public function logout()

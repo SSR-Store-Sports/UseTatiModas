@@ -11,7 +11,11 @@ Route::controller(UsersController::class)->group(function () {
 
     Route::get('/reset-shipping', 'resetShipping');
     Route::get('/reset-password', 'resetPassword');
+});
 
-    Route::get('/profile', 'indexUserPassword');
-    Route::post('/logout', 'logout')->name('logout');
+Route::middleware('auth')->group(function () {
+    Route::controller(UsersController::class)->group(function () {
+        Route::get('/profile', 'indexUserPassword')->name('profile');
+        Route::post('/logout', 'logout')->name('logout');
+    });
 });

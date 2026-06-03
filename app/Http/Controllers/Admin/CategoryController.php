@@ -21,7 +21,7 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        // Category::create($request->all());
+        Category::create($request->all());
         return redirect()->route('admin.categories')->with('success', 'Categoria criada com sucesso!');
     }
 
@@ -40,7 +40,7 @@ class CategoryController extends Controller
     public function update(Request $request, string $id)
     {
         $category = Category::findOrFail($id);
-        // $category->update($request->all());
+        $category->update($request->all());
         return redirect()->route('admin.categories')->with('success', 'Categoria atualizada com sucesso!');
     }
 
