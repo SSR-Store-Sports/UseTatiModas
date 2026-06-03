@@ -36,33 +36,57 @@
                 </div>
             </div>
 
-            <nav class="flex gap-2 shrink-0">
-                <a href="/cart"
-                    class="relative p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 group"
-                    title="Carrinho">
-                    <x-heroicon-o-shopping-cart class="w-5 h-5" />
-                    @if($cartCount > 0)
-                        <span
-                            class="absolute -top-1 -right-1 w-5 h-5 bg-gold-light text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                            {{ $cartCount }}
+            <nav class="flex flex-col gap-2 shrink-0 items-center">
+                <div class="flex gap-2">
+                    <a href="/cart"
+                        class="relative p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 group"
+                        title="Carrinho">
+                        <x-heroicon-o-shopping-cart class="w-5 h-5" />
+                        @if($cartCount > 0)
+                            <span
+                                class="absolute -top-1 -right-1 w-5 h-5 bg-gold-light text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                                {{ $cartCount }}
+                            </span>
+                        @endif
+                    </a>
+
+                    @auth
+                        <a href=""
+                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                            title="Notificações">
+                            <x-heroicon-o-bell class="w-5 h-5" />
+                        </a>
+                        <a href="/profile"
+                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                            title="Configurações">
+                            <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
+                        </a>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit"
+                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                                title="Sair">
+                                <x-heroicon-o-arrow-left-start-on-rectangle class="w-5 h-5" />
+                            </button>
+                        </form>
+                    @else
+                        <a href="/sign-in"
+                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                            title="Entrar">
+                            <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
+                        </a>
+                    @endauth
+                </div>
+
+                @auth
+                    <div>
+                        <span class="text-sm text-gray-700 mr-2">Olá,
+                            <span class="font-medium text-gold-dark">
+                                {{ auth()->user()->name }}
+                            </span>
                         </span>
-                    @endif
-                </a>
-                <a href=""
-                    class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
-                    title="Notificações">
-                    <x-heroicon-o-bell class="w-5 h-5" />
-                </a>
-                <a href="/profile"
-                    class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
-                    title="Configurações">
-                    <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
-                </a>
-                <a href="/sign-in"
-                    class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
-                    title="Entrar">
-                    <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
-                </a>
+                    </div>
+                @endauth
             </nav>
         </div>
 
@@ -72,7 +96,12 @@
                     <img src="{{asset('assets/logo.png')}}" alt="UseTatiModas" class="h-14 w-14">
                 </a>
 
-                <nav class="flex gap-2">
+                <nav class="flex gap-2 items-center">
+                    @auth
+                        <span class="text-xs text-gray-700 mr-1">Olá, <span
+                                class="font-medium text-gold-dark">{{ Str::limit(auth()->user()->name, 12) }}</span></span>
+                    @endauth
+
                     <a href="/cart" class="relative p-2 bg-gold-medium text-white rounded-lg" title="Carrinho">
                         <x-heroicon-o-shopping-cart class="w-5 h-5" />
                         @if($cartCount > 0)
@@ -82,9 +111,19 @@
                             </span>
                         @endif
                     </a>
-                    <a href="/sign-in" class="p-2 bg-gold-medium text-white rounded-lg" title="Entrar">
-                        <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
-                    </a>
+
+                    @auth
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="p-2 bg-gold-medium text-white rounded-lg" title="Sair">
+                                <x-heroicon-o-arrow-left-start-on-rectangle class="w-5 h-5" />
+                            </button>
+                        </form>
+                    @else
+                        <a href="/sign-in" class="p-2 bg-gold-medium text-white rounded-lg" title="Entrar">
+                            <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
+                        </a>
+                    @endauth
                 </nav>
             </div>
 
@@ -116,4 +155,3 @@
         </div>
     </div>
 </header>
-

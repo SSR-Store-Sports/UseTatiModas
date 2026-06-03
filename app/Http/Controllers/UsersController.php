@@ -6,6 +6,7 @@ use App\Http\Requests\MakeLoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
@@ -54,6 +55,12 @@ class UsersController extends Controller
     public function indexUserPassword()
     {
         return view('profile.index');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 
     public function resetUserPassword()

@@ -13,5 +13,5 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('/reset-password', 'resetPassword');
 
     Route::get('/profile', 'indexUserPassword');
-    // Route::get('/reset-user-password', 'resetUserPassword');
+    Route::post('/logout', 'logout')->name('logout');
 });
