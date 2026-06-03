@@ -37,9 +37,15 @@
       <main class="flex-1">
         <div
           class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 md:mb-8 pb-3 md:pb-4 border-b border-gray-200 gap-3">
-          @if($query)
+          @if($query || request('category') || request('sort'))
             <span class="text-sm md:text-md text-gray-600">
-              @lang('search_result') <span class="font-bold text-gold-dark">'{{ $query }}'</span>
+              @if($query)
+                @lang('search_result') <span class="font-bold text-gold-dark">'{{ $query }}'</span>
+              @elseif(request('category'))
+                Categoria selecionada
+              @elseif(request('sort') == 'popular')
+                <span class="font-bold text-gold-dark">Mais Vendidos</span>
+              @endif
               <span class="text-xs text-gray-500">({{ $products->total() }} resultados)</span>
             </span>
           @else
@@ -48,9 +54,19 @@
 
           <div class="flex items-center gap-2">
             <span class="text-xs md:text-sm text-gray-500">@lang('sort_by'):</span>
-            <!-- <button
-              class="text-xs md:text-sm font-semibold text-gray-800 hover:text-gold-dark">@lang('relevance')</button> -->
-            <button class="text-xs md:text-sm font-semibold text-gray-800 hover:text-gold-dark">@lang('newest')</button>
+            <div class="flex gap-1">
+              <a href="{{ request()->fullUrlWithQuery(['sort' => 'newest']) }}" 
+                 class="text-xs md:text-sm font-semibold {{ request('sort') == 'newest' || !request('sort') ? 'text-gold-dark' : 'text-gray-800 hover:text-gold-dark' }}">@lang('newest')</a>
+              <span class="text-gray-300">|</span>
+              <a href="{{ request()->fullUrlWithQuery(['sort' => 'popular']) }}" 
+                 class="text-xs md:text-sm font-semibold {{ request('sort') == 'popular' ? 'text-gold-dark' : 'text-gray-800 hover:text-gold-dark' }}">@lang('popular')</a>
+              <span class="text-gray-300">|</span>
+              <a href="{{ request()->fullUrlWithQuery(['sort' => 'price_asc']) }}" 
+                 class="text-xs md:text-sm font-semibold {{ request('sort') == 'price_asc' ? 'text-gold-dark' : 'text-gray-800 hover:text-gold-dark' }}">@lang('price_low_high')</a>
+              <span class="text-gray-300">|</span>
+              <a href="{{ request()->fullUrlWithQuery(['sort' => 'price_desc']) }}" 
+                 class="text-xs md:text-sm font-semibold {{ request('sort') == 'price_desc' ? 'text-gold-dark' : 'text-gray-800 hover:text-gold-dark' }}">@lang('price_high_low')</a>
+            </div>
           </div>
         </div>
 
