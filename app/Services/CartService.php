@@ -36,11 +36,12 @@ class CartService
             if (isset($cart[$productId])) {
                 $cart[$productId]['quantity'] += $quantity;
             } else {
+                $firstImage = $product->images->first();
                 $cart[$productId] = [
                     'name' => $product->name,
                     'price' => $product->price,
                     'quantity' => $quantity,
-                    'image' => $product->images->first()->image ?? 'assets/model_card.png'
+                    'image' => $firstImage ? $firstImage->url : asset('assets/model_card.png')
                 ];
             }
 
@@ -113,11 +114,12 @@ class CartService
 
             $items = [];
             foreach ($cartItems as $item) {
+                $firstImage = $item->product->images->first();
                 $items[$item->product_id] = [
                     'name' => $item->product->name,
                     'price' => $item->product->price,
                     'quantity' => $item->quantity,
-                    'image' => $item->product->images->first()->image ?? 'assets/model_card.png'
+                    'image' => $firstImage ? $firstImage->url : asset('assets/model_card.png')
                 ];
             }
             return $items;

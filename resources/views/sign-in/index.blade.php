@@ -10,7 +10,7 @@
         <span class="bg-gray-300 h-0.5 w-32"></span>
       </div>
 
-      <form action={{ route('sign-in') }} method="POST" class="flex flex-col w-full gap-5 md:gap-6">
+      <!-- <form action={{ route('sign-in') }} method="POST" class="flex flex-col w-full gap-5 md:gap-6">
         @csrf
 
         <div class="flex flex-col gap-4">
@@ -55,12 +55,12 @@
               clipRule="evenodd" />
           </svg>
         </button>
-      </form>
+      </form> -->
 
       <span class="bg-gray-300 h-0.5 w-full max-w-xs"></span>
 
       {{-- Magic Link --}}
-      <!-- <div class="w-full">
+      <div class="w-full">
         <p class="text-xs text-center text-gray-500 mb-3">Acesse sem senha via e-mail:</p>
         <form action="{{ route('magic-link.send') }}" method="POST" class="flex flex-col gap-3">
           @csrf
@@ -93,7 +93,7 @@
             </a>
           </div>
         @endif
-      </div> -->
+      </div>
 
       <!-- <span class="bg-gray-300 h-0.5 w-full max-w-xs"></span> -->
 

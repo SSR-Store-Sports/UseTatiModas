@@ -181,7 +181,7 @@
           <div class="flex flex-col gap-3 max-h-80 overflow-y-auto">
             @foreach($cartItems as $productId => $item)
               <div class="flex gap-3 pb-3 border-b border-gray-100 last:border-0">
-                <img src="{{ asset($item['image']) }}" class="w-14 h-14 rounded-md object-cover bg-gray-100 border border-gray-200 shrink-0" alt="{{ $item['name'] }}">
+                <img src="{{ $item['image'] }}" class="w-14 h-14 rounded-md object-cover bg-gray-100 border border-gray-200 shrink-0" alt="{{ $item['name'] }}">
                 <div class="flex-1 min-w-0">
                   <p class="text-sm font-semibold text-gray-800 line-clamp-2">{{ $item['name'] }}</p>
                   <p class="text-xs text-gray-500">Qtd: {{ $item['quantity'] }}</p>
