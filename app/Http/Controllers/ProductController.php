@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,8 +11,9 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('images')->get();
+        $suppliers = Supplier::where('status', 'active')->get();
 
-        return view('index', compact('products'));
+        return view('index', compact('products', 'suppliers'));
     }
 
     public function search(Request $request)

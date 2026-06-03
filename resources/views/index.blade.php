@@ -220,17 +220,20 @@
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 md:gap-8 mx-4 md:mx-16">
-                @for($i = 0; $i < 8; $i++)
-                    <a href="/parceiros/zara" class="group flex flex-col items-center gap-2 cursor-pointer">
-                    <div
-                        class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-gray-200 bg-gray-50 flex items-center justify-center shadow-sm transition-all duration-200 group-hover:border-gold-medium group-hover:shadow-md group-hover:scale-105">
-                        <x-heroicon-o-academic-cap
-                            class="h-8 w-8 sm:h-10 sm:w-10 text-gray-600 group-hover:text-gold-medium" />
+                @forelse ($suppliers as $supplier)
+                    <div class="group flex flex-col items-center gap-2">
+                        <div
+                            class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-gray-200 bg-gray-50 flex items-center justify-center shadow-sm transition-all duration-200 group-hover:border-gold-medium group-hover:shadow-md group-hover:scale-105">
+                            <span class="text-lg font-semibold text-gray-700">{{ strtoupper(substr($supplier->name, 0, 1)) }}</span>
+                        </div>
+                        <span
+                            class="text-xs text-gray-600 group-hover:text-gold-medium transition-colors duration-200 font-medium text-center">{{ \Illuminate\Support\Str::limit($supplier->name, 14) }}</span>
                     </div>
-                    <span
-                        class="text-xs text-gray-600 group-hover:text-gold-medium transition-colors duration-200 font-medium">Zara</span>
-                    </a>
-                    @endfor
+                @empty
+                    <div class="col-span-full text-center text-gray-500">
+                        Nenhum parceiro cadastrado ainda.
+                    </div>
+                @endforelse
             </div>
         </section>
 

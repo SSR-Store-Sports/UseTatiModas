@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use App\Http\Requests\SupplierRequest;
+
 
 class SupplierController extends Controller
 {
@@ -19,10 +21,12 @@ class SupplierController extends Controller
         return view('admin.suppliers.create');
     }
 
-    public function store(Request $request)
+    public function store(SupplierRequest $request)
     {
-        // Supplier::create($request->all());
-        return redirect()->route('admin.suppliers')->with('success', 'Fornecedor criado com sucesso!');
+        Supplier::create($request->validated());
+
+        return redirect()->route('admin.suppliers')
+            ->with('success', 'Fornecedor criado com sucesso!');
     }
 
     public function show(string $id)
@@ -37,10 +41,10 @@ class SupplierController extends Controller
         return view('admin.suppliers.edit', compact('supplier'));
     }
 
-    public function update(Request $request, string $id)
+    public function update(SupplierRequest $request, string $id)
     {
         $supplier = Supplier::findOrFail($id);
-        // $supplier->update($request->all());
+        $supplier->update($request->validated());
         return redirect()->route('admin.suppliers')->with('success', 'Fornecedor atualizado com sucesso!');
     }
 
