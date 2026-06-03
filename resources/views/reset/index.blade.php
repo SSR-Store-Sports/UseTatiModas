@@ -10,15 +10,22 @@
         <span class="bg-gray-300 h-0.5 w-32"></span>
       </div>
 
-      <form action="/session" method="POST" class="flex flex-col w-full gap-5 md:gap-6">
+      <form action="{{ route('reset.send') }}" method="POST" class="flex flex-col w-full gap-5 md:gap-6">
         @csrf
 
         <div class="flex flex-col gap-2 flex-1">
           <span class="text-sm md:text-base">@lang('email')</span>
           <input
             class="w-full px-4 py-2.5 md:py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
-            type="email" name="email" id="email" placeholder="exemplo@email.com" />
+            type="email" name="email" id="email" placeholder="exemplo@email.com" required />
+          @error('email')
+            <span class="text-red-500 text-xs">{{ $message }}</span>
+          @enderror
         </div>
+
+        @if(session('message'))
+          <span class="text-red-500 text-xs">{{ session('message') }}</span>
+        @endif
 
         <button
           class="group bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-2.5 md:py-3 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base font-medium">
@@ -30,6 +37,23 @@
           </svg>
         </button>
       </form>
+
+      @if(session('reset_link'))
+        <div class="w-full bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex flex-col gap-3">
+          <p class="text-xs text-yellow-700 font-semibold">🔗 Link de redefinição (exibido por falta de serviço de e-mail):</p>
+          <div class="flex items-center gap-2">
+            <input id="reset-link" type="text" readonly value="{{ session('reset_link') }}"
+              class="flex-1 text-xs px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-700 outline-none" />
+            <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('reset-link').value)"
+              class="shrink-0 px-3 py-2 bg-gray-900 text-white text-xs rounded-md hover:bg-gold-medium transition-colors">
+              Copiar
+            </button>
+          </div>
+          <a href="{{ session('reset_link') }}" class="text-center text-xs text-gold-dark underline font-medium hover:text-gold-medium">
+            Clique aqui para redefinir diretamente
+          </a>
+        </div>
+      @endif
 
       <span class="bg-gray-300 h-0.5 w-full max-w-xs"></span>
 

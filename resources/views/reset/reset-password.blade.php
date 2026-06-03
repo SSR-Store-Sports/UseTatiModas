@@ -3,9 +3,6 @@
 @section('title', __('password_reset_title'))
 
 @section('content')
-  <img class="hidden md:block h-full w-full object-cover" src="{{ asset('assets/model_login.png') }}"
-    alt="Imagem de uma mulher com o cabelo castanho em pé em uma loja, segurando uma bolsa em uma loja de roupas" />
-
   <main class="flex flex-col w-full items-center justify-center overflow-y-auto border-l-0 md:border-l-2 border-l-gold-medium px-4 py-8">
     <div class="flex flex-col gap-4 lg:gap-8 w-full max-w-md items-center">
       <div class="flex flex-col gap-4 text-center items-center justify-center">
@@ -13,7 +10,7 @@
         <span class="bg-gray-300 h-0.5 w-32"></span>
       </div>
 
-      <form action="/session" method="POST" class="flex flex-col w-full gap-6 md:gap-8">
+      <form action="{{ route('reset.update', $token) }}" method="POST" class="flex flex-col w-full gap-6 md:gap-8">
         @csrf
 
         <div class="flex flex-col gap-2 flex-1">
@@ -21,9 +18,12 @@
 
           <label for="password"
             class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus-within:border-gold-medium focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(199,155,43,0.15)] text-center justify-center align-center">
-            <input class="w-full outline-none bg-transparent" type="password" name="password" id="password" placeholder="@lang('password')" />
+            <input class="w-full outline-none bg-transparent" type="password" name="password" id="password" placeholder="@lang('password')" required />
             <img class="h-4 w-4 shrink-0" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
           </label>
+          @error('password')
+            <span class="text-red-500 text-xs">{{ $message }}</span>
+          @enderror
         </div>
 
         <div class="flex flex-col gap-2 flex-1">
@@ -31,7 +31,7 @@
 
           <label for="password_confirmation"
             class="flex w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus-within:border-gold-medium focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(199,155,43,0.15)] text-center justify-center align-center">
-            <input class="w-full outline-none bg-transparent" type="password" name="password_confirmation" id="password_confirmation" placeholder="@lang('password')" />
+            <input class="w-full outline-none bg-transparent" type="password" name="password_confirmation" id="password_confirmation" placeholder="@lang('password')" required />
             <img class="h-4 w-4 shrink-0" src="{{ asset('assets/eye_slash.png') }}" alt="Icon de olhos para senha." />
           </label>
         </div>

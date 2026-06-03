@@ -10,7 +10,7 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('/sign-up', 'signUp')->name('sign-up');
     Route::post('/sign-up', 'signUpRegister')->name('sign-up');
 
-    Route::get('/reset-shipping', 'resetShipping');
+Route::get('/reset-shipping', 'resetShipping')->name('reset.request');
     Route::get('/reset-password', 'resetPassword');
 });
 
@@ -30,6 +30,51 @@ Route::get('/verify-email/{token}', function (string $token) {
 
     return redirect()->route('sign-in')->with('message', 'Conta ativada com sucesso! Faça login.');
 })->name('verify-email');
+
+Route::post('/reset-shipping', function (\Illuminate\Http\Request $request) {
+    $request->validate(['email' => 'required|email|exists:users,email']);
+
+    $user = \App\Models\User::where('email', $request->email)->first();
+
+    \App\Models\LoginToken::where('user_id', $user->id)->delete();
+
+    $token = \App\Models\LoginToken::create([
+        'user_id'    => $user->id,
+        'token'      => \Illuminate\Support\Str::random(64),
+        'expires_at' => now()->addMinutes(30),
+    ]);
+
+    $link = route('reset.confirm', ['token' => $token->token]);
+
+    return back()->with('reset_link', $link);
+})->name('reset.send');
+
+Route::get('/reset-password/{token}', function (string $token) {
+    $record = \App\Models\LoginToken::where('token', $token)->first();
+
+    if (!$record || !$record->isValid()) {
+        return redirect()->route('reset.request')->with('message', 'Link inválido ou expirado.');
+    }
+
+    return view('reset.reset-password', ['token' => $token]);
+})->name('reset.confirm');
+
+Route::post('/reset-password/{token}', function (\Illuminate\Http\Request $request, string $token) {
+    $request->validate([
+        'password' => ['required', 'confirmed', \Illuminate\Validation\Rules\Password::defaults()],
+    ]);
+
+    $record = \App\Models\LoginToken::where('token', $token)->first();
+
+    if (!$record || !$record->isValid()) {
+        return redirect()->route('reset.request')->with('message', 'Link inválido ou expirado.');
+    }
+
+    $record->user->update(['password' => bcrypt($request->password)]);
+    $record->delete();
+
+    return redirect()->route('sign-in')->with('message', 'Senha redefinida com sucesso! Faça login.');
+})->name('reset.update');
 
 Route::middleware('auth')->group(function () {
     Route::controller(UsersController::class)->group(function () {
