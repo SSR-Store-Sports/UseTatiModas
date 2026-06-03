@@ -58,6 +58,29 @@ class UsersController extends Controller
         return view('profile.index', compact('user'));
     }
 
+    public function updateProfile(Request $request)
+    {
+        $user = auth()->user();
+
+        $request->validate([
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'phone' => 'required|string|min:10|max:15',
+        ]);
+
+        $user->update($request->only(['email', 'phone']));
+
+        return back()->with('success', 'Informações atualizadas com sucesso!');
+    }
+
+    public function destroyProfile()
+    {
+        $user = auth()->user();
+        Auth::logout();
+        $user->delete();
+
+        return redirect()->route('home')->with('success', 'Conta excluída com sucesso.');
+    }
+
     public function logout()
     {
         Auth::logout();

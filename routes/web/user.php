@@ -16,6 +16,8 @@ Route::controller(UsersController::class)->group(function () {
 Route::middleware('auth')->group(function () {
     Route::controller(UsersController::class)->group(function () {
         Route::get('/profile', 'indexUserPassword')->name('profile');
+        Route::put('/profile', 'updateProfile')->name('profile.update');
+        Route::delete('/profile', 'destroyProfile')->name('profile.destroy');
         Route::post('/logout', 'logout')->name('logout');
     });
 });
