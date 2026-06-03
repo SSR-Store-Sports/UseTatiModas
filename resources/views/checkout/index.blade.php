@@ -35,7 +35,7 @@
           <h2 class="font-bold text-base md:text-lg text-gray-800 mb-4">Forma de Entrega</h2>
           
           <div class="flex flex-col gap-3">
-            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-[:checked]:border-gold-medium has-[:checked]:bg-gold-light/5">
+            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-checked:border-gold-medium has-checked:bg-gold-light/5">
               <input type="radio" name="delivery" value="standard" class="w-4 h-4 accent-gold-medium" checked>
               <div class="flex-1">
                 <div class="flex justify-between items-start">
@@ -48,7 +48,7 @@
               </div>
             </label>
 
-            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-[:checked]:border-gold-medium has-[:checked]:bg-gold-light/5">
+            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-checked:border-gold-medium has-checked:bg-gold-light/5">
               <input type="radio" name="delivery" value="express" class="w-4 h-4 accent-gold-medium">
               <div class="flex-1">
                 <div class="flex justify-between items-start">
@@ -67,7 +67,7 @@
           <h2 class="font-bold text-base md:text-lg text-gray-800 mb-4">Forma de Pagamento</h2>
           
           <div class="flex flex-col gap-3">
-            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-[:checked]:border-gold-medium has-[:checked]:bg-gold-light/5">
+            <label class="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gold-medium transition-all has-checked:border-gold-medium has-checked:bg-gold-light/5">
               <input type="radio" name="payment" value="pix" class="w-4 h-4 accent-gold-medium" checked>
               <x-heroicon-o-device-phone-mobile class="w-6 h-6 text-gold-dark" />
               <div class="flex-1">
@@ -104,7 +104,7 @@
           <div class="flex flex-col gap-3 max-h-80 overflow-y-auto">
             @foreach($cartItems as $productId => $item)
             <div class="flex gap-3 pb-3 border-b border-gray-100 last:border-0">
-              <img src="{{ asset($item['image']) }}" class="w-14 h-14 rounded-md object-cover bg-gray-100 border border-gray-200 flex-shrink-0" alt="{{ $item['name'] }}">
+              <img src="{{ asset($item['image']) }}" class="w-14 h-14 rounded-md object-cover bg-gray-100 border border-gray-200 shrink-0" alt="{{ $item['name'] }}">
               <div class="flex-1 min-w-0">
                 <p class="text-sm font-semibold text-gray-800 line-clamp-2">{{ $item['name'] }}</p>
                 <p class="text-xs text-gray-500">Qtd: {{ $item['quantity'] }}</p>

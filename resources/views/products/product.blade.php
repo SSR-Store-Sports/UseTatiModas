@@ -5,10 +5,10 @@
 @section('content')
     <main class="px-4 md:px-12 lg:px-24 my-6 md:my-12">
         <section
-            class="bg-white rounded-xl shadow-lg shadow-[#C79B2B]/20 p-4 md:p-8 lg:p-10 flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12">
+            class="bg-white rounded-xl shadow-lg shadow-gold-medium/20 p-4 md:p-8 lg:p-10 flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-12">
             <div class="flex flex-col gap-4 w-full lg:w-80 shrink-0">
                 <div
-                    class="w-full lg:w-80 h-64 md:h-80 lg:h-96 bg-gray-50 border-[#F9E446] rounded-lg flex items-center justify-center shadow-md">
+                    class="w-full lg:w-80 h-64 md:h-80 lg:h-96 bg-gray-50 border-gold-soft rounded-lg flex items-center justify-center shadow-md">
                     <img src="{{ $product->images->first() ? asset('storage/' . $product->images->first()->image_path) : asset('assets/model_card.png') }}" 
                         alt="{{ $product->name }}"
                         class="h-full w-full rounded-lg transition-transform duration-300 hover:scale-105 cursor-pointer object-cover">
@@ -16,7 +16,7 @@
 
                 <div class="flex gap-3 justify-center">
                     @foreach ($product->images->take(3) as $image)
-                        <div class="w-16 h-16 bg-gray-100 border border-[#F9E446] rounded-md overflow-hidden">
+                        <div class="w-16 h-16 bg-gray-100 border border-gold-soft rounded-md overflow-hidden">
                             <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->name }}"
                                 class="h-full w-full object-cover hover:scale-110 transition-transform duration-300 cursor-pointer">
                         </div>
@@ -33,7 +33,7 @@
                             class="w-7 h-7 rounded-full bg-white border-2 border-gray-300 hover:border-gold-medium transition-all"
                             title="@lang('white')"></button>
                         <button
-                            class="w-7 h-7 rounded-full bg-[#F1C24A] border-2 border-transparent hover:border-gold-dark transition-all"
+                            class="w-7 h-7 rounded-full bg-gold-light border-2 border-transparent hover:border-gold-dark transition-all"
                             title="@lang('pink')"></button>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <div class="flex gap-2">
                         @foreach (['P', 'M', 'G', 'GG'] as $size)
                             <button
-                                class="w-10 h-10 rounded-md border-2 border-[#F9E446] text-sm font-medium text-gray-700 hover:border-gold-dark hover:text-gold-dark transition-all duration-200">
+                                class="w-10 h-10 rounded-md border-2 border-gold-soft text-sm font-medium text-gray-700 hover:border-gold-dark hover:text-gold-dark transition-all duration-200">
                                 {{ $size }}
                             </button>
                         @endforeach
