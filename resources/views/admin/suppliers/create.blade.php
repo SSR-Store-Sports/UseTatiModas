@@ -59,26 +59,13 @@
                         <div class="rounded-md border border-gray-200 bg-white p-6 flex flex-col gap-4">
                             <h2 class="text-base font-semibold text-gray-800 border-b border-gray-100 pb-3">Endereço</h2>
 
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="flex flex-col gap-2">
-                                    <label class="text-sm font-medium text-gray-700">Cidade</label>
-                                    <input type="text" name="city" value="{{ old('city') }}" placeholder="Ex: São Paulo"
-                                        class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
-                                </div>
-
-                                <div class="flex flex-col gap-2">
-                                    <label class="text-sm font-medium text-gray-700">Estado</label>
-                                    <input type="text" name="state" value="{{ old('state') }}" placeholder="Ex: SP"
-                                        class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
-                                </div>
-                            </div>
-
                             <div class="flex flex-col gap-2">
                                 <label class="text-sm font-medium text-gray-700">Endereço</label>
                                 <input type="text" name="address" value="{{ old('address') }}" placeholder="Ex: Rua das Flores, 123"
                                     class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
                                 @error('address') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                             </div>
+
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="flex flex-col gap-2">
                                     <label class="text-sm font-medium text-gray-700">Cidade</label>

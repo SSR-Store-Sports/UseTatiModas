@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::latest()->paginate(10);
-
+        $orders = Order::when($request->search, fn($q) => $q->where('customer_name', 'like', "%{$request->search}%")->orWhere('id', 'like', "%{$request->search}%"))
+            ->when($request->status, fn($q) => $q->where('status', $request->status))
+            ->latest()->paginate(10)->withQueryString();
         return view('admin.orders.index', compact('orders'));
     }
 

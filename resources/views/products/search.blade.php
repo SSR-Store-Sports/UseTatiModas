@@ -75,7 +75,7 @@
             <div class="flex flex-col w-full bg-white shadow-md rounded-lg gap-2 hover:shadow-2xl shadow-xl/30 cursor-pointer transition-all duration-300 hover:-translate-y-2 group">
               <a href="{{ route('product.show', $product->id) }}" class="flex flex-col justify-center items-center gap-2">
                 <div class="overflow-hidden rounded-lg w-full">
-                  <img src="{{ $product->images->first() ? asset('storage/' . $product->images->first()->image_path) : asset('assets/model_card.png') }}" 
+                  <img src="{{ $product->images->first() ? asset('storage/' . $product->images->first()->image) : asset('assets/model_card.png') }}" 
                     alt="{{ $product->name }}"
                     class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
                 </div>

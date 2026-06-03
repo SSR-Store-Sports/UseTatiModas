@@ -7,74 +7,37 @@
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col gap-4">
       <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-800">Gerenciar Pedidos</h1>
-        
-        <div class="flex gap-2">
-          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gold-dark transition-colors text-sm font-medium flex items-center gap-2">
-            <x-heroicon-o-arrow-path class="w-4 h-4" />
-            Atualizar
-          </button>
-          <button class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors text-sm font-medium flex items-center gap-2">
-            <x-heroicon-o-document-arrow-down class="w-4 h-4" />
-            Exportar
-          </button>
+        <div class="flex items-center gap-3">
+          <a href="{{ route('admin.dashboard') }}" class="p-2 bg-gray-100 text-gray-600 rounded-md hover:bg-gray-200 transition-colors" title="Voltar ao dashboard">
+            <x-heroicon-o-arrow-left class="w-4 h-4" />
+          </a>
+          <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-800">Gerenciar Pedidos</h1>
         </div>
       </div>
       
       <div class="space-y-2.5">
-        <div class="flex flex-col sm:flex-row gap-2">
-          <input 
-            type="text" 
-            placeholder="Buscar por ID, cliente ou produto" 
+        <form method="GET" action="{{ route('admin.orders') }}" class="flex flex-col sm:flex-row gap-2">
+          <input type="text" name="search" value="{{ request('search') }}" placeholder="Buscar por cliente ou ID"
             class="flex-1 px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
-          
-          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
+          <select name="status" class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
             <option value="">Todos os status</option>
-            <option value="pending">Pendente</option>
-            <option value="processing">Processando</option>
-            <option value="shipped">Enviado</option>
-            <option value="delivered">Entregue</option>
-            <option value="cancelled">Cancelado</option>
+            <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Pendente</option>
+            <option value="processing" {{ request('status') == 'processing' ? 'selected' : '' }}>Processando</option>
+            <option value="shipped" {{ request('status') == 'shipped' ? 'selected' : '' }}>Enviado</option>
+            <option value="delivered" {{ request('status') == 'delivered' ? 'selected' : '' }}>Entregue</option>
+            <option value="cancelled" {{ request('status') == 'cancelled' ? 'selected' : '' }}>Cancelado</option>
           </select>
-
-          <select class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-gold-medium focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
-            <option value="">Período</option>
-            <option value="today">Hoje</option>
-            <option value="week">Última semana</option>
-            <option value="month">Último mês</option>
-            <option value="year">Último ano</option>
-          </select>
-
-          <button class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gold-dark transition-colors text-sm font-medium">
-            <span class="flex items-center gap-2">
-              <x-heroicon-o-funnel class="w-4 h-4" />
-              Filtrar
-            </span>
+          <button type="submit" class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gold-dark transition-colors text-sm font-medium flex items-center gap-2">
+            <x-heroicon-o-funnel class="w-4 h-4" /> Filtrar
           </button>
+          <a href="{{ route('admin.orders') }}" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors text-sm font-medium flex items-center gap-2">
+            <x-heroicon-o-x-mark class="w-4 h-4" /> Limpar
+          </a>
+        </form>
 
-          <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors text-sm font-medium">
-            <span class="flex items-center gap-2">
-              <x-heroicon-o-x-mark class="w-4 h-4" />
-              Limpar
-            </span>
-          </button>
-        </div>
-
-        <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-md border border-gray-200">
-          <input type="checkbox" id="select-all" class="w-4 h-4 accent-[#C79B2B] rounded">
-          <label for="select-all" class="text-sm text-gray-600 cursor-pointer">Selecionar todos</label>
-          
-          <div class="flex gap-2 ml-auto">
-            <button class="px-3 py-1.5 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors text-xs font-medium flex items-center gap-1">
-              <x-heroicon-o-check-circle class="w-4 h-4" />
-              Aprovar selecionados
-            </button>
-            <button class="px-3 py-1.5 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors text-xs font-medium flex items-center gap-1">
-              <x-heroicon-o-trash class="w-4 h-4" />
-              Excluir selecionados
-            </button>
-          </div>
-        </div>
+        {{-- <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-md border border-gray-200">
+          Aprovar/excluir selecionados
+        </div> --}}
 
         <div class="rounded-md border border-gray-200 bg-white overflow-hidden">
           <div class="overflow-x-auto">
@@ -161,10 +124,10 @@
                           <x-heroicon-o-printer class="w-4 h-4" />
                         </button>
                         
-                        <form method="POST" action="{{ route('admin.orders.destroy', $order->id) }}" class="inline">
+                        <form id="delete-order-{{ $order->id }}" method="POST" action="{{ route('admin.orders.destroy', $order->id) }}" class="inline">
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="p-2 text-red-600 hover:bg-red-50 rounded-md transition-colors" onclick="return confirm('Tem certeza que deseja excluir este pedido?')" title="Excluir pedido">
+                          <button type="button" onclick="confirmDelete('delete-order-{{ $order->id }}', 'Tem certeza que deseja excluir o pedido #{{ $order->id }}?')" class="p-2 text-red-600 hover:bg-red-50 rounded-md transition-colors" title="Excluir pedido">
                             <x-heroicon-o-trash class="w-4 h-4" />
                           </button>
                         </form>

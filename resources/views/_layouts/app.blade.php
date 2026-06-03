@@ -18,8 +18,9 @@
     <x-promotions />
     <x-footer />
 
-    <!-- toasts para operações na plataforma  -->
+    <!-- utilização de toasts na plataforma para operações, avisa dá um feedback pro usuário  -->
     <x-toast />
+    <x-confirm-delete-modal />
     <x-scroll-restore />
 
     @stack('scripts')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use Illuminate\Http\Request;
 use App\Models\ProductImage;
 use Illuminate\Support\Str;
 use App\Models\Category;
@@ -13,9 +14,12 @@ use App\Models\Supplier;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::with(['category', 'primaryImage'])->latest()->paginate(10);
+        $products = Product::with(['category', 'primaryImage'])
+            ->when($request->search, fn($q) => $q->where('name', 'like', "%{$request->search}%")->orWhere('sku', 'like', "%{$request->search}%"))
+            ->when($request->status, fn($q) => $q->where('status', $request->status))
+            ->latest()->paginate(10)->withQueryString();
         return view('admin.products.index', compact('products'));
     }
 

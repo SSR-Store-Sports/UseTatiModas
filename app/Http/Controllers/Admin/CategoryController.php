@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::withCount('products')->latest()->paginate(10);
+        $categories = Category::withCount('products')
+            ->when($request->search, fn($q) => $q->where('name', 'like', "%{$request->search}%"))
+            ->when($request->status, fn($q) => $q->where('status', $request->status))
+            ->latest()->paginate(10)->withQueryString();
         return view('admin.categories.index', compact('categories'));
     }
 

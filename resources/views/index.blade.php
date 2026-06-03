@@ -145,7 +145,7 @@
                             <a href="/product/{{ $product->id }}"
                                 class="flex flex-col justify-center items-center gap-2">
                                 <div class="overflow-hidden rounded-lg w-full">
-                                    <img src="{{ $product->images->first() ? asset($product->images->first()->image) : asset('assets/model_card.png') }}"
+                                    <img src="{{ $product->images->first() ? $product->images->first()->url : asset('assets/model_card.png') }}"
                                         alt="{{ $product->name }}"
                                         class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
                                 </div>
@@ -308,7 +308,7 @@
 
                         <a href="/product/{{ $product->id }}" class="flex flex-col justify-center items-center gap-2">
                             <div class="overflow-hidden rounded-lg w-full">
-                                <img src="{{ $product->images->first() ? asset($product->images->first()->image) : asset('assets/model_card.png') }}" alt="{{ $product->name }}"
+                                <img src="{{ $product->images->first() ? $product->images->first()->url : asset('assets/model_card.png') }}" alt="{{ $product->name }}"
                                     class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
                             </div>
                             <div class="flex gap-2">
@@ -379,7 +379,7 @@
 
                         <a href="/product/{{ $product->id }}" class="flex flex-col justify-center items-center gap-2">
                             <div class="overflow-hidden rounded-lg w-full">
-                                <img src="{{ $product->images->first() ? asset($product->images->first()->image) : asset('assets/model_card.png') }}" alt="{{ $product->name }}"
+                                <img src="{{ $product->images->first() ? $product->images->first()->url : asset('assets/model_card.png') }}" alt="{{ $product->name }}"
                                     class="h-48 md:h-64 w-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-110">
                             </div>
                             <div class="flex gap-2">

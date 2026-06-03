@@ -90,11 +90,11 @@
                     <div class="rounded-md border border-gray-200 bg-white p-6 flex flex-col gap-3">
                         <h2 class="text-base font-semibold text-gray-800 border-b border-gray-100 pb-3">Ações</h2>
 
-                        <form method="POST" action="{{ route('admin.suppliers.destroy', $supplier->id) }}">
+                        <form id="delete-supplier-show" method="POST" action="{{ route('admin.suppliers.destroy', $supplier->id) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit"
-                                onclick="return confirm('Tem certeza que deseja excluir este fornecedor?')"
+                            <button type="button"
+                                onclick="confirmDelete('delete-supplier-show', 'Tem certeza que deseja excluir o fornecedor \'{{ addslashes($supplier->name) }}\'?')"
                                 class="w-full px-4 py-2.5 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors text-sm font-medium flex items-center justify-center gap-2">
                                 <x-heroicon-o-trash class="w-4 h-4" />
                                 Excluir Fornecedor
