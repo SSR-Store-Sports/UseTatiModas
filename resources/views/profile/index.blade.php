@@ -1,7 +1,7 @@
 @extends('_layouts.app')
 
 @section('content')
-    <main class="flex flex-col lg:flex-row gap-4 md:gap-6 px-4 md:px-12 lg:px-24 py-6 md:py-12 ">
+    <main class="px-4 md:px-12 lg:px-24 my-6 md:my-12 max-w-screen-2xl mx-auto flex flex-row">
         <aside class="w-full lg:w-72 bg-white shadow-md p-4 md:p-5 rounded-2xl flex flex-col gap-4 md:gap-6 shadow-xl/30 shrink-0">
 
             <h1 class="font-semibold text-lg md:text-xl">@lang('user_information')</h1>
@@ -80,11 +80,11 @@
 
                 <div class="flex flex-col sm:flex-row gap-3 md:gap-4 mt-auto">
                     <button
-                        class="group bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-3 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
+                        class="group bg-gray-900 text-white flex items-center justify-center rounded-md w-full h-12 py-3 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
                         <span>@lang('delete_account')</span>
                     </button>
                     <button
-                        class="group bg-white text-gray-900 flex items-center justify-center rounded-md w-full py-3 gap-2 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
+                        class="group bg-white text-gray-900 flex items-center justify-center rounded-md w-full h-12 py-3 gap-2 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base">
                         <span>@lang('update_information')</span>
                     </button>
                 </div>
