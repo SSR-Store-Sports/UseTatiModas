@@ -4,7 +4,8 @@
 
 @section('content')
 <main class="px-4 md:px-12 lg:px-24 py-6 md:py-12">
-  <div class="grid grid-rows-[auto_1fr] gap-4 md:gap-6">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="grid grid-rows-[auto_1fr] gap-4 md:gap-6">
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-200 pb-3 md:pb-4 gap-2">
       <div class="flex items-center gap-1.5">
         <x-heroicon-o-shopping-bag class="w-5 h-5 text-gold-dark" />
@@ -142,6 +143,7 @@
           </p>
         </div>
       </aside>
+    </div>
     </div>
   </div>
 </main>

@@ -114,7 +114,7 @@
         </div>
     </div>
 
-    <div class="w-full max-w-400 mx-auto flex flex-col">
+    <div class="max-w-screen-2xl mx-auto">
         <section class="flex flex-col px-4 md:px-24 mt-12 gap-8">
             <div class="flex flex-col gap-4 pb-4 border-b-2 border-gray-200">
                 <div class="flex px-4 md:px-16 items-center gap-3">

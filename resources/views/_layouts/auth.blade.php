@@ -9,10 +9,19 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-full flex flex-col">
-    <x-auth.header />
-    <div class="grid grid-cols-1 md:grid-cols-2 flex-1 min-h-0">
-        @yield('content')
+<body class="h-screen overflow-hidden">
+    <div class="h-full flex flex-col">
+        <x-auth.header />
+
+        <div class="flex-1 grid grid-cols-1 md:flex md:flex-row overflow-hidden">
+            <img 
+                class="hidden md:inline h-full w-full object-cover" 
+                src="{{ asset('assets/model_login.png') }}"
+                alt="Imagem de uma mulher com o cabelo castanho em pé em uma loja, segurando uma bolsa em 
+                uma loja de roupas" 
+            />
+            @yield('content')
+        </div>
     </div>
 </body>
 

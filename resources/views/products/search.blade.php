@@ -4,7 +4,8 @@
 
 @section('content')
   <main class="h-full">
-    <div class="flex flex-col lg:flex-row px-4 md:px-12 lg:px-24 justify-center gap-4 md:gap-6 lg:gap-8 mt-6 md:mt-12">
+    <div class="max-w-screen-2xl mx-auto">
+      <div class="flex flex-col lg:flex-row px-4 md:px-12 lg:px-24 justify-center gap-4 md:gap-6 lg:gap-8 mt-6 md:mt-12">
       <aside class="w-full lg:w-44 shrink-0">
         <h1 class="text-base md:text-lg font-bold text-gray-800 mb-4 md:mb-6">@lang('search_placeholder')</h1>
 
@@ -141,6 +142,7 @@
         </div>
         @endif
       </main>
+      </div>
     </div>
 
     <x-discounts />

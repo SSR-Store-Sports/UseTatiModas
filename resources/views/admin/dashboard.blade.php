@@ -26,7 +26,7 @@
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-5 lg:mt-0 lg:flex-1 lg:max-w-3xl">
-      <a href="/admin/products" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
+      <a href="/admin/products" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg transition-all duration-200 group">
         <div class="flex items-center justify-center gap-2 text-left">
           <div class="p-2 bg-gray-100 rounded-lg group-hover:bg-gold-dark transition-colors">
             <x-heroicon-o-squares-2x2 class="w-5 h-5 text-gold-dark group-hover:text-white transition-colors" />
@@ -35,7 +35,7 @@
         </div>
       </a>
 
-      <a href="/admin/categories" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
+      <a href="/admin/categories" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg transition-all duration-200 group">
         <div class="flex items-center justify-center gap-2 text-left">
           <div class="p-2 bg-blue-100 rounded-lg group-hover:bg-blue-600 transition-colors">
             <x-heroicon-o-tag class="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" />
@@ -44,7 +44,7 @@
         </div>
       </a>
 
-      <a href="/admin/orders" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
+      <a href="/admin/orders" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg transition-all duration-200 group">
         <div class="flex items-center justify-center gap-2 text-left">
           <div class="p-2 bg-green-100 rounded-lg group-hover:bg-green-600 transition-colors">
             <x-heroicon-o-shopping-cart class="w-5 h-5 text-green-600 group-hover:text-white transition-colors" />
@@ -53,7 +53,7 @@
         </div>
       </a>
 
-      <a href="/admin/suppliers" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg hover:shadow-md transition-all duration-200 group">
+      <a href="/admin/suppliers" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg transition-all duration-200 group">
         <div class="flex items-center justify-center gap-2 text-left">
           <div class="p-2 bg-purple-100 rounded-lg group-hover:bg-purple-600 transition-colors">
             <x-heroicon-o-building-storefront class="w-5 h-5 text-purple-600 group-hover:text-white transition-colors" />
@@ -65,7 +65,7 @@
     </div>
 
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6 md:mb-8">
-      <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 p-4 md:p-6 transition-all duration-200 hover:shadow-lg hover:shadow-md">
+      <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-gold-medium/20 p-4 md:p-6 transition-all duration-200 hover:shadow-lg">
         <div class="flex items-center justify-between mb-3">
           <h3 class="text-xs md:text-sm font-medium text-gray-600">@lang('total_revenue')</h3>
           <div class="p-2 bg-gray-100 rounded-lg">
@@ -78,7 +78,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 p-4 md:p-6 transition-all duration-200 hover:shadow-lg hover:shadow-md">
+      <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-gold-medium/20 p-4 md:p-6 transition-all duration-200 hover:shadow-lg">
         <div class="flex items-center justify-between mb-3">
           <h3 class="text-xs md:text-sm font-medium text-gray-600">@lang('orders_month')</h3>
           <div class="p-2 bg-blue-100 rounded-lg">
@@ -91,7 +91,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 p-4 md:p-6 transition-all duration-200 hover:shadow-lg hover:shadow-md">
+      <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 p-4 md:p-6 transition-all duration-200 hover:shadow-lg">
         <div class="flex items-center justify-between mb-3">
           <h3 class="text-xs md:text-sm font-medium text-gray-600">@lang('orders_day')</h3>
           <div class="p-2 bg-green-100 rounded-lg">
@@ -104,7 +104,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 p-4 md:p-6 transition-all duration-200 hover:shadow-lg hover:shadow-md">
+      <div class="bg-white rounded-lg md:rounded-xl shadow-md shadow-[#C79B2B]/20 p-4 md:p-6 transition-all duration-200 hover:shadow-lg">
         <div class="flex items-center justify-between mb-3">
           <h3 class="text-xs md:text-sm font-medium text-gray-600">@lang('cancellations_month')</h3>
           <div class="p-2 bg-red-100 rounded-lg">
