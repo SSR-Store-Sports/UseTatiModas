@@ -65,6 +65,7 @@ class RegisterRequest extends FormRequest
             'phone' => $this->phone,
             'cpf' => $this->cpf,
             'password' => $this->password,
+            'role' => 'member',
         ]);
 
         Address::create([

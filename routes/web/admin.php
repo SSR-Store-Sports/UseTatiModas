@@ -5,9 +5,11 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SupplierController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/orders', [OrderController::class, 'index'])->name('orders');
 Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
@@ -38,3 +40,9 @@ Route::get('/suppliers/{id}', [SupplierController::class, 'show'])->name('suppli
 Route::get('/suppliers/{id}/edit', [SupplierController::class, 'edit'])->name('suppliers.edit');
 Route::put('/suppliers/{id}', [SupplierController::class, 'update'])->name('suppliers.update');
 Route::delete('/suppliers/{id}', [SupplierController::class, 'destroy'])->name('suppliers.destroy');
+
+Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+});

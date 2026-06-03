@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         // cadastrar produtos para teste
         $this->call(ProductSeeder::class);
+        $this->call(UserSeeder::class);
         // User::factory(10)->create();
         
         // Usuário administrativo padrão para desenvolvimento

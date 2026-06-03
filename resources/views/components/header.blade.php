@@ -46,6 +46,16 @@
 
             <nav class="flex flex-col gap-2 shrink-0 items-center">
                 <div class="flex gap-2">
+                    @auth
+                        @if(auth()->user()->isAdmin())
+                        <a href="/admin/dashboard"
+                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                            title="Dashboard Admin">
+                            <x-heroicon-o-chart-bar-square class="w-5 h-5" />
+                        </a>
+                        @endif
+                    @endauth
+                    
                     <a href="/cart"
                         class="relative p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 group"
                         title="Carrinho">
@@ -108,6 +118,12 @@
                     @auth
                         <span class="text-xs text-gray-700 mr-1">Olá, <span
                                 class="font-medium text-gold-dark">{{ Str::limit(auth()->user()->name, 12) }}</span></span>
+                        
+                        @if(auth()->user()->isAdmin())
+                        <a href="/admin/dashboard" class="p-2 bg-gold-medium text-white rounded-lg" title="Admin">
+                            <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
+                        </a>
+                        @endif
                     @endauth
 
                     <a href="/cart" class="relative p-2 bg-gold-medium text-white rounded-lg" title="Carrinho">

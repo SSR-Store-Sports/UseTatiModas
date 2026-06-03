@@ -25,7 +25,7 @@
       </p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-5 lg:mt-0 lg:flex-1 lg:max-w-3xl">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mt-5 lg:mt-0 lg:flex-1 lg:max-w-4xl">
       <a href="/admin/products" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg transition-all duration-200 group">
         <div class="flex items-center justify-center gap-2 text-left">
           <div class="p-2 bg-gray-100 rounded-lg group-hover:bg-gold-dark transition-colors">
@@ -59,6 +59,15 @@
             <x-heroicon-o-building-storefront class="w-5 h-5 text-purple-600 group-hover:text-white transition-colors" />
           </div>
           <span class="text-xs font-semibold text-gray-800">Fornecedores</span>
+        </div>
+      </a>
+
+      <a href="/admin/users" class="bg-white rounded-lg shadow-md shadow-[#C79B2B]/20 px-3 py-3 hover:shadow-lg transition-all duration-200 group">
+        <div class="flex items-center justify-center gap-2 text-left">
+          <div class="p-2 bg-orange-100 rounded-lg group-hover:bg-orange-600 transition-colors">
+            <x-heroicon-o-users class="w-5 h-5 text-orange-600 group-hover:text-white transition-colors" />
+          </div>
+          <span class="text-xs font-semibold text-gray-800">Usuários</span>
         </div>
       </a>
       </div>
