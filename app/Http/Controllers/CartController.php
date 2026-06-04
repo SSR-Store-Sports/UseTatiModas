@@ -31,12 +31,24 @@ class CartController extends Controller
         ]);
 
         $quantity = $request->quantity ?? 1;
-        
+
         if ($this->cartService->add($request->product_id, $quantity)) {
             return redirect()->back()->with('success', 'Produto adicionado ao carrinho!')->withFragment('');
         }
 
         return redirect()->back()->with('error', 'Erro ao adicionar produto.');
+    }
+
+    public function buyNow(Request $request)
+    {
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'quantity' => 'nullable|integer|min:1|max:15'
+        ]);
+
+        $this->cartService->add($request->product_id, $request->quantity ?? 1);
+
+        return redirect()->route('checkout.index');
     }
 
     public function remove($productId)

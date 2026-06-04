@@ -85,14 +85,7 @@
           <span class="text-2xl md:text-3xl font-bold text-gray-800">
             R$ {{ number_format($totalRevenue, 2, ',', '.') }}
           </span>
-          <span class="text-xs font-medium
-            @if($revenueChange > 0) text-green-600 @elseif($revenueChange < 0) text-red-600 @else text-gray-500 @endif">
-            @if($revenueChange != 0)
-              {{ $revenueChange > 0 ? '+' : '' }}{{ $revenueChange }}% em relação ao mês anterior
-            @else
-              0% em relação ao mês anterior
-            @endif
-          </span>
+
         </div>
       </div>
 
@@ -107,14 +100,7 @@
           <span class="text-2xl md:text-3xl font-bold text-gray-800">
             {{ $ordersMonth }}
           </span>
-          <span class="text-xs font-medium
-            @if($ordersChange > 0) text-green-600 @elseif($ordersChange < 0) text-red-600 @else text-gray-500 @endif">
-            @if($ordersChange != 0)
-              {{ $ordersChange > 0 ? '+' : '' }}{{ $ordersChange }}% em relação ao mês anterior
-            @else
-              0% em relação ao mês anterior
-            @endif
-          </span>
+
         </div>
       </div>
 
@@ -129,14 +115,7 @@
           <span class="text-2xl md:text-3xl font-bold text-gray-800">
             {{ $ordersDay }}
           </span>
-          <span class="text-xs font-medium
-            @if($dayChange > 0) text-green-600 @elseif($dayChange < 0) text-red-600 @else text-gray-500 @endif">
-            @if($dayChange != 0)
-              {{ $dayChange > 0 ? '+' : '' }}{{ $dayChange }} em relação a ontem
-            @else
-              0 em relação a ontem
-            @endif
-          </span>
+
         </div>
       </div>
 
@@ -151,14 +130,7 @@
           <span class="text-2xl md:text-3xl font-bold text-gray-800">
             {{ $cancellationsMonth }}
           </span>
-          <span class="text-xs font-medium
-            @if($cancellationsChange < 0) text-green-600 @elseif($cancellationsChange > 0) text-red-600 @else text-gray-500 @endif">
-            @if($cancellationsChange != 0)
-              {{ $cancellationsChange > 0 ? '+' : '' }}{{ $cancellationsChange }}% em relação ao mês anterior
-            @else
-              0% em relação ao mês anterior
-            @endif
-          </span>
+
         </div>
       </div>
     </div>

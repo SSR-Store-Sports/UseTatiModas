@@ -58,14 +58,16 @@ class ProductController extends Controller
     }
     public function show(string $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::with(['category', 'supplier', 'images'])->findOrFail($id);
         return view('admin.products.show', compact('product'));
     }
 
     public function edit(string $id)
     {
-        $product = Product::findOrFail($id);
-        return view('admin.products.edit', compact('product'));
+        $product = Product::with('images')->findOrFail($id);
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+        return view('admin.products.edit', compact('product', 'categories', 'suppliers'));
     }
 
     public function update(ProductRequest $request, string $id)

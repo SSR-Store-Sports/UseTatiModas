@@ -136,9 +136,9 @@
                         <x-heroicon-o-pencil-square class="w-4 h-4" />
                       </a>
 
-                      <button class="p-2 text-purple-600 hover:bg-purple-50 rounded-md transition-colors" title="Duplicar">
+                      <!-- <button class="p-2 text-purple-600 hover:bg-purple-50 rounded-md transition-colors" title="Duplicar">
                         <x-heroicon-o-document-duplicate class="w-4 h-4" />
-                      </button>
+                      </button> -->
 
                       <form id="delete-product-{{ $product->id }}" method="POST" action="{{ route('admin.products.destroy', $product->id) }}" class="inline">
                         @csrf

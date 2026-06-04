@@ -18,26 +18,21 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        $order = Order::findOrFail($id);
-
+        $order = Order::with('user')->findOrFail($id);
         return view('admin.orders.show', compact('order'));
     }
 
     public function edit($id)
     {
-        $order = Order::findOrFail($id);
-
+        $order = Order::with('user')->findOrFail($id);
         return view('admin.orders.edit', compact('order'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $order = Order::findOrFail($id);
-        
-        // Atualizar dados do pedido
-        // $order->update(request()->all());
-
-        return redirect()->route('admin.orders')->with('success', 'Pedido atualizado com sucesso!');
+        $order->update($request->only('status'));
+        return redirect()->route('admin.orders.show', $id)->with('success', 'Pedido atualizado com sucesso!');
     }
 
     public function destroy($id)

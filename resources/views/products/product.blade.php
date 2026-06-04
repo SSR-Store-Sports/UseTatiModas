@@ -131,11 +131,16 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-3 md:gap-4 mt-2">
-                    <a href="{{ route('checkout.index') }}"
-                        class="bg-gray-900 text-white flex items-center justify-center rounded-sm w-full py-3 gap-2 border-2 border-transparent hover:bg-gold-medium transition-all duration-200 text-center">
-                        <span>@lang('buy')</span>
-                        <x-heroicon-o-shopping-bag class="h-4 w-4" />
-                    </a>
+                    <form action="{{ route('cart.buy-now') }}" method="POST" class="w-full">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="quantity" id="buy-quantity" value="1">
+                        <button type="submit" {{ $product->stock <= 0 ? 'disabled' : '' }}
+                            class="bg-gray-900 text-white flex items-center justify-center rounded-sm w-full py-3 gap-2 border-2 border-transparent hover:bg-gold-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span>@lang('buy')</span>
+                            <x-heroicon-o-shopping-bag class="h-4 w-4" />
+                        </button>
+                    </form>
                     <form action="{{ route('cart.add') }}" method="POST" class="w-full">
                         @csrf
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -230,6 +235,7 @@
         const qty = Math.max(1, Math.min(maxStock, parseInt(value) || 1));
         document.getElementById('qty').value = qty;
         document.getElementById('cart-quantity').value = qty;
+        document.getElementById('buy-quantity').value = qty;
     }
 
     function incrementQty() {

@@ -19,15 +19,19 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('product');
-        
+        $sort  = $request->input('sort', 'newest');
+
         $products = Product::with('images')
-            ->when($query, function($q) use ($query) {
-                $q->where('name', 'like', '%' . $query . '%')
-                  ->orWhere('description', 'like', '%' . $query . '%')
-                  ->orWhere('sku', 'like', '%' . $query . '%');
-            })
+            ->when($query, fn($q) => $q->where(fn($q) => $q
+                ->where('name', 'like', "%{$query}%")
+                ->orWhere('description', 'like', "%{$query}%")
+                ->orWhere('sku', 'like', "%{$query}%")))
             ->where('status', 'active')
-            ->paginate(12);
+            ->when($sort === 'price_asc',  fn($q) => $q->orderBy('price', 'asc'))
+            ->when($sort === 'price_desc', fn($q) => $q->orderBy('price', 'desc'))
+            ->when($sort === 'popular',    fn($q) => $q->orderBy('reviews_count', 'desc'))
+            ->when($sort === 'newest',     fn($q) => $q->latest())
+            ->paginate(12)->withQueryString();
 
         return view('products.search', compact('products', 'query'));
     }

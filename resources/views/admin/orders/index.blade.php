@@ -14,7 +14,7 @@
           <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-800">Gerenciar Pedidos</h1>
         </div>
       </div>
-      
+
       <div class="space-y-2.5">
         <form method="GET" action="{{ route('admin.orders') }}" class="flex flex-col sm:flex-row gap-2">
           <input type="text" name="search" value="{{ request('search') }}" placeholder="Buscar por cliente ou ID"
@@ -59,91 +59,94 @@
 
               <tbody class="divide-y divide-gray-100">
                 @forelse ($orders as $order)
-                  <tr class="hover:bg-gray-100/40 transition-colors">
-                    <td class="px-4 py-4">
-                      <input type="checkbox" class="w-4 h-4 accent-[#C79B2B] rounded">
-                    </td>
+                <tr class="hover:bg-gray-100/40 transition-colors">
+                  <td class="px-4 py-4">
+                    <input type="checkbox" class="w-4 h-4 accent-[#C79B2B] rounded">
+                  </td>
 
-                    <td class="px-4 py-4 font-mono text-xs text-gray-600">
-                      #{{ str_pad($order->id, 6, '0', STR_PAD_LEFT) }}
-                    </td>
+                  <td class="px-4 py-4 font-mono text-xs text-gray-600">
+                    #{{ str_pad($order->id, 6, '0', STR_PAD_LEFT) }}
+                  </td>
 
-                    <td class="px-4 py-4">
-                      <div class="flex flex-col">
-                        <span class="font-semibold text-gray-800">{{ $order->customer_name ?? 'Cliente' }}</span>
-                        <span class="text-xs text-gray-500">{{ $order->customer_email ?? 'email@exemplo.com' }}</span>
-                      </div>
-                    </td>
+                  <td class="px-4 py-4">
+                    <div class="flex flex-col">
+                      <span class="font-semibold text-gray-800">{{ $order->customer_name ?? 'Cliente' }}</span>
+                      <span class="text-xs text-gray-500">{{ $order->customer_email ?? 'email@exemplo.com' }}</span>
+                    </div>
+                  </td>
 
-                    <td class="px-4 py-4 text-gray-600">
-                      <div class="flex flex-col">
-                        <span class="font-medium">{{ $order->products_count ?? 2 }} item(ns)</span>
-                        <span class="text-xs text-gray-500">{{ $order->products ?? 'Conjunto Delicado, Calça...' }}</span>
-                      </div>
-                    </td>
+                  <td class="px-4 py-4 text-gray-600">
+                    <div class="flex flex-col">
+                      <span class="font-medium">{{ $order->products_count ?? 2 }} item(ns)</span>
+                      <span class="text-xs text-gray-500">{{ $order->products ?? 'Conjunto Delicado, Calça...' }}</span>
+                    </div>
+                  </td>
 
-                    <td class="px-4 py-4 font-semibold text-gray-800">
-                      R$ {{ number_format($order->total ?? 249.90, 2, ',', '.') }}
-                    </td>
+                  <td class="px-4 py-4 font-semibold text-gray-800">
+                    R$ {{ number_format($order->total ?? 249.90, 2, ',', '.') }}
+                  </td>
 
-                    <td class="px-4 py-4">
-                      <select class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border-0 outline-none cursor-pointer
-                        @if(($order->status ?? 'pending') == 'delivered') bg-green-100 text-green-700
-                        @elseif(($order->status ?? 'pending') == 'shipped') bg-blue-100 text-blue-700
-                        @elseif(($order->status ?? 'pending') == 'processing') bg-yellow-100 text-yellow-700
-                        @elseif(($order->status ?? 'pending') == 'cancelled') bg-red-100 text-red-700
-                        @else bg-gray-100 text-gray-700
-                        @endif">
-                        <option value="pending" {{ ($order->status ?? 'pending') == 'pending' ? 'selected' : '' }}>Pendente</option>
-                        <option value="processing" {{ ($order->status ?? 'pending') == 'processing' ? 'selected' : '' }}>Processando</option>
-                        <option value="shipped" {{ ($order->status ?? 'pending') == 'shipped' ? 'selected' : '' }}>Enviado</option>
-                        <option value="delivered" {{ ($order->status ?? 'pending') == 'delivered' ? 'selected' : '' }}>Entregue</option>
-                        <option value="cancelled" {{ ($order->status ?? 'pending') == 'cancelled' ? 'selected' : '' }}>Cancelado</option>
-                      </select>
-                    </td>
+                  <td class="px-4 py-4">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
+                      @if(($order->status ?? 'pending') == 'delivered') bg-green-100 text-green-700
+                      @elseif(($order->status ?? 'pending') == 'shipped') bg-blue-100 text-blue-700
+                      @elseif(($order->status ?? 'pending') == 'processing') bg-yellow-100 text-yellow-700
+                      @elseif(($order->status ?? 'pending') == 'cancelled') bg-red-100 text-red-700
+                      @else bg-gray-100 text-gray-700
+                      @endif">
+                      @switch($order->status ?? 'pending')
+                      @case('pending') Pendente @break
+                      @case('processing') Processando @break
+                      @case('shipped') Enviado @break
+                      @case('delivered') Entregue @break
+                      @case('cancelled') Cancelado @break
+                      @default Pendente
+                      @endswitch
+                    </span>
+                  </td>
 
-                    <td class="px-4 py-4 text-gray-500">
-                      <div class="flex flex-col">
-                        <span>{{ $order->created_at ? $order->created_at->diffForHumans() : '2 dias atrás' }}</span>
-                        <span class="text-xs text-gray-400">{{ $order->created_at ? $order->created_at->format('d/m/Y H:i') : '05/12/2025 14:30' }}</span>
-                      </div>
-                    </td>
+                  <td class="px-4 py-4 text-gray-500">
+                    <div class="flex flex-col">
+                      <span>{{ $order->created_at ? $order->created_at->diffForHumans() : '2 dias atrás' }}</span>
+                      <span class="text-xs text-gray-400">{{ $order->created_at ? $order->created_at->format('d/m/Y H:i') : '05/12/2025 14:30' }}</span>
+                    </div>
+                  </td>
 
-                    <td class="px-4 py-4">
-                      <div class="flex items-center justify-center gap-1">
-                       
-                        <a href="{{ route('admin.orders.show', $order->id) }}" class="p-2 text-blue-600 hover:bg-blue-50 rounded-md transition-colors" title="Visualizar detalhes">
-                          <x-heroicon-o-eye class="w-4 h-4" />
-                        </a>
-                        
-                        <a href="{{ route('admin.orders.edit', $order->id) }}" class="p-2 text-green-600 hover:bg-green-50 rounded-md transition-colors" title="Editar pedido">
-                          <x-heroicon-o-pencil-square class="w-4 h-4" />
-                        </a>
-                        
-                        <button class="p-2 text-purple-600 hover:bg-purple-50 rounded-md transition-colors" title="Imprimir pedido">
+                  <td class="px-4 py-4">
+                    <div class="flex items-center justify-center gap-1">
+
+                      <a href="{{ route('admin.orders.show', $order->id) }}" class="p-2 text-blue-600 hover:bg-blue-50 rounded-md transition-colors" title="Visualizar detalhes">
+                        <x-heroicon-o-eye class="w-4 h-4" />
+                      </a>
+
+                      <a href="{{ route('admin.orders.edit', $order->id) }}" class="p-2 text-green-600 hover:bg-green-50 rounded-md transition-colors" title="Editar pedido">
+                        <x-heroicon-o-pencil-square class="w-4 h-4" />
+                      </a>
+
+                      <!-- <button class="p-2 text-purple-600 hover:bg-purple-50 rounded-md transition-colors" title="Imprimir pedido">
                           <x-heroicon-o-printer class="w-4 h-4" />
+                        </button> -->
+
+                      <form id="delete-order-{{ $order->id }}" method="POST" action="{{ route('admin.orders.destroy', $order->id) }}" class="inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="confirmDelete('delete-order-{{ $order->id }}', 'Tem certeza que deseja excluir o pedido #{{ $order->id }}?')" class="p-2 text-red-600 hover:bg-red-50 rounded-md transition-colors" title="Excluir pedido">
+                          <x-heroicon-o-trash class="w-4 h-4" />
                         </button>
-                        
-                        <form id="delete-order-{{ $order->id }}" method="POST" action="{{ route('admin.orders.destroy', $order->id) }}" class="inline">
-                          @csrf
-                          @method('DELETE')
-                          <button type="button" onclick="confirmDelete('delete-order-{{ $order->id }}', 'Tem certeza que deseja excluir o pedido #{{ $order->id }}?')" class="p-2 text-red-600 hover:bg-red-50 rounded-md transition-colors" title="Excluir pedido">
-                            <x-heroicon-o-trash class="w-4 h-4" />
-                          </button>
-                        </form>
-                      </div>
-                    </td>
-                  </tr>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
                 @empty
-                  <tr>
-                    <td colspan="8" class="px-4 py-12 text-center">
-                      <div class="flex flex-col items-center gap-2">
-                        <x-heroicon-o-inbox class="w-12 h-12 text-gray-300" />
-                        <p class="text-gray-500 font-medium">Nenhum pedido encontrado</p>
-                        <p class="text-gray-400 text-xs">Os pedidos aparecerão aqui quando forem criados</p>
-                      </div>
-                    </td>
-                  </tr>
+                <tr>
+                  <td colspan="8" class="px-4 py-12 text-center">
+                    <div class="flex flex-col items-center gap-2">
+                      <x-heroicon-o-inbox class="w-12 h-12 text-gray-300" />
+                      <p class="text-gray-500 font-medium">Nenhum pedido encontrado</p>
+                      <p class="text-gray-400 text-xs">Os pedidos aparecerão aqui quando forem criados</p>
+                    </div>
+                  </td>
+                </tr>
                 @endforelse
               </tbody>
             </table>
@@ -155,38 +158,38 @@
           <div>
             Mostrando <span class="font-medium">{{ $orders->firstItem() }}</span> a <span class="font-medium">{{ $orders->lastItem() }}</span> de <span class="font-medium">{{ $orders->total() }}</span> resultados
           </div>
-          
+
           <div class="flex gap-2">
             @if ($orders->onFirstPage())
-              <span class="px-3 py-2 rounded-md bg-gray-100 text-gray-400 cursor-not-allowed">
-                Anterior
-              </span>
+            <span class="px-3 py-2 rounded-md bg-gray-100 text-gray-400 cursor-not-allowed">
+              Anterior
+            </span>
             @else
-              <a href="{{ $orders->previousPageUrl() }}" class="px-3 py-2 rounded-md bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
-                Anterior
-              </a>
+            <a href="{{ $orders->previousPageUrl() }}" class="px-3 py-2 rounded-md bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
+              Anterior
+            </a>
             @endif
 
             @foreach ($orders->getUrlRange(1, $orders->lastPage()) as $page => $url)
-              @if ($page == $orders->currentPage())
-                <span class="px-3 py-2 rounded-md bg-gray-500 text-white font-medium">
-                  {{ $page }}
-                </span>
-              @else
-                <a href="{{ $url }}" class="px-3 py-2 rounded-md bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
-                  {{ $page }}
-                </a>
-              @endif
+            @if ($page == $orders->currentPage())
+            <span class="px-3 py-2 rounded-md bg-gray-500 text-white font-medium">
+              {{ $page }}
+            </span>
+            @else
+            <a href="{{ $url }}" class="px-3 py-2 rounded-md bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
+              {{ $page }}
+            </a>
+            @endif
             @endforeach
 
             @if ($orders->hasMorePages())
-              <a href="{{ $orders->nextPageUrl() }}" class="px-3 py-2 rounded-md bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
-                Próximo
-              </a>
+            <a href="{{ $orders->nextPageUrl() }}" class="px-3 py-2 rounded-md bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors">
+              Próximo
+            </a>
             @else
-              <span class="px-3 py-2 rounded-md bg-gray-100 text-gray-400 cursor-not-allowed">
-                Próximo
-              </span>
+            <span class="px-3 py-2 rounded-md bg-gray-100 text-gray-400 cursor-not-allowed">
+              Próximo
+            </span>
             @endif
           </div>
         </div>
@@ -196,4 +199,3 @@
   </div>
 </main>
 @endsection
-

@@ -10,6 +10,7 @@ Route::get('/search', [ProductController::class, 'search']);
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/buy-now', [CartController::class, 'buyNow'])->name('cart.buy-now');
 Route::delete('/cart/remove/{productId}', [CartController::class, 'remove'])->name('cart.remove');
 Route::put('/cart/update/{productId}', [CartController::class, 'update'])->name('cart.update');
 

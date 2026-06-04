@@ -122,7 +122,6 @@
           @endforelse
         </section>
 
-        @if($products->hasPages())
         <div class="flex flex-wrap gap-2 mb-8 md:mb-12 justify-center">
           @if ($products->onFirstPage())
             <span class="group text-gray-400 bg-gray-200 flex items-center justify-center rounded-sm h-10 md:h-12 px-3 md:px-4 gap-2 cursor-not-allowed text-center text-xs md:text-sm">
@@ -156,7 +155,6 @@
             </span>
           @endif
         </div>
-        @endif
       </main>
       </div>
     </div>
