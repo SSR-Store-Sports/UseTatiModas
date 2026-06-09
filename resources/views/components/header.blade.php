@@ -23,16 +23,16 @@
                             class="h-9 px-3 rounded-md border border-gray-300 bg-white text-gray-700 text-xs outline-none transition-all duration-200 hover:border-gray-400 focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20 cursor-pointer">
                             <option value="">@lang('category')</option>
                             @if(isset($categories))
-                                @foreach($categories as $category)
-                                <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                                @endforeach
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                            @endforeach
                             @else
-                                <option value="1">Calças</option>
-                                <option value="2">Camisas</option>
-                                <option value="3">Croppeds</option>
-                                <option value="4">Shorts</option>
-                                <option value="5">Tênis</option>
-                                <option value="6">Saia</option>
+                            <option value="1">Calças</option>
+                            <option value="2">Camisas</option>
+                            <option value="3">Croppeds</option>
+                            <option value="4">Shorts</option>
+                            <option value="5">Tênis</option>
+                            <option value="6">Saia</option>
                             @endif
                         </select>
                     </form>
@@ -47,63 +47,74 @@
             <nav class="flex flex-col gap-2 shrink-0 items-center">
                 <div class="flex gap-2">
                     @auth
-                        @if(auth()->user()->isAdmin())
-                        <a href="/admin/dashboard"
-                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
-                            title="Dashboard Admin">
-                            <x-heroicon-o-chart-bar-square class="w-5 h-5" />
-                        </a>
-                        @endif
+                    @if(auth()->user()->isAdmin())
+                    <a href="/admin/dashboard"
+                        class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                        title="Dashboard Admin">
+                        <x-heroicon-o-chart-bar-square class="w-5 h-5" />
+                    </a>
+                    @endif
                     @endauth
-                    
+
+                    <form action="{{ route('locale.set') }}" method="POST">
+                        @csrf
+                        @if(app()->getLocale() === 'pt-BR')
+                        <input type="hidden" name="locale" value="en">
+                        <button type="submit" class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 text-xs font-bold" title="Switch to English">PT</button>
+                        @else
+                        <input type="hidden" name="locale" value="pt-BR">
+                        <button type="submit" class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 text-xs font-bold" title="Mudar para Português">EN</button>
+                        @endif
+                    </form>
+
                     <a href="/cart"
                         class="relative p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 group"
                         title="Carrinho">
                         <x-heroicon-o-shopping-cart class="w-5 h-5" />
                         @if($cartCount > 0)
-                            <span
-                                class="absolute -top-1 -right-1 w-5 h-5 bg-gold-light text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                                {{ $cartCount }}
-                            </span>
+                        <span
+                            class="absolute -top-1 -right-1 w-5 h-5 bg-gold-light text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                            {{ $cartCount }}
+                        </span>
                         @endif
                     </a>
 
                     @auth
-                        <a href=""
+                    <a href=""
+                        class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                        title="Notificações">
+                        <x-heroicon-o-bell class="w-5 h-5" />
+                    </a>
+                    <a href="/profile"
+                        class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                        title="Configurações">
+                        <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
+                    </a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit"
                             class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
-                            title="Notificações">
-                            <x-heroicon-o-bell class="w-5 h-5" />
-                        </a>
-                        <a href="/profile"
-                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
-                            title="Configurações">
-                            <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
-                        </a>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit"
-                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
-                                title="Sair">
-                                <x-heroicon-o-arrow-left-start-on-rectangle class="w-5 h-5" />
-                            </button>
-                        </form>
+                            title="Sair">
+                            <x-heroicon-o-arrow-left-start-on-rectangle class="w-5 h-5" />
+                        </button>
+                    </form>
                     @else
-                        <a href="/sign-in"
-                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
-                            title="Entrar">
-                            <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
-                        </a>
+                    <a href="/sign-in"
+                        class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                        title="Entrar">
+                        <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
+                    </a>
                     @endauth
                 </div>
 
                 @auth
-                    <div>
-                        <span class="text-sm text-gray-700 mr-2">Olá,
-                            <span class="font-medium text-gold-dark">
-                                {{ auth()->user()->name }}
-                            </span>
+                <div>
+                    <span class="text-sm text-gray-700 mr-2">Olá,
+                        <span class="font-medium text-gold-dark">
+                            {{ auth()->user()->name }}
                         </span>
-                    </div>
+                    </span>
+                </div>
                 @endauth
             </nav>
         </div>
@@ -116,37 +127,53 @@
 
                 <nav class="flex gap-2 items-center">
                     @auth
-                        <span class="text-xs text-gray-700 mr-1">Olá, <span
-                                class="font-medium text-gold-dark">{{ Str::limit(auth()->user()->name, 12) }}</span></span>
-                        
-                        @if(auth()->user()->isAdmin())
-                        <a href="/admin/dashboard" class="p-2 bg-gold-medium text-white rounded-lg" title="Admin">
-                            <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
-                        </a>
-                        @endif
+                    <span class="text-xs text-gray-700 mr-1">Olá, <span
+                            class="font-medium text-gold-dark">{{ Str::limit(auth()->user()->name, 12) }}</span></span>
+
+                    @if(auth()->user()->isAdmin())
+                    <a href="/admin/dashboard" class="p-2 bg-gold-medium text-white rounded-lg" title="Admin">
+                        <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
+                    </a>
+                    @endif
                     @endauth
+
+                    <form action="{{ route('locale.set') }}" method="POST">
+                        @csrf
+                        @if(app()->getLocale() === 'pt-BR')
+                        <input type="hidden" name="locale" value="en">
+                        @else
+                        <input type="hidden" name="locale" value="pt-BR">
+                        @endif
+                        <button type="submit" class="flex items-center gap-1 px-3 py-2 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 text-xs font-medium">
+                            @if(app()->getLocale() === 'pt-BR')
+                            🇧🇷 PT
+                            @else
+                            🇺🇸 EN
+                            @endif
+                        </button>
+                    </form>
 
                     <a href="/cart" class="relative p-2 bg-gold-medium text-white rounded-lg" title="Carrinho">
                         <x-heroicon-o-shopping-cart class="w-5 h-5" />
                         @if($cartCount > 0)
-                            <span
-                                class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                                {{ $cartCount }}
-                            </span>
+                        <span
+                            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                            {{ $cartCount }}
+                        </span>
                         @endif
                     </a>
 
                     @auth
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit" class="p-2 bg-gold-medium text-white rounded-lg" title="Sair">
-                                <x-heroicon-o-arrow-left-start-on-rectangle class="w-5 h-5" />
-                            </button>
-                        </form>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="p-2 bg-gold-medium text-white rounded-lg" title="Sair">
+                            <x-heroicon-o-arrow-left-start-on-rectangle class="w-5 h-5" />
+                        </button>
+                    </form>
                     @else
-                        <a href="/sign-in" class="p-2 bg-gold-medium text-white rounded-lg" title="Entrar">
-                            <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
-                        </a>
+                    <a href="/sign-in" class="p-2 bg-gold-medium text-white rounded-lg" title="Entrar">
+                        <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
+                    </a>
                     @endauth
                 </nav>
             </div>
@@ -166,16 +193,16 @@
                         class="flex-1 h-9 px-3 rounded-md border border-gray-300 bg-white text-gray-700 text-xs outline-none focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20">
                         <option value="">@lang('category')</option>
                         @if(isset($categories))
-                            @foreach($categories as $category)
-                            <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                            @endforeach
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                        @endforeach
                         @else
-                            <option value="1">Calças</option>
-                            <option value="2">Camisas</option>
-                            <option value="3">Croppeds</option>
-                            <option value="4">Shorts</option>
-                            <option value="5">Tênis</option>
-                            <option value="6">Saia</option>
+                        <option value="1">Calças</option>
+                        <option value="2">Camisas</option>
+                        <option value="3">Croppeds</option>
+                        <option value="4">Shorts</option>
+                        <option value="5">Tênis</option>
+                        <option value="6">Saia</option>
                         @endif
                     </select>
                 </form>
