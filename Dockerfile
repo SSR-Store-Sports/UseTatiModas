@@ -44,3 +44,12 @@ RUN composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 80
+
+# Copia o script para dentro do container
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+# Dá permissão de execução para o script
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Define o script como o comando de inicialização
+CMD ["/usr/local/bin/entrypoint.sh"]
