@@ -26,14 +26,28 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('categories', Category::where('status', 'active')->orderBy('name')->get());
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
 
-        View::composer('components.notification-modal', function ($view) {
-            if (auth()->check()) {
-                $view->with('userOrders', \App\Models\Order::where('user_id', auth()->id())->latest()->take(5)->get());
-            } else {
-                $view->with('userOrders', collect());
-            }
-        });
+        if (!app()->runningInConsole()) {
+            View::composer('*', function ($view) {
+                try {
+                    $view->with('categories', Category::where('status', 'active')->orderBy('name')->get());
+                } catch (\Exception $e) {
+                    $view->with('categories', collect());
+                }
+            });
+
+            View::composer('components.notification-modal', function ($view) {
+                try {
+                    $view->with('userOrders', auth()->check()
+                        ? \App\Models\Order::where('user_id', auth()->id())->latest()->take(5)->get()
+                        : collect());
+                } catch (\Exception $e) {
+                    $view->with('userOrders', collect());
+                }
+            });
+        }
     }
 }
