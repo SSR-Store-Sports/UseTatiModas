@@ -40,17 +40,17 @@
 
       @if(session('reset_link'))
         <div class="w-full bg-yellow-50 border border-yellow-200 rounded-lg p-4 flex flex-col gap-3">
-          <p class="text-xs text-yellow-700 font-semibold">🔗 Link de redefinição (exibido por falta de serviço de e-mail):</p>
+          <p class="text-xs text-yellow-700 font-semibold">@lang('reset_link_label')</p>
           <div class="flex items-center gap-2">
             <input id="reset-link" type="text" readonly value="{{ session('reset_link') }}"
               class="flex-1 text-xs px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-700 outline-none" />
             <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('reset-link').value)"
               class="shrink-0 px-3 py-2 bg-gray-900 text-white text-xs rounded-md hover:bg-gold-medium transition-colors">
-              Copiar
+              @lang('copy')
             </button>
           </div>
           <a href="{{ session('reset_link') }}" class="text-center text-xs text-gold-dark underline font-medium hover:text-gold-medium">
-            Clique aqui para redefinir diretamente
+            @lang('click_to_reset')
           </a>
         </div>
       @endif

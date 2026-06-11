@@ -10,6 +10,14 @@
 </head>
 
 <body class="h-screen overflow-hidden">
+    <!-- Loading overlay -->
+    <div id="loading-overlay" class="hidden fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm">
+        <div class="flex flex-col items-center gap-4">
+            <div class="w-12 h-12 rounded-full border-4 border-gray-200 border-t-gold-medium animate-spin"></div>
+            <span class="text-sm text-gray-500 font-medium">@lang('enter')...</span>
+        </div>
+    </div>
+
     <div class="h-full flex flex-col">
         <x-auth.header />
 
@@ -23,6 +31,14 @@
             @yield('content')
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('form').forEach(function(form) {
+            form.addEventListener('submit', function() {
+                document.getElementById('loading-overlay').classList.remove('hidden');
+            });
+        });
+    </script>
 </body>
 
 </html>

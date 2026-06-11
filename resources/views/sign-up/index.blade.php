@@ -90,14 +90,14 @@
 
           <button type="button" onclick="nextStep()"
             class="bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-2.5 md:py-3 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer text-center outline-none transition-all duration-200 text-sm md:text-base font-medium">
-            <span>Próximo</span>
+            <span>@lang('next')</span>
             <x-heroicon-o-arrow-right class="h-4 w-4" />
           </button>
         </div>
 
         <div id="step-2" class="hidden flex-col gap-2.5">
           <div class="flex flex-col gap-1">
-            <span class="text-xs md:text-sm">CEP</span>
+            <span class="text-xs md:text-sm">@lang('cep')</span>
             <input
               class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
               type="text" name="cep" id="cep" value="{{ old('cep') }}" placeholder="00000-000" />
@@ -107,7 +107,7 @@
           </div>
 
           <div class="flex flex-col gap-1">
-            <span class="text-xs md:text-sm">Rua</span>
+            <span class="text-xs md:text-sm">@lang('street')</span>
             <input
               class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
               type="text" name="street" id="street" value="{{ old('street') }}" placeholder="Rua das Flores" />
@@ -118,7 +118,7 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <div class="flex flex-col gap-1">
-              <span class="text-xs md:text-sm">Número</span>
+              <span class="text-xs md:text-sm">@lang('number')</span>
               <input
                 class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
                 type="text" name="number" id="number" value="{{ old('number') }}" placeholder="123" />
@@ -128,7 +128,7 @@
             </div>
 
             <div class="flex flex-col gap-1">
-              <span class="text-xs md:text-sm">Complemento</span>
+              <span class="text-xs md:text-sm">@lang('complement')</span>
               <input
                 class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
                 type="text" name="complement" id="complement" value="{{ old('complement') }}" placeholder="Apto 101" />
@@ -136,7 +136,7 @@
           </div>
 
           <div class="flex flex-col gap-1">
-            <span class="text-xs md:text-sm">Bairro</span>
+            <span class="text-xs md:text-sm">@lang('neighborhood')</span>
             <input
               class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
               type="text" name="neighborhood" id="neighborhood" value="{{ old('neighborhood') }}" placeholder="Centro" />
@@ -147,7 +147,7 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <div class="flex flex-col gap-1">
-              <span class="text-xs md:text-sm">Cidade</span>
+              <span class="text-xs md:text-sm">@lang('city')</span>
               <input
                 class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
                 type="text" name="city" id="city" value="{{ old('city') }}" placeholder="São Paulo" />
@@ -157,7 +157,7 @@
             </div>
 
             <div class="flex flex-col gap-1">
-              <span class="text-xs md:text-sm">Estado</span>
+              <span class="text-xs md:text-sm">@lang('state')</span>
               <input
                 class="w-full px-3 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gold-light hover:bg-white focus:border-gold-medium focus:bg-white focus:shadow-[0_0_0_3px_rgba(199,155,43,0.15)]"
                 type="text" name="state" id="state" value="{{ old('state') }}" placeholder="SP" maxlength="2" />
@@ -175,12 +175,12 @@
             <button type="button" onclick="prevStep()"
               class="bg-white text-gray-900 flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-gray-900 hover:bg-gray-900 hover:text-white cursor-pointer text-center outline-none transition-all duration-200 text-sm font-medium">
               <x-heroicon-o-arrow-left class="h-4 w-4" />
-              <span>Voltar</span>
+              <span>@lang('back')</span>
             </button>
 
             <button type="submit"
               class="bg-gray-900 text-white flex items-center justify-center rounded-md w-full py-2 gap-2 border-2 border-transparent hover:bg-gold-medium cursor-pointer text-center outline-none transition-all duration-200 text-sm font-medium">
-              <span>Concluir Cadastro</span>
+              <span>@lang('finish_register')</span>
               <x-heroicon-o-check class="h-4 w-4" />
             </button>
           </div>

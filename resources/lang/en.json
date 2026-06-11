@@ -249,5 +249,33 @@
     "to_calculate": "To calculate",
     "available": "available",
     "out_of_stock": "Out of stock",
-    "no_related_products": "No related products found."
+    "no_related_products": "No related products found.",
+
+    "hello": "Hello,",
+
+    "magic_link_intro": "Access without password via email:",
+    "send_access_link": "Send access link",
+    "magic_link_generated": "Link generated! Copy and paste into the URL:",
+    "copy": "Copy",
+    "click_to_access": "Click here to access directly",
+
+    "next": "Next",
+    "back": "Back",
+    "finish_register": "Complete Registration",
+    "cep": "ZIP Code",
+    "street": "Street",
+    "number": "Number",
+    "complement": "Complement",
+    "neighborhood": "Neighborhood",
+    "city": "City",
+    "state": "State",
+
+    "verify_email_title": "Confirm your email",
+    "verify_email_subtitle": "Your account has been created! Access the link below to activate it.",
+    "verify_link_label": "Verification link (displayed due to lack of email service):",
+    "click_to_activate": "Click here to activate the account directly",
+    "back_to_login": "Back to login",
+
+    "reset_link_label": "Reset link (displayed due to lack of email service):",
+    "click_to_reset": "Click here to reset directly"
 }

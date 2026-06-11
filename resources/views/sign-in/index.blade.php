@@ -61,7 +61,7 @@
 
       {{-- Magic Link --}}
       <div class="w-full">
-        <p class="text-xs text-center text-gray-500 mb-3">Acesse sem senha via e-mail:</p>
+        <p class="text-xs text-center text-gray-500 mb-3">@lang('magic_link_intro')</p>
         <form action="{{ route('magic-link.send') }}" method="POST" class="flex flex-col gap-3">
           @csrf
           <input
@@ -72,24 +72,24 @@
           @endif
           <button type="submit"
             class="bg-gold-medium text-white flex items-center justify-center rounded-md w-full py-2.5 gap-2 border-2 border-transparent hover:bg-gold-dark cursor-pointer outline-none transition-all duration-200 text-sm font-medium">
-            Enviar link de acesso
+            @lang('send_access_link')
           </button>
         </form>
 
         @if(session('magic_link'))
           <div class="mt-4 p-4 bg-green-50 border border-green-200 rounded-md">
-            <p class="text-xs text-green-700 font-semibold mb-2">✓ Link gerado! Copie e cole na URL:</p>
+            <p class="text-xs text-green-700 font-semibold mb-2">✓ @lang('magic_link_generated')</p>
             <div class="flex items-center gap-2">
               <input id="magic-link-input" type="text" readonly value="{{ session('magic_link') }}"
                 class="flex-1 text-xs px-2 py-1.5 border border-gray-300 rounded bg-white text-gray-700 outline-none" />
               <button onclick="copyMagicLink()" type="button"
                 class="shrink-0 px-3 py-1.5 bg-gray-900 text-white text-xs rounded hover:bg-gold-medium transition-colors">
-                Copiar
+                @lang('copy')
               </button>
             </div>
             <a href="{{ session('magic_link') }}"
               class="mt-2 block text-center text-xs text-gold-dark underline font-medium">
-              Clique aqui para acessar diretamente
+              @lang('click_to_access')
             </a>
           </div>
         @endif

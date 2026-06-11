@@ -111,7 +111,7 @@
 
                 @auth
                     <div>
-                        <span class="text-sm text-gray-700 mr-2">Olá,
+                        <span class="text-sm text-gray-700 mr-2">@lang('hello')
                             <span class="font-medium text-gold-dark">
                                 {{ auth()->user()->name }}
                             </span>
