@@ -228,5 +228,27 @@
     "material": "Material",
     "material_value": "100% Algodão",
     "units_available": "12 unidades",
-    "installments": "ou 4x de R$ 15,50 sem juros"
+    "installments": "ou 4x de R$ 15,50 sem juros",
+
+    "free_shipping_brazil": "Frete :highlight para todo Brasil",
+    "free_shipping_highlight": "grátis",
+    "off_pix_highlight": "10% OFF",
+    "off_pix_text": "no PIX",
+    "secure_purchase_short": "Compra :highlight segura",
+    "secure_purchase_highlight": "100%",
+    "delivery_48h": "Entrega em até :highlight",
+    "delivery_48h_highlight": "48h",
+    "days_exchange_short": ":highlight para troca",
+    "days_exchange_highlight": "30 dias",
+    "premium_products": "Produtos :highlight",
+    "premium_highlight": "premium",
+    "satisfied_customers": "Mais de :highlight clientes satisfeitos",
+    "satisfied_customers_highlight": "10mil",
+    "express_shipping": "Envio :highlight disponível",
+    "express_highlight": "expresso",
+
+    "to_calculate": "A calcular",
+    "available": "disponíveis",
+    "out_of_stock": "Esgotado",
+    "no_related_products": "Nenhum produto relacionado encontrado."
 }

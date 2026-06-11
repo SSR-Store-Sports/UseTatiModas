@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
@@ -10,10 +11,11 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('images')->get();
+        $products = Product::with('images')->where('status', 'active')->get();
         $suppliers = Supplier::where('status', 'active')->get();
+        $categories = Category::withCount('products')->where('status', 'active')->take(4)->get();
 
-        return view('index', compact('products', 'suppliers'));
+        return view('index', compact('products', 'suppliers', 'categories'));
     }
 
     public function search(Request $request)

@@ -119,13 +119,13 @@
                     <div class="flex flex-col gap-1">
                         <span class="text-xs text-gray-400 uppercase">@lang('freight')</span>
                         <span class="font-medium {{ $product->free_shipping ? 'text-green-600' : 'text-gray-600' }}">
-                            {{ $product->free_shipping ? __('free') : 'A calcular' }}
+                            {{ $product->free_shipping ? __('free') : __('to_calculate') }}
                         </span>
                     </div>
                     <div class="flex flex-col gap-1">
                         <span class="text-xs text-gray-400 uppercase">@lang('stock')</span>
                         <span class="font-medium {{ $product->stock > 0 ? 'text-green-600' : 'text-red-600' }}">
-                            {{ $product->stock > 0 ? $product->stock . ' disponíveis' : 'Esgotado' }}
+                            {{ $product->stock > 0 ? $product->stock . ' ' . __('available') : __('out_of_stock') }}
                         </span>
                     </div>
                 </div>
@@ -174,7 +174,7 @@
         @endphp
 
         @if($related->isEmpty())
-        <p class="text-gray-500 text-sm">Nenhum produto relacionado encontrado.</p>
+        <p class="text-gray-500 text-sm">@lang('no_related_products')</p>
         @else
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             @foreach ($related as $rel)

@@ -7,10 +7,8 @@
     role="alert"
     class="fixed bottom-4 right-4 z-50 flex w-full max-w-sm items-start gap-3 rounded-lg border border-gray-200 bg-white p-4 shadow-lg animate-slide-in transition-all duration-300"
 >
-    {{-- lateral colorida --}}
     <span class="mt-0.5 shrink-0 w-1 self-stretch rounded-full {{ $toastType === 'success' ? 'bg-green-500' : 'bg-red-500' }}"></span>
 
-    {{-- ícone --}}
     @if($toastType === 'success')
         <div class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 mt-0.5">
             <svg class="h-3 w-3 text-green-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -25,13 +23,11 @@
         </div>
     @endif
 
-    {{-- conteúdo --}}
     <div class="flex-1 pt-0.5">
         <p class="text-sm font-semibold text-gray-900">{{ $toastType === 'success' ? 'Sucesso' : 'Erro' }}</p>
         <p class="mt-0.5 text-sm text-gray-500">{{ $message }}</p>
     </div>
 
-    {{-- fechar --}}
     <button
         type="button"
         onclick="dismissToast()"

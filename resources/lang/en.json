@@ -227,5 +227,27 @@
     "product_description": "The Basic Black Female Shirt is the definition of less is more. Made from 100% high-quality cotton fabric, it offers soft touch and excellent breathability, ensuring comfort all day long.",
     "material": "Material",
     "material_value": "100% Cotton",
-    "units_available": "12 units"
+    "units_available": "12 units",
+
+    "free_shipping_brazil": "Free :highlight shipping to all of Brazil",
+    "free_shipping_highlight": "free",
+    "off_pix_highlight": "10% OFF",
+    "off_pix_text": "on PIX",
+    "secure_purchase_short": ":highlight secure purchase",
+    "secure_purchase_highlight": "100%",
+    "delivery_48h": "Delivery in up to :highlight",
+    "delivery_48h_highlight": "48h",
+    "days_exchange_short": ":highlight to exchange",
+    "days_exchange_highlight": "30 days",
+    "premium_products": ":highlight products",
+    "premium_highlight": "premium",
+    "satisfied_customers": "More than :highlight satisfied customers",
+    "satisfied_customers_highlight": "10k",
+    "express_shipping": ":highlight shipping available",
+    "express_highlight": "Express",
+
+    "to_calculate": "To calculate",
+    "available": "available",
+    "out_of_stock": "Out of stock",
+    "no_related_products": "No related products found."
 }

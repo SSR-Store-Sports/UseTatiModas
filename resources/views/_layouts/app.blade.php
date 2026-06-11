@@ -21,6 +21,7 @@
     <!-- utilização de toasts na plataforma para operações, avisa dá um feedback pro usuário  -->
     <x-toast />
     <x-confirm-delete-modal />
+    <x-notification-modal />
     <x-scroll-restore />
 
     @stack('scripts')

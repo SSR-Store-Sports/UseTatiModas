@@ -60,7 +60,7 @@
                 <form action="{{ route('cart.remove', $productId) }}" method="POST">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="flex items-center gap-1 text-xs text-red-500 hover:text-red-700 hover:underline transition-all">
+                  <button type="submit" class="flex items-center gap-1 text-xs text-red-500 hover:text-red-700 hover:underline transition-all cursor-pointer">
                     <x-heroicon-o-minus-circle class="w-4 h-4" />
                     @lang('remove')
                   </button>
