@@ -13,7 +13,7 @@
                             class="w-full h-11 pl-4 pr-12 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-gray-400 focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20"
                             type="text" name="product" id="product" placeholder="@lang('search_placeholder')" />
                         <button type="submit"
-                            class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gold-dark hover:text-gold-medium transition-colors">
+                            class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gold-dark hover:text-gold-medium active:scale-90 transition-all duration-150">
                             <x-heroicon-o-magnifying-glass class="w-5 h-5" />
                         </button>
                     </form>
@@ -22,12 +22,12 @@
                         @if(app()->getLocale() === 'pt-BR')
                             <input type="hidden" name="locale" value="en">
                             <button type="submit"
-                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 text-xs font-bold"
+                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark active:scale-90 active:bg-gold-dark transition-all duration-150 text-xs font-bold"
                                 title="Switch to English">PT</button>
                         @else
                             <input type="hidden" name="locale" value="pt-BR">
                             <button type="submit"
-                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 text-xs font-bold"
+                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark active:scale-90 active:bg-gold-dark transition-all duration-150 text-xs font-bold"
                                 title="Mudar para Português">EN</button>
                         @endif
                     </form>
@@ -49,7 +49,7 @@
                     </form>
 
                     <a href="/search?sort=popular"
-                        class="px-4 py-1.5 bg-gold-light text-gold-dark text-xs font-medium rounded-md hover:bg-gold-medium hover:text-white transition-all duration-200">
+                        class="px-4 py-1.5 bg-gold-light text-gold-dark text-xs font-medium rounded-md hover:bg-gold-medium hover:text-white active:scale-95 active:bg-gold-medium active:text-white transition-all duration-150">
                         @lang('best_sellers')
                     </a>
                 </div>
@@ -60,7 +60,7 @@
                     @auth
                         @if(auth()->user()->isAdmin())
                             <a href="/admin/dashboard"
-                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark active:scale-90 active:bg-gold-dark transition-all duration-150"
                                 title="Dashboard Admin">
                                 <x-heroicon-o-chart-bar-square class="w-5 h-5" />
                             </a>
@@ -68,7 +68,7 @@
                     @endauth
 
                     <a href="/cart"
-                        class="relative p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 group"
+                        class="relative p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark active:scale-90 active:bg-gold-dark transition-all duration-150 group"
                         title="Carrinho">
                         <x-heroicon-o-shopping-cart class="w-5 h-5" />
                         @if($cartCount > 0)
@@ -82,27 +82,27 @@
                     @auth
                         <div class="relative">
                             <button type="button" onclick="toggleNotifications()"
-                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark active:scale-90 active:bg-gold-dark transition-all duration-150"
                                 title="Notificações">
                                 <x-heroicon-o-bell class="w-5 h-5" />
                             </button>
                         </div>
                         <a href="/profile"
-                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark active:scale-90 active:bg-gold-dark transition-all duration-150"
                             title="Configurações">
                             <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
                         </a>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit"
-                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                                class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark active:scale-90 active:bg-gold-dark transition-all duration-150"
                                 title="Sair">
                                 <x-heroicon-o-arrow-left-start-on-rectangle class="w-5 h-5" />
                             </button>
                         </form>
                     @else
                         <a href="/sign-in"
-                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200"
+                            class="p-2.5 bg-gold-medium text-white rounded-lg hover:bg-gold-dark active:scale-90 active:bg-gold-dark transition-all duration-150"
                             title="Entrar">
                             <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
                         </a>
@@ -133,7 +133,7 @@
                                 class="font-medium text-gold-dark">{{ Str::limit(auth()->user()->name, 12) }}</span></span>
 
                         @if(auth()->user()->isAdmin())
-                            <a href="/admin/dashboard" class="p-2 bg-gold-medium text-white rounded-lg" title="Admin">
+                            <a href="/admin/dashboard" class="p-2 bg-gold-medium text-white rounded-lg active:scale-90 active:bg-gold-dark transition-all duration-150" title="Admin">
                                 <x-heroicon-o-cog-8-tooth class="w-5 h-5" />
                             </a>
                         @endif
@@ -147,7 +147,7 @@
                             <input type="hidden" name="locale" value="pt-BR">
                         @endif
                         <button type="submit"
-                            class="flex items-center gap-1 px-3 py-2 bg-gold-medium text-white rounded-lg hover:bg-gold-dark transition-all duration-200 text-xs font-medium">
+                            class="flex items-center gap-1 px-3 py-2 bg-gold-medium text-white rounded-lg hover:bg-gold-dark active:scale-90 active:bg-gold-dark transition-all duration-150 text-xs font-medium">
                             @if(app()->getLocale() === 'pt-BR')
                                 🇧🇷 PT
                             @else
@@ -156,7 +156,7 @@
                         </button>
                     </form>
 
-                    <a href="/cart" class="relative p-2 bg-gold-medium text-white rounded-lg" title="Carrinho">
+                    <a href="/cart" class="relative p-2 bg-gold-medium text-white rounded-lg active:scale-90 active:bg-gold-dark transition-all duration-150" title="Carrinho">
                         <x-heroicon-o-shopping-cart class="w-5 h-5" />
                         @if($cartCount > 0)
                             <span
@@ -169,12 +169,12 @@
                     @auth
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="p-2 bg-gold-medium text-white rounded-lg" title="Sair">
+                            <button type="submit" class="p-2 bg-gold-medium text-white rounded-lg active:scale-90 active:bg-gold-dark transition-all duration-150" title="Sair">
                                 <x-heroicon-o-arrow-left-start-on-rectangle class="w-5 h-5" />
                             </button>
                         </form>
                     @else
-                        <a href="/sign-in" class="p-2 bg-gold-medium text-white rounded-lg" title="Entrar">
+                        <a href="/sign-in" class="p-2 bg-gold-medium text-white rounded-lg active:scale-90 active:bg-gold-dark transition-all duration-150" title="Entrar">
                             <x-heroicon-o-arrow-right-end-on-rectangle class="w-5 h-5" />
                         </a>
                     @endauth
@@ -185,7 +185,7 @@
                 <input
                     class="w-full h-10 pl-4 pr-12 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-400 text-sm outline-none focus:border-gold-medium focus:ring-1 focus:ring-gold-medium/20"
                     type="text" name="product" id="product-mobile" placeholder="@lang('search_placeholder')" />
-                <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gold-dark">
+                <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gold-dark active:scale-90 transition-all duration-150">
                     <x-heroicon-o-magnifying-glass class="w-5 h-5" />
                 </button>
             </form>
@@ -211,7 +211,7 @@
                     </select>
                 </form>
                 <a href="/search?sort=popular"
-                    class="px-3 py-1.5 bg-gold-light text-gold-dark text-xs font-medium rounded-md hover:bg-gold-medium hover:text-white transition-all duration-200 whitespace-nowrap">
+                    class="px-3 py-1.5 bg-gold-light text-gold-dark text-xs font-medium rounded-md hover:bg-gold-medium hover:text-white active:scale-95 active:bg-gold-medium active:text-white transition-all duration-150 whitespace-nowrap">
                     @lang('best_sellers')
                 </a>
             </div>

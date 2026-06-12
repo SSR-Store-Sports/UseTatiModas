@@ -225,11 +225,7 @@
 </main>
 
 <script>
-    const maxStock = {
-        {
-            $product - > stock
-        }
-    };
+    const maxStock = Math.min({{ $product->stock }}, 10);
 
     function updateQuantity(value) {
         const qty = Math.max(1, Math.min(maxStock, parseInt(value) || 1));
@@ -240,12 +236,21 @@
 
     function incrementQty() {
         const input = document.getElementById('qty');
-        updateQuantity(parseInt(input.value) + 1);
+        const current = parseInt(input.value);
+        if (current >= maxStock) {
+            showToast('{{ __('units_available') }}', 'error');
+            return;
+        }
+        updateQuantity(current + 1);
+        showToast('{{ __('quantity') }}: ' + (current + 1), 'success');
     }
 
     function decrementQty() {
         const input = document.getElementById('qty');
-        updateQuantity(parseInt(input.value) - 1);
+        const current = parseInt(input.value);
+        if (current <= 1) return;
+        updateQuantity(current - 1);
+        showToast('{{ __('quantity') }}: ' + (current - 1), 'success');
     }
 </script>
 @endsection

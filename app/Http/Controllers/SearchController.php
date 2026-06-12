@@ -23,6 +23,6 @@ class SearchController extends Controller
             ->when($sort === 'price_desc', fn($q) => $q->orderBy('price', 'desc'))
             ->paginate(15);
 
-        return view('products.search', compact('products', 'query'));
+        return view('products.search', compact('products', 'query', 'category'));
     }
 }

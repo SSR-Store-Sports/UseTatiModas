@@ -26,7 +26,7 @@ class ProductRequest extends FormRequest
         return [
             'name'        => 'required|string|max:255',
             'description' => 'nullable|string',
-            'sku'         => 'required|string|unique:products,sku',
+            'sku'         => 'nullable|string|unique:products,sku',
             'price'       => 'required|numeric|min:0',
             'old_price'   => 'nullable|numeric|min:0',
             'stock'       => 'required|integer|min:0',
@@ -36,7 +36,7 @@ class ProductRequest extends FormRequest
             'material'    => 'nullable|string',
             'images'   => 'nullable|array|max:3',
             'images.max' => 'Você pode enviar no máximo 3 imagens.',
-            'images.*' => 'image|mimes:jpg,jpeg,png|max:2048',
+            'images.*' => 'image|mimes:jpg,jpeg,png,webp,gif,bmp|max:2048',
         ];
     }
 

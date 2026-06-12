@@ -51,10 +51,9 @@
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-sm font-medium text-gray-700">SKU <span class="text-red-500">*</span></label>
-                                    <input type="text" name="sku" value="{{ old('sku', $product->sku) }}" placeholder="Ex: SKU-001"
-                                        class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
-                                    @error('sku') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                                    <label class="text-sm font-medium text-gray-700">SKU</label>
+                                    <input type="text" value="{{ $product->sku }}" readonly
+                                        class="px-4 py-2 rounded-md border border-gray-200 bg-gray-100 text-gray-500 text-sm outline-none cursor-not-allowed">
                                 </div>
 
                                 <div class="flex flex-col gap-2">

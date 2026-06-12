@@ -14,7 +14,7 @@ class SupplierController extends Controller
     {
         $suppliers = Supplier::when($request->search, fn($q) => $q->where('name', 'like', "%{$request->search}%")->orWhere('cnpj', 'like', "%{$request->search}%"))
             ->when($request->status, fn($q) => $q->where('status', $request->status))
-            ->latest()->paginate(10)->withQueryString();
+            ->latest()->paginate(15)->withQueryString();
         return view('admin.suppliers.index', compact('suppliers'));
     }
 

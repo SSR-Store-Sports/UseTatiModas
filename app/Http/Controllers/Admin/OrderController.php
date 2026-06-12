@@ -12,7 +12,7 @@ class OrderController extends Controller
     {
         $orders = Order::when($request->search, fn($q) => $q->where('customer_name', 'like', "%{$request->search}%")->orWhere('id', 'like', "%{$request->search}%"))
             ->when($request->status, fn($q) => $q->where('status', $request->status))
-            ->latest()->paginate(10)->withQueryString();
+            ->latest()->paginate(15)->withQueryString();
         return view('admin.orders.index', compact('orders'));
     }
 

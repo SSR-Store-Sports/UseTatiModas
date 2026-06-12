@@ -14,7 +14,9 @@
 <body class="overflow-x-hidden min-h-screen flex flex-col">
     <x-promotions />
     <x-header />
-    @yield('content')
+    <div class="flex-1">
+        @yield('content')
+    </div>
     <x-promotions />
     <x-footer />
 

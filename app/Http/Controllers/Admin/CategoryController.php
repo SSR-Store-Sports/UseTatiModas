@@ -13,7 +13,7 @@ class CategoryController extends Controller
         $categories = Category::withCount('products')
             ->when($request->search, fn($q) => $q->where('name', 'like', "%{$request->search}%"))
             ->when($request->status, fn($q) => $q->where('status', $request->status))
-            ->latest()->paginate(10)->withQueryString();
+            ->latest()->paginate(15)->withQueryString();
         return view('admin.categories.index', compact('categories'));
     }
 

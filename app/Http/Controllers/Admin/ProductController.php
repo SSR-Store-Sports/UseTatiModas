@@ -19,7 +19,7 @@ class ProductController extends Controller
         $products = Product::with(['category', 'primaryImage'])
             ->when($request->search, fn($q) => $q->where('name', 'like', "%{$request->search}%")->orWhere('sku', 'like', "%{$request->search}%"))
             ->when($request->status, fn($q) => $q->where('status', $request->status))
-            ->latest()->paginate(10)->withQueryString();
+            ->latest()->paginate(15)->withQueryString();
         return view('admin.products.index', compact('products'));
     }
 
@@ -27,13 +27,15 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $suppliers = Supplier::all();
-        return view('admin.products.create', compact('categories', 'suppliers'));
+        $nextSku = 'SKU-' . str_pad(Product::max('id') + 1, 3, '0', STR_PAD_LEFT);
+        return view('admin.products.create', compact('categories', 'suppliers', 'nextSku'));
     }
 
     public function store(ProductRequest $request)
     {
         $validatedData = $request->validated();
 
+        $validatedData['sku']           = 'SKU-' . str_pad(Product::max('id') + 1, 3, '0', STR_PAD_LEFT);
         $validatedData['slug']          = Str::slug($validatedData['name']);
         $validatedData['free_shipping'] = $request->boolean('free_shipping');
         $validatedData['rating']        = 0;

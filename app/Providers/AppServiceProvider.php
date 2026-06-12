@@ -33,7 +33,12 @@ class AppServiceProvider extends ServiceProvider
         if (!app()->runningInConsole()) {
             View::composer('*', function ($view) {
                 try {
-                    $view->with('categories', Category::where('status', 'active')->orderBy('name')->get());
+                    if (!isset($view->getData()['categories'])) {
+                        $view->with('categories', Category::where('status', 'active')->orderBy('name')->get());
+                    }
+                    if (!isset($view->getData()['category'])) {
+                        $view->with('category', null);
+                    }
                 } catch (\Exception $e) {
                     $view->with('categories', collect());
                 }

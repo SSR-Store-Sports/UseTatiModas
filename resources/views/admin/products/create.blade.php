@@ -52,10 +52,9 @@
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="flex flex-col gap-2">
-                                    <label class="text-sm font-medium text-gray-700">SKU <span class="text-red-500">*</span></label>
-                                    <input type="text" name="sku" value="{{ old('sku') }}" placeholder="Ex: SKU-001"
-                                        class="px-4 py-2 rounded-md border border-gray-200 bg-gray-50 text-gray-800 placeholder-gray-400 text-sm outline-none transition-all duration-200 hover:border-[#F1C24A] hover:bg-white focus:border-[#C79B2B] focus:bg-white focus:ring-2 focus:ring-[#C79B2B]/20">
-                                    @error('sku') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
+                                    <label class="text-sm font-medium text-gray-700">SKU</label>
+                                    <input type="text" name="sku" value="{{ $nextSku }}" readonly
+                                        class="px-4 py-2 rounded-md border border-gray-200 bg-gray-100 text-gray-500 text-sm outline-none cursor-not-allowed">
                                 </div>
 
                                 <div class="flex flex-col gap-2">
@@ -101,7 +100,7 @@
                                     <div class="flex flex-col items-center gap-1">
                                         <x-heroicon-o-photo class="w-8 h-8 text-gray-400" />
                                         <span class="text-sm text-gray-500">Clique para selecionar imagens</span>
-                                        <span class="text-xs text-gray-400">PNG, JPG até 2MB</span>
+                                        <span class="text-xs text-gray-400">WEBP, PNG, JPG até 2MB</span>
                                     </div>
                                     <input id="images" type="file" name="images[]" multiple accept="image/*" class="hidden">
                                 </label>

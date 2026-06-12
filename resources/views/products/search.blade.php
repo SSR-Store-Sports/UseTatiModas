@@ -27,8 +27,16 @@
           <div class="border-t border-gray-200 pt-4 md:pt-6">
             <h2 class="text-sm md:text-md font-bold text-gray-800 mb-3 md:mb-4">@lang('by_category')</h2>
             <div class="space-y-2">
-              <a href="#" class="block text-xs md:text-sm text-gray-600 hover:text-gold-dark">@lang('category_item1')</a>
-              <a href="#" class="block text-xs md:text-sm text-gray-600 hover:text-gold-dark">@lang('category_item2')</a>
+              <a href="{{ request()->fullUrlWithQuery(['category' => '']) }}"
+                class="block text-xs md:text-sm {{ !$category ? 'text-gold-dark font-semibold' : 'text-gray-600 hover:text-gold-dark' }}">
+                Todas
+              </a>
+              @foreach($categories as $cat)
+                <a href="{{ request()->fullUrlWithQuery(['category' => $cat->id]) }}"
+                  class="block text-xs md:text-sm {{ $category == $cat->id ? 'text-gold-dark font-semibold' : 'text-gray-600 hover:text-gold-dark' }}">
+                  {{ $cat->name }}
+                </a>
+              @endforeach
             </div>
           </div>
         </div>
@@ -42,7 +50,8 @@
               @if($query)
                 @lang('search_result') <span class="font-bold text-gold-dark">'{{ $query }}'</span>
               @elseif(request('category'))
-                Categoria selecionada
+                @php $catName = $categories->firstWhere('id', $category)?->name ?? ''; @endphp
+                <span class="font-bold text-gold-dark">{{ $catName }}</span>
               @elseif(request('sort') == 'popular')
                 <span class="font-bold text-gold-dark">Mais Vendidos</span>
               @endif
@@ -81,8 +90,8 @@
                 </div>
                 <div class="flex gap-2">
                   <span class="h-2 w-4 rounded-full bg-gray-900 border-2 border-gray-900"></span>
-                  <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span>
-                  <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span>
+                  <!-- <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span> -->
+                  <!-- <span class="h-2 w-4 rounded-full bg-white border-2 border-gray-900"></span> -->
                 </div>
               </a>
               <div class="flex flex-col gap-4 justify-center px-4 py-4">
